@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1C7466">
+<meta name="description" content="Tester son projet d'entreprise avant de se lancer, suivre chaque démarche et piloter son activité.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pa a Pa">
+<title>Pa a Pa, entreprendre sereinement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F3; --surface:#FFFFFF; --ink:#12302A; --muted:#4B635D; --line:#CFDCD6;
+  --lagon:#1C7466; --lagon-soft:#DCEEEA; --madras:#E3A11A; --coral:#C8453A; --coral-soft:#F8E1DE;
+  --leaf:#3F8F4E; --leaf-soft:#E0F0E3; --amber-soft:#FBF0D6;
+  --serif:"Young Serif", Georgia, "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1C19; --surface:#152824; --ink:#E6F0EC; --muted:#A3BAB3; --line:#2A423C;
+    --lagon:#4DB3A2; --lagon-soft:#173A34; --madras:#EDB43A; --coral:#E77267; --coral-soft:#3A1F1C;
+    --leaf:#6CC07B; --leaf-soft:#1A3622; --amber-soft:#3A2F14;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1C19; --surface:#152824; --ink:#E6F0EC; --muted:#A3BAB3; --line:#2A423C;
+  --lagon:#4DB3A2; --lagon-soft:#173A34; --madras:#EDB43A; --coral:#E77267; --coral-soft:#3A1F1C;
+  --leaf:#6CC07B; --leaf-soft:#1A3622; --amber-soft:#3A2F14;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--lagon)}
+:focus-visible{outline:3px solid var(--madras);outline-offset:2px;border-radius:4px}
+
+.madras{height:18px;background:
+  repeating-linear-gradient(90deg, rgba(200,69,58,.85) 0 14px, transparent 14px 22px, rgba(28,116,102,.75) 22px 30px, transparent 30px 50px),
+  repeating-linear-gradient(0deg, rgba(200,69,58,.5) 0 14px, transparent 14px 22px, rgba(28,116,102,.45) 22px 30px, transparent 30px 50px),
+  #E3A11A;}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+header.hero{padding:44px 0 28px}
+.brand{font-family:var(--serif);font-size:1.15rem;color:var(--lagon);margin:0 0 18px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5.2vw,3.3rem);line-height:1.08;margin:0 0 16px;max-width:18ch;letter-spacing:-.01em}
+.hero p{max-width:60ch;color:var(--muted);margin:0;font-size:1.08rem}
+
+nav.steps{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.steps .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+nav.steps button{flex:0 0 auto;display:flex;align-items:center;gap:10px;border:1px solid transparent;background:none;color:var(--muted);font:600 .98rem var(--sans);padding:9px 14px;border-radius:999px;cursor:pointer}
+nav.steps button .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;border:1.5px solid currentColor;font-size:.85rem}
+nav.steps button[aria-selected="true"]{color:var(--ink);background:var(--surface);border-color:var(--line)}
+nav.steps button[aria-selected="true"] .n{background:var(--lagon);border-color:var(--lagon);color:#fff}
+
+main{padding:34px 0 60px}
+section.panel{display:none}
+section.panel.on{display:block}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.1rem);line-height:1.15;margin:0 0 8px}
+h3{font-size:1.1rem;margin:0 0 6px}
+.lead{color:var(--muted);max-width:62ch;margin:0 0 28px}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:22px}
+.block.quiet{background:transparent;border-style:dashed}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+
+/* questionnaire */
+.q{padding:18px 0;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0;padding-top:4px}
+.q legend{font-weight:600;margin-bottom:10px;padding:0}
+.q fieldset{border:0;margin:0;padding:0}
+.opts{display:grid;gap:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:var(--bg)}
+.opts input{margin-top:5px;accent-color:var(--lagon)}
+.opts label:has(input:checked){border-color:var(--lagon);background:var(--lagon-soft)}
+.dimtag{font-size:.82rem;color:var(--lagon);font-weight:600;margin-bottom:2px}
+.qprog{font-size:.9rem;color:var(--muted)}
+
+.result{display:none}
+.result.on{display:block}
+.verdict{font-family:var(--serif);font-size:1.5rem;line-height:1.2;margin:0 0 6px}
+.bars{display:grid;gap:14px;margin:20px 0}
+.bar .top{display:flex;justify-content:space-between;font-weight:600;font-size:.95rem}
+.bar .track{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:6px}
+.bar .fill{height:100%;border-radius:6px;transition:width .6s ease}
+.advice{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.advice li{padding:12px 14px;border-radius:10px;background:var(--amber-soft)}
+.advice li.good{background:var(--leaf-soft)}
+
+/* forms */
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-weight:600;font-size:.95rem}
+.field small{color:var(--muted);font-size:.85rem}
+input[type=number],select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.check{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.95rem}
+.check input{margin-top:5px;accent-color:var(--lagon)}
+.btn{font:600 1rem var(--sans);border:0;border-radius:10px;padding:12px 18px;cursor:pointer;background:var(--lagon);color:#fff}
+.btn.ghost{background:transparent;color:var(--lagon);border:1px solid var(--lagon)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+table.sim{width:100%;border-collapse:collapse;font-size:.97rem}
+table.sim td{padding:8px 0;border-bottom:1px solid var(--line)}
+table.sim td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+table.sim tr.total td{border-bottom:0;font-size:1.1rem;padding-top:12px}
+.stack{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:16px 0 8px;background:var(--line)}
+.stack span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle}
+.note{padding:12px 14px;border-radius:10px;margin-top:14px;font-size:.95rem}
+.note.warn{background:var(--coral-soft)}
+.note.ok{background:var(--leaf-soft)}
+.note.info{background:var(--lagon-soft)}
+
+/* parcours */
+.phase{margin-bottom:26px}
+.phase h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin-bottom:12px}
+.task{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.task input{width:20px;height:20px;margin-top:3px;accent-color:var(--leaf)}
+.task .t{font-weight:600}
+.task .d{color:var(--muted);font-size:.95rem;margin-top:2px}
+.task.done .t{text-decoration:line-through;text-decoration-color:var(--leaf)}
+.progress{height:12px;background:var(--line);border-radius:6px;overflow:hidden;margin:10px 0 4px}
+.progress div{height:100%;background:var(--leaf);transition:width .4s ease}
+
+/* pilotage */
+.months{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media (max-width:620px){.months{grid-template-columns:repeat(3,1fr)}}
+.months label{font-size:.82rem;color:var(--muted);display:grid;gap:4px}
+.chartbox{overflow-x:auto}
+.deadlines{list-style:none;margin:0;padding:0}
+.deadlines li{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.deadlines li.next{background:var(--amber-soft);border-radius:8px;padding-left:10px;padding-right:10px;border-top-color:transparent}
+.deadlines .when{font-weight:700;font-variant-numeric:tabular-nums}
+
+/* contacts */
+.contacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.contact{border-left:4px solid var(--madras);padding:4px 0 4px 14px}
+.contact p{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:.88rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="madras" aria-hidden="true"></div>
+
+<header class="hero wrap">
+  <p class="brand">Pa a Pa</p>
+  <h1>Tester son projet avant de se lancer, puis avancer sereinement.</h1>
+  <p>Un compagnon en trois temps pour tous les futurs créateurs d'entreprise (métropole et outre-mer) : vérifier la faisabilité, suivre chaque démarche, et piloter l'activité une fois lancée. Vos réponses restent sur cet appareil.</p>
+</header>
+
+<nav class="steps" aria-label="Étapes">
+  <div class="wrap" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="tester"><span class="n">1</span>Tester mon projet</button>
+    <button role="tab" aria-selected="false" data-tab="lancer"><span class="n">2</span>Me lancer</button>
+    <button role="tab" aria-selected="false" data-tab="durer"><span class="n">3</span>Durer</button>
+    <button role="tab" aria-selected="false" data-tab="contacts">Contacts utiles</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ===== 1. TESTER ===== -->
+<section class="panel on" id="tester" role="tabpanel">
+  <h2>Mon projet est-il prêt ?</h2>
+  <p class="lead">Neuf questions honnêtes sur quatre piliers, puis une simulation chiffrée. Il n'y a pas de mauvaise réponse : le but est de savoir où consolider avant d'investir.</p>
+
+  <div class="block">
+    <h3>Le bilan de faisabilité</h3>
+    <p class="qprog" id="qprog"></p>
+    <form id="quiz"></form>
+    <div class="row" style="margin-top:18px">
+      <button class="btn" type="button" id="showResult">Voir mon bilan</button>
+      <button class="btn ghost" type="button" id="resetQuiz">Recommencer</button>
+    </div>
+  </div>
+
+  <div class="block result" id="result" aria-live="polite">
+    <p class="verdict" id="verdict"></p>
+    <p class="lead" id="verdictText" style="margin-bottom:0"></p>
+    <div class="bars" id="bars"></div>
+    <h3>Mes prochaines actions</h3>
+    <ul class="advice" id="advice"></ul>
+  </div>
+
+  <div class="grid2">
+    <div class="block">
+      <h3>Simuler mon activité en micro-entreprise</h3>
+      <p class="qprog" style="margin-bottom:16px">Estimation mensuelle avec les taux 2026.</p>
+      <div class="field">
+        <label for="act">Type d'activité</label>
+        <select id="act">
+          <option value="vente">Vente de marchandises, restauration</option>
+          <option value="bic" selected>Prestations de services commerciales ou artisanales</option>
+          <option value="bnc">Profession libérale (conseil, formation, web…)</option>
+          <option value="cipav">Profession libérale réglementée (Cipav)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ca">Chiffre d'affaires espéré par mois (€)</label>
+        <input type="number" id="ca" min="0" step="50" value="3000">
+      </div>
+      <div class="field">
+        <label for="chg">Achats et frais pro par mois (€)</label>
+        <input type="number" id="chg" min="0" step="50" value="600">
+        <small>Marchandises, carburant, téléphone, assurance, logiciel…</small>
+      </div>
+      <div class="field">
+        <label for="besoin">Ce dont j'ai besoin pour vivre par mois (€)</label>
+        <input type="number" id="besoin" min="0" step="50" value="1600">
+      </div>
+      <div class="field">
+        <label for="epargne">Mon épargne disponible (€)</label>
+        <input type="number" id="epargne" min="0" step="100" value="5000">
+      </div>
+      <label class="check"><input type="checkbox" id="acre" checked> Je bénéficie de l'ACRE (cotisations à 75 % du taux normal pendant la première période)</label>
+      <label class="check"><input type="checkbox" id="vl"> J'opte pour le versement libératoire de l'impôt</label>
+    </div>
+
+    <div class="block" aria-live="polite">
+      <h3>Ce qu'il me reste</h3>
+      <table class="sim" id="simTable"></table>
+      <div class="stack" id="stack"></div>
+      <div class="legend">
+        <span><i style="background:var(--coral)"></i>Cotisations et contributions</span>
+        <span><i style="background:var(--madras)"></i>Frais pro</span>
+        <span><i style="background:var(--leaf)"></i>Pour moi</span>
+      </div>
+      <div id="simNotes"></div>
+    </div>
+  </div>
+  <p class="qprog">Taux 2026 : vente 12,3 %, services BIC 21,2 %, libéral BNC 25,6 %, Cipav 23,2 %. Plafonds : 203 100 € (vente) et 83 600 € (services). Hors impôt sur le revenu si le versement libératoire n'est pas choisi. À confirmer sur <a href="https://mon-entreprise.urssaf.fr" target="_blank" rel="noopener">mon-entreprise.urssaf.fr</a>.</p>
+</section>
+
+<!-- ===== 2. LANCER ===== -->
+<section class="panel" id="lancer" role="tabpanel">
+  <h2>Mon parcours de création</h2>
+  <p class="lead">Chaque étape dans l'ordre, sans rien oublier. Cochez au fur et à mesure : votre progression est enregistrée.</p>
+  <div class="block">
+    <div class="row" style="justify-content:space-between"><strong id="progLabel"></strong></div>
+    <div class="progress"><div id="progBar"></div></div>
+  </div>
+  <div id="phases"></div>
+</section>
+
+<!-- ===== 3. DURER ===== -->
+<section class="panel" id="durer" role="tabpanel">
+  <h2>Piloter mon activité</h2>
+  <p class="lead">Une fois lancé, trois choses suffisent pour garder le cap : suivre son chiffre d'affaires, anticiper ses échéances et repérer tôt les signaux d'alerte.</p>
+
+  <div class="block">
+    <h3>Mon chiffre d'affaires mois par mois</h3>
+    <div class="field" style="max-width:280px;margin-top:12px">
+      <label for="objectif">Objectif mensuel (€)</label>
+      <input type="number" id="objectif" min="0" step="50">
+      <small id="objHint"></small>
+    </div>
+    <div class="months" id="months"></div>
+    <div class="chartbox" style="margin-top:20px"><svg id="chart" viewBox="0 0 720 240" role="img" aria-label="Chiffre d'affaires mensuel comparé à l'objectif"></svg></div>
+    <div id="pilotNotes"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="block">
+      <h3>Mes échéances</h3>
+      <p class="qprog">Pour une déclaration trimestrielle à l'URSSAF.</p>
+      <ul class="deadlines" id="deadlines"></ul>
+    </div>
+    <div class="block">
+      <h3>Signaux à surveiller</h3>
+      <ul class="advice" style="margin-top:12px">
+        <li>Trois mois de suite sous l'objectif : revoir le prix, l'offre ou la prospection plutôt qu'attendre.</li>
+        <li>Un seul client représente plus de la moitié du chiffre d'affaires : chercher à diversifier.</li>
+        <li>L'épargne de sécurité descend sous deux mois de besoins : en parler tôt à votre conseiller CCI ou à votre parrain.</li>
+        <li>Fatigue durable ou isolement : rejoindre un réseau d'entrepreneurs locaux, c'est aussi protéger son projet.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTS ===== -->
+<section class="panel" id="contacts" role="tabpanel">
+  <h2>Qui peut m'aider</h2>
+  <p class="lead">Personne ne réussit seul. Ces réseaux accompagnent les créateurs partout en France, souvent gratuitement, avec des antennes dans chaque département.</p>
+  <div class="block">
+    <div class="contacts">
+      <div class="contact"><h3>Réseau des CCI</h3><p>Ateliers de création, formalités et formations à la gestion pour commerçants et prestataires de services. <a href="https://www.cci.fr" target="_blank" rel="noopener">cci.fr</a></p></div>
+      <div class="contact"><h3>Chambres de Métiers et de l'Artisanat</h3><p>Accompagnement et formations pour les activités artisanales. <a href="https://www.artisanat.fr" target="_blank" rel="noopener">artisanat.fr</a></p></div>
+      <div class="contact"><h3>Initiative France</h3><p>Prêts d'honneur à taux zéro et parrainage par un chef d'entreprise. <a href="https://www.initiative-france.fr" target="_blank" rel="noopener">initiative-france.fr</a></p></div>
+      <div class="contact"><h3>Réseau Entreprendre</h3><p>Prêts d'honneur et accompagnement par des chefs d'entreprise, pour les projets à potentiel d'emplois. <a href="https://www.reseau-entreprendre.org" target="_blank" rel="noopener">reseau-entreprendre.org</a></p></div>
+      <div class="contact"><h3>France Active</h3><p>Garanties bancaires, financements solidaires et conseil. <a href="https://www.franceactive.org" target="_blank" rel="noopener">franceactive.org</a></p></div>
+      <div class="contact"><h3>BGE</h3><p>Accompagnement de la construction du projet jusqu'aux premières années. <a href="https://www.bge.asso.fr" target="_blank" rel="noopener">bge.asso.fr</a></p></div>
+      <div class="contact"><h3>Adie</h3><p>Microcrédit pour ceux qui n'ont pas accès au crédit bancaire classique. <a href="https://www.adie.org" target="_blank" rel="noopener">adie.org</a></p></div>
+      <div class="contact"><h3>France Travail</h3><p>ACRE, ARCE et maintien des allocations pendant le démarrage, pour les demandeurs d'emploi. <a href="https://www.francetravail.fr" target="_blank" rel="noopener">francetravail.fr</a></p></div>
+      <div class="contact"><h3>Bpifrance Création</h3><p>Guides gratuits, fiches statuts, outils pour construire son business plan. <a href="https://bpifrance-creation.fr" target="_blank" rel="noopener">bpifrance-creation.fr</a></p></div>
+      <div class="contact"><h3>Guichet unique</h3><p>Le passage obligé pour immatriculer son entreprise. <a href="https://formalites.entreprises.gouv.fr" target="_blank" rel="noopener">formalites.entreprises.gouv.fr</a></p></div>
+    </div>
+  </div>
+  <div class="block quiet">
+    <h3>Les spécificités de ma région</h3>
+    <div class="field" style="max-width:340px;margin-top:10px">
+      <label for="region">Où allez-vous créer ?</label>
+      <select id="region">
+        <option value="metro">France métropolitaine</option>
+        <option value="drom1">Guadeloupe, Martinique ou La Réunion</option>
+        <option value="drom2">Guyane ou Mayotte</option>
+      </select>
+    </div>
+    <p id="regionText" style="margin:6px 0 0;max-width:68ch"></p>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p style="margin:0 0 6px">Pa a Pa est un outil d'orientation. Les montants sont des estimations et ne remplacent pas l'avis d'un expert-comptable ou d'un conseiller en création.</p>
+  <p style="margin:0 0 10px"><a href="confidentialite.html">Confidentialité</a></p>
+  <div class="row"><button class="btn" type="button" id="install" hidden style="padding:8px 14px;font-size:.9rem">Installer l'app</button><button class="btn ghost" type="button" id="wipe" style="padding:8px 14px;font-size:.9rem">Effacer mes données</button></div>
+</footer>
+
+<script>
+(function(){
+  const KEY='paapa-v1';
+  let S={};
+  try{ S=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ S={}; }
+  S.quiz=S.quiz||{}; S.tasks=S.tasks||{}; S.sim=S.sim||{}; S.ca=S.ca||{};
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
+  const $=id=>document.getElementById(id);
+  const eur=n=>Math.round(n).toLocaleString('fr-FR')+' €';
+
+  /* ---------- tabs ---------- */
+  const tabs=[...document.querySelectorAll('nav.steps button')];
+  function openTab(name){
+    tabs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===name));
+    document.querySelectorAll('section.panel').forEach(p=>p.classList.toggle('on',p.id===name));
+    S.tab=name; save();
+    if(name==='durer') drawChart();
+    window.scrollTo({top:document.querySelector('nav.steps').offsetTop-4,behavior:'smooth'});
+  }
+  tabs.forEach(b=>b.addEventListener('click',()=>openTab(b.dataset.tab)));
+
+  /* ---------- quiz ---------- */
+  const DIMS={
+    motivation:{label:'Motivation et disponibilité',color:'var(--lagon)',
+      tip:'Clarifiez votre « pourquoi » et le temps réel dont vous disposez. Démarrer à temps partiel en gardant un revenu est une voie sereine et tout à fait légitime.'},
+    marche:{label:'Marché et clients',color:'var(--madras)',
+      tip:'Avant tout investissement, testez votre offre : 10 à 20 échanges avec des clients potentiels, une prévente, un stand sur un marché ou un salon local.'},
+    finances:{label:'Finances',color:'var(--coral)',
+      tip:'Chiffrez précisément vos besoins de départ et constituez un matelas de sécurité. Un prêt d\'honneur (Initiative France) ou un microcrédit (Adie) peut compléter votre apport.'},
+    competences:{label:'Compétences et soutien',color:'var(--leaf)',
+      tip:'Une formation courte à la gestion (CCI, CMA), un associé complémentaire ou un parrain expérimenté réduit fortement le risque des premières années.'}
+  };
+  const Q=[
+    {d:'motivation',q:'Pourquoi voulez-vous créer votre entreprise ?',o:['Porter une idée qui me tient à cœur depuis longtemps','Gagner en liberté et en autonomie','Compléter mes revenus actuels','Faute de trouver un emploi, c\'est une solution par défaut']},
+    {d:'motivation',q:'Combien d\'heures par semaine pouvez-vous y consacrer ?',o:['Plus de 35 heures','Entre 20 et 35 heures','Entre 10 et 20 heures','Moins de 10 heures']},
+    {d:'motivation',q:'Comment votre entourage accueille-t-il le projet ?',o:['Il me soutient activement','Il est plutôt favorable','Il est partagé ou inquiet','Il y est opposé']},
+    {d:'marche',q:'Avez-vous parlé de votre offre à des clients potentiels ?',o:['Oui, plus de dix, et certains sont prêts à acheter','Oui, à quelques-uns','Seulement à mes proches','Pas encore']},
+    {d:'marche',q:'Connaissez-vous vos concurrents sur votre territoire ?',o:['Oui, en détail, et je sais ce qui me distingue','Je connais les principaux','Vaguement','Non']},
+    {d:'finances',q:'Combien de mois pourriez-vous vivre sans revenu de l\'activité ?',o:['Plus de 12 mois','De 6 à 12 mois','De 3 à 6 mois','Moins de 3 mois']},
+    {d:'finances',q:'Avez-vous chiffré l\'investissement de départ ?',o:['Oui, avec des devis','J\'ai un ordre de grandeur','J\'en ai une vague idée','Non']},
+    {d:'competences',q:'Quelle expérience avez-vous du métier visé ?',o:['Plus de 5 ans','De 2 à 5 ans','Moins de 2 ans','Aucune pour l\'instant']},
+    {d:'competences',q:'Vente, comptabilité, administratif : où en êtes-vous ?',o:['Je suis à l\'aise','Je me suis formé ou je compte le faire','J\'ai peu d\'expérience','Ça me rebute et je n\'ai prévu personne pour m\'aider']}
+  ];
+  const form=$('quiz');
+  form.innerHTML=Q.map((x,i)=>`<div class="q"><fieldset><div class="dimtag">${DIMS[x.d].label}</div><legend>${i+1}. ${x.q}</legend><div class="opts">${
+    x.o.map((t,j)=>`<label><input type="radio" name="q${i}" value="${4-j}" ${S.quiz['q'+i]==4-j?'checked':''}><span>${t}</span></label>`).join('')
+  }</div></fieldset></div>`).join('');
+  function answered(){return Q.filter((x,i)=>S.quiz['q'+i]).length}
+  function updProg(){ $('qprog').textContent=answered()+' sur '+Q.length+' questions répondues'; }
+  form.addEventListener('change',e=>{ S.quiz[e.target.name]=+e.target.value; save(); updProg(); });
+  updProg();
+
+  function showResult(silent){
+    const n=answered();
+    const box=$('result');
+    if(n<Q.length){
+      box.classList.add('on');
+      $('verdict').textContent='Encore '+(Q.length-n)+' question'+(Q.length-n>1?'s':'')+' à compléter';
+      $('verdictText').textContent='Répondez à toutes les questions pour obtenir un bilan fiable.';
+      $('bars').innerHTML=''; $('advice').innerHTML=''; return;
+    }
+    const sc={};
+    Object.keys(DIMS).forEach(d=>{
+      const vals=Q.map((x,i)=>x.d===d?S.quiz['q'+i]:null).filter(v=>v!=null);
+      sc[d]=Math.round((vals.reduce((a,b)=>a+b,0)/vals.length-1)/3*100);
+    });
+    const glob=Math.round(Object.values(sc).reduce((a,b)=>a+b,0)/4);
+    let v,t;
+    if(glob>=70){v='Votre projet repose sur des bases solides';t='Vous pouvez avancer vers les démarches concrètes, tout en gardant un œil sur les points ci-dessous.';}
+    else if(glob>=45){v='Un projet prometteur, à consolider';t='Quelques piliers méritent un peu de travail avant d\'investir. C\'est normal à ce stade, et c\'est le meilleur moment pour le faire.';}
+    else{v='Prenez le temps de faire mûrir le projet';t='Ce n\'est pas un non : c\'est une invitation à préparer le terrain. Chaque action ci-dessous augmente réellement vos chances.';}
+    $('verdict').textContent=v+' ('+glob+' / 100)';
+    $('verdictText').textContent=t;
+    $('bars').innerHTML=Object.keys(DIMS).map(d=>`<div class="bar"><div class="top"><span>${DIMS[d].label}</span><span>${sc[d]} / 100</span></div><div class="track"><div class="fill" style="width:0;background:${DIMS[d].color}" data-w="${sc[d]}"></div></div></div>`).join('');
+    requestAnimationFrame(()=>document.querySelectorAll('#bars .fill').forEach(f=>f.style.width=Math.max(f.dataset.w,3)+'%'));
+    const weak=Object.keys(DIMS).filter(d=>sc[d]<65).sort((a,b)=>sc[a]-sc[b]);
+    $('advice').innerHTML = weak.length
+      ? weak.map(d=>`<li><strong>${DIMS[d].label}.</strong> ${DIMS[d].tip}</li>`).join('')
+      : '<li class="good">Aucun pilier fragile. Prochaine étape : affiner vos chiffres avec le simulateur, puis passer à l\'onglet « Me lancer ».</li>';
+    box.classList.add('on');
+    if(silent!==true) box.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  $("showResult").addEventListener("click",()=>showResult());
+  $('resetQuiz').addEventListener('click',()=>{ S.quiz={}; save(); form.reset(); $('result').classList.remove('on'); updProg(); });
+
+  /* ---------- simulator ---------- */
+  const R={
+    vente:{c:12.3,cfp:0.1,vl:1.0,plaf:203100},
+    bic:{c:21.2,cfp:0.2,vl:1.7,plaf:83600},
+    bnc:{c:25.6,cfp:0.2,vl:2.2,plaf:83600},
+    cipav:{c:23.2,cfp:0.2,vl:2.2,plaf:83600}
+  };
+  const simIds=['act','ca','chg','besoin','epargne','acre','vl'];
+  simIds.forEach(id=>{ if(S.sim[id]!==undefined){ const el=$(id); if(el.type==='checkbox') el.checked=S.sim[id]; else el.value=S.sim[id]; } });
+  let lastPointMort=0;
+  function sim(){
+    simIds.forEach(id=>{ const el=$(id); S.sim[id]=el.type==='checkbox'?el.checked:el.value; }); save();
+    const r=R[$('act').value], ca=Math.max(0,+$('ca').value||0), chg=Math.max(0,+$('chg').value||0),
+          besoin=Math.max(0,+$('besoin').value||0), ep=Math.max(0,+$('epargne').value||0),
+          acre=$('acre').checked, vl=$('vl').checked;
+    const tc=r.c*(acre?0.75:1), rate=(tc+r.cfp+(vl?r.vl:0))/100;
+    const cot=ca*tc/100, cfp=ca*r.cfp/100, imp=vl?ca*r.vl/100:0;
+    const reste=ca-cot-cfp-imp-chg, ecart=reste-besoin;
+    lastPointMort=rate<1?(besoin+chg)/(1-rate):0;
+    $('simTable').innerHTML=`
+      <tr><td>Chiffre d'affaires</td><td>${eur(ca)}</td></tr>
+      <tr><td>Cotisations sociales (${tc.toLocaleString('fr-FR',{maximumFractionDigits:2})} %)</td><td>− ${eur(cot)}</td></tr>
+      <tr><td>Formation professionnelle</td><td>− ${eur(cfp)}</td></tr>
+      ${vl?`<tr><td>Impôt (versement libératoire)</td><td>− ${eur(imp)}</td></tr>`:''}
+      <tr><td>Achats et frais pro</td><td>− ${eur(chg)}</td></tr>
+      <tr class="total"><td>Reste pour moi</td><td>${eur(reste)}</td></tr>`;
+    const tot=Math.max(ca,1), pc=v=>Math.max(0,v/tot*100);
+    $('stack').innerHTML=`<span style="width:${pc(cot+cfp+imp)}%;background:var(--coral)"></span><span style="width:${pc(chg)}%;background:var(--madras)"></span><span style="width:${pc(Math.max(reste,0))}%;background:var(--leaf)"></span>`;
+    let notes='';
+    if(ecart>=0) notes+=`<div class="note ok">Il vous reste ${eur(ecart)} de marge par mois au-delà de vos besoins personnels.</div>`;
+    else{
+      const mois=ep>0?Math.floor(ep/-ecart):0;
+      notes+=`<div class="note warn">Il manque ${eur(-ecart)} par mois pour couvrir vos besoins. ${ep>0?`Votre épargne tiendrait environ ${mois} mois à ce rythme.`:'Sans épargne, cet écart est à combler avant de démarrer.'}</div>`;
+    }
+    notes+=`<div class="note info">Chiffre d'affaires minimum pour vivre de l'activité : <strong>${eur(lastPointMort)}</strong> par mois.</div>`;
+    if(ca*12>r.plaf) notes+=`<div class="note warn">À ce rythme, vous dépasseriez le plafond annuel de la micro-entreprise (${eur(r.plaf)}). Une société ou l'entreprise individuelle au réel serait à étudier.</div>`;
+    if(!vl) notes+=`<p class="qprog" style="margin-top:10px">L'impôt sur le revenu reste à prévoir en plus.</p>`;
+    $('simNotes').innerHTML=notes;
+    $('objHint').textContent=lastPointMort?'Suggestion issue du simulateur : '+eur(lastPointMort):'';
+    if(!S.objectif) $('objectif').placeholder=Math.round(lastPointMort);
+  }
+  simIds.forEach(id=>$(id).addEventListener('input',sim));
+  sim();
+
+  /* ---------- parcours ---------- */
+  const PH=[
+    {n:'Préparer',t:[
+      ['Valider l\'idée auprès de vrais clients','Échanges, prévente ou test sur un marché local : la preuve qu\'on vous achètera.'],
+      ['Faire une étude de marché simple','Qui sont vos clients, combien ils paient, qui sont les concurrents sur votre territoire.'],
+      ['Rédiger un business plan et un prévisionnel','Les guides et modèles de Bpifrance Création aident à structurer.'],
+      ['Choisir son statut juridique','Micro-entreprise, EI, SASU, EURL… le simulateur de mon-entreprise.urssaf.fr compare les options.'],
+      ['Rencontrer un conseiller en création','CCI, CMA ou réseau d\'accompagnement : un regard extérieur gratuit.'],
+      ['Chercher des financements','Prêt d\'honneur, microcrédit, aides régionales, ARCE si vous êtes demandeur d\'emploi.']
+    ]},
+    {n:'Créer',t:[
+      ['Déclarer l\'entreprise sur le Guichet unique','Toutes les immatriculations passent par formalites.entreprises.gouv.fr.'],
+      ['Demander l\'ACRE si vous y avez droit','Selon votre situation, la demande doit être faite dans les délais suivant la création.'],
+      ['Ouvrir un compte bancaire dédié à l\'activité','Plus simple pour suivre ses finances, et obligatoire dans certains cas.'],
+      ['Souscrire les assurances nécessaires','Responsabilité civile professionnelle, et décennale pour le bâtiment.'],
+      ['Choisir la périodicité de déclaration URSSAF','Mensuelle ou trimestrielle, selon votre confort.']
+    ]},
+    {n:'Démarrer',t:[
+      ['Préparer des factures conformes','Numérotation, mentions obligatoires, mention de TVA adaptée à votre régime.'],
+      ['Mettre en place un outil de suivi comptable','Tenir à jour recettes et dépenses dès le premier jour.'],
+      ['Faire sa première déclaration de chiffre d\'affaires','Même à zéro, la déclaration est obligatoire.'],
+      ['Mettre de côté pour l\'impôt et les charges','Un pourcentage fixe de chaque encaissement, sur un compte séparé.'],
+      ['Rejoindre un réseau d\'entrepreneurs','Pour les conseils, les clients et le moral.']
+    ]}
+  ];
+  const total=PH.reduce((a,p)=>a+p.t.length,0);
+  $('phases').innerHTML=PH.map((p,pi)=>`<div class="block phase"><h3>${pi+1}. ${p.n}</h3>${
+    p.t.map((t,ti)=>{const k=pi+'-'+ti;return `<label class="task ${S.tasks[k]?'done':''}"><input type="checkbox" data-k="${k}" ${S.tasks[k]?'checked':''}><div><div class="t">${t[0]}</div><div class="d">${t[1]}</div></div></label>`}).join('')
+  }</div>`).join('');
+  function prog(){
+    const d=Object.values(S.tasks).filter(Boolean).length;
+    $('progLabel').textContent=d+' étapes sur '+total+' accomplies'+(d===total?' : bravo, votre entreprise est lancée.':'');
+    $('progBar').style.width=(d/total*100)+'%';
+  }
+  $('phases').addEventListener('change',e=>{
+    const k=e.target.dataset.k; if(!k) return;
+    S.tasks[k]=e.target.checked; save();
+    e.target.closest('.task').classList.toggle('done',e.target.checked); prog();
+  });
+  prog();
+
+  /* ---------- pilotage ---------- */
+  const M=['Janv.','Févr.','Mars','Avr.','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'];
+  $('months').innerHTML=M.map((m,i)=>`<label>${m}<input type="number" min="0" step="50" data-m="${i}" value="${S.ca[i]??''}"></label>`).join('');
+  if(S.objectif) $('objectif').value=S.objectif;
+  $('months').addEventListener('input',e=>{ const i=e.target.dataset.m; S.ca[i]=e.target.value; save(); drawChart(); });
+  $('objectif').addEventListener('input',e=>{ S.objectif=e.target.value; save(); drawChart(); });
+
+  function drawChart(){
+    const vals=M.map((m,i)=>+S.ca[i]||0);
+    const obj=+S.objectif||Math.round(lastPointMort)||0;
+    const W=720,H=240,pl=48,pb=26,pt=12,cw=(W-pl-10)/12;
+    const max=Math.max(obj,...vals,100)*1.15;
+    const y=v=>H-pb-(v/max)*(H-pb-pt);
+    const css=getComputedStyle(document.documentElement);
+    const c=n=>css.getPropertyValue(n).trim();
+    let s='';
+    for(let g=0;g<=4;g++){const v=max/4*g;s+=`<line x1="${pl}" x2="${W-10}" y1="${y(v)}" y2="${y(v)}" stroke="${c('--line')}"/><text x="${pl-6}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="${c('--muted')}">${Math.round(v/1000*10)/10}k</text>`;}
+    vals.forEach((v,i)=>{
+      const x=pl+i*cw+cw*.18,w=cw*.64;
+      const col=v===0?c('--line'):(obj&&v<obj?c('--madras'):c('--leaf'));
+      s+=`<rect x="${x}" y="${y(v)}" width="${w}" height="${H-pb-y(v)}" rx="4" fill="${col}"/><text x="${x+w/2}" y="${H-8}" text-anchor="middle" font-size="11" fill="${c('--muted')}">${M[i].replace('.','')}</text>`;
+    });
+    if(obj) s+=`<line x1="${pl}" x2="${W-10}" y1="${y(obj)}" y2="${y(obj)}" stroke="${c('--coral')}" stroke-width="2" stroke-dasharray="6 5"/><text x="${W-12}" y="${y(obj)-6}" text-anchor="end" font-size="12" fill="${c('--coral')}">objectif</text>`;
+    $('chart').innerHTML=s;
+
+    const filled=vals.filter(v=>v>0), cum=filled.reduce((a,b)=>a+b,0);
+    const plaf=R[$('act').value].plaf;
+    let n='';
+    if(filled.length){
+      const moy=cum/filled.length;
+      n+=`<div class="note info">Cumul de l'année : <strong>${eur(cum)}</strong>, soit ${Math.round(cum/plaf*100)} % du plafond micro-entreprise. Moyenne mensuelle : ${eur(moy)}.</div>`;
+      let streak=0; for(let i=11;i>=0;i--){ if(vals[i]===0&&streak===0) continue; if(obj&&vals[i]<obj) streak++; else break; }
+      if(streak>=3) n+=`<div class="note warn">${streak} mois consécutifs sous l'objectif. C'est le bon moment pour revoir votre offre ou votre prospection avec un conseiller.</div>`;
+    } else n='<p class="qprog" style="margin-top:12px">Saisissez vos premiers mois pour voir votre tendance.</p>';
+    $('pilotNotes').innerHTML=n;
+  }
+
+  function deadlines(){
+    const now=new Date(), yr=now.getFullYear();
+    const list=[];
+    [[0,31,'Déclaration URSSAF du 4e trimestre'],[3,30,'Déclaration URSSAF du 1er trimestre'],[6,31,'Déclaration URSSAF du 2e trimestre'],[9,31,'Déclaration URSSAF du 3e trimestre'],[11,15,'Paiement de la CFE (sauf première année d\'activité)'],[4,31,'Déclaration annuelle de revenus (dates exactes publiées chaque printemps)']]
+      .forEach(([m,d,l])=>{ let dt=new Date(yr,m,d); if(dt<now) dt=new Date(yr+1,m,d); list.push({dt,l}); });
+    list.sort((a,b)=>a.dt-b.dt);
+    $('deadlines').innerHTML=list.map((e,i)=>`<li class="${i===0?'next':''}"><span class="when">${e.dt.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'})}</span><span>${e.l}${i===0?' <strong>(prochaine)</strong>':''}</span></li>`).join('');
+  }
+  deadlines();
+
+
+  const REG={
+    metro:"Taux normal de TVA à 20 %. La région, le département et votre intercommunalité proposent souvent des aides locales à la création : renseignez-vous auprès de la CCI ou de la CMA de votre département.",
+    drom1:"La TVA y est de 8,5 % (taux normal) et 2,1 % (taux réduit). L'octroi de mer s'applique aux marchandises importées et, au-delà d'un certain chiffre d'affaires, à certaines productions locales. Des dispositifs propres aux Outre-mer peuvent réduire vos charges : faites le point avec la CCI avant de choisir votre statut.",
+    drom2:"La TVA n'y est pas applicable. L'octroi de mer s'applique aux marchandises importées et, au-delà d'un certain chiffre d'affaires, à certaines productions locales. Des dispositifs propres aux Outre-mer peuvent réduire vos charges : faites le point avec la CCI avant de choisir votre statut."
+  };
+  if(S.region) $('region').value=S.region;
+  function reg(){ S.region=$('region').value; save(); $('regionText').textContent=REG[S.region]; }
+  $('region').addEventListener('change',reg); reg();
+
+  $('wipe').addEventListener('click',()=>{
+    if(!confirm('Effacer toutes vos réponses et votre suivi sur cet appareil ?')) return;
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    location.reload();
+  });
+
+  if(S.tab && S.tab!=='tester') openTab(S.tab);
+  if(answered()===Q.length) showResult(true);
+})();
+</script>
+
+<script>
+if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
+let deferredPrompt=null; const ib=document.getElementById('install');
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; ib.hidden=false; });
+ib.addEventListener('click',async()=>{ if(!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; ib.hidden=true; });
+window.addEventListener('appinstalled',()=>{ ib.hidden=true; });
+</script>
+</body>
+</html>
