@@ -108,7 +108,7 @@ input[type=number],select{font:inherit;color:var(--ink);background:var(--bg);bor
 
 table.sim{width:100%;border-collapse:collapse;font-size:.97rem}
 table.sim td{padding:8px 0;border-bottom:1px solid var(--line)}
-table.sim td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+table.sim td:last-child{white-space:nowrap;padding-left:10px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 table.sim tr.total td{border-bottom:0;font-size:1.1rem;padding-top:12px}
 .stack{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:16px 0 8px;background:var(--line)}
 .stack span{display:block;height:100%}
@@ -149,7 +149,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
 
 .fx{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
 @media (max-width:520px){.fx{grid-template-columns:1fr}}
-.fx label{font-size:.88rem;color:var(--muted);display:grid;gap:4px}
+.fx label{font-size:.88rem;color:var(--muted);display:grid;gap:4px;grid-template-rows:1fr auto;align-items:end}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--bg);margin-bottom:18px}
 .seg button{font:600 .95rem var(--sans);border:0;background:none;color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--lagon);color:#fff}
@@ -157,6 +157,33 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
 .sub{color:var(--muted);font-size:.95rem;margin:0 0 14px}
 fieldset.plain{border:0;padding:0;margin:0 0 16px}
 fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;padding:0}
+.bechart{width:100%;height:auto;display:block;margin-top:8px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:16px 0}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi .v{font-family:var(--serif);font-size:1.35rem;line-height:1.2}
+.kpi .l{font-size:.85rem;color:var(--muted)}
+.stbars{display:grid;gap:12px;margin:18px 0 6px}
+.stbar .top{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:.95rem}
+.stbar .track{height:14px;background:var(--line);border-radius:7px;overflow:hidden;margin-top:6px}
+.stbar .fill{height:100%;border-radius:7px;background:var(--lagon);transition:width .5s ease}
+.stbar.best .fill{background:var(--leaf)}
+.stbar.off{opacity:.55}
+.stgrid{width:100%;border-collapse:collapse;font-size:.93rem;min-width:720px}
+.stgrid th,.stgrid td{text-align:left;vertical-align:top;padding:10px 12px;border-top:1px solid var(--line)}
+.stgrid thead th{border-top:0;font-size:.95rem}
+.stgrid tbody th{font-weight:600;color:var(--muted);width:150px}
+.scrollx{overflow-x:auto}
+.pvtable{width:100%;border-collapse:collapse;font-size:.95rem;min-width:560px}
+.pvtable th,.pvtable td{padding:9px 10px;border-top:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pvtable th:first-child,.pvtable td:first-child{text-align:left;white-space:normal}
+.pvtable thead th{border-top:0;font-size:.9rem;color:var(--muted)}
+.pvtable tr.sum td{font-weight:700}
+.pvtable tr.key td{font-weight:700;background:var(--lagon-soft)}
+.pvtable td.neg{color:var(--coral)}
+.tools{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:26px;overflow-x:auto}
+.tools button{font:600 1rem var(--sans);background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:10px 14px;cursor:pointer;white-space:nowrap}
+.tools button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--madras)}
+.fx .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -282,6 +309,22 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     <div id="pilotNotes"></div>
   </div>
 
+  <div class="block">
+    <h3>Mon tableau de bord du mois</h3>
+    <p class="qprog">Quatre chiffres à saisir chaque mois donnent les indicateurs que suivent les dirigeants : panier moyen, marge, coût d'un nouveau client et argent en attente.</p>
+    <div class="fx" style="margin:14px 0">
+      <label>Mois<select id="tbM"></select></label>
+      <label>Chiffre d'affaires du mois (€)<input type="number" id="tbCA" min="0" step="50" placeholder="Saisi plus haut"></label>
+      <label>Nombre de ventes ou de factures<input type="number" id="tbV" min="0" step="1" placeholder="0"></label>
+      <label>Dont nouveaux clients<input type="number" id="tbN" min="0" step="1" placeholder="0"></label>
+      <label>Achats et coûts directs des ventes (€)<input type="number" id="tbA" min="0" step="50" placeholder="0"></label>
+      <label>Dépenses de publicité et prospection (€)<input type="number" id="tbP" min="0" step="10" placeholder="0"></label>
+      <label>Factures clients impayées à ce jour (€)<input type="number" id="tbI" min="0" step="50" placeholder="0"></label>
+    </div>
+    <div class="kpis" id="tbKpis"></div>
+    <div id="tbNotes"></div>
+  </div>
+
   <div class="grid2">
     <div class="block">
       <h3>Mes échéances</h3>
@@ -310,6 +353,15 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 
 <!-- ===== CALCULS ===== -->
 <section class="panel" id="calculs" role="tabpanel">
+  <div class="tools" role="tablist" aria-label="Outils de calcul">
+    <button type="button" role="tab" data-tool="toolPrix" aria-selected="true">Fixer mon prix</button>
+    <button type="button" role="tab" data-tool="toolFin" aria-selected="false">Financer mon démarrage</button>
+    <button type="button" role="tab" data-tool="toolSeuil" aria-selected="false">Seuil de rentabilité</button>
+    <button type="button" role="tab" data-tool="toolBfr" aria-selected="false">Besoin en fonds de roulement</button>
+    <button type="button" role="tab" data-tool="toolStat" aria-selected="false">Choisir mon statut</button>
+    <button type="button" role="tab" data-tool="toolPrev" aria-selected="false">Prévoir sur 3 ans</button>
+  </div>
+  <div id="toolPrix">
   <h2>Fixer mon prix</h2>
   <p class="lead">Un prix juste couvre trois choses : ce que coûte votre activité, votre propre rémunération, et les cotisations prélevées sur chaque euro encaissé. L'oubli de l'une d'elles est l'erreur la plus fréquente des débutants.</p>
 
@@ -379,6 +431,250 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     </div>
   </div>
   <p class="qprog">Le taux de cotisations est celui choisi dans votre simulateur (onglet 1). Estimation à affiner avec un expert-comptable.</p>
+  </div>
+
+  <div id="toolFin" hidden>
+  <h2>Financer mon démarrage</h2>
+  <p class="lead">Le plan de financement met face à face tout ce qu'il faut payer pour démarrer et l'argent dont vous disposez. Il doit être équilibré avant de vous lancer, et c'est le premier document que demande un banquier.</p>
+  <div class="grid2">
+    <div class="block">
+      <h3>Mes besoins de départ (€)</h3>
+      <p class="qprog" style="margin-bottom:14px">Tout ce qu'il faut payer avant la première vente.</p>
+      <div class="fx">
+        <label>Formalités, conseils, dépôt de marque<input type="number" min="0" step="50" data-need="0" placeholder="0"></label>
+        <label>Matériel, outillage, informatique<input type="number" min="0" step="100" data-need="1" placeholder="0"></label>
+        <label>Véhicule<input type="number" min="0" step="100" data-need="2" placeholder="0"></label>
+        <label>Travaux, aménagement du local<input type="number" min="0" step="100" data-need="3" placeholder="0"></label>
+        <label>Dépôt de garantie du local<input type="number" min="0" step="50" data-need="4" placeholder="0"></label>
+        <label>Stock de départ<input type="number" min="0" step="100" data-need="5" placeholder="0"></label>
+        <label>Site web, communication de lancement<input type="number" min="0" step="50" data-need="6" placeholder="0"></label>
+        <label>Trésorerie de démarrage<input type="number" min="0" step="100" data-need="7" placeholder="0"></label>
+      </div>
+      <p class="qprog" id="finTresoHint" style="margin-top:10px"></p>
+    </div>
+    <div class="block">
+      <h3>Mes ressources (€)</h3>
+      <p class="qprog" style="margin-bottom:14px">L'argent dont vous disposez ou que vous comptez obtenir.</p>
+      <div class="fx">
+        <label>Apport personnel<input type="number" min="0" step="100" data-res="0" placeholder="0"></label>
+        <label>Famille, amis<input type="number" min="0" step="100" data-res="1" placeholder="0"></label>
+        <label>Subventions, aides<input type="number" min="0" step="100" data-res="2" placeholder="0"></label>
+        <label>Autres ressources<input type="number" min="0" step="100" data-res="3" placeholder="0"></label>
+      </div>
+      <h3 style="margin-top:20px;font-size:1rem">Prêt d'honneur</h3>
+      <p class="qprog" style="margin-bottom:10px">Prêt personnel à taux zéro, sans garantie (Initiative France, Réseau Entreprendre).</p>
+      <div class="fx">
+        <label>Montant<input type="number" min="0" step="500" data-res="4" placeholder="0"></label>
+        <label>Durée (années)<input type="number" min="1" max="10" step="1" id="finHdur" value="5"></label>
+      </div>
+      <h3 style="margin-top:20px;font-size:1rem">Prêt bancaire ou microcrédit</h3>
+      <div class="fx">
+        <label>Montant<input type="number" min="0" step="500" data-res="5" placeholder="0"></label>
+        <label>Durée (années)<input type="number" min="1" max="15" step="1" id="finBdur" value="5"></label>
+        <label>Taux annuel (%)<input type="number" min="0" max="20" step="0.1" id="finBrate" value="5"></label>
+      </div>
+    </div>
+  </div>
+  <div class="block" aria-live="polite">
+    <h3>Mon plan est-il équilibré ?</h3>
+    <p class="big" id="finBig"></p>
+    <p class="sub" id="finSub"></p>
+    <div class="grid2" style="gap:0 28px;align-items:start">
+      <table class="sim" id="finTable1"></table>
+      <table class="sim" id="finTable2"></table>
+    </div>
+    <div id="finNotes"></div>
+  </div>
+  <p class="qprog">Les remboursements mensuels sont automatiquement déduits dans votre simulateur (onglet 1). Taux et conditions de prêt à confirmer avec votre banque ou votre réseau d'accompagnement.</p>
+  </div>
+  <div id="toolSeuil" hidden>
+  <h2>Mon seuil de rentabilité</h2>
+  <p class="lead">Le seuil de rentabilité est le chiffre d'affaires à partir duquel votre activité ne perd plus d'argent. En dessous, chaque mois vous coûte ; au-dessus, chaque vente rapporte. Le point mort est la date à laquelle vous l'atteignez.</p>
+  <div class="row" style="margin-bottom:18px"><button class="btn ghost" type="button" id="bsFill">Reprendre les chiffres de mes autres calculs</button></div>
+  <div class="grid2">
+    <div class="block">
+      <div class="field">
+        <label for="bsCA">Chiffre d'affaires annuel prévu, hors taxes (€)</label>
+        <input type="number" id="bsCA" min="0" step="1000" placeholder="0">
+      </div>
+      <fieldset class="plain">
+        <legend>Charges variables par an (€)</legend>
+        <p class="qprog" style="margin:-4px 0 10px">Celles qui augmentent avec les ventes. Vos cotisations sociales sont ajoutées automatiquement.</p>
+        <div class="fx">
+          <label>Achats de marchandises, matières<input type="number" min="0" step="100" data-bv="0" placeholder="0"></label>
+          <label>Sous-traitance<input type="number" min="0" step="100" data-bv="1" placeholder="0"></label>
+          <label>Commissions, frais de paiement<input type="number" min="0" step="50" data-bv="2" placeholder="0"></label>
+          <label>Transport, livraison, emballages<input type="number" min="0" step="50" data-bv="3" placeholder="0"></label>
+          <label>Autres charges variables<input type="number" min="0" step="50" data-bv="4" placeholder="0"></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="bsF">Charges fixes par an (€)</label>
+        <input type="number" id="bsF" min="0" step="100" placeholder="0">
+        <small id="bsFHint">Loyer, assurances, abonnements… Elles restent les mêmes quel que soit le volume de ventes.</small>
+      </div>
+      <div class="field">
+        <label for="bsR">Ma rémunération nette souhaitée par mois (€)</label>
+        <input type="number" id="bsR" min="0" step="50" placeholder="0">
+      </div>
+      <div class="fx">
+        <label>Mois de démarrage<select id="bsStart"></select></label>
+        <label>Rythme des ventes<select id="bsSaison">
+          <option value="reg">Régulier toute l'année</option>
+          <option value="hiver">Haute saison de décembre à avril</option>
+          <option value="ete">Haute saison en été</option>
+          <option value="fete">Pic en fin d'année</option>
+        </select></label>
+      </div>
+    </div>
+
+    <div class="block" aria-live="polite">
+      <h3>Mon seuil de rentabilité</h3>
+      <p class="big" id="bsBig"></p>
+      <p class="sub" id="bsSub"></p>
+      <div class="kpis" id="bsKpis"></div>
+      <table class="sim" id="bsTable"></table>
+    </div>
+  </div>
+  <div class="block">
+    <h3>Où se situe mon activité</h3>
+    <p class="qprog">Tant que la courbe des charges passe au-dessus de celle du chiffre d'affaires, l'activité perd de l'argent.</p>
+    <svg class="bechart" id="bsChart" viewBox="0 0 720 320" role="img" aria-label="Graphique du seuil de rentabilité"></svg>
+    <div class="legend" style="margin-top:8px">
+      <span><i style="background:var(--lagon)"></i>Chiffre d'affaires</span>
+      <span><i style="background:var(--coral)"></i>Charges totales</span>
+      <span><i style="background:var(--muted)"></i>Charges fixes</span>
+      <span><i style="background:var(--madras)"></i>Chiffre d'affaires prévu</span>
+    </div>
+    <div id="bsNotes" style="margin-top:6px"></div>
+  </div>
+  <p class="qprog">Les cotisations sont calculées avec le taux de votre simulateur (onglet 1) et les remboursements d'emprunts avec votre plan de financement.</p>
+  </div>
+  <div id="toolBfr" hidden>
+  <h2>Mon besoin en fonds de roulement</h2>
+  <p class="lead">Entre le moment où vous payez vos achats et celui où vos clients vous paient, il faut avancer de l'argent. Ce décalage, c'est le besoin en fonds de roulement (BFR). Une entreprise rentable peut manquer de trésorerie simplement parce qu'elle l'a sous-estimé.</p>
+  <div class="row" style="margin-bottom:18px"><button class="btn ghost" type="button" id="bfFill">Reprendre les chiffres de mes autres calculs</button></div>
+  <div class="grid2">
+    <div class="block">
+      <div class="fx" style="margin-bottom:16px">
+        <label>Chiffre d'affaires annuel, hors taxes (€)<input type="number" id="bfCA" min="0" step="1000" placeholder="0"></label>
+        <label>Achats annuels de marchandises ou matières, hors taxes (€)<input type="number" id="bfA" min="0" step="500" placeholder="0"></label>
+      </div>
+      <div class="field">
+        <label for="bfDs">Durée moyenne de stockage (jours)</label>
+        <input type="number" id="bfDs" min="0" step="5" value="30">
+        <small>Temps moyen entre l'achat d'un article et sa vente. Mettez 0 si vous vendez uniquement des services.</small>
+      </div>
+      <div class="fx" style="margin-bottom:16px">
+        <label>Part des clients qui paient plus tard (%)<input type="number" id="bfPct" min="0" max="100" step="5" value="30"></label>
+        <label>Délai de paiement de ces clients (jours)<input type="number" id="bfDc" min="0" step="5" value="30"></label>
+      </div>
+      <div class="field">
+        <label for="bfDf">Délai de paiement accordé par vos fournisseurs (jours)</label>
+        <input type="number" id="bfDf" min="0" step="5" value="0">
+        <small>0 si vous payez vos fournisseurs à la commande.</small>
+      </div>
+      <label class="check"><input type="checkbox" id="bfTtc"> Je facture la TVA (les montants encaissés et payés sont alors TTC)</label>
+    </div>
+    <div class="block" aria-live="polite">
+      <h3>Mon besoin en fonds de roulement</h3>
+      <p class="big" id="bfBig"></p>
+      <p class="sub" id="bfSub"></p>
+      <table class="sim" id="bfTable"></table>
+      <div class="row" style="margin-top:16px"><button class="btn" type="button" id="bfToFin">Reporter dans mon plan de financement</button></div>
+      <p class="qprog" id="bfToFinMsg" style="margin-top:8px"></p>
+    </div>
+  </div>
+  <div class="block">
+    <h3>Mon cycle d'argent</h3>
+    <p class="qprog">Le temps pendant lequel votre argent est immobilisé, de l'achat au paiement du client.</p>
+    <svg class="bechart" id="bfChart" viewBox="0 0 720 200" role="img" aria-label="Cycle d'exploitation en jours"></svg>
+    <div id="bfNotes" style="margin-top:6px"></div>
+  </div>
+  <p class="qprog">Calcul sur une année commerciale de 360 jours, méthode des délais moyens. À affiner avec votre expert-comptable.</p>
+  </div>
+  <div id="toolStat" hidden>
+  <h2>Choisir mon statut</h2>
+  <p class="lead">Avec vos propres chiffres, ce que chaque statut vous laisse réellement après cotisations et impôts, et ce qu'il implique pour votre protection, votre patrimoine et vos démarches. Il n'existe pas de statut parfait : on choisit celui qui convient aux deux ou trois premières années.</p>
+  <div class="row" style="margin-bottom:18px"><button class="btn ghost" type="button" id="stFill">Reprendre les chiffres de mes autres calculs</button></div>
+  <div class="grid2">
+    <div class="block">
+      <div class="field">
+        <label for="stCA">Chiffre d'affaires annuel, hors taxes (€)</label>
+        <input type="number" id="stCA" min="0" step="1000" placeholder="0">
+      </div>
+      <div class="field">
+        <label for="stCh">Charges réelles annuelles, hors rémunération (€)</label>
+        <input type="number" id="stCh" min="0" step="500" placeholder="0">
+        <small>Achats, loyer, assurances, déplacements, matériel… tout ce que l'activité coûte.</small>
+      </div>
+      <div class="fx" style="margin-bottom:14px">
+        <label>Parts fiscales du foyer<select id="stParts"><option value="1">1 (personne seule)</option><option value="1.5">1,5</option><option value="2">2 (couple)</option><option value="2.5">2,5</option><option value="3">3</option></select></label>
+        <label>Autres revenus imposables du foyer (€/an)<input type="number" id="stAutres" min="0" step="1000" value="0"></label>
+      </div>
+      <div class="fx">
+        <label>Comptabilité au réel (€/an)<input type="number" id="stCptEI" min="0" step="100" value="900"></label>
+        <label>Comptabilité d'une société (€/an)<input type="number" id="stCptSoc" min="0" step="100" value="1600"></label>
+      </div>
+      <p class="qprog" style="margin-top:10px" id="stActHint"></p>
+    </div>
+    <div class="block" aria-live="polite">
+      <h3>Ce qu'il vous reste, par mois</h3>
+      <p class="sub" style="margin-bottom:0">Après cotisations, impôt sur les sociétés et impôt sur le revenu, en rythme de croisière.</p>
+      <div class="stbars" id="stBars"></div>
+      <div id="stBest"></div>
+    </div>
+  </div>
+  <div class="block">
+    <h3>Au-delà de l'argent</h3>
+    <div class="scrollx"><table class="stgrid" id="stGrid"></table></div>
+    <div id="stNotes" style="margin-top:12px"></div>
+  </div>
+  <p class="qprog">Estimation d'orientation 2026 : cotisations des indépendants d'environ 45 % du revenu net, du président de SASU d'environ 80 % du salaire net, impôt sur les sociétés à 15 % jusqu'à 42 500 € puis 25 %, dividendes au prélèvement forfaitaire de 31,4 %, barème de l'impôt sur le revenu 2026 sans décote ni plafonnement. Hors ACRE, qui réduit les cotisations de la première année dans tous les statuts. Faites confirmer votre choix sur <a href="https://mon-entreprise.urssaf.fr" target="_blank" rel="noopener">mon-entreprise.urssaf.fr</a> et par un expert-comptable.</p>
+  </div>
+  <div id="toolPrev" hidden>
+  <h2>Mon prévisionnel sur trois ans</h2>
+  <p class="lead">Le prévisionnel projette votre activité sur trois ans : ce qu'elle gagne, ce qu'elle vous verse et l'argent qui reste en caisse chaque fin d'année. C'est la pièce centrale de tout dossier de financement, et le meilleur moyen de repérer un problème avant qu'il n'arrive.</p>
+  <div class="row" style="margin-bottom:18px"><button class="btn ghost" type="button" id="pvFill">Reprendre les chiffres de mes autres calculs</button></div>
+  <div class="grid2">
+    <div class="block">
+      <div class="field">
+        <label for="pvStat">Statut envisagé</label>
+        <select id="pvStat"><option value="micro">Micro-entreprise</option><option value="ei">Entreprise individuelle au réel ou EURL</option><option value="sasu">SASU avec un salaire</option></select>
+      </div>
+      <div class="fx" style="margin-bottom:14px">
+        <label>Chiffre d'affaires de l'année 1, hors taxes (€)<input type="number" id="pvCA" min="0" step="1000" placeholder="0"></label>
+        <label>Charges variables (% du chiffre d'affaires)<input type="number" id="pvVar" min="0" max="95" step="1" value="0"></label>
+        <label>Croissance en année 2 (%)<input type="number" id="pvG2" min="-50" max="300" step="5" value="20"></label>
+        <label>Croissance en année 3 (%)<input type="number" id="pvG3" min="-50" max="300" step="5" value="15"></label>
+        <label>Charges fixes de l'année 1 (€)<input type="number" id="pvF" min="0" step="500" placeholder="0"></label>
+        <label>Hausse annuelle des charges fixes (%)<input type="number" id="pvFi" min="0" max="50" step="1" value="3"></label>
+      </div>
+      <div class="field">
+        <label for="pvR">Rémunération nette souhaitée par mois (€)</label>
+        <input type="number" id="pvR" min="0" step="50" placeholder="0">
+      </div>
+      <p class="qprog" id="pvLinks"></p>
+    </div>
+    <div class="block" aria-live="polite">
+      <h3>Trésorerie à la fin de l'année 3</h3>
+      <p class="big" id="pvBig"></p>
+      <p class="sub" id="pvSub"></p>
+      <svg class="bechart" id="pvChart" viewBox="0 0 520 220" role="img" aria-label="Trésorerie et revenu par année"></svg>
+      <div class="legend" style="margin-top:6px"><span><i style="background:var(--lagon)"></i>Votre revenu annuel</span><span><i style="background:var(--madras)"></i>Trésorerie en fin d'année</span></div>
+    </div>
+  </div>
+  <div class="block">
+    <h3>Compte de résultat et trésorerie prévisionnels</h3>
+    <div class="scrollx"><table class="pvtable" id="pvTable"></table></div>
+    <div id="pvNotes" style="margin-top:12px"></div>
+  </div>
+  <p class="qprog">Estimation d'orientation. Cotisations des indépendants d'environ 45 % du revenu net, du président de SASU d'environ 80 % du salaire net ; impôt sur les sociétés à 15 % puis 25 % ; investissements amortis sur 5 ans hors micro-entreprise ; ACRE appliquée en année 1 si elle est cochée dans le simulateur. Revenus présentés avant impôt sur le revenu. À faire valider par un expert-comptable avant tout dossier bancaire.</p>
+  </div>
+
+
+
+
 </section>
 
 <!-- ===== CONTACTS ===== -->
@@ -514,7 +810,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   };
   const simIds=['act','ca','chg','besoin','epargne','acre','vl'];
   simIds.forEach(id=>{ if(S.sim[id]!==undefined){ const el=$(id); if(el.type==='checkbox') el.checked=S.sim[id]; else el.value=S.sim[id]; } });
-  let lastPointMort=0;
+  let lastPointMort=0; var finMonthly=0; var simLast={};
   function sim(){
     simIds.forEach(id=>{ const el=$(id); S.sim[id]=el.type==='checkbox'?el.checked:el.value; }); save();
     const r=R[$('act').value], ca=Math.max(0,+$('ca').value||0), chg=Math.max(0,+$('chg').value||0),
@@ -522,17 +818,18 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
           acre=$('acre').checked, vl=$('vl').checked;
     const tc=r.c*(acre?0.75:1), rate=(tc+r.cfp+(vl?r.vl:0))/100;
     const cot=ca*tc/100, cfp=ca*r.cfp/100, imp=vl?ca*r.vl/100:0;
-    const reste=ca-cot-cfp-imp-chg, ecart=reste-besoin;
-    lastPointMort=rate<1?(besoin+chg)/(1-rate):0;
+    const reste=ca-cot-cfp-imp-chg-finMonthly, ecart=reste-besoin; simLast={reste,ecart};
+    lastPointMort=rate<1?(besoin+chg+finMonthly)/(1-rate):0;
     $('simTable').innerHTML=`
       <tr><td>Chiffre d'affaires</td><td>${eur(ca)}</td></tr>
       <tr><td>Cotisations sociales (${tc.toLocaleString('fr-FR',{maximumFractionDigits:2})} %)</td><td>− ${eur(cot)}</td></tr>
       <tr><td>Formation professionnelle</td><td>− ${eur(cfp)}</td></tr>
       ${vl?`<tr><td>Impôt (versement libératoire)</td><td>− ${eur(imp)}</td></tr>`:''}
       <tr><td>Achats et frais pro</td><td>− ${eur(chg)}</td></tr>
+      ${finMonthly>0?`<tr><td>Remboursements d'emprunts</td><td>− ${eur(finMonthly)}</td></tr>`:''}
       <tr class="total"><td>Reste pour moi</td><td>${eur(reste)}</td></tr>`;
     const tot=Math.max(ca,1), pc=v=>Math.max(0,v/tot*100);
-    $('stack').innerHTML=`<span style="width:${pc(cot+cfp+imp)}%;background:var(--coral)"></span><span style="width:${pc(chg)}%;background:var(--madras)"></span><span style="width:${pc(Math.max(reste,0))}%;background:var(--leaf)"></span>`;
+    $('stack').innerHTML=`<span style="width:${pc(cot+cfp+imp)}%;background:var(--coral)"></span><span style="width:${pc(chg+finMonthly)}%;background:var(--madras)"></span><span style="width:${pc(Math.max(reste,0))}%;background:var(--leaf)"></span>`;
     let notes='';
     if(ecart>=0) notes+=`<div class="note ok">Il vous reste ${eur(ecart)} de marge par mois au-delà de vos besoins personnels.</div>`;
     else{
@@ -762,8 +1059,523 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     sim(); openTab('tester');
     setTimeout(()=>$('act').scrollIntoView({behavior:'smooth',block:'center'}),350);
   });
-  $('goPrix').addEventListener('click',()=>openTab('calculs'));
+  $('goPrix').addEventListener('click',()=>{ openTool('toolPrix'); openTab('calculs'); });
   setMode(P.mode||'services');
+
+  /* ---------- plan de financement ---------- */
+  S.fin=S.fin||{need:{},res:{}};
+  const FN=S.fin;
+  ['finHdur','finBdur','finBrate'].forEach(id=>{ if(FN[id]!==undefined) $(id).value=FN[id]; });
+  document.querySelectorAll('[data-need]').forEach(el=>{ if(FN.need[el.dataset.need]) el.value=FN.need[el.dataset.need]; });
+  document.querySelectorAll('[data-res]').forEach(el=>{ if(FN.res[el.dataset.res]) el.value=FN.res[el.dataset.res]; });
+  function annuite(P,tauxAn,ans){ const n=Math.max(1,ans)*12, r=tauxAn/1200; return P<=0?0:(r===0?P/n:P*r/(1-Math.pow(1+r,-n))); }
+  function fin(){
+    document.querySelectorAll('[data-need]').forEach(el=>FN.need[el.dataset.need]=el.value);
+    document.querySelectorAll('[data-res]').forEach(el=>FN.res[el.dataset.res]=el.value);
+    ['finHdur','finBdur','finBrate'].forEach(id=>FN[id]=$(id).value); save();
+    const n=i=>+FN.need[i]||0, rs=i=>+FN.res[i]||0;
+    const besoins=[0,1,2,3,4,5,6,7].reduce((a,i)=>a+n(i),0);
+    const honneur=rs(4), banque=rs(5);
+    const ressources=[0,1,2,3,4,5].reduce((a,i)=>a+rs(i),0);
+    const hdur=+FN.finHdur||5, bdur=+FN.finBdur||5, brate=+FN.finBrate||0;
+    const mH=annuite(honneur,0,hdur), mB=annuite(banque,brate,bdur);
+    const coutCredit=mB*bdur*12-banque;
+    finMonthly=Math.round(mH+mB);
+    sim();
+    const gap=ressources-besoins;
+    // suggestion de trésorerie : 3 mois de charges fixes (module prix) ou de frais du simulateur
+    const Ffix=Object.values((S.prix&&S.prix.fx)||{}).reduce((a,b)=>a+(+b||0),0);
+    const base=Ffix>0?Ffix:(+S.sim.chg||0);
+    const sugg=Math.round(base*3);
+    $('finTresoHint').textContent=sugg?`Repère : trois mois de charges fixes, soit environ ${eur(sugg)}, pour tenir le temps que les premières ventes arrivent.`:'Repère : prévoyez au moins trois mois de charges fixes.';
+    // affichage principal
+    if(!besoins && !ressources){ $('finBig').textContent='À compléter'; $('finSub').textContent='Renseignez vos besoins et vos ressources.'; }
+    else if(Math.abs(gap)<1){ $('finBig').textContent='Équilibré'; $('finSub').textContent=`Besoins et ressources s'élèvent tous deux à ${eur(besoins)}.`; }
+    else if(gap<0){ $('finBig').innerHTML=`Il manque ${eur(-gap)}`; $('finSub').textContent=`Vos ressources couvrent ${Math.round(ressources/besoins*100)} % de vos besoins.`; }
+    else { $('finBig').innerHTML=`Excédent de ${eur(gap)}`; $('finSub').textContent='Vos ressources dépassent vos besoins de départ.'; }
+    const labN=['Formalités, conseils','Matériel, informatique','Véhicule','Travaux, aménagement','Dépôt de garantie','Stock de départ','Site web, communication','Trésorerie de démarrage'];
+    const labR=['Apport personnel','Famille, amis','Subventions, aides','Autres ressources','Prêt d\'honneur','Prêt bancaire ou microcrédit'];
+    const tb=(labs,get,tot,title)=>`<tr><td><strong>${title}</strong></td><td></td></tr>`+labs.map((l,i)=>get(i)?`<tr><td>${l}</td><td>${eur(get(i))}</td></tr>`:'').join('')+`<tr class="total"><td>Total</td><td>${eur(tot)}</td></tr>`;
+    $('finTable1').innerHTML=tb(labN,n,besoins,'Besoins');
+    $('finTable2').innerHTML=tb(labR,rs,ressources,'Ressources');
+    // signaux
+    const out=[];
+    if(besoins && gap<0) out.push(`<div class="note warn">Votre plan n'est pas équilibré : il manque ${eur(-gap)}. Pistes classiques : augmenter l'apport, solliciter un prêt d'honneur, étaler ou réduire certains investissements, louer le matériel plutôt que l'acheter.</div>`);
+    if(besoins && gap>0) out.push(`<div class="note ok">L'excédent de ${eur(gap)} peut venir renforcer votre trésorerie de démarrage.</div>`);
+    if(besoins && n(7)<sugg) out.push(`<div class="note warn">Votre trésorerie de démarrage (${eur(n(7))}) couvre moins de trois mois de charges fixes. C'est la cause la plus fréquente de difficultés la première année : les premières ventes arrivent souvent plus tard que prévu.</div>`);
+    const fonds=rs(0)+rs(1)+rs(2)+honneur;
+    if(banque>0 && besoins>0 && fonds/besoins<0.2) out.push(`<div class="note warn">Votre apport et vos quasi-fonds propres (apport, proches, aides, prêt d'honneur) représentent ${Math.round(fonds/besoins*100)} % du projet. Les banques attendent en général au moins 20 à 30 % avant d'accorder un prêt.</div>`);
+    if(banque>0 && honneur===0) out.push(`<div class="note info">Un prêt d'honneur renforce votre apport et rassure la banque : il facilite souvent l'obtention du prêt bancaire, par effet de levier.</div>`);
+    if(finMonthly>0){
+      out.push(`<div class="note info">Vos remboursements : <strong>${eur(finMonthly)} par mois</strong>${banque>0?`, dont ${eur(mB)} pour le prêt bancaire (coût total du crédit : ${eur(coutCredit)})`:''}${honneur>0?`, et ${eur(mH)} pour le prêt d'honneur`:''}.</div>`);
+      if(simLast.ecart<0) out.push(`<div class="note warn">Une fois ces remboursements déduits, l'activité prévue dans votre simulateur ne couvre plus vos besoins personnels : il manque ${eur(-simLast.ecart)} par mois. Revoyez le montant ou la durée des prêts, ou votre objectif de chiffre d'affaires.</div>`);
+    }
+    $('finNotes').innerHTML=out.join('');
+  }
+  document.querySelectorAll('[data-need],[data-res]').forEach(el=>el.addEventListener('input',fin));
+  ['finHdur','finBdur','finBrate'].forEach(id=>$(id).addEventListener('input',fin));
+  simIds.forEach(id=>$(id).addEventListener('input',()=>fin()));
+  document.querySelectorAll('[data-fx]').forEach(el=>el.addEventListener('input',()=>fin()));
+
+  /* ---------- seuil de rentabilité ---------- */
+  S.bs=S.bs||{bv:{}};
+  const BS=S.bs;
+  const MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  const SAISON={reg:Array(12).fill(1),
+    hiver:[1.4,1.4,1.4,1.2,0.8,0.7,0.8,0.7,0.5,0.6,0.9,1.6],
+    ete:[0.8,0.8,0.9,1,1.1,1.4,1.6,1.5,0.9,0.7,0.6,0.7],
+    fete:[0.8,0.8,0.9,0.9,0.9,0.9,0.8,0.7,0.9,1,1.4,2]};
+  $('bsStart').innerHTML=MOIS.map((m,i)=>`<option value="${i}">${m[0].toUpperCase()+m.slice(1)}</option>`).join('');
+  if(BS.bsStart===undefined) BS.bsStart=String((new Date().getMonth()+1)%12);
+  ['bsCA','bsF','bsR','bsStart','bsSaison'].forEach(id=>{ if(BS[id]!==undefined) $(id).value=BS[id]; });
+  document.querySelectorAll('[data-bv]').forEach(el=>{ if(BS.bv[el.dataset.bv]) el.value=BS.bv[el.dataset.bv]; });
+  function fixMois(){ return Object.values((S.prix&&S.prix.fx)||{}).reduce((a,b)=>a+(+b||0),0); }
+  $('bsFill').addEventListener('click',()=>{
+    const Fm=fixMois(), ca=+S.sim.ca||0, chg=+S.sim.chg||0;
+    $('bsCA').value=Math.round(ca*12);
+    if(Fm>0){ $('bsF').value=Math.round(Fm*12); document.querySelector('[data-bv="0"]').value=Math.round(Math.max(0,chg-Fm)*12); }
+    else { $('bsF').value=Math.round(chg*12); }
+    if(S.prix&&S.prix.mode==='produits'&&+S.prix.pxCout&&+S.prix.pxQte) document.querySelector('[data-bv="0"]').value=Math.round(S.prix.pxCout*S.prix.pxQte*12);
+    $('bsR').value=+S.sim.besoin||+((S.prix||{}).pxRemun)||0;
+    seuil();
+  });
+  function seuil(){
+    ['bsCA','bsF','bsR','bsStart','bsSaison'].forEach(id=>BS[id]=$(id).value);
+    document.querySelectorAll('[data-bv]').forEach(el=>BS.bv[el.dataset.bv]=el.value); save();
+    const Fm=fixMois();
+    $('bsFHint').textContent=Fm?`Repère : ${eur(Fm*12)} par an d'après « Fixer mon prix ».`:'Loyer, assurances, abonnements… Elles restent les mêmes quel que soit le volume de ventes.';
+    const r=R[$('act').value], ratePct=r.c*($('acre').checked?0.75:1)+r.cfp+($('vl').checked?r.vl:0), rate=ratePct/100;
+    const CA=+BS.bsCA||0, F=+BS.bsF||0, Rm=(+BS.bsR||0)*12, Remb=finMonthly*12;
+    const Vx=Object.values(BS.bv).reduce((a,b)=>a+(+b||0),0);
+    const V=Vx+CA*rate;
+    const tvx=CA>0?Vx/CA:0, tv=tvx+rate;             // part variable du CA
+    const tmcv=1-tv, MCV=CA-V, Res=MCV-F;
+    const SR=tmcv>0?F/tmcv:Infinity, SV=tmcv>0?(F+Rm+Remb)/tmcv:Infinity;
+    const notes=[]; const pc=x=>(Math.round(x*1000)/10).toLocaleString('fr-FR')+' %';
+    if(!CA){
+      $('bsBig').textContent='À compléter'; $('bsSub').textContent='Indiquez au moins votre chiffre d\'affaires prévu et vos charges.';
+      $('bsKpis').innerHTML=''; $('bsTable').innerHTML=''; $('bsChart').innerHTML=''; $('bsNotes').innerHTML=''; return;
+    }
+    if(tmcv<=0){
+      $('bsBig').textContent='Inatteignable'; $('bsSub').textContent='Vos charges variables absorbent tout le chiffre d\'affaires.';
+      $('bsKpis').innerHTML=''; $('bsTable').innerHTML=''; $('bsChart').innerHTML='';
+      $('bsNotes').innerHTML='<div class="note warn">Chaque vente coûte plus qu\'elle ne rapporte : aucun volume ne peut rendre l\'activité rentable. Il faut d\'abord revoir le prix de vente ou le coût d\'achat.</div>'; return;
+    }
+    $('bsBig').innerHTML=eur(SR)+' <span style="font-size:1rem;font-family:var(--sans)">HT par an</span>';
+    let unit='';
+    const Pp=S.prix||{};
+    if(+Pp.pxPrix>0) unit=Pp.mode==='produits'?` Soit environ ${Math.ceil(SR/Pp.pxPrix).toLocaleString('fr-FR')} unités vendues à ${eur(+Pp.pxPrix)}.`:` Soit environ ${Math.ceil(SR/Pp.pxPrix).toLocaleString('fr-FR')} heures facturées à ${eur(+Pp.pxPrix)}.`;
+    $('bsSub').textContent=`Environ ${eur(SR/12)} par mois en moyenne.`+unit;
+    // point mort (date) sur la première année d'activité
+    const coef=SAISON[BS.bsSaison||'reg'], m0=+BS.bsStart||0;
+    let cum=0, pm=null, cash=0, worst=0;
+    for(let k=0;k<12;k++){
+      const m=(m0+k)%12, caM=CA/12*coef[m];
+      const before=cum; cum+=caM;
+      cash+=caM*tmcv-F/12-Remb/12-Rm/12; worst=Math.min(worst,cash);
+      if(pm===null && cum>=SR){ const frac=caM>0?(SR-before)/caM:0; pm={k,m,day:Math.max(1,Math.round(frac*30))}; }
+    }
+    const MS=CA-SR, IS=MS/CA, lev=Res>0?MCV/Res:null;
+    const kpi=(v,l)=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`;
+    $('bsKpis').innerHTML=
+      kpi(pm?`${pm.day} ${MOIS[pm.m]}`:'Non atteint','Point mort, la première année')+
+      kpi(MS>=0?eur(MS):'− '+eur(-MS),'Marge de sécurité')+
+      kpi(pc(IS),'Indice de sécurité')+
+      kpi(isFinite(SV)?eur(SV):'—','Seuil pour vous rémunérer');
+    $('bsTable').innerHTML=`
+      <tr><td>Chiffre d'affaires prévu</td><td>${eur(CA)}</td></tr>
+      <tr><td>Charges variables, dont cotisations (${ratePct.toLocaleString('fr-FR',{maximumFractionDigits:2})} %)</td><td>− ${eur(V)}</td></tr>
+      <tr><td>Marge sur coûts variables (${pc(tmcv)} du CA)</td><td>${eur(MCV)}</td></tr>
+      <tr><td>Charges fixes</td><td>− ${eur(F)}</td></tr>
+      <tr class="total"><td>Résultat de l'activité</td><td>${Res<0?'− '+eur(-Res):eur(Res)}</td></tr>`;
+    // graphique
+    const W=Math.max(320,Math.min(720,$('bsChart').clientWidth||720)), H=W<500?280:320, pl=W<500?44:64,pr=16,pt=14,pb=34;
+    $('bsChart').setAttribute('viewBox',`0 0 ${W} ${H}`);
+    const xmax=Math.max(CA,isFinite(SV)?SV:0,SR)*1.18;
+    const X=v=>pl+v/xmax*(W-pl-pr), Y=v=>H-pb-v/xmax*(H-pt-pb);
+    const Ct=x=>F+tv*x;
+    let s='';
+    for(let g=0;g<=4;g++){const v=xmax/4*g; s+=`<line x1="${pl}" x2="${W-pr}" y1="${Y(v)}" y2="${Y(v)}" style="stroke:var(--line)"/><text x="${pl-8}" y="${Y(v)+4}" text-anchor="end" font-size="11" style="fill:var(--muted)">${Math.round(v/1000)}k</text><text x="${X(v)}" y="${H-12}" text-anchor="middle" font-size="11" style="fill:var(--muted)">${Math.round(v/1000)}k</text>`;}
+    s+=`<polygon points="${X(0)},${Y(0)} ${X(0)},${Y(Ct(0))} ${X(SR)},${Y(SR)}" style="fill:var(--coral);opacity:.14"/>`;
+    s+=`<polygon points="${X(SR)},${Y(SR)} ${X(xmax)},${Y(Math.min(xmax,Ct(xmax)))} ${X(xmax)},${Y(xmax)}" style="fill:var(--leaf);opacity:.16"/>`;
+    s+=`<line x1="${X(0)}" y1="${Y(F)}" x2="${X(xmax)}" y2="${Y(F)}" style="stroke:var(--muted)" stroke-dasharray="5 5"/>`;
+    s+=`<line x1="${X(0)}" y1="${Y(Ct(0))}" x2="${X(xmax)}" y2="${Y(Ct(xmax))}" style="stroke:var(--coral)" stroke-width="2.5"/>`;
+    s+=`<line x1="${X(0)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(xmax)}" style="stroke:var(--lagon)" stroke-width="2.5"/>`;
+    s+=`<line x1="${X(SR)}" y1="${Y(0)}" x2="${X(SR)}" y2="${Y(SR)}" style="stroke:var(--ink)" stroke-dasharray="3 4"/><circle cx="${X(SR)}" cy="${Y(SR)}" r="5" style="fill:var(--ink)"/><text x="${X(SR)+8}" y="${Y(SR)-8}" font-size="12" style="fill:var(--ink)">seuil</text>`;
+    s+=`<line x1="${X(CA)}" y1="${Y(0)}" x2="${X(CA)}" y2="${Y(CA)}" style="stroke:var(--madras)" stroke-width="2"/><text x="${X(CA)+6}" y="${Y(0)-8}" font-size="12" style="fill:var(--madras)">prévu</text>`;
+    if(isFinite(SV) && SV>SR*1.08 && SV<=xmax) s+=`<circle cx="${X(SV)}" cy="${Y(SV)}" r="5" style="fill:var(--surface);stroke:var(--lagon)" stroke-width="2.5"/><text x="${X(SV)-8}" y="${Y(SV)-10}" text-anchor="end" font-size="12" style="fill:var(--lagon)">pour vous rémunérer</text>`;
+    const xz=SR+(xmax-SR)*0.62;
+    s+=`<text x="${X(xz)}" y="${(Y(xz)+Y(Ct(xz)))/2+4}" text-anchor="middle" font-size="12" style="fill:var(--leaf)">zone de bénéfice</text>`;
+    s+=`<text x="${X(0)+6}" y="${Y(Ct(0))-8}" font-size="12" style="fill:var(--coral)">zone de perte</text>`;
+    $('bsChart').innerHTML=s;
+    // signaux
+    if(Res<0) notes.push(`<div class="note warn">Avec ${eur(CA)} de chiffre d'affaires, l'activité perd ${eur(-Res)} par an. Il faudrait ${eur(SR-CA)} de ventes en plus, ou réduire les charges fixes, ou améliorer la marge par le prix.</div>`);
+    else if(isFinite(SV) && CA<SV) notes.push(`<div class="note warn">L'activité est rentable, mais pas assez pour vous verser ${eur(Rm/12)} par mois${Remb>0?' et rembourser vos emprunts':''} : il faudrait atteindre ${eur(SV)} de chiffre d'affaires par an.</div>`);
+    else notes.push(`<div class="note ok">Votre chiffre d'affaires prévu couvre vos charges${Rm>0?', votre rémunération':''}${Remb>0?' et vos remboursements':''}.</div>`);
+    if(Res>=0 && IS<0.1) notes.push(`<div class="note warn">Votre marge de sécurité n'est que de ${pc(IS)} : une baisse des ventes de cet ordre suffirait à faire basculer l'activité en perte.</div>`);
+    if(lev && lev>3) notes.push(`<div class="note info">Votre résultat est très sensible aux ventes : une baisse de 10 % du chiffre d'affaires ferait chuter le résultat d'environ ${Math.round(lev*10)} %.</div>`);
+    if(!pm) notes.push(`<div class="note warn">Le seuil de rentabilité n'est pas atteint au cours de la première année d'activité.</div>`);
+    else if(pm.k>=8) notes.push(`<div class="note warn">Le point mort n'arrive qu'au ${pm.k+1}e mois d'activité : la trésorerie doit tenir jusque-là.</div>`);
+    if(worst<0){
+      const treso=+((S.fin||{}).need||{})[7]||0;
+      notes.push(`<div class="note ${treso>=-worst?'info':'warn'}">Compte tenu du rythme des ventes${Rm>0?' et de votre rémunération':''}, la trésorerie descend jusqu'à ${eur(-worst)} en dessous de zéro au plus bas de la première année. ${treso>=-worst?`Votre trésorerie de démarrage (${eur(treso)}) le couvre.`:`Votre trésorerie de démarrage (${eur(treso)}) ne suffit pas : prévoyez au moins ${eur(-worst)} dans votre plan de financement.`}</div>`);
+    }
+    $('bsNotes').innerHTML=notes.join('');
+  }
+  ['bsCA','bsF','bsR','bsStart','bsSaison'].forEach(id=>$(id).addEventListener('input',seuil));
+  let bsT; window.addEventListener('resize',()=>{ clearTimeout(bsT); bsT=setTimeout(()=>{ if(!$('toolSeuil').hidden) seuil(); },200); });
+  document.querySelectorAll('[data-bv]').forEach(el=>el.addEventListener('input',seuil));
+  simIds.forEach(id=>$(id).addEventListener('input',()=>seuil()));
+  document.querySelectorAll('[data-need],[data-res]').forEach(el=>el.addEventListener('input',()=>seuil()));
+  seuil();
+
+
+  /* ---------- besoin en fonds de roulement ---------- */
+  S.bfr=S.bfr||{};
+  const BF=S.bfr, bfIds=['bfCA','bfA','bfDs','bfPct','bfDc','bfDf'];
+  bfIds.forEach(id=>{ if(BF[id]!==undefined) $(id).value=BF[id]; });
+  if(BF.bfTtc!==undefined) $('bfTtc').checked=BF.bfTtc; else if(S.prix&&S.prix.pxTva) $('bfTtc').checked=true;
+  let bfLast=0;
+  $('bfFill').addEventListener('click',()=>{
+    const bs=S.bs||{}, Pp=S.prix||{};
+    const ca=+bs.bsCA||(+S.sim.ca||0)*12;
+    let ach=+((bs.bv||{})[0])||0;
+    if(!ach && Pp.mode==='produits' && +Pp.pxCout && +Pp.pxQte) ach=Pp.pxCout*Pp.pxQte*12;
+    $('bfCA').value=Math.round(ca); $('bfA').value=Math.round(ach);
+    if(!ach) $('bfDs').value=0;
+    $('bfTtc').checked=!!Pp.pxTva;
+    bfr();
+  });
+  function bfr(){
+    bfIds.forEach(id=>BF[id]=$(id).value); BF.bfTtc=$('bfTtc').checked; save();
+    const C=+BF.bfCA||0, A=+BF.bfA||0, ds=+BF.bfDs||0, pc=Math.min(100,+BF.bfPct||0)/100, dc=+BF.bfDc||0, df=+BF.bfDf||0;
+    const t=BF.bfTtc?(TVA[S.region||'metro']||0)/100:0;
+    const stock=A*ds/360, cre=C*(1+t)*pc*dc/360, det=A*(1+t)*df/360;
+    const B=stock+cre-det; bfLast=B;
+    const treso=+((S.fin||{}).need||{})[7]||0;
+    $('bfToFinMsg').textContent='';
+    if(!C){ $('bfBig').textContent='À compléter'; $('bfSub').textContent='Indiquez au moins votre chiffre d\'affaires annuel.'; $('bfTable').innerHTML=''; $('bfChart').innerHTML=''; $('bfNotes').innerHTML=''; return; }
+    const jours=Math.round(B/C*360);
+    $('bfBig').textContent=B<0?'− '+eur(-B):eur(B);
+    $('bfSub').textContent=B>0?`Soit ${jours} jours de chiffre d'affaires à financer en permanence.`:B<0?'Vos clients vous paient avant que vous ne payiez vos fournisseurs : votre cycle dégage de la trésorerie.':'Vos encaissements et décaissements sont synchronisés.';
+    $('bfTable').innerHTML=`
+      <tr><td>Stock moyen immobilisé</td><td>${eur(stock)}</td></tr>
+      <tr><td>Argent dû par les clients</td><td>+ ${eur(cre)}</td></tr>
+      <tr><td>Crédit accordé par les fournisseurs</td><td>− ${eur(det)}</td></tr>
+      <tr class="total"><td>Besoin en fonds de roulement</td><td>${B<0?'− '+eur(-B):eur(B)}</td></tr>`;
+    // frise du cycle
+    const dce=Math.round(pc*dc), end=ds+dce, maxD=Math.max(end,df,30)*1.1;
+    const W=Math.max(320,Math.min(720,$('bfChart').clientWidth||720)), H=200, pl=16, pr=16;
+    $('bfChart').setAttribute('viewBox',`0 0 ${W} ${H}`);
+    const X=d=>pl+d/maxD*(W-pl-pr);
+    let s=`<line x1="${X(0)}" y1="150" x2="${X(maxD)}" y2="150" style="stroke:var(--line)" stroke-width="2"/>`;
+    const gap0=Math.min(df,end), gapLen=end-df;
+    s+=`<rect x="${X(0)}" y="70" width="${X(Math.min(df,end))-X(0)}" height="26" rx="5" style="fill:var(--leaf);opacity:.25"/>`;
+    if(gapLen>0) s+=`<rect x="${X(df)}" y="70" width="${X(end)-X(df)}" height="26" rx="5" style="fill:var(--coral);opacity:.3"/><text x="${(X(df)+X(end))/2}" y="88" text-anchor="middle" font-size="12" style="fill:var(--ink)">${gapLen} j à financer</text>`;
+    else s+=`<text x="${X(end)+6}" y="88" font-size="12" style="fill:var(--leaf)">aucun jour à financer</text>`;
+    const mark=(d,lab,col,up)=>`<line x1="${X(d)}" y1="${up?108:108}" x2="${X(d)}" y2="158" style="stroke:${col}" stroke-width="2"/><circle cx="${X(d)}" cy="150" r="5" style="fill:${col}"/><text x="${X(d)}" y="${up?40:180}" text-anchor="middle" font-size="11.5" style="fill:${col}">${lab}</text><text x="${X(d)}" y="${up?56:196}" text-anchor="middle" font-size="11" style="fill:var(--muted)">jour ${d}</text>`;
+    s+=mark(0,'achat','var(--ink)',false);
+    if(df>0) s+=mark(df,'je paie le fournisseur','var(--leaf)',true);
+    if(ds>0) s+=mark(ds,'vente','var(--madras)',df>0&&Math.abs(ds-df)<maxD*0.2?false:true);
+    s+=mark(end,pc<1&&pc>0?'le client paie (en moyenne)':'le client paie','var(--lagon)',false);
+    $('bfChart').innerHTML=s;
+    // signaux
+    const n=[];
+    if(B>0){
+      if(treso<B) n.push(`<div class="note warn">Votre trésorerie de démarrage (${eur(treso)}) ne couvre pas ce besoin de ${eur(B)}. Sans marge, la première commande importante ou le premier client en retard peut bloquer l'activité.</div>`);
+      else n.push(`<div class="note ok">Votre trésorerie de démarrage (${eur(treso)}) couvre ce besoin.</div>`);
+      n.push(`<div class="note info">Le BFR grandit avec les ventes : si votre chiffre d'affaires augmente de 50 %, il faudra environ ${eur(B*0.5)} de trésorerie en plus. Croître coûte de l'argent avant d'en rapporter.</div>`);
+    }
+    if(pc>0 && dc>60) n.push(`<div class="note warn">Un délai de ${dc} jours dépasse le plafond légal entre professionnels en France : 60 jours à compter de la facture, ou 45 jours fin de mois. Vous pouvez exiger des pénalités de retard.</div>`);
+    if(ds>90 && A>0) n.push(`<div class="note warn">${ds} jours de stock, c'est de l'argent qui dort ${eur(stock)} en permanence. Des commandes plus petites et plus fréquentes réduiraient ce montant, au prix d'un fret parfois plus cher, notamment outre-mer.</div>`);
+    if(A>0 && df===0) n.push(`<div class="note info">Obtenir 30 jours de délai de vos fournisseurs réduirait votre besoin d'environ ${eur(A*(1+t)*30/360)}. Une demande à faire une fois la relation établie.</div>`);
+    if(pc>0 && dc>0 && B>0) n.push(`<div class="note info">Demander un acompte à la commande ou réduire le délai client de 15 jours libérerait environ ${eur(C*(1+t)*pc*15/360)}.</div>`);
+    $('bfNotes').innerHTML=n.join('');
+  }
+  $('bfToFin').addEventListener('click',()=>{
+    const cur=+((S.fin||{}).need||{})[7]||0, v=Math.round(Math.max(0,bfLast));
+    if(v<=0){ $('bfToFinMsg').textContent='Votre BFR est nul ou négatif : rien à ajouter.'; return; }
+    if(cur>=v){ $('bfToFinMsg').textContent=`Votre trésorerie de démarrage (${eur(cur)}) couvre déjà ce besoin.`; return; }
+    document.querySelector('[data-need="7"]').value=v; fin(); seuil();
+    bfr();
+    $('bfToFinMsg').textContent=`Trésorerie de démarrage portée à ${eur(v)} dans votre plan de financement.`;
+  });
+  bfIds.concat(['bfTtc']).forEach(id=>$(id).addEventListener('input',bfr));
+  $('region').addEventListener('change',()=>bfr());
+  document.querySelectorAll('[data-need]').forEach(el=>el.addEventListener('input',()=>bfr()));
+  window.addEventListener('resize',()=>{ if(!$('toolBfr').hidden) bfr(); });
+  bfr();
+
+
+  /* ---------- comparateur de statuts ---------- */
+  S.st=S.st||{};
+  const ST=S.st, stIds=['stCA','stCh','stParts','stAutres','stCptEI','stCptSoc'];
+  stIds.forEach(id=>{ if(ST[id]!==undefined) $(id).value=ST[id]; });
+  const ABATT={vente:0.71,bic:0.50,bnc:0.34,cipav:0.34};
+  const ACTLAB={vente:'vente de marchandises',bic:'prestations de services commerciales ou artisanales',bnc:'profession libérale',cipav:'profession libérale réglementée'};
+  function irBareme(rev,parts){
+    const q=Math.max(0,rev)/parts, T=[[11600,0],[29579,.11],[84577,.30],[181917,.41],[Infinity,.45]];
+    let tax=0,prev=0; for(const [lim,t] of T){ if(q>prev){ tax+=(Math.min(q,lim)-prev)*t; } prev=lim; }
+    return tax*parts;
+  }
+  function stPrefill(){
+    const bs=S.bs||{}, Fm=Object.values((S.prix&&S.prix.fx)||{}).reduce((a,b)=>a+(+b||0),0);
+    const ca=+bs.bsCA||(+S.sim.ca||0)*12;
+    let ch=0;
+    if(+bs.bsF||Object.values(bs.bv||{}).some(v=>+v)) ch=(+bs.bsF||0)+Object.values(bs.bv||{}).reduce((a,b)=>a+(+b||0),0);
+    else ch=Math.max(Fm,+S.sim.chg||0)*12;
+    $('stCA').value=Math.round(ca); $('stCh').value=Math.round(ch);
+  }
+  if(!ST.stCA) stPrefill();
+  $('stFill').addEventListener('click',()=>{ stPrefill(); statut(); });
+  function statut(){
+    stIds.forEach(id=>ST[id]=$(id).value); save();
+    const act=$('act').value, r=R[act];
+    $('stActHint').textContent=`Activité : ${ACTLAB[act]}, d'après votre simulateur (onglet 1).`;
+    const CA=+ST.stCA||0, CH=+ST.stCh||0, parts=+ST.stParts||1, autres=+ST.stAutres||0;
+    const cEI=+ST.stCptEI||0, cSoc=+ST.stCptSoc||0;
+    const irPart=rev=>irBareme(rev+autres,parts)-irBareme(autres,parts);
+    const res=[];
+    // micro-entreprise
+    {
+      const cot=CA*(r.c+r.cfp)/100;
+      const vl=$('vl').checked;
+      const ir=vl?CA*r.vl/100:irPart(CA*(1-ABATT[act]));
+      const net=CA-CH-cot-ir;
+      res.push({k:'micro',nom:'Micro-entreprise',net,cot,impot:ir,ok:CA<=r.plaf,why:CA>r.plaf?`Non accessible : chiffre d'affaires au-delà du plafond de ${eur(r.plaf)}.`:''});
+    }
+    // EI au réel / EURL à l'IR
+    {
+      const D=CA-CH-cEI;
+      let netAv=D>0?D/1.45:0, cot=D>0?D-netAv:0;
+      if(cot<1100){ cot=Math.min(1100,Math.max(D,0)+1100); netAv=D-cot; }
+      const ir=irPart(Math.max(0,netAv));
+      res.push({k:'ei',nom:'Entreprise individuelle au réel ou EURL',net:netAv-ir,cot,impot:ir,ok:true,why:''});
+    }
+    // SASU, tout en salaire
+    {
+      const D=CA-CH-cSoc, N=D>0?D/1.8:0, cot=D>0?D-N:0, ir=irPart(N*0.9);
+      res.push({k:'sal',nom:'SASU, rémunération en salaire',net:N-ir,cot,impot:ir,ok:true,why:''});
+    }
+    // SASU, tout en dividendes
+    {
+      const D=CA-CH-cSoc, is=D<=0?0:Math.min(D,42500)*0.15+Math.max(0,D-42500)*0.25, div=Math.max(0,D-is), pfu=div*0.314;
+      res.push({k:'div',nom:'SASU, rémunération en dividendes',net:D>0?div-pfu:D,cot:0,impot:is+pfu,ok:true,why:''});
+    }
+    const valid=res.filter(x=>x.ok), best=valid.reduce((a,b)=>b.net>a.net?b:a,valid[0]);
+    ST.best=best?best.k:''; save();
+    const maxv=Math.max(1,...res.map(x=>x.net));
+    $('stBars').innerHTML=res.map(x=>`<div class="stbar ${x===best&&x.net>0?'best':''} ${x.ok?'':'off'}"><div class="top"><span>${x.nom}</span><span>${x.net<0?'− '+eur(-x.net/12):eur(x.net/12)}</span></div><div class="track"><div class="fill" style="width:${Math.max(0,x.net)/maxv*100}%"></div></div>${x.why?`<div class="qprog" style="margin-top:4px">${x.why}</div>`:''}</div>`).join('');
+    // conclusion
+    const notes=[];
+    if(!CA){ $('stBest').innerHTML='<div class="note info">Indiquez votre chiffre d\'affaires et vos charges, ou reprenez les chiffres de vos autres calculs.</div>'; $('stGrid').innerHTML=''; $('stNotes').innerHTML=''; return; }
+    if(best.net<=0) $('stBest').innerHTML=`<div class="note warn">Avec ces chiffres, aucun statut ne vous laisse de revenu : l'activité ne dégage pas assez de marge. Le statut n'y changera rien ; c'est le prix, le volume ou les charges qu'il faut revoir.</div>`;
+    else {
+      const sorted=[...valid].sort((a,b)=>b.net-a.net), second=sorted[1];
+      $('stBest').innerHTML=`<div class="note ok">Avec vos chiffres, le statut qui vous laisse le plus est <strong>${({micro:'la micro-entreprise',ei:'l\'entreprise individuelle au réel ou l\'EURL',sal:'la SASU avec un salaire',div:'la SASU avec des dividendes'})[best.k]}</strong> : environ ${eur(best.net)} par an, soit ${eur(best.net/12)} par mois.${second&&second.net>0?` C'est ${eur((best.net-second.net)/12)} de plus par mois que l'option suivante.`:''}</div>`;
+      if(second && second.net>0 && (best.net-second.net)/best.net<0.08) notes.push(`<div class="note info">L'écart entre les deux meilleures options est faible. Dans ce cas, choisissez plutôt selon la protection sociale, la simplicité et vos projets de croissance.</div>`);
+    }
+    const micro=res[0];
+    if(micro.ok && CA>r.plaf*0.8) notes.push(`<div class="note warn">Votre chiffre d'affaires atteint ${Math.round(CA/r.plaf*100)} % du plafond de la micro-entreprise : si l'activité progresse, un changement de statut est à préparer.</div>`);
+    if(CA>0 && CH/CA>0.4 && best.k!=='micro') notes.push(`<div class="note info">Vos charges représentent ${Math.round(CH/CA*100)} % de votre chiffre d'affaires. La micro-entreprise calcule cotisations et impôt sur le chiffre d'affaires sans déduire ces charges : c'est pourquoi un statut au réel vous laisse davantage.</div>`);
+    if(best.k==='div') notes.push(`<div class="note warn">Se rémunérer uniquement en dividendes ne donne droit à aucune protection sociale : ni retraite, ni indemnités maladie au titre de l'activité. On combine en général un petit salaire et des dividendes ; c'est un réglage à faire avec un expert-comptable.</div>`);
+    if(CA>0 && CA<35000) notes.push(`<div class="note info">À ce niveau de chiffre d'affaires, la simplicité compte autant que l'argent : pas de bilan, pas d'expert-comptable obligatoire et une déclaration en quelques minutes pour la micro-entreprise.</div>`);
+    $('stNotes').innerHTML=notes.join('');
+    // grille qualitative
+    const rows=[
+      ['Cotisations et impôts par an',res.map(x=>eur(x.cot+x.impot))],
+      ['Retraite et protection',['Proportionnelles au chiffre d\'affaires déclaré, souvent faibles. Pas d\'assurance chômage.','Régime des indépendants : retraite de base et complémentaire, indemnités maladie. Pas d\'assurance chômage.','Régime général, comme un salarié : la meilleure couverture, notamment pour la retraite. Pas d\'assurance chômage.','Aucune tant qu\'il n\'y a pas de salaire : ni trimestres de retraite, ni indemnités maladie.']],
+      ['Patrimoine personnel','Protégé par défaut depuis 2022 : seuls les biens utiles à l\'activité répondent des dettes professionnelles.|Protégé par défaut en entreprise individuelle ; séparé par la société en EURL.|Séparé : la société a son propre patrimoine. Attention aux cautions personnelles demandées par les banques.|Séparé, comme pour la SASU avec salaire.'.split('|')],
+      ['Démarches','Très simples : déclaration du chiffre d\'affaires en ligne, pas de bilan.|Comptabilité complète et déclaration de résultat annuelle ; expert-comptable conseillé.|Statuts, dépôt du capital, comptes annuels à publier, fiches de paie : expert-comptable quasi indispensable.|Comme la SASU avec salaire, plus une décision annuelle de distribution des dividendes.'.split('|')],
+      ['Idéal pour','Démarrer, tester, activité avec peu de charges.|Activité avec des charges importantes, sans associé.|Besoin de protection, projet d\'associés ou d\'investisseurs.|Dirigeant déjà protégé par ailleurs (emploi salarié, retraite).'.split('|')]
+    ];
+    $('stGrid').innerHTML=`<thead><tr><th></th>${res.map(x=>`<th>${x.nom}${x===best&&best.net>0?' <span style="color:var(--leaf)">●</span>':''}</th>`).join('')}</tr></thead><tbody>`+rows.map(rw=>`<tr><th>${rw[0]}</th>${rw[1].map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')+'</tbody>';
+  }
+  stIds.forEach(id=>$(id).addEventListener('input',statut));
+  ['act','vl'].forEach(id=>$(id).addEventListener('input',()=>statut()));
+  statut();
+
+
+  /* ---------- prévisionnel sur trois ans ---------- */
+  S.pv=S.pv||{};
+  const PV=S.pv, pvIds=['pvStat','pvCA','pvVar','pvG2','pvG3','pvF','pvFi','pvR'];
+  pvIds.forEach(id=>{ if(PV[id]!==undefined) $(id).value=PV[id]; });
+  function pvPrefill(){
+    const bs=S.bs||{}, Pp=S.prix||{}, Fm=Object.values(Pp.fx||{}).reduce((a,b)=>a+(+b||0),0);
+    const ca=+bs.bsCA||(+S.sim.ca||0)*12;
+    const vx=Object.values(bs.bv||{}).reduce((a,b)=>a+(+b||0),0);
+    let tv=ca>0&&vx>0?vx/ca*100:0;
+    if(!tv && Pp.mode==='produits' && +Pp.pxCout && +Pp.pxPrix) tv=Pp.pxCout/Pp.pxPrix*100;
+    $('pvCA').value=Math.round(ca); $('pvVar').value=Math.round(tv);
+    $('pvF').value=Math.round(+bs.bsF||Fm*12||(+S.sim.chg||0)*12);
+    $('pvR').value=Math.round(+bs.bsR||+S.sim.besoin||0);
+    const b=(S.st||{}).best; if(b) $('pvStat').value=b==='div'?'sasu':(b==='sal'?'sasu':b);
+  }
+  if(!PV.pvCA) pvPrefill();
+  $('pvFill').addEventListener('click',()=>{ pvPrefill(); prev(); });
+  function echeancier(P,taux,ans){ // intérêts et capital remboursés par année (3 ans)
+    const out=[[0,0],[0,0],[0,0]]; if(P<=0) return out;
+    const n=Math.max(1,ans)*12, r=taux/1200, m=r===0?P/n:P*r/(1-Math.pow(1+r,-n));
+    let crd=P;
+    for(let k=0;k<Math.min(n,36);k++){ const i=crd*r, c=m-i; crd-=c; out[Math.floor(k/12)][0]+=i; out[Math.floor(k/12)][1]+=c; }
+    return out;
+  }
+  function prev(){
+    pvIds.forEach(id=>PV[id]=$(id).value); save();
+    const stat=PV.pvStat, r=R[$('act').value], acre=$('acre').checked;
+    const ca1=+PV.pvCA||0, g=[0,(+PV.pvG2||0)/100,(+PV.pvG3||0)/100], tv=Math.min(95,+PV.pvVar||0)/100;
+    const F1=+PV.pvF||0, fi=(+PV.pvFi||0)/100, Rm=(+PV.pvR||0)*12;
+    const fn=S.fin||{need:{},res:{}}, need=i=>+(fn.need||{})[i]||0, res=i=>+(fn.res||{})[i]||0;
+    const invest=need(1)+need(2)+need(3), frais0=need(0)+need(6);
+    const besoins=[0,1,2,3,4,5,6,7].reduce((a,i)=>a+need(i),0), ressources=[0,1,2,3,4,5].reduce((a,i)=>a+res(i),0);
+    const treso0=need(7)+Math.max(0,ressources-besoins);
+    const eb=echeancier(res(5),+fn.finBrate||0,+fn.finBdur||5), eh=echeancier(res(4),0,+fn.finHdur||5);
+    const bf=S.bfr||{}, bfrRatio=(+bf.bfCA>0)?Math.max(0,((+bf.bfA||0)*(+bf.bfDs||0)/360+(+bf.bfCA)*Math.min(100,+bf.bfPct||0)/100*(+bf.bfDc||0)/360-(+bf.bfA||0)*(+bf.bfDf||0)/360)/(+bf.bfCA)):0;
+    $('pvLinks').textContent=`Repris automatiquement : ${invest?`investissements de ${eur(invest)} et `:''}trésorerie de départ de ${eur(treso0)} (plan de financement)${res(4)+res(5)?', remboursements d\'emprunts':''}${bfrRatio?', besoin en fonds de roulement':''}.`;
+    const Y=[]; let ca=ca1, cash=treso0, bfrPrev=0;
+    for(let y=0;y<3;y++){
+      if(y>0) ca=ca*(1+g[y]);
+      const V=ca*tv, F=F1*Math.pow(1+fi,y);
+      const amort=stat==='micro'?0:invest/5, frais=stat==='micro'||y>0?0:frais0;
+      const int=eb[y][0]+eh[y][0], cap=eb[y][1]+eh[y][1];
+      let cot=0, is=0, sal=0, resultat, revenu, prel;
+      if(stat==='micro'){
+        cot=ca*(r.c*(acre&&y===0?0.75:1)+r.cfp)/100;
+        resultat=ca-V-F-cot-int;              // bénéfice disponible pour l'entrepreneur
+        revenu=resultat; prel=Rm;
+      } else if(stat==='ei'){
+        const base=ca-V-F-amort-frais-int;
+        cot=base>0?Math.max(1100,base-base/1.45):1100; if(acre&&y===0) cot*=0.75;
+        resultat=base-cot; revenu=resultat; prel=Rm;
+      } else {
+        sal=Rm; cot=sal*0.8*(acre&&y===0?0.75:1);
+        const base=ca-V-F-amort-frais-int-sal-cot;
+        is=base>0?Math.min(base,42500)*0.15+Math.max(0,base-42500)*0.25:0;
+        resultat=base-is; revenu=sal; prel=sal;
+      }
+      const bfr=ca*bfrRatio, dBfr=bfr-bfrPrev; bfrPrev=bfr;
+      // flux de trésorerie : résultat + amortissements (non décaissés) − capital remboursé − variation BFR − prélèvements (hors SASU où le salaire est déjà déduit)
+      const flux=(stat==='sasu'?resultat+amort+frais:resultat+amort+frais-prel)-cap-dBfr;
+      cash+=flux;
+      Y.push({ca,V,F,amort,frais,int,cot,is,sal,resultat,revenu,prel,cap,dBfr,cash});
+    }
+    // affichage
+    if(!ca1){ $('pvBig').textContent='À compléter'; $('pvSub').textContent='Indiquez au moins le chiffre d\'affaires de la première année.'; $('pvTable').innerHTML=''; $('pvChart').innerHTML=''; $('pvNotes').innerHTML=''; return; }
+    const last=Y[2].cash;
+    $('pvBig').textContent=last<0?'− '+eur(-last):eur(last);
+    $('pvSub').textContent=`En partant de ${eur(treso0)} de trésorerie de démarrage.`;
+    const f=v=>Math.abs(v)<0.5?'—':(v<0?'− '+eur(-v):eur(v));
+    const row=(lab,key,cls='',neg=false)=>`<tr class="${cls}"><td>${lab}</td>${Y.map(y=>{const v=typeof key==='function'?key(y):y[key]; return `<td class="${v<0?'neg':''}">${neg&&v>0.5?'− '+eur(v):f(v)}</td>`}).join('')}</tr>`;
+    let t=`<thead><tr><th></th><th>Année 1</th><th>Année 2</th><th>Année 3</th></tr></thead><tbody>`;
+    t+=row('Chiffre d\'affaires','ca','sum');
+    t+=row('Charges variables','V','',true);
+    t+=row('Charges fixes','F','',true);
+    if(stat!=='micro'){ t+=row('Amortissements des investissements','amort','',true); if(frais0) t+=row('Frais de démarrage','frais','',true); }
+    if(Y.some(y=>y.int>0.5)) t+=row('Intérêts d\'emprunt','int','',true);
+    if(stat==='sasu') t+=row('Votre salaire net','sal','',true);
+    t+=row(stat==='sasu'?'Cotisations sur votre salaire':'Cotisations sociales','cot','',true);
+    if(stat==='sasu') t+=row('Impôt sur les sociétés','is','',true);
+    t+=row(stat==='sasu'?'Résultat de la société':'Bénéfice, votre revenu avant impôt','resultat','sum');
+    t+=`<tr><td colspan="4" style="padding-top:16px;font-weight:600;color:var(--muted)">Trésorerie</td></tr>`;
+    if(stat!=='sasu') t+=row('Vos prélèvements personnels','prel','',true);
+    if(Y.some(y=>y.cap>0.5)) t+=row('Capital d\'emprunt remboursé','cap','',true);
+    if(Y.some(y=>Math.abs(y.dBfr)>0.5)) t+=row('Hausse du besoin en fonds de roulement','dBfr','',true);
+    t+=row('Trésorerie en fin d\'année','cash','key');
+    $('pvTable').innerHTML=t+'</tbody>';
+    // graphique
+    const W=Math.max(300,Math.min(520,$('pvChart').clientWidth||520)), H=220, pb=28, pt=14;
+    $('pvChart').setAttribute('viewBox',`0 0 ${W} ${H}`);
+    const vals=Y.flatMap(y=>[y.revenu,y.cash]), mx=Math.max(1,...vals.map(Math.abs));
+    const hasNeg=vals.some(v=>v<0), zero=hasNeg?pt+(H-pt-pb)*0.62:H-pb, sc=v=>v/mx*(hasNeg?(zero-pt):(H-pt-pb));
+    let s=`<line x1="0" x2="${W}" y1="${zero}" y2="${zero}" style="stroke:var(--line)"/>`;
+    const gw=W/3;
+    Y.forEach((y,i)=>{
+      [[y.revenu,'var(--lagon)'],[y.cash,'var(--madras)']].forEach(([v,c],j)=>{
+        const bw=gw*0.26, x=i*gw+gw*0.2+j*(bw+6), hgt=Math.abs(sc(v));
+        s+=`<rect x="${x}" y="${v>=0?zero-hgt:zero}" width="${bw}" height="${Math.max(1,hgt)}" rx="4" style="fill:${v<0?'var(--coral)':c}"/>`;
+        s+=`<text x="${x+bw/2}" y="${v>=0?zero-hgt-5:zero+hgt+13}" text-anchor="middle" font-size="11" style="fill:var(--muted)">${(Math.round(v/100)/10).toLocaleString('fr-FR')} k</text>`;
+      });
+      s+=`<text x="${i*gw+gw/2}" y="${H-6}" text-anchor="middle" font-size="12" style="fill:var(--ink)">Année ${i+1}</text>`;
+    });
+    $('pvChart').innerHTML=s;
+    // signaux
+    const n=[];
+    const negY=Y.findIndex(y=>y.cash<0);
+    if(negY>=0) n.push(`<div class="note warn">La trésorerie devient négative en année ${negY+1} (${f(Y[negY].cash)}). Sans correction, l'entreprise ne pourrait plus payer ses factures : il faut renforcer le financement de départ, réduire vos prélèvements ou revoir les charges.</div>`);
+    if(stat!=='sasu'){ const k=Y.findIndex(y=>y.resultat<y.prel); if(k>=0 && Rm>0) n.push(`<div class="note warn">En année ${k+1}, vous prélèveriez ${eur(Y[k].prel)} alors que l'activité ne gagne que ${f(Y[k].resultat)} : l'écart est pris sur la trésorerie.</div>`); }
+    if(stat==='sasu'){ const k=Y.findIndex(y=>y.resultat<0); if(k>=0) n.push(`<div class="note warn">La société est en perte en année ${k+1} : le salaire prévu (${eur(Rm/12)} par mois) coûte plus que ce qu'elle dégage à ce stade.</div>`); }
+    if(stat==='micro'){ const k=Y.findIndex(y=>y.ca>r.plaf); if(k>=0) n.push(`<div class="note warn">En année ${k+1}, le chiffre d'affaires dépasse le plafond de la micro-entreprise (${eur(r.plaf)}). Au-delà de deux années consécutives, le passage au réel est automatique : anticipez-le avec l'outil « Choisir mon statut ».</div>`); }
+    if(bfrRatio && (Y[1].dBfr+Y[2].dBfr)>500) n.push(`<div class="note info">La croissance immobilise ${eur(Y[1].dBfr+Y[2].dBfr)} de trésorerie supplémentaire en années 2 et 3, à cause du besoin en fonds de roulement : vendre plus demande d'avancer plus.</div>`);
+    if(negY<0 && Y.every(y=>y.resultat>=0)) n.push(`<div class="note ok">Votre prévisionnel tient sur trois ans : la trésorerie reste positive et l'activité est rentable chaque année.</div>`);
+    $('pvNotes').innerHTML=n.join('');
+  }
+  pvIds.forEach(id=>$(id).addEventListener('input',prev));
+  ['act','acre'].forEach(id=>$(id).addEventListener('input',()=>prev()));
+  window.addEventListener('resize',()=>{ if(!$('toolPrev').hidden) prev(); });
+  prev();
+
+
+  /* ---------- tableau de bord mensuel ---------- */
+  S.tb=S.tb||{};
+  const TBM=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  $('tbM').innerHTML=TBM.map((m,i)=>`<option value="${i}">${m}</option>`).join('');
+  $('tbM').value=S.tbM!==undefined?S.tbM:String(new Date().getMonth());
+  function tbLoad(){
+    const m=$('tbM').value, d=S.tb[m]||{};
+    $('tbCA').value=S.ca[m]??''; ['V','N','A','P','I'].forEach(k=>$('tb'+k).value=d[k]??'');
+  }
+  function tb(){
+    const m=+$('tbM').value; S.tbM=String(m);
+    const d=S.tb[m]=S.tb[m]||{};
+    ['V','N','A','P','I'].forEach(k=>d[k]=$('tb'+k).value);
+    if($('tbCA').value!==(S.ca[m]??'')){ S.ca[m]=$('tbCA').value; const inp=document.querySelector(`[data-m="${m}"]`); if(inp) inp.value=$('tbCA').value; drawChart(); }
+    save();
+    const ca=+S.ca[m]||0, v=+d.V||0, n=+d.N||0, a=+d.A||0, p=+d.P||0, imp=+d.I||0;
+    const pm=m>0?m-1:11, dp=S.tb[pm]||{}, caP=+S.ca[pm]||0, vP=+dp.V||0;
+    const panier=v?ca/v:0, panierP=vP?caP/vP:0;
+    const marge=ca?(ca-a)/ca:null, cac=n?p/n:null;
+    const kpi=(val,lab,sub='')=>`<div class="kpi"><div class="v">${val}</div><div class="l">${lab}${sub?`<br><span style="font-size:.8rem">${sub}</span>`:''}</div></div>`;
+    const tr=(x,y)=>y?` (${x>=y?'+':'−'}${Math.abs(Math.round((x-y)/y*100))} % sur ${TBM[pm].toLowerCase()})`:'';
+    $('tbKpis').innerHTML=
+      kpi(panier?eur(panier):'—','Panier moyen',panier?tr(panier,panierP):'')+
+      kpi(marge===null?'—':Math.round(marge*100)+' %','Marge sur achats',marge===null?'':eur(ca-a)+' dégagés')+
+      kpi(cac===null?'—':eur(cac),'Coût d\'un nouveau client',n?`${n} nouveau${n>1?'x':''} client${n>1?'s':''}`:'')+
+      kpi(imp?eur(imp):'—','Argent en attente',imp&&ca?Math.round(imp/ca*100)+' % du mois':'');
+    const notes=[];
+    if(!ca && !v){ $('tbNotes').innerHTML='<div class="note info" style="margin-top:0">Saisissez le chiffre d\'affaires et le nombre de ventes du mois pour obtenir vos indicateurs.</div>'; return; }
+    const pv=S.pv||{}, tvPrev=+pv.pvVar||0;
+    if(marge!==null && a>0 && tvPrev>0 && marge*100<(100-tvPrev)-5) notes.push(`<div class="note warn">Votre marge sur achats (${Math.round(marge*100)} %) est inférieure à celle de votre prévisionnel (${100-tvPrev} %). Vérifiez vos prix, les remises accordées ou la hausse de vos coûts d'achat.</div>`);
+    if(panier && panierP && panier<panierP*0.85) notes.push(`<div class="note info">Le panier moyen baisse de ${Math.round((1-panier/panierP)*100)} % par rapport à ${TBM[pm].toLowerCase()}. Plus de petites ventes, ou des clients qui achètent moins ?</div>`);
+    if(cac && panier && marge!==null && cac>panier*Math.max(0,marge)) notes.push(`<div class="note warn">Un nouveau client vous coûte ${eur(cac)} en publicité, plus que la marge de sa première vente (${eur(panier*Math.max(0,marge))}). Ce n'est rentable que si ces clients reviennent acheter.</div>`);
+    if(imp && ca && imp>ca*0.3) notes.push(`<div class="note warn">${eur(imp)} de factures impayées, soit ${Math.round(imp/ca*100)} % du chiffre d'affaires du mois. Relancez dès l'échéance : plus un impayé vieillit, moins il se recouvre.</div>`);
+    // cumul annuel vs prévisionnel
+    const filled=Object.keys(S.ca).filter(k=>+S.ca[k]>0), cum=filled.reduce((s,k)=>s+(+S.ca[k]),0), obj=+pv.pvCA||0;
+    if(obj && filled.length>=2){ const att=obj*filled.length/12, ratio=cum/att;
+      if(ratio<0.8) notes.push(`<div class="note warn">Sur ${filled.length} mois, vous êtes à ${Math.round(ratio*100)} % de votre prévisionnel (${eur(cum)} pour ${eur(att)} attendus). Mettez à jour le prévisionnel avec ce rythme réel pour vérifier votre trésorerie.</div>`);
+      else if(ratio>=1) notes.push(`<div class="note ok">Sur ${filled.length} mois, vous dépassez votre prévisionnel : ${eur(cum)} pour ${eur(att)} attendus.</div>`);
+    }
+    if(!notes.length) notes.push('<div class="note ok">Aucun point d\'alerte ce mois-ci.</div>');
+    $('tbNotes').innerHTML=notes.join('');
+  }
+  $('tbM').addEventListener('change',()=>{ S.tbM=$('tbM').value; save(); tbLoad(); tb(); });
+  ['tbCA','tbV','tbN','tbA','tbP','tbI'].forEach(id=>$(id).addEventListener('input',tb));
+  $('months').addEventListener('input',()=>{ tbLoad(); tb(); });
+  tbLoad(); tb();
+
+  // barre d'outils de l'onglet Mes calculs
+  const toolBtns=[...document.querySelectorAll('[data-tool]')];
+  function openTool(id){
+    toolBtns.forEach(b=>b.setAttribute('aria-selected',b.dataset.tool===id));
+    ['toolPrix','toolFin','toolSeuil','toolBfr','toolStat','toolPrev'].forEach(t=>$(t).hidden=t!==id);
+    if(id==='toolPrev') prev();
+    if(id==='toolStat') statut();
+    if(id==='toolSeuil') seuil();
+    if(id==='toolBfr') bfr();
+    S.tool=id; save();
+  }
+  toolBtns.forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.tool)));
+  if(S.tool) openTool(S.tool);
+  fin();
 
   $('wipe').addEventListener('click',()=>{
     if(!confirm('Effacer toutes vos réponses et votre suivi sur cet appareil ?')) return;
