@@ -276,13 +276,21 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
       <ul class="deadlines" id="deadlines"></ul>
     </div>
     <div class="block">
-      <h3>Signaux à surveiller</h3>
-      <ul class="advice" style="margin-top:12px">
-        <li>Trois mois de suite sous l'objectif : revoir le prix, l'offre ou la prospection plutôt qu'attendre.</li>
-        <li>Un seul client représente plus de la moitié du chiffre d'affaires : chercher à diversifier.</li>
-        <li>L'épargne de sécurité descend sous deux mois de besoins : en parler tôt à votre conseiller CCI ou à votre parrain.</li>
-        <li>Fatigue durable ou isolement : rejoindre un réseau d'entrepreneurs locaux, c'est aussi protéger son projet.</li>
-      </ul>
+      <h3>Mes signaux</h3>
+      <p class="qprog">Calculés d'après vos chiffres. Un signal n'apparaît que s'il vous concerne.</p>
+      <div class="field" style="margin-top:12px">
+        <label for="epargneNow">Mon épargne de sécurité actuelle (€)</label>
+        <input type="number" id="epargneNow" min="0" step="100">
+      </div>
+      <div class="field">
+        <label for="topClient">Part de mon plus gros client dans mon chiffre d'affaires (%)</label>
+        <input type="number" id="topClient" min="0" max="100" step="5">
+      </div>
+      <div class="field">
+        <label for="mood">Comment je me sens en ce moment</label>
+        <select id="mood"><option value="">Choisir</option><option value="ok">En forme</option><option value="tired">Fatigué</option><option value="low">Épuisé ou isolé</option></select>
+      </div>
+      <ul class="advice" id="signals" aria-live="polite"></ul>
     </div>
   </div>
 </section>
@@ -527,11 +535,49 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
     if(filled.length){
       const moy=cum/filled.length;
       n+=`<div class="note info">Cumul de l'année : <strong>${eur(cum)}</strong>, soit ${Math.round(cum/plaf*100)} % du plafond micro-entreprise. Moyenne mensuelle : ${eur(moy)}.</div>`;
-      let streak=0; for(let i=11;i>=0;i--){ if(vals[i]===0&&streak===0) continue; if(obj&&vals[i]<obj) streak++; else break; }
-      if(streak>=3) n+=`<div class="note warn">${streak} mois consécutifs sous l'objectif. C'est le bon moment pour revoir votre offre ou votre prospection avec un conseiller.</div>`;
     } else n='<p class="qprog" style="margin-top:12px">Saisissez vos premiers mois pour voir votre tendance.</p>';
     $('pilotNotes').innerHTML=n;
+    signals();
   }
+
+  /* ---------- signaux dynamiques ---------- */
+  S.pil=S.pil||{};
+  ['epargneNow','topClient','mood'].forEach(id=>{
+    if(S.pil[id]!==undefined) $(id).value=S.pil[id];
+    $(id).addEventListener('input',()=>{ S.pil[id]=$(id).value; save(); signals(); });
+  });
+  function signals(){
+    const vals=M.map((m,i)=>+S.ca[i]||0);
+    const obj=+S.objectif||Math.round(lastPointMort)||0;
+    const besoin=+S.sim.besoin||0;
+    const plaf=R[$('act').value].plaf;
+    const filledIdx=vals.map((v,i)=>v>0?i:-1).filter(i=>i>=0);
+    const cum=vals.reduce((a,b)=>a+b,0);
+    const ep=S.pil.epargneNow, top=S.pil.topClient, mood=S.pil.mood;
+    const out=[];
+    if(filledIdx.length){
+      const last=filledIdx[filledIdx.length-1];
+      let streak=0; for(let i=last;i>=0;i--){ if(obj&&vals[i]<obj) streak++; else break; }
+      if(streak>=3) out.push(`${streak} mois de suite sous votre objectif de ${eur(obj)}. C'est le moment de revoir le prix, l'offre ou la prospection plutôt que d'attendre.`);
+      if(last>=2 && vals[last]<vals[last-1] && vals[last-1]<vals[last-2] && vals[last-2]>0)
+        out.push(`Votre chiffre d'affaires baisse depuis trois mois (${eur(vals[last-2])}, ${eur(vals[last-1])}, ${eur(vals[last])}). Cherchez la cause : saison, client perdu, offre moins visible ?`);
+      if(cum>=plaf*0.8) out.push(`Vous avez atteint ${Math.round(cum/plaf*100)} % du plafond annuel de la micro-entreprise. Faites le point sur un changement de statut avant de le dépasser.`);
+    }
+    if(ep!==undefined && ep!=='' && besoin>0 && +ep<2*besoin){
+      const m=Math.round(+ep/besoin*10)/10;
+      out.push(`Votre épargne couvre ${m.toLocaleString('fr-FR')} mois de besoins personnels, sous le seuil de sécurité de deux mois. Parlez-en tôt à un conseiller ou à votre parrain.`);
+    }
+    if(top!==undefined && top!=='' && +top>50) out.push(`Un seul client pèse ${+top} % de votre chiffre d'affaires. Sa perte mettrait l'activité en danger : cherchez à diversifier.`);
+    if(mood==='tired') out.push(`Vous vous sentez fatigué. Repérez ce qui pourrait être simplifié, délégué ou reporté ce mois-ci.`);
+    if(mood==='low') out.push(`Vous vous sentez épuisé ou isolé. Ce n'est pas un détail : parlez-en à un proche, à votre conseiller ou à un réseau d'entrepreneurs. Protéger votre énergie, c'est protéger votre projet.`);
+    const any=filledIdx.length || (ep!==undefined&&ep!=='') || (top!==undefined&&top!=='') || mood;
+    let html;
+    if(out.length) html=out.map(t=>`<li>${t}</li>`).join('');
+    else if(any) html='<li class="good">Aucun signal d\'alerte pour l\'instant. Mettez vos chiffres à jour chaque mois pour garder cette veille active.</li>';
+    else html='<li class="good" style="background:var(--lagon-soft)">Saisissez vos chiffres d\'affaires et les informations ci-dessus pour activer la veille.</li>';
+    $('signals').innerHTML=html;
+  }
+  signals();
 
   function deadlines(){
     const now=new Date(), yr=now.getFullYear();
