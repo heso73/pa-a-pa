@@ -146,6 +146,17 @@ table.sim tr.total td{border-bottom:0;font-size:1.1rem;padding-top:12px}
 .contact p{margin:4px 0 0;color:var(--muted);font-size:.95rem}
 
 footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:.88rem}
+
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+@media (max-width:520px){.fx{grid-template-columns:1fr}}
+.fx label{font-size:.88rem;color:var(--muted);display:grid;gap:4px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--bg);margin-bottom:18px}
+.seg button{font:600 .95rem var(--sans);border:0;background:none;color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--lagon);color:#fff}
+.big{font-family:var(--serif);font-size:2.2rem;line-height:1.1;margin:4px 0 2px}
+.sub{color:var(--muted);font-size:.95rem;margin:0 0 14px}
+fieldset.plain{border:0;padding:0;margin:0 0 16px}
+fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;padding:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -163,6 +174,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
     <button role="tab" aria-selected="true" data-tab="tester"><span class="n">1</span>Tester mon projet</button>
     <button role="tab" aria-selected="false" data-tab="lancer"><span class="n">2</span>Me lancer</button>
     <button role="tab" aria-selected="false" data-tab="durer"><span class="n">3</span>Durer</button>
+    <button role="tab" aria-selected="false" data-tab="calculs">Mes calculs</button>
     <button role="tab" aria-selected="false" data-tab="contacts">Contacts utiles</button>
   </div>
 </nav>
@@ -224,6 +236,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
       </div>
       <label class="check"><input type="checkbox" id="acre" checked> Je bénéficie de l'ACRE (cotisations à 75 % du taux normal pendant la première période)</label>
       <label class="check"><input type="checkbox" id="vl"> J'opte pour le versement libératoire de l'impôt</label>
+      <button class="btn ghost" type="button" id="goPrix" style="margin-top:6px">Calculer mon prix de vente</button>
     </div>
 
     <div class="block" aria-live="polite">
@@ -293,6 +306,79 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
       <ul class="advice" id="signals" aria-live="polite"></ul>
     </div>
   </div>
+</section>
+
+<!-- ===== CALCULS ===== -->
+<section class="panel" id="calculs" role="tabpanel">
+  <h2>Fixer mon prix</h2>
+  <p class="lead">Un prix juste couvre trois choses : ce que coûte votre activité, votre propre rémunération, et les cotisations prélevées sur chaque euro encaissé. L'oubli de l'une d'elles est l'erreur la plus fréquente des débutants.</p>
+
+  <div class="seg" role="group" aria-label="Type d'activité">
+    <button type="button" data-px="services" aria-pressed="true">Je vends mon temps</button>
+    <button type="button" data-px="produits" aria-pressed="false">Je vends des produits</button>
+  </div>
+
+  <div class="grid2">
+    <div class="block">
+      <fieldset class="plain">
+        <legend>Mes charges fixes par mois (€)</legend>
+        <div class="fx">
+          <label>Local, loyer<input type="number" min="0" step="10" data-fx="0" placeholder="0"></label>
+          <label>Assurances<input type="number" min="0" step="10" data-fx="1" placeholder="0"></label>
+          <label>Téléphone, internet<input type="number" min="0" step="10" data-fx="2" placeholder="0"></label>
+          <label>Logiciels, abonnements<input type="number" min="0" step="10" data-fx="3" placeholder="0"></label>
+          <label>Véhicule, déplacements<input type="number" min="0" step="10" data-fx="4" placeholder="0"></label>
+          <label>Banque, comptable<input type="number" min="0" step="10" data-fx="5" placeholder="0"></label>
+          <label>Publicité, communication<input type="number" min="0" step="10" data-fx="6" placeholder="0"></label>
+          <label>Autres frais<input type="number" min="0" step="10" data-fx="7" placeholder="0"></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="pxRemun">Ma rémunération nette souhaitée par mois (€)</label>
+        <input type="number" id="pxRemun" min="0" step="50">
+        <small>Votre salaire à vous. Il fait partie du prix, ce n'est pas un bonus.</small>
+      </div>
+      <div id="pxServ">
+        <div class="field">
+          <label for="pxHeures">Heures facturables par mois</label>
+          <input type="number" id="pxHeures" min="1" step="5" value="80">
+          <small>Seulement les heures payées par vos clients, hors prospection, devis, administratif et trajets.</small>
+        </div>
+        <div class="field">
+          <label for="pxDirect">Frais directs par heure facturée (€)</label>
+          <input type="number" id="pxDirect" min="0" step="1" value="0">
+          <small>Matériel consommé, produits utilisés pendant la prestation…</small>
+        </div>
+      </div>
+      <div id="pxProd" hidden>
+        <div class="field">
+          <label for="pxCout">Coût d'achat ou de fabrication d'une unité (€)</label>
+          <input type="number" id="pxCout" min="0" step="0.1" value="10">
+          <small>Matière, emballage, transport et frais d'approche compris (fret, droits, octroi de mer).</small>
+        </div>
+        <div class="field">
+          <label for="pxQte">Unités vendues par mois</label>
+          <input type="number" id="pxQte" min="1" step="10" value="200">
+        </div>
+      </div>
+      <div class="field">
+        <label for="pxPrix" id="pxPrixLabel">Mon prix envisagé, hors taxes (€)</label>
+        <input type="number" id="pxPrix" min="0" step="1" placeholder="Facultatif">
+        <small>Pour comparer avec le prix minimum calculé.</small>
+      </div>
+      <label class="check"><input type="checkbox" id="pxTva"> Je facture la TVA</label>
+    </div>
+
+    <div class="block" aria-live="polite">
+      <h3 id="pxTitle">Mon tarif horaire minimum</h3>
+      <p class="big" id="pxBig"></p>
+      <p class="sub" id="pxSub"></p>
+      <table class="sim" id="pxTable"></table>
+      <div id="pxNotes"></div>
+      <button class="btn" type="button" id="pxToSim" style="margin-top:16px">Reporter dans mon simulateur</button>
+    </div>
+  </div>
+  <p class="qprog">Le taux de cotisations est celui choisi dans votre simulateur (onglet 1). Estimation à affiner avec un expert-comptable.</p>
 </section>
 
 <!-- ===== CONTACTS ===== -->
@@ -598,6 +684,86 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
   if(S.region) $('region').value=S.region;
   function reg(){ S.region=$('region').value; save(); $('regionText').textContent=REG[S.region]; }
   $('region').addEventListener('change',reg); reg();
+
+  /* ---------- prix de revient / prix de vente ---------- */
+  S.prix=S.prix||{mode:'services',fx:{}};
+  const P=S.prix;
+  const pxIds=['pxRemun','pxHeures','pxDirect','pxCout','pxQte','pxPrix'];
+  pxIds.forEach(id=>{ if(P[id]!==undefined) $(id).value=P[id]; });
+  if(P.pxTva!==undefined) $('pxTva').checked=P.pxTva;
+  if(P.pxRemun===undefined && S.sim.besoin) $('pxRemun').value=S.sim.besoin;
+  document.querySelectorAll('[data-fx]').forEach(el=>{ if(P.fx[el.dataset.fx]) el.value=P.fx[el.dataset.fx]; });
+  const TVA={metro:20,drom1:8.5,drom2:0};
+  function setMode(m){
+    P.mode=m; save();
+    document.querySelectorAll('[data-px]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.px===m));
+    $('pxServ').hidden=m!=='services'; $('pxProd').hidden=m!=='produits';
+    $('pxTitle').textContent=m==='services'?'Mon tarif horaire minimum':'Mon prix de vente minimum par unité';
+    $('pxPrixLabel').textContent=m==='services'?'Mon tarif horaire envisagé, hors taxes (€)':'Mon prix unitaire envisagé, hors taxes (€)';
+    prix();
+  }
+  document.querySelectorAll('[data-px]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.px)));
+  const e2=n=>n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+  let pxLast={};
+  function prix(){
+    pxIds.forEach(id=>P[id]=$(id).value); P.pxTva=$('pxTva').checked;
+    document.querySelectorAll('[data-fx]').forEach(el=>P.fx[el.dataset.fx]=el.value); save();
+    const r=R[$('act').value], acre=$('acre').checked, vl=$('vl').checked;
+    const ratePct=r.c*(acre?0.75:1)+r.cfp+(vl?r.vl:0), rate=ratePct/100;
+    const F=Object.values(P.fx).reduce((a,b)=>a+(+b||0),0);
+    const Rm=+P.pxRemun||0, prixE=+P.pxPrix||0;
+    const tva=P.pxTva?TVA[S.region||'metro']:0;
+    const rows=[], notes=[];
+    const ttc=v=>tva?` <span class="qprog">(${e2(v*(1+tva/100))} TTC)</span>`:'';
+    if(P.mode==='services'){
+      const H=Math.max(1,+P.pxHeures||1), d=+P.pxDirect||0;
+      const min=((F+Rm)/H+d)/(1-rate);
+      $('pxBig').innerHTML=e2(min)+' <span style="font-size:1rem;font-family:var(--sans)">HT / heure</span>';
+      $('pxSub').innerHTML=`Soit ${eur(min*7)} HT pour une journée de 7 heures.${ttc(min)}`;
+      rows.push(['Charges fixes',eur(F)],['Ma rémunération',eur(Rm)],['Frais directs',eur(d*H)],
+        [`Cotisations et contributions (${ratePct.toLocaleString('fr-FR',{maximumFractionDigits:2})} % du CA)`,eur(min*H*rate)],
+        ['Chiffre d\'affaires nécessaire',eur(min*H)]);
+      pxLast={ca:(prixE||min)*H, chg:F+d*H, besoin:Rm};
+      if(prixE){
+        const net=prixE*(1-rate)-d;
+        if(prixE>=min) notes.push(`<div class="note ok">À ${e2(prixE)} de l'heure, vous dégagez ${eur((net*H)-(F+Rm))} par mois au-delà de votre rémunération.</div>`);
+        else notes.push(`<div class="note warn">À ${e2(prixE)} de l'heure, il vous manque ${eur((F+Rm)-net*H)} par mois. ${net>0?`Il faudrait facturer ${Math.ceil((F+Rm)/net)} heures par mois pour atteindre votre rémunération.`:'Chaque heure vous coûte plus qu\'elle ne rapporte.'}</div>`);
+      }
+      if(H>120) notes.push(`<div class="note warn">${H} heures facturées par mois, c'est plus que la plupart des indépendants à temps plein : il faut aussi du temps pour trouver les clients et gérer l'entreprise. Au démarrage, 60 à 100 heures est plus réaliste.</div>`);
+    } else {
+      const v=+P.pxCout||0, q=Math.max(1,+P.pxQte||1);
+      const min=((F+Rm)/q+v)/(1-rate);
+      $('pxBig').innerHTML=e2(min)+' <span style="font-size:1rem;font-family:var(--sans)">HT / unité</span>';
+      $('pxSub').innerHTML=(v>0?`Coefficient multiplicateur minimum : ${(min/v).toLocaleString('fr-FR',{maximumFractionDigits:2})} (prix de vente ÷ coût d'achat).`:'')+ttc(min);
+      rows.push(['Coût d\'achat par unité',e2(v)],['Part des charges fixes par unité',e2(F/q)],['Part de ma rémunération par unité',e2(Rm/q)],
+        [`Cotisations (${ratePct.toLocaleString('fr-FR',{maximumFractionDigits:2})} % du prix)`,e2(min*rate)],['Coût de revient complet',e2(v+F/q)]);
+      pxLast={ca:(prixE||min)*q, chg:F+v*q, besoin:Rm};
+      if(prixE){
+        const mu=prixE*(1-rate)-v;
+        if(mu<=0) notes.push(`<div class="note warn">À ${e2(prixE)}, chaque vente vous fait perdre de l'argent : le prix ne couvre même pas le coût d'achat et les cotisations.</div>`);
+        else{
+          const seuil=Math.ceil((F+Rm)/mu);
+          notes.push(`<div class="note ${seuil<=q?'ok':'warn'}">À ${e2(prixE)}, chaque vente vous laisse ${e2(mu)}. Il faut vendre <strong>${seuil} unités par mois</strong> pour couvrir vos charges et votre rémunération${seuil<=q?`, et vous en prévoyez ${q}.`:`, alors que vous en prévoyez ${q}.`}</div>`);
+        }
+        if(v>0 && prixE/v<1.5) notes.push(`<div class="note warn">Votre prix ne représente que ${(prixE/v).toLocaleString('fr-FR',{maximumFractionDigits:2})} fois votre coût d'achat. Avec une marge aussi fine, une hausse du fret ou une remise suffit à tout absorber.</div>`);
+      }
+    }
+    if(tva===0 && P.pxTva) notes.push(`<div class="note info">En Guyane et à Mayotte, la TVA n'est pas applicable.</div>`);
+    if(!F && !Rm) notes.unshift(`<div class="note info">Renseignez vos charges fixes et votre rémunération pour obtenir un prix réaliste.</div>`);
+    $('pxTable').innerHTML=rows.map((r,i)=>`<tr${i===rows.length-1?' class="total"':''}><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+    $('pxNotes').innerHTML=notes.join('');
+  }
+  pxIds.concat(['pxTva']).forEach(id=>$(id).addEventListener('input',prix));
+  document.querySelectorAll('[data-fx]').forEach(el=>el.addEventListener('input',prix));
+  ['act','acre','vl'].forEach(id=>$(id).addEventListener('input',prix));
+  $('region').addEventListener('change',prix);
+  $('pxToSim').addEventListener('click',()=>{
+    $('ca').value=Math.round(pxLast.ca); $('chg').value=Math.round(pxLast.chg); $('besoin').value=Math.round(pxLast.besoin);
+    sim(); openTab('tester');
+    setTimeout(()=>$('act').scrollIntoView({behavior:'smooth',block:'center'}),350);
+  });
+  $('goPrix').addEventListener('click',()=>openTab('calculs'));
+  setMode(P.mode||'services');
 
   $('wipe').addEventListener('click',()=>{
     if(!confirm('Effacer toutes vos réponses et votre suivi sur cet appareil ?')) return;
