@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1C7466">
+<title>Calcul du BFR : formule, exemple et simulateur gratuit</title>
+<meta name="description" content="Calculez votre besoin en fonds de roulement (BFR) : formule simple, exemple chiffré et simulateur gratuit pour créateurs d'entreprise. Sans inscription.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/calcul-bfr/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Pa a Pa">
+<meta property="og:title" content="Calcul du BFR : formule, exemple et simulateur gratuit">
+<meta property="og:description" content="Une entreprise rentable peut manquer d'argent. Calculez votre besoin en fonds de roulement avec une formule simple et un exemple chiffré.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/calcul-bfr/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/icons/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F3; --surface:#FFFFFF; --ink:#12302A; --muted:#4B635D; --line:#CFDCD6;
+  --lagon:#1C7466; --lagon-soft:#DCEEEA; --madras:#E3A11A; --coral:#C8453A; --leaf:#3F8F4E; --amber-soft:#FBF0D6;
+  --serif:"Young Serif", Georgia, "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0E1C19; --surface:#152824; --ink:#E6F0EC; --muted:#A3BAB3; --line:#2A423C; --lagon:#4DB3A2; --lagon-soft:#173A34; --madras:#EDB43A; --coral:#E77267; --leaf:#6CC07B; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:var(--serif);font-size:1.25rem;color:var(--ink);text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 20px;border-radius:12px}
+.btn.small{padding:8px 14px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#0E1C19}}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--amber-soft);border:1px solid var(--line);border-radius:16px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../">Pa a Pa</a>
+    <a class="btn small" href="../#bfr">Ouvrir le simulateur</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Calcul du besoin en fonds de roulement (BFR) : formule et exemple</h1>
+  <p class="lead">Une entreprise peut être rentable et manquer d'argent. La cause la plus fréquente est le besoin en fonds de roulement : l'argent qu'il faut avancer entre le moment où l'on paie ses achats et celui où le client paie.</p>
+
+  <div class="box">
+    <strong>En bref</strong>
+    <ul>
+      <li>Le BFR se calcule avec trois montants : le stock, l'argent dû par les clients et le crédit accordé par les fournisseurs.</li>
+      <li>Plus vos clients paient tard, plus il monte. Plus vos fournisseurs vous laissent de temps, plus il baisse.</li>
+      <li>Il grandit avec les ventes : croître coûte de l'argent avant d'en rapporter.</li>
+    </ul>
+  </div>
+
+  <h2>La formule</h2>
+  <p class="formula">BFR = stock + argent dû par les clients − crédit accordé par les fournisseurs</p>
+  <p>Les comptables écrivent « stocks + créances clients − dettes fournisseurs ». Pour l'estimer avant de démarrer, on utilise la méthode des délais moyens, sur une année commerciale de 360 jours :</p>
+  <ul>
+    <li><strong>Stock</strong> = achats annuels × jours de stockage ÷ 360</li>
+    <li><strong>Argent dû par les clients</strong> = chiffre d'affaires × part des clients qui paient plus tard × délai de paiement (en jours) ÷ 360</li>
+    <li><strong>Crédit des fournisseurs</strong> = achats annuels × délai qu'ils vous accordent (en jours) ÷ 360</li>
+  </ul>
+  <p class="small">Si vous facturez la TVA, utilisez des montants toutes taxes comprises pour les deux derniers calculs : c'est ce que vos clients vous doivent et ce que vous devez à vos fournisseurs.</p>
+
+  <h2>Exemple : une boutique d'artisanat</h2>
+  <p>Chiffre d'affaires de 120 000 € par an, achats de 48 000 €, marchandises gardées 45 jours en moyenne. 40 % des clients paient à 30 jours, les autres au comptant. Les fournisseurs accordent 30 jours. Aucune TVA facturée.</p>
+  <div class="scrollx">
+    <table>
+      <tr><td>Stock : 48 000 × 45 ÷ 360</td><td>6 000 €</td></tr>
+      <tr><td>Argent dû par les clients : 120 000 × 40 % × 30 ÷ 360</td><td>+ 4 000 €</td></tr>
+      <tr><td>Crédit des fournisseurs : 48 000 × 30 ÷ 360</td><td>− 4 000 €</td></tr>
+      <tr class="total"><td>Besoin en fonds de roulement</td><td>6 000 €</td></tr>
+    </table>
+  </div>
+  <p>Soit 18 jours de chiffre d'affaires (6 000 ÷ 120 000 × 360). Ces 6 000 € doivent être disponibles en permanence : ils sont à prévoir dans la trésorerie de démarrage du plan de financement, en plus du matériel et des autres achats de départ.</p>
+
+  <h2>Quand le BFR est faible ou négatif</h2>
+  <p>Un boulanger, un restaurateur ou un commerçant dont les clients paient tout de suite, et dont les fournisseurs laissent 30 jours, a un BFR très bas, voire négatif. Avec 30 000 € d'achats par an, 5 jours de stock et des fournisseurs à 30 jours :</p>
+  <div class="scrollx">
+    <table>
+      <tr><td>Stock : 30 000 × 5 ÷ 360</td><td>417 €</td></tr>
+      <tr><td>Argent dû par les clients (paiement comptant)</td><td>0 €</td></tr>
+      <tr><td>Crédit des fournisseurs : 30 000 × 30 ÷ 360</td><td>− 2 500 €</td></tr>
+      <tr class="total"><td>Besoin en fonds de roulement</td><td>− 2 083 €</td></tr>
+    </table>
+  </div>
+  <p>Le cycle dégage de la trésorerie, ce qui est une bonne nouvelle. Mais cet argent appartient aux fournisseurs : il faut pouvoir les payer à l'échéance.</p>
+
+  <h2>Comment réduire son BFR</h2>
+  <ul>
+    <li>Demander un acompte à la commande.</li>
+    <li>Facturer dès la livraison et relancer à l'échéance.</li>
+    <li>Négocier un délai de paiement avec les fournisseurs.</li>
+    <li>Limiter le stock aux produits qui se vendent vite.</li>
+  </ul>
+
+  <h2>Comment le financer</h2>
+  <p>Par l'apport personnel, un prêt d'honneur, un prêt bancaire ou un découvert autorisé. Dans tous les cas, il faut l'inscrire dans la ligne « trésorerie de démarrage » du plan de financement, car un banquier le vérifie.</p>
+
+  <div class="cta">
+    <p><strong>Calculez le vôtre en deux minutes</strong><br>Gratuit, sans inscription. Vos chiffres restent sur votre appareil.</p>
+    <a class="btn" href="../#bfr">Calculer mon BFR</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Quelle est la formule du BFR ?</summary>
+    <p>Stock + argent dû par les clients − crédit accordé par les fournisseurs. En comptabilité : stocks + créances clients − dettes fournisseurs.</p></details>
+  <details><summary>Un BFR négatif est-il grave ?</summary>
+    <p>Non, c'est fréquent quand les clients paient au comptant et que les fournisseurs accordent des délais. Le point de vigilance est de garder de quoi payer les fournisseurs à l'échéance.</p></details>
+  <details><summary>Pourquoi le BFR augmente-t-il quand les ventes augmentent ?</summary>
+    <p>Parce que le stock et l'argent dû par les clients grandissent avec le chiffre d'affaires. Si les ventes augmentent de 50 %, le BFR augmente d'environ 50 %.</p></details>
+  <details><summary>Une activité de services a-t-elle un BFR ?</summary>
+    <p>Oui, dès qu'elle facture à 30 jours ou plus : le travail est fait et payé (temps, déplacements, matériel) avant que le client règle. Il suffit de compter 0 jour de stock.</p></details>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Pa a Pa est un outil d'orientation. Les montants sont des estimations et ne remplacent pas l'avis d'un expert-comptable ou d'un conseiller en création.</p>
+    <p>À lire aussi : <a href="../prix-de-revient-prix-de-vente/">Prix de revient et prix de vente</a></p>
+    <p><a href="../">Pa a Pa, entreprendre sereinement</a> · Dernière mise à jour : 28 septembre 2026</p>
+  </div>
+</footer>
+</body>
+</html>

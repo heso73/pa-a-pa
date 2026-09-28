@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1C7466">
+<title>Prix de revient et prix de vente : calcul et exemples</title>
+<meta name="description" content="Calculez votre prix de revient puis votre prix de vente minimum : méthode simple, deux exemples chiffrés (services et produits) et simulateur gratuit.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/prix-de-revient-prix-de-vente/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Pa a Pa">
+<meta property="og:title" content="Prix de revient et prix de vente : calcul et exemples">
+<meta property="og:description" content="S'aligner sur la concurrence est l'erreur la plus fréquente des débutants. Calculez le prix qui couvre vos coûts, votre rémunération et vos cotisations.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/prix-de-revient-prix-de-vente/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/icons/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F3; --surface:#FFFFFF; --ink:#12302A; --muted:#4B635D; --line:#CFDCD6;
+  --lagon:#1C7466; --lagon-soft:#DCEEEA; --madras:#E3A11A; --coral:#C8453A; --leaf:#3F8F4E; --amber-soft:#FBF0D6;
+  --serif:"Young Serif", Georgia, "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0E1C19; --surface:#152824; --ink:#E6F0EC; --muted:#A3BAB3; --line:#2A423C; --lagon:#4DB3A2; --lagon-soft:#173A34; --madras:#EDB43A; --coral:#E77267; --leaf:#6CC07B; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:var(--serif);font-size:1.25rem;color:var(--ink);text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 20px;border-radius:12px}
+.btn.small{padding:8px 14px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#0E1C19}}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--amber-soft);border:1px solid var(--line);border-radius:16px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../">Pa a Pa</a>
+    <a class="btn small" href="../#prix">Ouvrir le simulateur</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Prix de revient et prix de vente : comment calculer le bon prix</h1>
+  <p class="lead">S'aligner sur les prix de la concurrence est l'erreur la plus fréquente des débutants. Un prix juste se calcule à partir de ses propres coûts, de sa propre rémunération et des cotisations prélevées sur chaque euro encaissé.</p>
+
+  <div class="box">
+    <strong>En bref</strong>
+    <ul>
+      <li>Le prix de revient, c'est ce que vous coûte une vente : achats, matières, frais et part des charges fixes.</li>
+      <li>Le prix de vente minimum ajoute votre rémunération et les cotisations.</li>
+      <li>Les oublis classiques : sa propre rémunération, les charges fixes et les cotisations.</li>
+    </ul>
+  </div>
+
+  <h2>Les quatre éléments d'un prix</h2>
+  <ul>
+    <li><strong>Les coûts directs</strong> : ce qui varie avec chaque vente (marchandise, matière, emballage, transport, matériel consommé).</li>
+    <li><strong>Les charges fixes</strong> : ce que vous payez même sans vendre (loyer, assurances, téléphone, logiciels, véhicule, comptable).</li>
+    <li><strong>Votre rémunération</strong> : ce que vous voulez retirer chaque mois pour vivre. Elle fait partie du prix, ce n'est pas un bonus.</li>
+    <li><strong>Les cotisations</strong> : en micro-entreprise, un pourcentage du chiffre d'affaires encaissé.</li>
+  </ul>
+
+  <h2>La formule</h2>
+  <p><strong>Si vous vendez votre temps :</strong></p>
+  <p class="formula">Tarif horaire minimum = [(charges fixes + rémunération) ÷ heures facturables + frais directs par heure] ÷ (1 − taux de cotisations)</p>
+  <p><strong>Si vous vendez des produits :</strong></p>
+  <p class="formula">Prix minimum = [(charges fixes + rémunération) ÷ unités vendues + coût d'une unité] ÷ (1 − taux de cotisations)</p>
+  <p>Pourquoi diviser par (1 − taux) ? Parce que les cotisations sont prélevées sur ce que vous encaissez. Avec 21,4 % de cotisations, sur 100 € encaissés il vous reste 78,60 €. Pour garder 78,60 €, il faut donc facturer 100 €.</p>
+  <p class="small">Les heures facturables sont uniquement celles payées par vos clients, sans la recherche de clients, les devis, l'administratif ni les trajets. Au démarrage, 60 à 100 heures par mois est un ordre de grandeur réaliste.</p>
+
+  <h2>Exemple 1 : un jardinier qui vend son temps</h2>
+  <p>Charges fixes de 400 € par mois (véhicule, assurance, téléphone, logiciel), rémunération souhaitée de 1 800 € par mois, 80 heures facturables, 3 € de frais directs par heure. Cotisations de 21,4 % du chiffre d'affaires (prestations de services en micro-entreprise, taux 2026, sans réduction ACRE).</p>
+  <div class="scrollx">
+    <table>
+      <tr><td>Charges fixes</td><td>400 €</td></tr>
+      <tr><td>Ma rémunération</td><td>1 800 €</td></tr>
+      <tr><td>Frais directs : 3 € × 80 heures</td><td>240 €</td></tr>
+      <tr><td>Cotisations (21,4 % du chiffre d'affaires)</td><td>664 €</td></tr>
+      <tr class="total"><td>Chiffre d'affaires nécessaire</td><td>3 104 €</td></tr>
+    </table>
+  </div>
+  <p><strong>Tarif minimum : 38,80 € HT de l'heure</strong> (3 104 ÷ 80). Si ce jardinier s'aligne sur un concurrent à 35 € de l'heure, il lui manque 239 € par mois, et il devrait facturer 90 heures pour atteindre sa rémunération.</p>
+
+  <h2>Exemple 2 : une boutique en ligne d'accessoires</h2>
+  <p>Coût d'achat de 6 € par article, fret compris. Charges fixes de 300 € par mois, rémunération souhaitée de 1 500 €, 150 articles vendus par mois. Cotisations de 12,4 % (vente de marchandises, taux 2026, sans réduction ACRE).</p>
+  <div class="scrollx">
+    <table>
+      <tr><td>Coût d'achat</td><td>6,00 €</td></tr>
+      <tr><td>Part des charges fixes : 300 ÷ 150</td><td>2,00 €</td></tr>
+      <tr class="total"><td>Prix de revient</td><td>8,00 €</td></tr>
+      <tr><td>Part de ma rémunération : 1 500 ÷ 150</td><td>+ 10,00 €</td></tr>
+      <tr><td>Cotisations (12,4 % du prix)</td><td>+ 2,55 €</td></tr>
+      <tr class="total"><td>Prix de vente minimum</td><td>20,55 € HT</td></tr>
+    </table>
+  </div>
+  <p>Le prix minimum représente 3,42 fois le coût d'achat : c'est le coefficient multiplicateur. Vendre à 12 € parce qu'un concurrent le fait ne laisserait que 4,51 € par article après cotisations et coût d'achat : il en faudrait 399 par mois, au lieu de 150, pour couvrir les charges et se payer.</p>
+
+  <h2>Le prix calculé est un minimum</h2>
+  <p>En dessous, vous travaillez à perte ou sans salaire. Comparez-le ensuite au prix du marché. Si le marché est plus bas, il faut agir sur les coûts, sur le volume ou sur l'offre, plutôt que de baisser son prix. Si le marché est plus haut, vous avez de la marge.</p>
+  <p class="small">Les calculs se font hors taxes. Si vous facturez la TVA, elle s'ajoute au prix affiché et vous la reversez à l'État : ce n'est pas un gain.</p>
+
+  <div class="cta">
+    <p><strong>Calculez votre prix en deux minutes</strong><br>Gratuit, sans inscription. Vos chiffres restent sur votre appareil.</p>
+    <a class="btn" href="../#prix">Fixer mon prix</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Quelle est la différence entre prix de revient et prix de vente ?</summary>
+    <p>Le prix de revient est ce que vous coûte une unité vendue : achats plus part des charges fixes. Le prix de vente est ce que paie le client : il doit couvrir le prix de revient, votre rémunération et les cotisations.</p></details>
+  <details><summary>Comment calculer son taux horaire quand on est indépendant ?</summary>
+    <p>Divisez vos charges fixes et votre rémunération par le nombre d'heures que vos clients paient vraiment, ajoutez les frais directs, puis divisez le tout par 1 moins le taux de cotisations.</p></details>
+  <details><summary>Ma rémunération doit-elle vraiment être dans le prix ?</summary>
+    <p>Oui. En micro-entreprise, votre revenu est ce qui reste après les charges et les cotisations. Si le prix ne l'inclut pas, l'activité peut tourner sans que vous puissiez en vivre.</p></details>
+  <details><summary>Pourquoi ne pas copier le prix des concurrents ?</summary>
+    <p>Ils n'ont ni vos charges, ni vos volumes, ni votre rémunération. Leur prix sert à situer le marché, pas à savoir si le vôtre vous permet de vivre.</p></details>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Pa a Pa est un outil d'orientation. Les montants sont des estimations et ne remplacent pas l'avis d'un expert-comptable ou d'un conseiller en création. Les taux de cotisations changent : le simulateur applique ceux de votre situation.</p>
+    <p>À lire aussi : <a href="../calcul-bfr/">Calcul du besoin en fonds de roulement</a></p>
+    <p><a href="../">Pa a Pa, entreprendre sereinement</a> · Dernière mise à jour : 28 septembre 2026</p>
+  </div>
+</footer>
+</body>
+</html>
