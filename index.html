@@ -84,7 +84,9 @@ h3{font-size:1.1rem;margin:0 0 6px}
 .opts label:has(input:checked){border-color:var(--lagon);background:var(--lagon-soft)}
 .dimtag{font-size:.82rem;color:var(--lagon);font-weight:600;margin-bottom:2px}
 .qprog{font-size:.9rem;color:var(--muted)}
+.task .tag{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:999px;background:var(--lagon-soft);color:var(--lagon);font-size:.72rem;font-weight:600;vertical-align:middle;white-space:nowrap}
 .qhint{font-size:.9rem;color:var(--muted);margin:-4px 0 10px;max-width:62ch}
+#iosInstall{max-width:44ch;background:var(--lagon-soft);border-radius:12px;padding:10px 14px;color:var(--ink)}
 
 .result{display:none}
 .result.on{display:block}
@@ -182,12 +184,26 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 .pvtable tr.sum td{font-weight:700}
 .pvtable tr.key td{font-weight:700;background:var(--lagon-soft)}
 .pvtable td.neg{color:var(--coral)}
-.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:26px}
+.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
 @media (min-width:720px){.tools{grid-template-columns:repeat(3,1fr)}}
 .tools button{display:flex;align-items:center;gap:10px;text-align:left;font:600 .95rem var(--sans);background:var(--surface);border:1px solid var(--line);border-radius:14px;color:var(--muted);padding:10px 12px;cursor:pointer;line-height:1.3}
 .tools button .n{flex:0 0 auto;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;border:1.5px solid currentColor;font-size:.85rem}
 .tools button[aria-selected="true"]{color:var(--ink);border-color:var(--madras);box-shadow:inset 0 0 0 1px var(--madras)}
 .tools button[aria-selected="true"] .n{background:var(--madras);border-color:var(--madras);color:#fff}
+.toolbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--navh,64px));z-index:4;display:flex;align-items:center;gap:8px;padding:8px 20px;margin:0 -20px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar select{flex:1;min-width:0;height:44px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 .95rem var(--sans);text-overflow:ellipsis}
+.toolbar .ico{flex:0 0 auto;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer}
+.toolbar .ico:disabled{opacity:.35;cursor:default}
+#toolFin,#toolPrix,#toolSeuil,#toolBfr,#toolStat,#toolPrev{scroll-margin-top:var(--tbh,60px)}
+nav.steps .sm{display:none}
+@media (max-width:900px){
+  nav.steps .lg{display:none}
+  nav.steps .sm{display:inline}
+  nav.steps .wrap{overflow:visible;gap:2px;padding:4px 4px}
+  nav.steps button{flex:1 1 0;min-width:0;flex-direction:column;justify-content:center;gap:2px;padding:4px 2px;font-size:.74rem;line-height:1.1;text-align:center;border-radius:12px}
+  nav.steps button .n{width:22px;height:22px;font-size:.78rem}
+}
+@media (max-height:520px){ nav.steps{position:static} }
 .toolnav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:28px;padding-top:18px;border-top:1px solid var(--line)}
 .toolnav:empty{display:none}
 .fx .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -205,11 +221,11 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 
 <nav class="steps" aria-label="Étapes">
   <div class="wrap" role="tablist">
-    <button role="tab" aria-selected="true" data-tab="tester"><span class="n">1</span>Tester mon projet</button>
-    <button role="tab" aria-selected="false" data-tab="lancer"><span class="n">2</span>Me lancer</button>
-    <button role="tab" aria-selected="false" data-tab="durer"><span class="n">3</span>Durer</button>
-    <button role="tab" aria-selected="false" data-tab="calculs">Mes calculs</button>
-    <button role="tab" aria-selected="false" data-tab="contacts">Contacts utiles</button>
+    <button role="tab" aria-selected="true" data-tab="tester"><span class="n">1</span><span class="lg">Tester mon projet</span><span class="sm">Tester</span></button>
+    <button role="tab" aria-selected="false" data-tab="lancer"><span class="n">2</span><span class="lg">Me lancer</span><span class="sm">Lancer</span></button>
+    <button role="tab" aria-selected="false" data-tab="durer"><span class="n">3</span><span class="lg">Durer</span><span class="sm">Durer</span></button>
+    <button role="tab" aria-selected="false" data-tab="calculs"><span class="lg">Mes calculs</span><span class="sm">Calculs</span></button>
+    <button role="tab" aria-selected="false" data-tab="contacts"><span class="lg">Contacts utiles</span><span class="sm">Contacts</span></button>
   </div>
 </nav>
 
@@ -218,7 +234,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 <!-- ===== 1. TESTER ===== -->
 <section class="panel on" id="tester" role="tabpanel">
   <h2>Mon projet est-il prêt ?</h2>
-  <p class="lead">Une question pour adapter le questionnaire à votre activité, puis des questions honnêtes sur quatre piliers, expliquées en mots simples, et une simulation chiffrée. Il n'y a pas de mauvaise réponse : le but est de savoir où consolider avant d'investir.</p>
+  <p class="lead">Deux questions pour adapter le questionnaire à votre activité, puis des questions honnêtes sur quatre piliers, expliquées en mots simples, et une simulation chiffrée. Il n'y a pas de mauvaise réponse : le but est de savoir où consolider avant d'investir.</p>
 
   <div class="block">
     <h3>Le bilan de faisabilité</h3>
@@ -294,6 +310,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 <section class="panel" id="lancer" role="tabpanel">
   <h2>Mon parcours de création</h2>
   <p class="lead">Chaque étape dans l'ordre, sans rien oublier. Cochez au fur et à mesure : votre progression est enregistrée.</p>
+  <p class="qprog" id="natNote" style="margin:-14px 0 18px"></p>
   <div class="block">
     <div class="row" style="justify-content:space-between"><strong id="progLabel"></strong></div>
     <div class="progress"><div id="progBar"></div></div>
@@ -320,7 +337,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 
   <div class="block">
     <h3>Mon tableau de bord du mois</h3>
-    <p class="qprog">Six chiffres à saisir chaque mois donnent quatre indicateurs que suivent les dirigeants. Le panier moyen est le montant moyen d'une vente. La marge sur achats est ce qui vous reste d'une vente une fois payé ce qu'elle vous a coûté. Le coût d'un nouveau client est ce que vous dépensez en publicité pour en gagner un. L'argent en attente, ce sont les factures envoyées mais pas encore payées.</p>
+    <p class="qprog" id="tbIntro">Six chiffres à saisir chaque mois donnent quatre indicateurs que suivent les dirigeants. Le panier moyen est le montant moyen d'une vente. La marge sur achats est ce qui vous reste d'une vente une fois payé ce qu'elle vous a coûté. Le coût d'un nouveau client est ce que vous dépensez en publicité pour en gagner un. L'argent en attente, ce sont les factures envoyées mais pas encore payées.</p>
     <div class="fx" style="margin:14px 0">
       <label>Mois<select id="tbM"></select></label>
       <label>Chiffre d'affaires du mois (€)<input type="number" id="tbCA" min="0" step="50" placeholder="Saisi plus haut"></label>
@@ -344,16 +361,8 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
       <h3>Mes signaux</h3>
       <p class="qprog">Calculés d'après vos chiffres. Un signal n'apparaît que s'il vous concerne.</p>
       <div class="field" style="margin-top:12px">
-        <label for="epargneNow">Mon épargne de sécurité actuelle (€)</label>
-        <input type="number" id="epargneNow" min="0" step="100">
-      </div>
-      <div class="field">
         <label for="topClient">Part de mon plus gros client dans mon chiffre d'affaires (%)</label>
         <input type="number" id="topClient" min="0" max="100" step="5">
-      </div>
-      <div class="field">
-        <label for="mood">Comment je me sens en ce moment</label>
-        <select id="mood"><option value="">Choisir</option><option value="ok">En forme</option><option value="tired">Fatigué</option><option value="low">Épuisé ou isolé</option></select>
       </div>
       <ul class="advice" id="signals" aria-live="polite"></ul>
     </div>
@@ -364,10 +373,12 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 <section class="panel" id="calculs" role="tabpanel">
   <p class="lead" style="margin-bottom:18px">Six outils, à suivre dans l'ordre. Ils se répondent : chacun peut reprendre les chiffres des autres.</p>
   <div class="tools" id="toolsBar" role="tablist" aria-label="Outils de calcul"></div>
+  <div class="toolbar" id="toolBar"><button type="button" class="ico" id="toolPrevBtn" aria-label="Outil précédent">‹</button><select id="toolSel" aria-label="Aller à un outil de calcul"></select><button type="button" class="ico" id="toolNextBtn" aria-label="Outil suivant">›</button></div>
   <div id="toolPrix">
   <h2>Fixer mon prix</h2>
   <p class="lead">Un prix juste couvre trois choses : ce que coûte votre activité, votre propre rémunération, et les cotisations prélevées sur chaque euro encaissé. L'oubli de l'une d'elles est l'erreur la plus fréquente des débutants.</p>
 
+  <p class="qprog" style="margin:-10px 0 14px"><a href="prix-de-revient-prix-de-vente.html" style="color:var(--lagon);font-weight:600">Comprendre le prix de revient en 3 minutes →</a></p>
   <div class="seg" role="group" aria-label="Type d'activité">
     <button type="button" data-px="services" aria-pressed="true">Je vends mon temps</button>
     <button type="button" data-px="produits" aria-pressed="false">Je vends des produits</button>
@@ -556,6 +567,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   <div id="toolBfr" hidden>
   <h2>Mon besoin en fonds de roulement</h2>
   <p class="lead">Entre le moment où vous payez vos achats et celui où vos clients vous paient, il faut avancer de l'argent. Ce décalage, c'est le besoin en fonds de roulement (BFR). Une entreprise rentable peut manquer de trésorerie simplement parce qu'elle l'a sous-estimé.</p>
+  <p class="qprog" style="margin:-10px 0 14px"><a href="calcul-bfr.html" style="color:var(--lagon);font-weight:600">Comprendre le BFR en 3 minutes →</a></p>
   <div class="row" style="margin-bottom:18px"><button class="btn ghost" type="button" id="bfFill">Reprendre les chiffres de mes autres calculs</button></div>
   <div class="grid2">
     <div class="block">
@@ -714,7 +726,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 <footer class="wrap">
   <p style="margin:0 0 6px">Pa a Pa est un outil d'orientation. Les montants sont des estimations et ne remplacent pas l'avis d'un expert-comptable ou d'un conseiller en création.</p>
   <p style="margin:0 0 10px"><a href="confidentialite.html">Confidentialité</a></p>
-  <div class="row"><button class="btn" type="button" id="install" hidden style="padding:8px 14px;font-size:.9rem">Installer l'app</button><button class="btn ghost" type="button" id="wipe" style="padding:8px 14px;font-size:.9rem">Effacer mes données</button></div>
+  <div class="row" style="flex-wrap:wrap;align-items:center"><button class="btn" type="button" id="install" hidden style="padding:8px 14px;font-size:.9rem">Installer l'app</button><button class="btn ghost" type="button" id="wipe" style="padding:8px 14px;font-size:.9rem">Effacer mes données</button></div><p class="qprog" id="iosInstall" hidden style="margin:10px 0 0">Pour installer Pa a Pa : dans Safari, appuyez sur <strong>Partager</strong> <span aria-hidden="true">⬆️</span>, puis sur <strong>Sur l'écran d'accueil</strong>.</p>
 </footer>
 
 <script>
@@ -734,9 +746,14 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     document.querySelectorAll('section.panel').forEach(p=>p.classList.toggle('on',p.id===name));
     S.tab=name; save();
     if(name==='durer') drawChart();
+    setNavH();
     if(!o||o.scroll!==false) $(name).scrollIntoView({behavior:'smooth',block:'start'});
   }
-  function setNavH(){ document.documentElement.style.setProperty('--navh',document.querySelector('nav.steps').offsetHeight+'px'); }
+  function setNavH(){
+    const nav=document.querySelector('nav.steps'), rs=document.documentElement.style;
+    rs.setProperty('--navh',(getComputedStyle(nav).position==='sticky'?nav.offsetHeight:0)+'px');
+    const tb=$('toolBar'); if(tb&&tb.offsetHeight) rs.setProperty('--tbh',tb.offsetHeight+'px');
+  }
   setNavH(); window.addEventListener('resize',setNavH); window.addEventListener('load',setNavH);
   tabs.forEach(b=>b.addEventListener('click',()=>openTab(b.dataset.tab)));
 
@@ -745,7 +762,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   // anciennes réponses (questionnaire fixe à 9 questions) : les questions ont changé, on les écarte
   Object.keys(S.quiz).forEach(k=>{ if(/^q\d+$/.test(k)) delete S.quiz[k]; });
   const DIMS={
-    motivation:{label:'Temps disponible',color:'var(--lagon)',
+    motivation:{label:'Motivation et disponibilité',color:'var(--lagon)',
       tip:'Estimez le temps réel que vous pouvez consacrer à l\'activité chaque semaine, puis adaptez vos objectifs de chiffre d\'affaires à ce temps. Démarrer à temps partiel est une voie sereine et tout à fait légitime.'},
     marche:{label:'Marché et clients',color:'var(--madras)',
       tip:'Avant tout investissement, testez votre offre : 10 à 20 échanges avec des clients potentiels, une prévente, un stand sur un marché ou un salon local. Annoncez votre prix : c\'est là que l\'intérêt devient une vraie intention d\'achat.'},
@@ -761,11 +778,15 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
       ['produits','Je vends des produits (achetés ou fabriqués) ou je fais de la restauration'],
       ['metier','Je rends un service ou j\'exerce un métier manuel (artisanat, services à la personne ou aux entreprises)'],
       ['expertise','Je propose du conseil, de la formation ou une expertise (web, graphisme, coaching…)'],
-      ['regle','Mon métier est réglementé (diplôme, ordre ou agrément exigé)']]}
+      ['regle','Mon métier est réglementé (diplôme, ordre ou agrément exigé)']]},
+    {k:'pay',q:'Comment vos clients vous paient-ils ?',h:'Au comptant, le client paie tout de suite (boulangerie, marché, boutique). Sur facture, il paie plus tard : vous avancez l\'argent en attendant.',o:[
+      ['comptant','Au comptant, au moment de la vente'],
+      ['facture','Plus tard, sur facture (30 jours ou plus)'],
+      ['mixte','Un peu des deux']]}
   ];
   const ACT_SIM={produits:'vente',metier:'bic',expertise:'bnc'};
   const NAT_TIP={
-    produits:'Vous vendez des produits : calculez votre marge produit par produit et le stock à financer avant la première vente (« Mes calculs » : « Fixer mon prix », puis « Mesurer mon besoin en fonds de roulement »).',
+    produits:()=>'Vous vendez des produits : calculez votre marge produit par produit et le stock à financer avant la première vente (« Mes calculs » : « Financer mon démarrage », puis « Fixer mon prix »'+(credit()?', puis « Mesurer mon besoin en fonds de roulement »':'')+').',
     metier:'Vous vendez du temps et du savoir-faire : votre plafond, c\'est le nombre d\'heures réellement facturables. Comptez dans vos journées les déplacements, les devis et l\'administratif, pas seulement le temps chez le client.',
     expertise:'Vous vendez une expertise : votre prix doit couvrir aussi le temps non facturé (prospection, préparation, administratif). Testez-le auprès de vos premiers clients avant de le publier.',
     regle:'Votre activité est réglementée : avant tout achat, vérifiez auprès de l\'organisme ou de la chambre concernée les conditions d\'exercice et l\'assurance exigées. Le choix du statut peut aussi être encadré (voir « Choisir mon statut »).'
@@ -793,18 +814,18 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   ];
 
   const val=(x,f)=>typeof x[f]==='function'?x[f]():x[f];
-  const triDone=()=>!!S.tri.nat;
+  const triDone=()=>!!(S.tri.nat&&S.tri.pay);
   const visQ=()=>triDone()?QS.filter(x=>!x.mod||x.mod.includes(S.tri.nat)):[];
   const answered=()=>visQ().filter(x=>S.quiz[x.id]).length;
 
   const form=$('quiz'), triBox=$('triBox'), qBox=$('qBox');
   function renderTri(){
-    triBox.innerHTML=TRI.map(t=>`<div class="q"><fieldset><div class="dimtag">Pour adapter la suite</div><legend>${t.q}</legend><div class="opts">${
+    triBox.innerHTML=TRI.map(t=>`<div class="q"><fieldset><div class="dimtag">Pour adapter la suite</div><legend>${t.q}</legend>${t.h?`<p class="qhint">${t.h}</p>`:''}<div class="opts">${
       t.o.map(([v,l])=>`<label><input type="radio" name="tri_${t.k}" value="${v}" ${S.tri[t.k]===v?'checked':''}><span>${l}</span></label>`).join('')
     }</div></fieldset></div>`).join('');
   }
   function renderQ(){
-    if(!triDone()){ qBox.innerHTML='<p class="qprog">Répondez d\'abord à cette question : elle adapte la suite à votre activité.</p>'; return; }
+    if(!triDone()){ qBox.innerHTML='<p class="qprog">Répondez d\'abord à ces deux questions : elles adaptent la suite à votre activité.</p>'; return; }
     qBox.innerHTML=visQ().map((x,i)=>`<div class="q"><fieldset><div class="dimtag">${DIMS[x.d].label}</div><legend>${i+1}. ${val(x,'q')}</legend>${x.h?`<p class="qhint">${x.h}</p>`:''}<div class="opts">${
       val(x,'o').map((t,j)=>`<label><input type="radio" name="${x.id}" value="${4-j}" ${S.quiz[x.id]==4-j?'checked':''}><span>${t}</span></label>`).join('')
     }</div></fieldset></div>`).join('');
@@ -812,13 +833,13 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   function updProg(){
     $('qprog').textContent=triDone()
       ? answered()+' sur '+visQ().length+' questions répondues'
-      : 'Une question de départ pour adapter la suite';
+      : 'Deux questions de départ pour adapter la suite';
   }
   form.addEventListener('change',e=>{
     const n=e.target.name; if(!n) return;
     if(n.indexOf('tri_')===0){
       S.tri[n.slice(4)]=e.target.value;
-      save(); renderQ(); $('result').classList.remove('on');
+      save(); renderQ(); $('result').classList.remove('on'); applyProfile();
     } else { S.quiz[n]=+e.target.value; save(); }
     updProg();
   });
@@ -829,8 +850,8 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     sb.style.display='none';
     if(!triDone()){
       box.classList.add('on');
-      $('verdict').textContent='Une question de départ à compléter';
-      $('verdictText').textContent='Elle permet d\'adapter le questionnaire à votre activité.';
+      $('verdict').textContent='Deux questions de départ à compléter';
+      $('verdictText').textContent='Elles permettent d\'adapter le questionnaire à votre activité.';
       $('bars').innerHTML=''; $('advice').innerHTML=''; return;
     }
     const Qv=visQ(), n=answered();
@@ -855,7 +876,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     $('bars').innerHTML=Object.keys(DIMS).map(d=>`<div class="bar"><div class="top"><span>${DIMS[d].label}</span><span>${sc[d]} / 100</span></div><div class="track"><div class="fill" style="width:0;background:${DIMS[d].color}" data-w="${sc[d]}"></div></div></div>`).join('');
     requestAnimationFrame(()=>document.querySelectorAll('#bars .fill').forEach(f=>f.style.width=Math.max(f.dataset.w,3)+'%'));
     const weak=Object.keys(DIMS).filter(d=>sc[d]<65).sort((a,b)=>sc[a]-sc[b]);
-    const natLi=NAT_TIP[S.tri.nat]?`<li><strong>Votre activité.</strong> ${NAT_TIP[S.tri.nat]}</li>`:'';
+    const nt=NAT_TIP[S.tri.nat], ntxt=typeof nt==='function'?nt():nt, natLi=ntxt?`<li><strong>Votre activité.</strong> ${ntxt}</li>`:'';
     $('advice').innerHTML = natLi + (weak.length
       ? weak.map(d=>`<li><strong>${DIMS[d].label}.</strong> ${DIMS[d].tip}</li>`).join('')
       : '<li class="good">Aucun pilier fragile. Prochaine étape : affiner vos chiffres avec le simulateur, puis passer à l\'onglet « Me lancer ».</li>');
@@ -864,7 +885,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     if(silent!==true) box.scrollIntoView({behavior:"smooth",block:"start"});
   }
   $("showResult").addEventListener("click",()=>showResult());
-  $('resetQuiz').addEventListener('click',()=>{ S.quiz={}; S.tri={}; save(); renderTri(); renderQ(); $('result').classList.remove('on'); updProg(); form.closest('.block').scrollIntoView({behavior:'smooth',block:'start'}); });
+  $('resetQuiz').addEventListener('click',()=>{ S.quiz={}; S.tri={}; save(); applyProfile(); renderTri(); renderQ(); $('result').classList.remove('on'); updProg(); form.closest('.block').scrollIntoView({behavior:'smooth',block:'start'}); });
   $('simSetBtn').addEventListener('click',()=>{
     const a=ACT_SIM[S.tri.nat]; if(!a) return;
     const el=$('act'); el.value=a; el.dispatchEvent(new Event('input',{bubbles:true}));
@@ -874,13 +895,13 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
 
   /* ---------- simulator ---------- */
   const R={
-    vente:{c:12.3,cfp:0.1,vl:1.0,plaf:203100},
-    bic:{c:21.2,cfp:0.2,vl:1.7,plaf:83600},
-    bnc:{c:25.6,cfp:0.2,vl:2.2,plaf:83600},
-    cipav:{c:23.2,cfp:0.2,vl:2.2,plaf:83600}
+    vente:{c:12.3,cfp:0.1,vl:1.0,plaf:203100,cotMin:1000},
+    bic:{c:21.2,cfp:0.2,vl:1.7,plaf:83600,cotMin:1000},
+    bnc:{c:25.6,cfp:0.2,vl:2.2,plaf:83600,cotMin:800},
+    cipav:{c:23.2,cfp:0.2,vl:2.2,plaf:83600,cotMin:800}
   };
   const simIds=['act','ca','chg','besoin','epargne','acre','vl'];
-  simIds.forEach(id=>{ if(S.sim[id]!==undefined){ const el=$(id); if(el.type==='checkbox') el.checked=S.sim[id]; else el.value=S.sim[id]; } });
+  simIds.forEach(id=>{ const v=S.sim[id]; if(v===undefined) return; const el=$(id); if(el.type==='checkbox') el.checked=v; else if(v!=='') el.value=v; });
   let lastPointMort=0; var finMonthly=0; var simLast={};
   function sim(){
     simIds.forEach(id=>{ const el=$(id); S.sim[id]=el.type==='checkbox'?el.checked:el.value; }); save();
@@ -942,21 +963,49 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
       ['Rejoindre un réseau d\'entrepreneurs','Pour les conseils, les clients et le moral.']
     ]}
   ];
-  const total=PH.reduce((a,p)=>a+p.t.length,0);
-  $('phases').innerHTML=PH.map((p,pi)=>`<div class="block phase"><h3>${pi+1}. ${p.n}</h3>${
-    p.t.map((t,ti)=>{const k=pi+'-'+ti;return `<label class="task ${S.tasks[k]?'done':''}"><input type="checkbox" data-k="${k}" ${S.tasks[k]?'checked':''}><div><div class="t">${t[0]}</div><div class="d">${t[1]}</div></div></label>`}).join('')
-  }</div>`).join('');
+  // étapes propres à l'activité : [numéro de phase, titre, explication]
+  const PH_NAT={
+    produits:[
+      [0,'Comparer vos fournisseurs','Prix, délais de paiement et quantités minimales de commande : comparez-en au moins deux avant de vous engager.'],
+      [1,'Vérifier les règles de votre produit','Alimentation, cosmétiques, produits importés : hygiène, étiquetage et déclarations peuvent être obligatoires. En restauration commerciale, au moins une personne de l\'équipe doit avoir suivi la formation à l\'hygiène alimentaire. La CCI ou la CMA vous renseigne.'],
+      [2,'Suivre son stock chaque semaine','Notez ce qui entre et ce qui sort : un stock qui dort est de l\'argent immobilisé.']],
+    metier:[
+      [0,'Vérifier si votre métier demande une qualification','Certains métiers artisanaux (bâtiment, coiffure, électricité…) exigent un diplôme ou une expérience prouvée. La CMA vous renseigne.'],
+      [1,'Vérifier si votre activité est artisanale','Une activité artisanale se déclare par le Guichet unique et relève de la CMA. Elle peut confirmer si c\'est votre cas.'],
+      [2,'Préparer un devis type','Prestation, prix, délai, conditions de paiement : un devis clair évite la plupart des litiges.']],
+    expertise:[
+      [0,'Décrire précisément votre offre','Ce que vous livrez, en combien de temps, à quel prix : un client doit la comprendre en une phrase.'],
+      [1,'Si vous formez : déclarer votre activité de formation','Une activité de formation se déclare auprès de la DREETS. La certification Qualiopi est exigée pour être financé par des fonds publics ou mutualisés.'],
+      [2,'Préparer un contrat ou des conditions de vente','Ce qui est livré, le prix, les délais de paiement, la propriété du travail réalisé.']],
+    regle:[
+      [0,'Vérifier vos conditions d\'exercice','Diplôme, inscription à un ordre, agrément ou déclaration : sans cela, exercer peut être interdit. L\'organisme dont vous dépendez vous renseigne.'],
+      [1,'Vous inscrire auprès de votre organisme','Ordre, chambre ou caisse professionnelle : l\'inscription est souvent obligatoire avant de commencer.'],
+      [1,'Vérifier votre caisse de retraite et de protection sociale','Certaines professions libérales cotisent à une caisse spécifique (la Cipav, par exemple) : confirmez la vôtre.']]
+  };
+  let visKeys=[];
+  function renderPhases(){
+    const nat=S.tri.nat, ex=PH_NAT[nat]||[]; visKeys=[];
+    const row=a=>`<label class="task ${S.tasks[a.k]?'done':''}"><input type="checkbox" data-k="${a.k}" ${S.tasks[a.k]?'checked':''}><div><div class="t">${a.t}${a.x?'<span class="tag">Mon activité</span>':''}</div><div class="d">${a.d}</div></div></label>`;
+    $('phases').innerHTML=PH.map((p,pi)=>{
+      const all=p.t.map((t,ti)=>({k:pi+'-'+ti,t:t[0],d:t[1],x:false}))
+        .concat(ex.map((e,ei)=>({e,ei})).filter(o=>o.e[0]===pi).map(o=>({k:nat+'-'+o.ei,t:o.e[1],d:o.e[2],x:true})));
+      all.forEach(a=>visKeys.push(a.k));
+      return `<div class="block phase"><h3>${pi+1}. ${p.n}</h3>${all.map(row).join('')}</div>`;
+    }).join('');
+    $('natNote').textContent=nat?'':'Répondez aux deux questions de départ (onglet 1) pour ajouter les étapes propres à votre activité.';
+    prog();
+  }
   function prog(){
-    const d=Object.values(S.tasks).filter(Boolean).length;
-    $('progLabel').textContent=d+' étapes sur '+total+' accomplies'+(d===total?' : bravo, votre entreprise est lancée.':'');
-    $('progBar').style.width=(d/total*100)+'%';
+    const total=visKeys.length, d=visKeys.filter(k=>S.tasks[k]).length;
+    $('progLabel').textContent=d+' étapes sur '+total+' accomplies'+(d===total&&total?' : bravo, votre entreprise est lancée.':'');
+    $('progBar').style.width=(total?d/total*100:0)+'%';
   }
   $('phases').addEventListener('change',e=>{
     const k=e.target.dataset.k; if(!k) return;
     S.tasks[k]=e.target.checked; save();
     e.target.closest('.task').classList.toggle('done',e.target.checked); prog();
   });
-  prog();
+  renderPhases();
 
   /* ---------- pilotage ---------- */
   const M=['Janv.','Févr.','Mars','Avr.','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'];
@@ -995,9 +1044,9 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   }
 
   /* ---------- signaux dynamiques ---------- */
-  S.pil=S.pil||{};
-  ['epargneNow','topClient','mood'].forEach(id=>{
-    if(S.pil[id]!==undefined) $(id).value=S.pil[id];
+  S.pil=S.pil||{}; delete S.pil.epargneNow; delete S.pil.mood;
+  ['topClient'].forEach(id=>{
+    if(S.pil[id]!==undefined && S.pil[id]!=='') $(id).value=S.pil[id];
     $(id).addEventListener('input',()=>{ S.pil[id]=$(id).value; save(); signals(); });
   });
   function signals(){
@@ -1007,7 +1056,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     const plaf=R[$('act').value].plaf;
     const filledIdx=vals.map((v,i)=>v>0?i:-1).filter(i=>i>=0);
     const cum=vals.reduce((a,b)=>a+b,0);
-    const ep=S.pil.epargneNow, top=S.pil.topClient, mood=S.pil.mood;
+    const top=S.pil.topClient;
     const out=[];
     if(filledIdx.length){
       const last=filledIdx[filledIdx.length-1];
@@ -1017,14 +1066,8 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
         out.push(`Votre chiffre d'affaires baisse depuis trois mois (${eur(vals[last-2])}, ${eur(vals[last-1])}, ${eur(vals[last])}). Cherchez la cause : saison, client perdu, offre moins visible ?`);
       if(cum>=plaf*0.8) out.push(`Vous avez atteint ${Math.round(cum/plaf*100)} % du plafond de chiffre d'affaires annuel de la micro-entreprise. Faites le point sur un changement de statut avant de le dépasser.`);
     }
-    if(ep!==undefined && ep!=='' && besoin>0 && +ep<2*besoin){
-      const m=Math.round(+ep/besoin*10)/10;
-      out.push(`Votre épargne couvre ${m.toLocaleString('fr-FR')} mois de besoins personnels, sous le seuil de sécurité de deux mois. Parlez-en tôt à un conseiller (CCI, BGE, Initiative France).`);
-    }
     if(top!==undefined && top!=='' && +top>50) out.push(`Un seul client pèse ${+top} % de votre chiffre d'affaires. Sa perte mettrait l'activité en danger : cherchez d'autres clients pour ne pas dépendre d'un seul.`);
-    if(mood==='tired') out.push(`Vous vous sentez fatigué. Repérez ce qui pourrait être simplifié, délégué ou reporté ce mois-ci.`);
-    if(mood==='low') out.push(`Vous vous sentez épuisé ou isolé. Ce n'est pas un détail : parlez-en à un proche, à votre conseiller ou à un réseau d'entrepreneurs. Protéger votre énergie, c'est protéger votre projet.`);
-    const any=filledIdx.length || (ep!==undefined&&ep!=='') || (top!==undefined&&top!=='') || mood;
+    const any=filledIdx.length || (top!==undefined&&top!=='');
     let html;
     if(out.length) html=out.map(t=>`<li>${t}</li>`).join('');
     else if(any) html='<li class="good">Aucun signal d\'alerte pour l\'instant. Mettez vos chiffres à jour chaque mois pour garder cette veille active.</li>';
@@ -1057,7 +1100,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   S.prix=S.prix||{mode:'services',fx:{}};
   const P=S.prix;
   const pxIds=['pxRemun','pxHeures','pxDirect','pxCout','pxQte','pxPrix'];
-  pxIds.forEach(id=>{ if(P[id]!==undefined) $(id).value=P[id]; });
+  pxIds.forEach(id=>{ if(P[id]!==undefined && P[id]!=='') $(id).value=P[id]; });
   if(P.pxTva!==undefined) $('pxTva').checked=P.pxTva;
   if(P.pxRemun===undefined && S.sim.besoin) $('pxRemun').value=S.sim.besoin;
   document.querySelectorAll('[data-fx]').forEach(el=>{ if(P.fx[el.dataset.fx]) el.value=P.fx[el.dataset.fx]; });
@@ -1136,7 +1179,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   /* ---------- plan de financement ---------- */
   S.fin=S.fin||{need:{},res:{}};
   const FN=S.fin;
-  ['finHdur','finBdur','finBrate'].forEach(id=>{ if(FN[id]!==undefined) $(id).value=FN[id]; });
+  ['finHdur','finBdur','finBrate'].forEach(id=>{ if(FN[id]!==undefined && FN[id]!=='') $(id).value=FN[id]; });
   document.querySelectorAll('[data-need]').forEach(el=>{ if(FN.need[el.dataset.need]) el.value=FN.need[el.dataset.need]; });
   document.querySelectorAll('[data-res]').forEach(el=>{ if(FN.res[el.dataset.res]) el.value=FN.res[el.dataset.res]; });
   function annuite(P,tauxAn,ans){ const n=Math.max(1,ans)*12, r=tauxAn/1200; return P<=0?0:(r===0?P/n:P*r/(1-Math.pow(1+r,-n))); }
@@ -1198,7 +1241,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     fete:[0.8,0.8,0.9,0.9,0.9,0.9,0.8,0.7,0.9,1,1.4,2]};
   $('bsStart').innerHTML=MOIS.map((m,i)=>`<option value="${i}">${m[0].toUpperCase()+m.slice(1)}</option>`).join('');
   if(BS.bsStart===undefined) BS.bsStart=String((new Date().getMonth()+1)%12);
-  ['bsCA','bsF','bsR','bsStart','bsSaison'].forEach(id=>{ if(BS[id]!==undefined) $(id).value=BS[id]; });
+  ['bsCA','bsF','bsR','bsStart','bsSaison'].forEach(id=>{ if(BS[id]!==undefined && BS[id]!=='') $(id).value=BS[id]; });
   document.querySelectorAll('[data-bv]').forEach(el=>{ if(BS.bv[el.dataset.bv]) el.value=BS.bv[el.dataset.bv]; });
   function fixMois(){ return Object.values((S.prix&&S.prix.fx)||{}).reduce((a,b)=>a+(+b||0),0); }
   $('bsFill').addEventListener('click',()=>{
@@ -1304,7 +1347,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   /* ---------- besoin en fonds de roulement ---------- */
   S.bfr=S.bfr||{};
   const BF=S.bfr, bfIds=['bfCA','bfA','bfDs','bfPct','bfDc','bfDf'];
-  bfIds.forEach(id=>{ if(BF[id]!==undefined) $(id).value=BF[id]; });
+  bfIds.forEach(id=>{ if(BF[id]!==undefined && BF[id]!=='') $(id).value=BF[id]; });
   if(BF.bfTtc!==undefined) $('bfTtc').checked=BF.bfTtc; else if(S.prix&&S.prix.pxTva) $('bfTtc').checked=true;
   let bfLast=0;
   $('bfFill').addEventListener('click',()=>{
@@ -1381,7 +1424,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   /* ---------- comparateur de statuts ---------- */
   S.st=S.st||{};
   const ST=S.st, stIds=['stCA','stCh','stParts','stAutres','stCptEI','stCptSoc'];
-  stIds.forEach(id=>{ if(ST[id]!==undefined) $(id).value=ST[id]; });
+  stIds.forEach(id=>{ if(ST[id]!==undefined && ST[id]!=='') $(id).value=ST[id]; });
   const ABATT={vente:0.71,bic:0.50,bnc:0.34,cipav:0.34};
   const ACTLAB={vente:'vente de marchandises',bic:'prestations de services commerciales ou artisanales',bnc:'profession libérale',cipav:'profession libérale réglementée'};
   function irBareme(rev,parts){
@@ -1401,15 +1444,15 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   $('stFill').addEventListener('click',()=>{ stPrefill(); statut(); });
   function statut(){
     stIds.forEach(id=>ST[id]=$(id).value); save();
-    const act=$('act').value, r=R[act];
-    $('stActHint').textContent=`Activité : ${ACTLAB[act]}, d'après votre simulateur (onglet 1).`;
+    const act=$('act').value, r=R[act], acre=$('acre').checked;
+    $('stActHint').textContent=`Activité : ${ACTLAB[act]}, d'après votre simulateur (onglet 1)${acre?' — ACRE appliquée la 1ʳᵉ année':''}.`;
     const CA=+ST.stCA||0, CH=+ST.stCh||0, parts=+ST.stParts||1, autres=+ST.stAutres||0;
     const cEI=+ST.stCptEI||0, cSoc=+ST.stCptSoc||0;
     const irPart=rev=>irBareme(rev+autres,parts)-irBareme(autres,parts);
     const res=[];
     // micro-entreprise
     {
-      const cot=CA*(r.c+r.cfp)/100;
+      const cot=CA*(r.c*(acre?0.75:1)+r.cfp)/100;
       const vl=$('vl').checked;
       const ir=vl?CA*r.vl/100:irPart(CA*(1-ABATT[act]));
       const net=CA-CH-cot-ir;
@@ -1417,11 +1460,11 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     }
     // EI au réel / EURL à l'IR
     {
-      const D=CA-CH-cEI;
-      let netAv=D>0?D/1.45:0, cot=D>0?D-netAv:0;
-      if(cot<1100){ cot=Math.min(1100,Math.max(D,0)+1100); netAv=D-cot; }
+      const D=CA-CH-cEI, floor=r.cotMin*(acre?0.75:1);
+      let netAv=D>0?D/1.45:0, cot=D>0?D-netAv:0, why='';
+      if(cot<floor){ cot=floor; netAv=D-cot; why=`Même à faible bénéfice, une cotisation minimale reste due (retraite, formation professionnelle) : environ ${eur(Math.round(floor))} par an${acre?' avec l\'ACRE':''}. En dessous d\'environ ${eur(Math.round(floor/0.31))} de bénéfice, la micro-entreprise coûte donc souvent moins cher en cotisations.`; }
       const ir=irPart(Math.max(0,netAv));
-      res.push({k:'ei',nom:'Entreprise individuelle au réel ou EURL',net:netAv-ir,cot,impot:ir,ok:true,why:''});
+      res.push({k:'ei',nom:'Entreprise individuelle au réel ou EURL',net:netAv-ir,cot,impot:ir,ok:true,why});
     }
     // SASU, tout en salaire
     {
@@ -1463,14 +1506,14 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
     $('stGrid').innerHTML=`<thead><tr><th></th>${res.map(x=>`<th>${x.nom}${x===best&&best.net>0?' <span style="color:var(--leaf)">●</span>':''}</th>`).join('')}</tr></thead><tbody>`+rows.map(rw=>`<tr><th>${rw[0]}</th>${rw[1].map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')+'</tbody>';
   }
   stIds.forEach(id=>$(id).addEventListener('input',statut));
-  ['act','vl'].forEach(id=>$(id).addEventListener('input',()=>statut()));
+  ['act','vl','acre'].forEach(id=>$(id).addEventListener('input',()=>statut()));
   statut();
 
 
   /* ---------- prévisionnel sur trois ans ---------- */
   S.pv=S.pv||{};
   const PV=S.pv, pvIds=['pvStat','pvCA','pvVar','pvG2','pvG3','pvF','pvFi','pvR'];
-  pvIds.forEach(id=>{ if(PV[id]!==undefined) $(id).value=PV[id]; });
+  pvIds.forEach(id=>{ if(PV[id]!==undefined && PV[id]!=='') $(id).value=PV[id]; });
   function pvPrefill(){
     const bs=S.bs||{}, Pp=S.prix||{}, Fm=Object.values(Pp.fx||{}).reduce((a,b)=>a+(+b||0),0);
     const ca=+bs.bsCA||(+S.sim.ca||0)*12;
@@ -1516,7 +1559,7 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
         revenu=resultat; prel=Rm;
       } else if(stat==='ei'){
         const base=ca-V-F-amort-frais-int;
-        cot=base>0?Math.max(1100,base-base/1.45):1100; if(acre&&y===0) cot*=0.75;
+        cot=base>0?Math.max(r.cotMin,base-base/1.45):r.cotMin; if(acre&&y===0) cot*=0.75;
         resultat=base-cot; revenu=resultat; prel=Rm;
       } else {
         sal=Rm; cot=sal*0.8*(acre&&y===0?0.75:1);
@@ -1611,14 +1654,14 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
       kpi(panier?eur(panier):'—','Panier moyen',panier?tr(panier,panierP):'')+
       kpi(marge===null?'—':Math.round(marge*100)+' %','Marge sur achats',marge===null?'':eur(ca-a)+' dégagés')+
       kpi(cac===null?'—':eur(cac),'Coût d\'un nouveau client',n?`${n} nouveau${n>1?'x':''} client${n>1?'s':''}`:'')+
-      kpi(imp?eur(imp):'—','Argent en attente',imp&&ca?Math.round(imp/ca*100)+' % du mois':'');
+      (credit()?kpi(imp?eur(imp):'—','Argent en attente',imp&&ca?Math.round(imp/ca*100)+' % du mois':''):'');
     const notes=[];
     if(!ca && !v){ $('tbNotes').innerHTML='<div class="note info" style="margin-top:0">Saisissez le chiffre d\'affaires et le nombre de ventes du mois pour obtenir vos indicateurs.</div>'; return; }
     const pv=S.pv||{}, tvPrev=+pv.pvVar||0;
     if(marge!==null && a>0 && tvPrev>0 && marge*100<(100-tvPrev)-5) notes.push(`<div class="note warn">Votre marge sur achats (${Math.round(marge*100)} %) est inférieure à celle de votre prévisionnel (${100-tvPrev} %). Vérifiez vos prix, les remises accordées ou la hausse de vos coûts d'achat.</div>`);
     if(panier && panierP && panier<panierP*0.85) notes.push(`<div class="note info">Le panier moyen baisse de ${Math.round((1-panier/panierP)*100)} % par rapport à ${TBM[pm].toLowerCase()}. Plus de petites ventes, ou des clients qui achètent moins ?</div>`);
     if(cac && panier && marge!==null && cac>panier*Math.max(0,marge)) notes.push(`<div class="note warn">Un nouveau client vous coûte ${eur(cac)} en publicité, plus que la marge de sa première vente (${eur(panier*Math.max(0,marge))}). Ce n'est rentable que si ces clients reviennent acheter.</div>`);
-    if(imp && ca && imp>ca*0.3) notes.push(`<div class="note warn">${eur(imp)} de factures impayées, soit ${Math.round(imp/ca*100)} % du chiffre d'affaires du mois. Relancez dès l'échéance : plus un impayé vieillit, moins il se recouvre.</div>`);
+    if(credit() && imp && ca && imp>ca*0.3) notes.push(`<div class="note warn">${eur(imp)} de factures impayées, soit ${Math.round(imp/ca*100)} % du chiffre d'affaires du mois. Relancez dès l'échéance : plus un impayé vieillit, moins il se recouvre.</div>`);
     // cumul annuel vs prévisionnel
     const filled=Object.keys(S.ca).filter(k=>+S.ca[k]>0), cum=filled.reduce((s,k)=>s+(+S.ca[k]),0), obj=+pv.pvCA||0;
     if(obj && filled.length>=2){ const att=obj*filled.length/12, ratio=cum/att;
@@ -1633,37 +1676,57 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   $('months').addEventListener('input',()=>{ tbLoad(); tb(); });
   tbLoad(); tb();
 
-  // les six outils de l'onglet Mes calculs : une seule liste, dans l'ordre du parcours
-  const TOOLS=[
+  // les outils de l'onglet Mes calculs : une seule liste, dans l'ordre du parcours ; certains ne s'affichent que s'ils concernent l'activité
+  function credit(){ return S.tri.pay!=='comptant'; }
+  const TB_INTRO_FULL="Six chiffres à saisir chaque mois donnent quatre indicateurs que suivent les dirigeants. Le panier moyen est le montant moyen d'une vente. La marge sur achats est ce qui vous reste d'une vente une fois payé ce qu'elle vous a coûté. Le coût d'un nouveau client est ce que vous dépensez en publicité pour en gagner un. L'argent en attente, ce sont les factures envoyées mais pas encore payées.";
+  const TB_INTRO_CASH="Cinq chiffres à saisir chaque mois donnent trois indicateurs que suivent les dirigeants. Le panier moyen est le montant moyen d'une vente. La marge sur achats est ce qui vous reste d'une vente une fois payé ce qu'elle vous a coûté. Le coût d'un nouveau client est ce que vous dépensez en publicité pour en gagner un.";
+  function payUI(){
+    $('tbI').parentElement.style.display=credit()?'':'none';
+    $('tbIntro').textContent=credit()?TB_INTRO_FULL:TB_INTRO_CASH;
+  }
+  function applyProfile(){ renderTools(); renderPhases(); payUI(); tb(); }
+  const ALL_TOOLS=[
     {id:'toolFin',label:'Financer mon démarrage'},
     {id:'toolPrix',label:'Fixer mon prix'},
     {id:'toolSeuil',label:'Calculer mon seuil de rentabilité'},
-    {id:'toolBfr',label:'Mesurer mon besoin en fonds de roulement'},
+    {id:'toolBfr',label:'Mesurer mon besoin en fonds de roulement',only:credit},
     {id:'toolStat',label:'Choisir mon statut'},
     {id:'toolPrev',label:'Prévoir mes trois premières années'}
   ];
-  $('toolsBar').innerHTML=TOOLS.map((t,i)=>`<button type="button" role="tab" data-tool="${t.id}" aria-selected="false"><span class="n">${i+1}</span><span>${t.label}</span></button>`).join('');
-  TOOLS.forEach(t=>{ const h=document.querySelector('#'+t.id+' > h2'); if(h) h.textContent=t.label; });   // le titre est toujours identique au bouton
-  const toolBtns=[...document.querySelectorAll('#toolsBar [data-tool]')];
+  let TOOLS=ALL_TOOLS;
+  ALL_TOOLS.forEach(t=>{ const h=document.querySelector('#'+t.id+' > h2'); if(h) h.textContent=t.label; });   // le titre est toujours identique au bouton
+  const toolSel=$('toolSel');
+  function renderTools(){
+    TOOLS=ALL_TOOLS.filter(t=>!t.only||t.only());
+    $('toolsBar').innerHTML=TOOLS.map((t,i)=>`<button type="button" role="tab" data-tool="${t.id}" aria-selected="false"><span class="n">${i+1}</span><span>${t.label}</span></button>`).join('');
+    toolSel.innerHTML=TOOLS.map((t,i)=>`<option value="${t.id}">${i+1}. ${t.label}</option>`).join('');
+    openTool(S.tool);
+  }
+  const stepTool=d=>{ const i=TOOLS.findIndex(t=>t.id===S.tool)+d; if(i>=0&&i<TOOLS.length) openTool(TOOLS[i].id,{scroll:true}); };
   function buildToolNav(id){
     const i=TOOLS.findIndex(t=>t.id===id), p=TOOLS[i-1], n=TOOLS[i+1];
     $('toolNav').innerHTML=(p?`<button class="btn ghost" type="button" data-go="${p.id}">← ${p.label}</button>`:'<span></span>')
       +(n?`<button class="btn" type="button" data-go="${n.id}">Étape suivante : ${n.label} →</button>`:'');
   }
   function openTool(id,o){
-    toolBtns.forEach(b=>b.setAttribute('aria-selected',b.dataset.tool===id));
-    TOOLS.forEach(t=>$(t.id).hidden=t.id!==id);
+    if(!TOOLS.some(t=>t.id===id)) id=TOOLS[0].id;
+    [...document.querySelectorAll('#toolsBar [data-tool]')].forEach(b=>b.setAttribute('aria-selected',b.dataset.tool===id));
+    ALL_TOOLS.forEach(t=>$(t.id).hidden=t.id!==id);
     if(id==='toolPrev') prev();
     if(id==='toolStat') statut();
     if(id==='toolSeuil') seuil();
     if(id==='toolBfr') bfr();
     S.tool=id; save();
+    const ti=TOOLS.findIndex(t=>t.id===id); toolSel.value=id; $('toolPrevBtn').disabled=ti<=0; $('toolNextBtn').disabled=ti>=TOOLS.length-1;
     buildToolNav(id);
     if(o&&o.scroll) $(id).scrollIntoView({behavior:'smooth',block:'start'});
   }
-  toolBtns.forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.tool,{scroll:true})));
+  $('toolsBar').addEventListener('click',e=>{ const b=e.target.closest('[data-tool]'); if(b) openTool(b.dataset.tool,{scroll:true}); });
+  toolSel.addEventListener('change',()=>openTool(toolSel.value,{scroll:true}));
+  $('toolPrevBtn').addEventListener('click',()=>stepTool(-1));
+  $('toolNextBtn').addEventListener('click',()=>stepTool(1));
   $('toolNav').addEventListener('click',e=>{ const b=e.target.closest('[data-go]'); if(b) openTool(b.dataset.go,{scroll:true}); });
-  openTool(TOOLS.some(t=>t.id===S.tool)?S.tool:'toolFin');
+  renderTools(); payUI();
   fin();
 
   $('wipe').addEventListener('click',()=>{
@@ -1675,13 +1738,19 @@ fieldset.plain legend{font-weight:600;font-size:.95rem;margin-bottom:10px;paddin
   });
 
   if(S.tab && S.tab!=='tester') openTab(S.tab);
+  const HASHES={'#fin':'toolFin','#prix':'toolPrix','#seuil':'toolSeuil','#bfr':'toolBfr','#statut':'toolStat','#prevision':'toolPrev'};
+  if(HASHES[location.hash]){ openTab('calculs',{scroll:false}); openTool(HASHES[location.hash],{scroll:true}); }
   if(triDone() && answered()===visQ().length) showResult(true);
 })();
 </script>
 
 <script>
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
-let deferredPrompt=null; const ib=document.getElementById('install');
+let deferredPrompt=null; const ib=document.getElementById('install'), iosBox=document.getElementById('iosInstall');
+const standalone=window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone===true;
+const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);   // iPad récent se présente comme un Mac tactile
+// Safari sur iOS ne déclenche jamais « beforeinstallprompt » : sans ce repli, le bouton restait invisible et personne n'apprenait qu'on peut installer l'app.
+if(isIOS && !standalone) iosBox.hidden=false;
 window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; ib.hidden=false; });
 ib.addEventListener('click',async()=>{ if(!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; ib.hidden=true; });
 window.addEventListener('appinstalled',()=>{ ib.hidden=true; });
