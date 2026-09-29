@@ -1,0 +1,17 @@
+# Pa a Pa
+
+> Application web gratuite, installable sur mobile et ordinateur, qui aide les futurs créateurs d'entreprise à vérifier que leur projet tient la route avant de se lancer : bilan de faisabilité, calculs guidés et parcours de création pas à pas. Sans inscription ; les données restent sur l'appareil de l'utilisateur. Pensée pour la France métropolitaine et l'outre-mer (Guadeloupe, Martinique, La Réunion, Guyane, Mayotte).
+
+## Présentation
+- [Accueil](https://heso73.github.io/pa-a-pa/): ce que fait Pa a Pa, les six outils de calcul, questions fréquentes
+
+## Guides
+- [Prix de revient et prix de vente](https://heso73.github.io/pa-a-pa/prix-de-revient-prix-de-vente.html): formule et deux exemples chiffrés
+- [Seuil de rentabilité](https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html): formule, exemples et simulateur
+- [Calcul du BFR](https://heso73.github.io/pa-a-pa/calcul-bfr.html): besoin en fonds de roulement, formule et exemple
+
+## Application
+- [Ouvrir l'application](https://heso73.github.io/pa-a-pa/app/): bilan de faisabilité, parcours de création, pilotage de l'activité et outils de calcul (interface interactive, non indexée)
+
+## Limites
+- Outil d'orientation : les montants sont des estimations et ne remplacent pas un expert-comptable ni un conseiller en création.

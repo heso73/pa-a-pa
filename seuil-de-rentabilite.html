@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1C7466">
+<title>Seuil de rentabilité : formule, exemple et calcul gratuit</title>
+<meta name="description" content="Calculez votre seuil de rentabilité : la formule, deux exemples chiffrés (services et boutique) et un simulateur gratuit pour savoir combien vendre pour ne pas perdre d&#x27;argent.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Pa a Pa">
+<meta property="og:title" content="Seuil de rentabilité : formule, exemple et calcul gratuit">
+<meta property="og:description" content="Combien faut-il vendre pour ne pas perdre d'argent ? La formule, deux exemples chiffrés et un simulateur gratuit.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F3; --surface:#FFFFFF; --ink:#12302A; --muted:#4B635D; --line:#CFDCD6;
+  --lagon:#1C7466; --lagon-soft:#DCEEEA; --madras:#E3A11A; --coral:#C8453A; --leaf:#3F8F4E; --amber-soft:#FBF0D6;
+  --serif:"Young Serif", Georgia, "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0E1C19; --surface:#152824; --ink:#E6F0EC; --muted:#A3BAB3; --line:#2A423C; --lagon:#4DB3A2; --lagon-soft:#173A34; --madras:#EDB43A; --coral:#E77267; --leaf:#6CC07B; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.brand{font-family:var(--serif);font-size:1.25rem;color:var(--ink);text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 20px;border-radius:12px}
+.btn.small{padding:8px 14px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#0E1C19}}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--amber-soft);border:1px solid var(--line);border-radius:16px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html#article", "headline": "Seuil de rentabilité : formule et exemple", "description": "Calculez votre seuil de rentabilité : la formule, deux exemples chiffrés (services et boutique) et un simulateur gratuit pour savoir combien vendre pour ne pas perdre d'argent.", "inLanguage": "fr", "url": "https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html", "image": "https://heso73.github.io/pa-a-pa/icons/icon-512.png", "datePublished": "2026-09-28", "dateModified": "2026-09-29", "author": {"@type": "Organization", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/"}, "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html", "isPartOf": {"@id": "https://heso73.github.io/pa-a-pa/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa", "item": "https://heso73.github.io/pa-a-pa/"}, {"@type": "ListItem", "position": 2, "name": "Seuil de rentabilité : formule et exemple", "item": "https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle est la formule du seuil de rentabilité ?", "acceptedAnswer": {"@type": "Answer", "text": "Charges fixes ÷ taux de marge sur coûts variables. Le résultat est un chiffre d'affaires, par mois ou par an selon la période des charges fixes."}}, {"@type": "Question", "name": "Quelle différence entre seuil de rentabilité et point mort ?", "acceptedAnswer": {"@type": "Answer", "text": "Le seuil de rentabilité est le montant de chiffre d'affaires à atteindre. Le point mort est la date à laquelle on l'atteint, compte tenu de la saisonnalité des ventes."}}, {"@type": "Question", "name": "Les cotisations de la micro-entreprise sont-elles des charges fixes ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, ce sont des coûts variables : elles sont calculées en pourcentage du chiffre d'affaires encaissé, et sont nulles quand il est nul."}}, {"@type": "Question", "name": "Faut-il inclure ma rémunération dans le calcul ?", "acceptedAnswer": {"@type": "Answer", "text": "Si l'activité doit vous faire vivre, oui : ajoutez ce dont vous avez besoin par mois aux charges fixes. Le chiffre d'affaires obtenu est celui qu'il faut viser, plus élevé que le seuil qui couvre seulement les coûts."}}]}]}</script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="./">Pa a Pa</a>
+<a class="btn small" href="app/#seuil">Ouvrir le simulateur</a>
+</div>
+</header>
+
+<main class="wrap">
+<h1>Seuil de rentabilité : formule et exemple</h1>
+<p class="lead">Le seuil de rentabilité est le chiffre d'affaires à partir duquel l'activité ne perd plus d'argent. En dessous, vous travaillez à perte ; au-dessus, chaque vente supplémentaire rapporte.</p>
+
+<div class="box">
+<strong>En bref</strong>
+<ul>
+<li>Il se calcule avec deux éléments : vos charges fixes et ce qu'il vous reste de chaque euro vendu une fois payés les coûts variables.</li>
+<li>Pour vivre de l'activité, ajoutez votre rémunération aux charges fixes : le chiffre d'affaires nécessaire est plus élevé.</li>
+<li>Les cotisations de la micro-entreprise sont proportionnelles aux ventes : elles comptent parmi les coûts variables.</li>
+</ul>
+</div>
+
+<h2>Les deux types de coûts</h2>
+<ul>
+<li><strong>Charges fixes</strong> : elles restent les mêmes quel que soit le volume de ventes (loyer, assurances, abonnements, remboursement d'un emprunt).</li>
+<li><strong>Coûts variables</strong> : ils augmentent avec les ventes (achats de marchandises, matières, commissions, cotisations sociales de la micro-entreprise).</li>
+</ul>
+
+<h2>La formule</h2>
+<p class="formula">Seuil de rentabilité = charges fixes ÷ taux de marge sur coûts variables</p>
+<p>Le taux de marge sur coûts variables est la part de chaque euro vendu qui reste après les coûts variables : 1 − (coûts variables ÷ chiffre d'affaires). S'il est de 60 %, chaque euro vendu laisse 0,60 € pour payer les charges fixes.</p>
+
+<h2>Exemple 1 : un prestataire de services en micro-entreprise</h2>
+<p>Charges fixes de 800 € par mois. Frais variables de 10 % du chiffre d'affaires. Cotisations de 21,2 % (taux 2026 des prestations de services commerciales ou artisanales, sans réduction ACRE) et contribution à la formation professionnelle de 0,2 %.</p>
+<div class="scrollx">
+<table>
+<tr><td>Coûts variables : 10 % + 21,2 % + 0,2 %</td><td>31,4 % du chiffre d'affaires</td></tr>
+<tr><td>Taux de marge sur coûts variables : 100 % − 31,4 %</td><td>68,6 %</td></tr>
+<tr class="total"><td>Seuil de rentabilité : 800 ÷ 0,686</td><td>1 166 € par mois</td></tr>
+</table>
+</div>
+<p>À 1 166 € de chiffre d'affaires par mois, l'activité couvre ses coûts sans rien laisser pour vous. Pour vous verser 1 600 € par mois, il faut (800 + 1 600) ÷ 0,686, soit environ 3 499 € de chiffre d'affaires mensuel.</p>
+
+<h2>Exemple 2 : une boutique de produits</h2>
+<p>Charges fixes de 2 400 € par mois (loyer, assurance, abonnements). Les produits sont achetés 40 % de leur prix de vente. Boutique en micro-entreprise : cotisations de 12,3 % (vente de marchandises, taux 2026, sans réduction ACRE) et contribution à la formation professionnelle de 0,1 %.</p>
+<div class="scrollx">
+<table>
+<tr><td>Coûts variables : 40 % + 12,3 % + 0,1 %</td><td>52,4 % du chiffre d'affaires</td></tr>
+<tr><td>Taux de marge sur coûts variables : 100 % − 52,4 %</td><td>47,6 %</td></tr>
+<tr class="total"><td>Seuil de rentabilité : 2 400 ÷ 0,476</td><td>5 042 € par mois</td></tr>
+</table>
+</div>
+<p>Si un article se vend 25 € et coûte 10 € à l'achat, les cotisations en prennent 3,10 € (12,4 % de 25 €) : il reste 11,90 € pour payer les charges fixes. Il faut en vendre 2 400 ÷ 11,90, soit environ 202 par mois. Sans compter les cotisations, on trouverait à tort 4 000 € par mois et 160 articles : l'erreur classique.</p>
+
+<h2>Le seuil est un minimum, pas un objectif</h2>
+<p>Au seuil, vous ne gagnez rien. Regardez aussi votre marge de sécurité : la distance entre le chiffre d'affaires prévu et le seuil. Une marge de sécurité faible signifie qu'une baisse des ventes suffit à faire passer l'activité en perte. Les ventes ne sont en outre presque jamais régulières : les mois creux se financent par la trésorerie.</p>
+
+<h2>Comment l'abaisser</h2>
+<ul>
+<li>Réduire les charges fixes : local partagé, matériel d'occasion, abonnements inutiles.</li>
+<li>Augmenter le prix de vente ou baisser le coût d'achat, pour élargir la marge sur chaque vente.</li>
+<li>Transformer des charges fixes en charges variables (commission plutôt que salaire fixe, location au besoin).</li>
+</ul>
+
+<div class="cta">
+<p><strong>Calculez le vôtre en deux minutes</strong><br>Gratuit, sans inscription. Vos chiffres restent sur votre appareil.</p>
+<a class="btn" href="app/#seuil">Calculer mon seuil de rentabilité</a>
+</div>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Quelle est la formule du seuil de rentabilité ?</summary>
+<p>Charges fixes ÷ taux de marge sur coûts variables. Le résultat est un chiffre d'affaires, par mois ou par an selon la période des charges fixes.</p></details>
+<details><summary>Quelle différence entre seuil de rentabilité et point mort ?</summary>
+<p>Le seuil de rentabilité est le montant de chiffre d'affaires à atteindre. Le point mort est la date à laquelle on l'atteint, compte tenu de la saisonnalité des ventes.</p></details>
+<details><summary>Les cotisations de la micro-entreprise sont-elles des charges fixes ?</summary>
+<p>Non, ce sont des coûts variables : elles sont calculées en pourcentage du chiffre d'affaires encaissé, et sont nulles quand il est nul.</p></details>
+<details><summary>Faut-il inclure ma rémunération dans le calcul ?</summary>
+<p>Si l'activité doit vous faire vivre, oui : ajoutez ce dont vous avez besoin par mois aux charges fixes. Le chiffre d'affaires obtenu est celui qu'il faut viser, plus élevé que le seuil qui couvre seulement les coûts.</p></details>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa est un outil d'orientation. Les montants sont des estimations et ne remplacent pas l'avis d'un expert-comptable ou d'un conseiller en création.</p>
+<p>À lire aussi : <a href="prix-de-revient-prix-de-vente.html">Prix de revient et prix de vente</a> · <a href="calcul-bfr.html">Calcul du besoin en fonds de roulement</a></p>
+<p><a href="./">Pa a Pa, entreprendre sereinement</a> · Dernière mise à jour : 29 septembre 2026</p>
+</div>
+</footer>
+</body>
+</html>
