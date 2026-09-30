@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><meta name="google-site-verification" content="tET26rF2ESY_-2l1RsUjMbSWzCwE5hqeKHTZGhSS4CI" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1C7466">
 <title>Pa a Pa : vérifier que votre projet d&#x27;entreprise tient la route (gratuit)</title>
@@ -78,16 +78,15 @@ a{color:var(--lagon)}
 .tools span{color:var(--muted);font-size:.98rem}
 nav.main a{margin-left:14px;font-weight:600;text-decoration:none;font-size:.95rem}
 @media (max-width:560px){nav.main .hide{display:none}}
-.pwa-only{display:none}
-@media (display-mode: standalone){.pwa-only{display:block;position:sticky;top:0;z-index:9;background:var(--lagon);color:var(--bg);text-align:center;padding:12px 16px;font-weight:700;text-decoration:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://heso73.github.io/pa-a-pa/#website", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/", "inLanguage": "fr", "description": "Application gratuite pour futurs créateurs d'entreprise : bilan de faisabilité, prix de revient, seuil de rentabilité, BFR, choix du statut et prévisionnel sur trois ans. Sans inscription."}, {"@type": "WebApplication", "@id": "https://heso73.github.io/pa-a-pa/#app", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/app/", "description": "Application gratuite pour futurs créateurs d'entreprise : bilan de faisabilité, prix de revient, seuil de rentabilité, BFR, choix du statut et prévisionnel sur trois ans. Sans inscription.", "inLanguage": "fr", "applicationCategory": "BusinessApplication", "operatingSystem": "Web, Android, iOS, Windows", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "featureList": ["Bilan de faisabilité du projet d'entreprise", "Calcul du prix de revient et du prix de vente", "Seuil de rentabilité", "Besoin en fonds de roulement", "Comparateur de statuts juridiques", "Prévisionnel sur trois ans", "Parcours de création pas à pas", "Suivi mensuel du chiffre d'affaires"], "audience": {"@type": "Audience", "audienceType": "Créateurs et futurs créateurs d'entreprise"}, "isPartOf": {"@id": "https://heso73.github.io/pa-a-pa/#website"}}, {"@type": "WebPage", "@id": "https://heso73.github.io/pa-a-pa/#webpage", "url": "https://heso73.github.io/pa-a-pa/", "name": "Pa a Pa : vérifier que votre projet d'entreprise tient la route (gratuit)", "inLanguage": "fr", "isPartOf": {"@id": "https://heso73.github.io/pa-a-pa/#website"}, "about": {"@id": "https://heso73.github.io/pa-a-pa/#app"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Pa a Pa est-il vraiment gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. L'application et les guides sont gratuits, sans inscription et sans publicité."}}, {"@type": "Question", "name": "Faut-il créer un compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Aucun compte, nom ni adresse e-mail n'est demandé. Vos réponses et vos chiffres restent enregistrés sur votre appareil, dans la mémoire locale du navigateur, et ne sont pas envoyés à un serveur."}}, {"@type": "Question", "name": "À qui s'adresse Pa a Pa ?", "acceptedAnswer": {"@type": "Answer", "text": "À toute personne qui pense créer une entreprise, quel que soit son secteur, et en particulier aux débutants : chaque question et chaque calcul sont expliqués en mots simples. L'application propose la France métropolitaine, la Guadeloupe, la Martinique, La Réunion, la Guyane et Mayotte."}}, {"@type": "Question", "name": "Que fait Pa a Pa que je ne peux pas faire avec un tableur ?", "acceptedAnswer": {"@type": "Answer", "text": "Il pose des questions adaptées à votre type d'activité, relie les calculs entre eux (les chiffres saisis dans un outil alimentent les autres) et n'affiche que ce qui vous concerne : le besoin en fonds de roulement n'apparaît pas pour une activité payée au comptant, par exemple."}}, {"@type": "Question", "name": "Peut-on installer l'application sur un téléphone ou un ordinateur ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Pa a Pa s'installe comme une application depuis le navigateur et fonctionne ensuite sans connexion. Sur iPhone, l'installation passe par le menu Partager de Safari."}}, {"@type": "Question", "name": "Les résultats remplacent-ils un expert-comptable ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Les montants sont des estimations d'orientation, calculées avec les taux 2026 de la micro-entreprise et des paramètres simplifiés pour les autres statuts. Avant de vous engager, faites-les confirmer par un expert-comptable ou un conseiller en création."}}]}]}</script>
 <script>
+// Application déjà installée : ouvrir directement l'app (start_url d'anciennes installations)
+if(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true){location.replace('app/');}
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
 </script>
 </head>
 <body>
-<a class="pwa-only" href="app/">Ouvrir l'application →</a>
 <header class="top">
 <div class="wrap wide">
 <a class="brand" href="./">Pa a Pa</a>

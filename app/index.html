@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#1C7466">
 <meta name="description" content="Tester son projet d'entreprise avant de se lancer, suivre chaque démarche et piloter son activité.">
 <meta name="robots" content="noindex,follow">
+<script src="../stats.js" defer></script>
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
@@ -843,6 +844,7 @@ nav.steps .sm{display:none}
   }
   form.addEventListener('change',e=>{
     const n=e.target.name; if(!n) return;
+    if(window.track) track('bilan-demarre');
     if(n.indexOf('tri_')===0){
       S.tri[n.slice(4)]=e.target.value;
       save(); renderQ(); $('result').classList.remove('on'); applyProfile();
@@ -888,7 +890,7 @@ nav.steps .sm{display:none}
       : '<li class="good">Aucun pilier fragile. Prochaine étape : affiner vos chiffres avec le simulateur, puis passer à l\'onglet « Me lancer ».</li>');
     if(ACT_SIM[S.tri.nat]){ sb.style.display=''; $('simSetBtn').textContent='Régler le simulateur sur mon activité'; }
     box.classList.add('on');
-    if(silent!==true) box.scrollIntoView({behavior:"smooth",block:"start"});
+    if(silent!==true){ if(window.track) track('bilan-termine'); box.scrollIntoView({behavior:"smooth",block:"start"}); }
   }
   $("showResult").addEventListener("click",()=>showResult());
   $('resetQuiz').addEventListener('click',()=>{ S.quiz={}; S.tri={}; save(); applyProfile(); renderTri(); renderQ(); $('result').classList.remove('on'); updProg(); form.closest('.block').scrollIntoView({behavior:'smooth',block:'start'}); });
