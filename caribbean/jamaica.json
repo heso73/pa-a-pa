@@ -1,0 +1,113 @@
+{
+  "country": "JM",
+  "name": "Jamaica",
+  "language": "en",
+  "currency": { "code": "JMD", "symbol": "J$" },
+  "dataVerifiedOn": "2026-09-30",
+  "status": "draft",
+  "authorities": {
+    "tax": { "name": "Tax Administration Jamaica (TAJ)", "url": "https://www.jamaicatax.gov.jm" },
+    "registry": { "name": "Companies Office of Jamaica (COJ)", "url": "https://www.orcjamaica.com" },
+    "support": [
+      { "name": "Jamaica Business Development Corporation (JBDC)", "url": "https://www.jbdc.net", "toDetail": true },
+      { "name": "Development Bank of Jamaica (DBJ)", "toDetail": true }
+    ]
+  },
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "label": "Registered business name (sole trader / partnership)",
+      "law": "Business Names Act",
+      "registeredAt": "COJ",
+      "needs": ["TRN", "valid ID", "proof of address"],
+      "feeJMD": null,
+      "feeNote": "Sources disagree (free vs J$2,500 for sole trader). To verify on orcjamaica.com.",
+      "verified": false
+    },
+    {
+      "id": "limited_company",
+      "label": "Limited company",
+      "law": "Companies Act",
+      "registeredAt": "COJ",
+      "nameRule": "Name must end with 'Limited'; registered office must be in Jamaica",
+      "needs": ["name reservation", "articles of incorporation", "beneficial ownership return", "TRN for directors", "ID of principal director"],
+      "fees": { "registrationJMD": 27000, "nameSearchJMD": 500, "nameReservationJMD": 3000 },
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    { "id": "trn", "label": "Get a TRN (Taxpayer Registration Number) from TAJ", "appliesTo": ["business_name", "limited_company"] },
+    { "id": "name", "label": "Search and reserve the business or company name at COJ", "appliesTo": ["business_name", "limited_company"] },
+    { "id": "register", "label": "Register with COJ (online portal)", "appliesTo": ["business_name", "limited_company"] },
+    { "id": "superform", "label": "Business Registration Form (BRF1) covering NIS, TRN, GCT, HEART and NHT", "appliesTo": ["limited_company"] },
+    { "id": "gct", "label": "Register for GCT if turnover exceeds the threshold (within 21 days of crossing it)", "appliesTo": ["business_name", "limited_company"], "conditional": "turnover > gct.registrationThresholdJMD" }
+  ],
+  "taxes": {
+    "gct": {
+      "label": "General Consumption Tax (VAT equivalent)",
+      "standardRate": 0.15,
+      "registrationThresholdJMD": 15000000,
+      "thresholdEffectiveFrom": "2025-04-01",
+      "otherRates": { "telecom": 0.25, "tourism": 0.10 },
+      "importAdvanceRate": 0.05,
+      "returnFrequency": "monthly or bi-monthly",
+      "returnDeadline": "25th of the month following the period",
+      "verified": true
+    },
+    "personalIncomeTax": {
+      "thresholdJMD": 1902360,
+      "thresholdEffectiveFrom": "2026-04-01",
+      "effectiveThreshold2026JMD": 1876614,
+      "brackets": [
+        { "upToJMD": 6000000, "rate": 0.25 },
+        { "aboveJMD": 6000000, "rate": 0.30 }
+      ],
+      "annualReturnDeadline": "March 15",
+      "verified": true
+    },
+    "corporateIncomeTax": {
+      "standardRate": 0.25,
+      "regulatedCompanyRate": 0.3333,
+      "verified": false,
+      "note": "Standard rate from a secondary source. To confirm with TAJ."
+    },
+    "quarterlyEstimates": {
+      "selfEmployed": true,
+      "verified": false,
+      "note": "Quarterly estimated payments for self-employed (form S04A) cited by a secondary source. To confirm with TAJ."
+    }
+  },
+  "selfEmployedContributions": {
+    "nis": { "rate": 0.06, "ceilingJMD": 5000000 },
+    "nht": { "rate": 0.02 },
+    "educationTax": { "rate": 0.0225 },
+    "verified": true
+  },
+  "employerContributions": {
+    "nis": 0.03,
+    "nht": 0.03,
+    "educationTax": 0.035,
+    "heartNta": { "rate": 0.03, "note": "Applies above a monthly payroll threshold" },
+    "verified": true
+  },
+  "employeeContributions": {
+    "nis": 0.03,
+    "nht": 0.02,
+    "educationTax": 0.0225
+  },
+  "upcomingChanges": [
+    {
+      "id": "gct_digital_services",
+      "label": "GCT on foreign digital services and intangibles (proposed, FY2026/27)",
+      "expectedStart": "early 2027",
+      "impactOnAssessment": "none for now"
+    }
+  ],
+  "toVerify": [
+    "Business name registration fee",
+    "Corporate income tax standard rate",
+    "Quarterly estimated tax for self-employed",
+    "HEART/NTA payroll threshold",
+    "Financing programs of JBDC and DBJ"
+  ]
+}
