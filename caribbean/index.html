@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pa a Pa Jamaica: test your business idea</title>
+<meta name="description" content="Free tool to test whether your business idea in Jamaica can pay your bills. No sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10283B; --sea:#0F7C8A; --lagoon:#E3F0EF; --sun:#E8A317; --paper:#F7F9F8;
+  --line:#CBD8D6; --ok:#1F7A4D; --warn:#B25E09; --bad:#B3261E; --white:#fff;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"Public Sans","Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--body)}
+a{color:var(--sea)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+header{background:var(--ink);color:#fff;padding:28px 20px 34px}
+.wrap{max-width:1080px;margin:0 auto}
+.brand{font:800 1rem var(--head);letter-spacing:.02em;display:flex;gap:10px;align-items:center}
+.brand span{background:var(--sun);color:var(--ink);padding:2px 10px;border-radius:999px;font-size:.8rem}
+h1{font:800 clamp(1.9rem,5vw,3rem)/1.05 var(--head);margin:18px 0 10px;max-width:16em}
+header p{margin:0;max-width:38em;color:#C9D8E2}
+main.wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;padding:28px 20px 60px;align-items:start}
+@media(max-width:860px){main.wrap{grid-template-columns:1fr}}
+section.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:20px}
+h2{font:700 1.25rem var(--head);margin:0 0 4px}
+.hint{color:#4C6273;font-size:.92rem;margin:0 0 14px}
+.status{display:grid;gap:10px}
+.status label{display:block;border:2px solid var(--line);border-radius:8px;padding:12px 14px;cursor:pointer}
+.status input{position:absolute;opacity:0}
+.status label:has(input:checked){border-color:var(--sea);background:var(--lagoon)}
+.status label:has(input:focus-visible){outline:3px solid var(--sun)}
+.status b{display:block}
+.status small{color:#4C6273}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+.field label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
+.field small{display:block;color:#4C6273;font-size:.82rem;margin-top:3px}
+input[type=number],select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:6px;font:inherit;background:#fff;color:var(--ink)}
+.full{grid-column:1/-1}
+ol.steps{margin:0;padding-left:1.2em}
+ol.steps li{margin-bottom:8px}
+.tag{font-size:.78rem;background:#FCE9C4;color:#6B4300;border-radius:4px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+aside{position:sticky;top:16px}
+@media(max-width:860px){aside{position:static}}
+.verdict{border-radius:8px;padding:14px 16px;font-weight:600;margin-bottom:14px}
+.verdict.ok{background:#DDF1E6;color:var(--ok)}
+.verdict.warn{background:#FCE9C4;color:var(--warn)}
+.verdict.bad{background:#F8DEDB;color:var(--bad)}
+.verdict .big{display:block;font:800 1.7rem var(--head)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+td{padding:7px 0;border-bottom:1px solid #E5ECEB;vertical-align:top}
+td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:12px}
+tr.sum td{font-weight:700;border-bottom:2px solid var(--ink)}
+.note{background:var(--lagoon);border-left:4px solid var(--sea);padding:10px 12px;border-radius:4px;font-size:.9rem;margin-top:12px}
+.note.alert{background:#FCE9C4;border-color:var(--sun)}
+footer{max-width:1080px;margin:0 auto;padding:0 20px 40px;color:#4C6273;font-size:.85rem}
+#err{display:none;background:#F8DEDB;color:var(--bad);padding:14px;border-radius:8px;margin:20px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">Pa a Pa <span>Jamaica</span></div>
+    <h1>Can your business idea pay your bills?</h1>
+    <p>Answer a few questions about your plan. You get an estimate of your taxes, your take-home income and the steps to start. Free, no sign-up.</p>
+  </div>
+</header>
+
+<div id="err" role="alert"></div>
+
+<main class="wrap" id="app" hidden>
+  <div>
+    <section class="card">
+      <h2>1. Choose how you will operate</h2>
+      <p class="hint">You can change this later. The results update instantly.</p>
+      <div class="status" id="status"></div>
+    </section>
+
+    <section class="card">
+      <h2>2. Describe your plan</h2>
+      <p class="hint">All amounts in Jamaican dollars (J$), per month unless stated.</p>
+      <div class="grid">
+        <div class="field full">
+          <label for="activity">How do customers pay you?</label>
+          <select id="activity">
+            <option value="cash">Right away (cash, card, transfer)</option>
+            <option value="credit">Later (invoices, 15 to 90 days)</option>
+          </select>
+        </div>
+        <div class="field"><label for="sales">Expected sales</label><input type="number" id="sales" min="0" inputmode="numeric" value="400000"></div>
+        <div class="field"><label for="direct">Cost of goods or materials</label><input type="number" id="direct" min="0" inputmode="numeric" value="150000"><small>What you spend to make or buy what you sell.</small></div>
+        <div class="field"><label for="fixed">Fixed costs</label><input type="number" id="fixed" min="0" inputmode="numeric" value="60000"><small>Rent, transport, phone, insurance, marketing.</small></div>
+        <div class="field"><label for="needs">What you need to live on</label><input type="number" id="needs" min="0" inputmode="numeric" value="120000"><small>Your household must eat. Be honest.</small></div>
+        <div class="field"><label for="emp">Employees</label><input type="number" id="emp" min="0" inputmode="numeric" value="0"></div>
+        <div class="field"><label for="pay">Gross pay per employee</label><input type="number" id="pay" min="0" inputmode="numeric" value="0"></div>
+        <div class="field"><label for="startup">Start-up costs (one time)</label><input type="number" id="startup" min="0" inputmode="numeric" value="200000"></div>
+        <div class="field"><label for="savings">Savings you can use</label><input type="number" id="savings" min="0" inputmode="numeric" value="500000"></div>
+        <div class="field credit full" id="creditBox" hidden>
+          <div class="grid">
+            <div class="field"><label for="cdays">Days customers take to pay</label><input type="number" id="cdays" min="0" inputmode="numeric" value="30"></div>
+            <div class="field"><label for="sdays">Days your suppliers give you to pay</label><input type="number" id="sdays" min="0" inputmode="numeric" value="0"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Check your motivation</h2>
+      <p class="hint">Rate each statement from 1 (not at all) to 5 (completely).</p>
+      <div class="grid">
+        <div class="field full"><label for="m1">I can live with irregular income for six months.</label><select id="m1"></select></div>
+        <div class="field full"><label for="m2">I am ready to work six days a week during the first year.</label><select id="m2"></select></div>
+        <div class="field full"><label for="m3">I know who my first five customers will be.</label><select id="m3"></select></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Steps to start</h2>
+      <p class="hint" id="stepsHint"></p>
+      <ol class="steps" id="steps"></ol>
+    </section>
+  </div>
+
+  <aside>
+    <section class="card" aria-live="polite">
+      <h2>Your estimate</h2>
+      <p class="hint">Per year unless stated. This is an estimate, not tax advice.</p>
+      <div id="result"></div>
+    </section>
+  </aside>
+</main>
+
+<footer id="foot"></footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const num = id => Math.max(0, parseFloat($(id).value) || 0);
+const J = n => (n < 0 ? '-' : '') + 'J$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+const pct = r => parseFloat((r * 100).toFixed(2)) + '%';
+let D = null, status = 'business_name';
+
+fetch('jamaica.json').then(r => { if (!r.ok) throw 0; return r.json(); }).then(d => { D = d; init(); })
+.catch(() => {
+  const e = $('err'); e.style.display = 'block';
+  e.textContent = 'Could not load jamaica.json. Open this page from its web address (GitHub Pages), not by double-clicking the file.';
+});
+
+function init() {
+  $('app').hidden = false;
+  // statuses
+  $('status').innerHTML = D.legalStatuses.map((s, i) =>
+    `<label><input type="radio" name="st" value="${s.id}" ${i === 0 ? 'checked' : ''}><b>${s.label}</b><small>Registered at ${s.registeredAt}${s.needs ? ' · needs: ' + s.needs.join(', ') : ''}</small></label>`).join('');
+  document.querySelectorAll('input[name=st]').forEach(r => r.addEventListener('change', e => { status = e.target.value; render(); }));
+  ['m1', 'm2', 'm3'].forEach(id => $(id).innerHTML = [1, 2, 3, 4, 5].map(n => `<option value="${n}" ${n === 3 ? 'selected' : ''}>${n}</option>`).join(''));
+  document.querySelectorAll('input[type=number],select').forEach(el => el.addEventListener('input', render));
+  const v = D.toVerify.map(x => `<li>${x}</li>`).join('');
+  $('foot').innerHTML = `<p>Data last checked on ${D.dataVerifiedOn}. Figures marked "to confirm" come from secondary sources. Always confirm with <a href="${D.authorities.tax.url}">${D.authorities.tax.name}</a> and the <a href="${D.authorities.registry.url}">${D.authorities.registry.name}</a>.</p><details><summary>Still being verified</summary><ul>${v}</ul></details><p>Pa a Pa is published by Caribbean Metadata.</p>`;
+  render();
+}
+
+function compute() {
+  const T = D.taxes, SE = D.selfEmployedContributions, EC = D.employerContributions, EE = D.employeeContributions;
+  const c = { sales: num('sales'), direct: num('direct'), fixed: num('fixed'), needs: num('needs'), emp: num('emp'), pay: num('pay'), startup: num('startup'), savings: num('savings') };
+  c.annualSales = c.sales * 12;
+  c.payroll = c.emp * c.pay * 12;
+  const base = c.emp * Math.min(c.pay * 12, SE.nis.ceilingJMD);
+  c.er = base * EC.nis + c.payroll * EC.nht + Math.max(0, c.payroll - base * EE.nis) * EC.educationTax + c.payroll * EC.heartNta.rate;
+  c.profit = c.annualSales - (c.direct + c.fixed) * 12 - c.payroll - c.er;
+  const p = Math.max(0, c.profit);
+  if (status === 'business_name') {
+    c.nis = Math.min(p, SE.nis.ceilingJMD) * SE.nis.rate;
+    c.nht = p * SE.nht.rate;
+    c.edu = Math.max(0, p - c.nis) * SE.educationTax.rate;
+    const thr = T.personalIncomeTax.thresholdJMD, cut = T.personalIncomeTax.brackets[0].upToJMD;
+    const b = Math.max(0, p - c.nis);
+    c.tax = b > thr ? 0.25 * (Math.min(b, cut) - thr) + 0.30 * Math.max(0, b - cut) : 0;
+    c.levies = c.nis + c.nht + c.edu + c.tax;
+  } else {
+    c.tax = p * T.corporateIncomeTax.standardRate;
+    c.levies = c.tax;
+  }
+  c.net = c.profit - c.levies;
+  c.netMonthly = c.net / 12;
+  c.gct = c.annualSales >= T.gct.registrationThresholdJMD;
+  const ratio = c.sales > 0 ? (c.sales - c.direct) / c.sales : 0;
+  c.breakeven = ratio > 0 ? (c.fixed + (c.payroll + c.er) / 12 + c.needs) / ratio : null;
+  c.credit = $('activity').value === 'credit';
+  c.bfr = c.credit ? c.sales * num('cdays') / 30 - c.direct * num('sdays') / 30 : 0;
+  c.m = +$('m1').value + +$('m2').value + +$('m3').value;
+  return c;
+}
+
+function render() {
+  if (!D) return;
+  const c = compute(), T = D.taxes, st = D.legalStatuses.find(s => s.id === status);
+  $('creditBox').hidden = !c.credit;
+  const gap = c.netMonthly - c.needs;
+  let vcls, vtxt;
+  if (c.annualSales === 0) { vcls = 'warn'; vtxt = 'Enter your expected sales to see a result.'; }
+  else if (gap >= 0) { vcls = 'ok'; vtxt = `Your plan covers your needs<span class="big">${J(c.netMonthly)} per month</span>after taxes and contributions.`; }
+  else if (c.netMonthly > 0) { vcls = 'warn'; vtxt = `Short by ${J(-gap)} per month<span class="big">${J(c.netMonthly)} per month</span>after taxes, against ${J(c.needs)} needed.`; }
+  else { vcls = 'bad'; vtxt = `This plan loses money<span class="big">${J(c.netMonthly)} per month</span>Reduce costs or raise prices before you start.`; }
+
+  const rows = [];
+  rows.push(['Sales', J(c.annualSales)]);
+  rows.push(['Goods, materials and fixed costs', '-' + J((c.direct + c.fixed) * 12)]);
+  if (c.emp && c.pay) { rows.push(['Employee pay', '-' + J(c.payroll)]); rows.push(['Employer contributions (NIS, NHT, Education Tax, HEART/NTA)', '-' + J(c.er)]); }
+  rows.push(['<b>Profit before tax</b>', J(c.profit)]);
+  if (status === 'business_name') {
+    rows.push([`NIS (${pct(D.selfEmployedContributions.nis.rate)})`, '-' + J(c.nis)]);
+    rows.push([`NHT (${pct(D.selfEmployedContributions.nht.rate)})`, '-' + J(c.nht)]);
+    rows.push([`Education Tax (${pct(D.selfEmployedContributions.educationTax.rate)})`, '-' + J(c.edu)]);
+    rows.push(['Income tax', '-' + J(c.tax)]);
+  } else {
+    rows.push([`Company income tax (${pct(T.corporateIncomeTax.standardRate)}) <span class="tag">to confirm</span>`, '-' + J(c.tax)]);
+  }
+  const trs = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('') + `<tr class="sum"><td>Left for you</td><td>${J(c.net)}</td></tr>`;
+
+  const extra = [];
+  if (c.breakeven) extra.push(`<div class="note"><b>Break-even:</b> you need about ${J(c.breakeven)} in sales per month to cover costs and your living needs, before tax.</div>`);
+  const left = c.savings - c.startup;
+  extra.push(`<div class="note${left < 0 ? ' alert' : ''}"><b>Start-up:</b> ${left < 0 ? `your savings fall ${J(-left)} short of the start-up costs.` : `after start-up costs you keep ${J(left)}${c.needs ? `, about ${(left / c.needs).toFixed(1)} months of living costs if income is zero.` : '.'}`}</div>`);
+  if (c.credit) extra.push(`<div class="note${c.bfr > c.savings - c.startup ? ' alert' : ''}"><b>Working capital:</b> waiting for customers to pay ties up about ${J(Math.max(0, c.bfr))}. You must fund it yourself.</div>`);
+  extra.push(c.gct
+    ? `<div class="note alert"><b>GCT:</b> above J$${T.gct.registrationThresholdJMD.toLocaleString('en-US')} in yearly sales you must register for GCT (${pct(T.gct.standardRate)}) within 21 days of crossing it. File by the 25th of the following month.</div>`
+    : `<div class="note"><b>GCT:</b> registration is required only above J$${T.gct.registrationThresholdJMD.toLocaleString('en-US')} in yearly sales. You can register earlier if you choose.</div>`);
+  if (status === 'limited_company') extra.push(`<div class="note alert">Tax on your own pay or dividends from the company is not included.</div>`);
+  const mm = c.m >= 12 ? 'Strong motivation. Keep it written down for hard months.' : c.m >= 8 ? 'Good base. Work on the lowest-rated statement before you start.' : 'Take time to prepare: test your idea part-time and find your first customers first.';
+  extra.push(`<div class="note"><b>Motivation ${c.m}/15:</b> ${mm}</div>`);
+
+  $('result').innerHTML = `<div class="verdict ${vcls}">${vtxt}</div><table>${trs}</table>${extra.join('')}`;
+
+  $('stepsHint').textContent = `Steps for: ${st.label}`;
+  $('steps').innerHTML = D.launchSteps.filter(s => s.appliesTo.includes(status)).map(s => `<li>${s.label}</li>`).join('')
+    + (st.fees ? `<li>Budget for COJ fees: registration J$${st.fees.registrationJMD.toLocaleString('en-US')}, name search J$${st.fees.nameSearchJMD.toLocaleString('en-US')}, name reservation J$${st.fees.nameReservationJMD.toLocaleString('en-US')}.</li>` : `<li>COJ fee for a business name <span class="tag">to confirm</span></li>`);
+}
+</script>
+</body>
+</html>
