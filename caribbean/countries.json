@@ -94,6 +94,16 @@
       "id": "CW",
       "name": "Curaçao",
       "file": "curacao.json"
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "file": "suriname.json"
+    },
+    {
+      "id": "HT",
+      "name": "Haiti",
+      "file": "haiti.json"
     }
   ],
   "comingSoon": [],

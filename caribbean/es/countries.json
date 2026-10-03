@@ -131,6 +131,18 @@
       "name": "Curaçao",
       "url": "../",
       "key": "papa-country"
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "HT",
+      "name": "Haiti",
+      "url": "../",
+      "key": "papa-country"
     }
   ]
 }
