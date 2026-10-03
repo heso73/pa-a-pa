@@ -169,6 +169,12 @@
       "key": "papa-country"
     },
     {
+      "id": "VI",
+      "name": "US Virgin Islands",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
       "id": "HT",
       "name": "Haïti",
       "url": "../fr/",

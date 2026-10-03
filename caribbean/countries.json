@@ -124,6 +124,11 @@
       "id": "SXM",
       "name": "Sint Maarten",
       "file": "sint-maarten.json"
+    },
+    {
+      "id": "VI",
+      "name": "US Virgin Islands",
+      "file": "us-virgin-islands.json"
     }
   ],
   "comingSoon": [],

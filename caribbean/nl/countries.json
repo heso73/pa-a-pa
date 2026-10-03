@@ -147,6 +147,12 @@
       "key": "papa-country"
     },
     {
+      "id": "VI",
+      "name": "US Virgin Islands",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
       "id": "DO",
       "name": "República Dominicana",
       "url": "../es/",

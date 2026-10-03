@@ -1,0 +1,286 @@
+{
+  "country": "VI",
+  "name": "US Virgin Islands",
+  "language": "en",
+  "currency": {
+    "code": "USD",
+    "symbol": "US$"
+  },
+  "examples": {
+    "sales": 9000,
+    "direct": 3500,
+    "fixed": 1800,
+    "needs": 3000,
+    "pay": 2200,
+    "startup": 8000,
+    "savings": 15000
+  },
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
+  "authorities": {
+    "tax": {
+      "name": "Virgin Islands Bureau of Internal Revenue (BIR)",
+      "url": "https://bir.vi.gov"
+    },
+    "registry": {
+      "name": "Department of Licensing and Consumer Affairs (DLCA)"
+    },
+    "support": [
+      {
+        "name": "Department of Licensing and Consumer Affairs (DLCA)"
+      },
+      {
+        "name": "Office of the Lieutenant Governor: Division of Corporations and Trademarks"
+      },
+      {
+        "name": "Virgin Islands Small Business Development Agency"
+      }
+    ]
+  },
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "taxModel": "personal",
+      "label": "Sole proprietorship",
+      "plain": "You work in your own name. It is the simplest and cheapest way to start.",
+      "registeredAt": "Department of Licensing and Consumer Affairs",
+      "needs": [
+        "valid ID",
+        "business address",
+        "tax identification number"
+      ],
+      "feeLines": [],
+      "feeNote": "The DLCA quotes the business licence fee for your activity.",
+      "verified": true
+    },
+    {
+      "id": "limited_company",
+      "taxModel": "corporate",
+      "label": "Corporation or LLC",
+      "plain": "A company is a separate entity from you. It costs more to set up and needs more bookkeeping.",
+      "registeredAt": "Office of the Lieutenant Governor, Division of Corporations and Trademarks",
+      "needs": [
+        "name check",
+        "articles of incorporation or organization",
+        "registered agent and address"
+      ],
+      "feeLines": [],
+      "feeNote": "A company is registered with the Division of Corporations and Trademarks, then licensed by the DLCA. The Lieutenant Governor's office quotes the filing fees.",
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    {
+      "id": "name",
+      "label": "Choose your business name and check that it is free",
+      "plain": "Search the name first. A company registers its name with the Division of Corporations and Trademarks.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "register",
+      "label": "Register the company with the Division of Corporations and Trademarks",
+      "plain": "Only needed for a corporation or LLC. A sole proprietor does not incorporate.",
+      "appliesTo": [
+        "limited_company"
+      ]
+    },
+    {
+      "id": "tin",
+      "label": "Get your tax identification number",
+      "plain": "You need an EIN or taxpayer number for the Bureau of Internal Revenue.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://bir.vi.gov"
+    },
+    {
+      "id": "licence",
+      "label": "Apply for your business licence",
+      "plain": "Every business needs a licence from the Department of Licensing and Consumer Affairs before it starts trading.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "grt",
+      "label": "Register for the gross receipts tax",
+      "plain": "Every business pays a 5% gross receipts tax once its receipts reach US$225,000 a year. You report it to the Bureau of Internal Revenue.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://gross-receipts.bir.vi.gov/"
+    },
+    {
+      "id": "bank",
+      "label": "Open a separate bank account for the business",
+      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "employer",
+      "label": "Register as an employer",
+      "plain": "With employees you withhold income tax and pay Social Security and Medicare on their wages, and register for territorial unemployment insurance.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "when": "employees"
+    }
+  ],
+  "incomeTax": {
+    "label": "Income tax (paid to the Virgin Islands)",
+    "allowance": 16100,
+    "allowanceNote": "standard deduction",
+    "brackets": [
+      {
+        "upToChargeable": 12400,
+        "rate": 0.1
+      },
+      {
+        "upToChargeable": 50400,
+        "rate": 0.12
+      },
+      {
+        "upToChargeable": 105700,
+        "rate": 0.22
+      },
+      {
+        "upToChargeable": 201775,
+        "rate": 0.24
+      },
+      {
+        "upToChargeable": 256225,
+        "rate": 0.32
+      },
+      {
+        "upToChargeable": 640600,
+        "rate": 0.35
+      },
+      {
+        "rate": 0.37
+      }
+    ],
+    "verified": true,
+    "bracketText": "The Virgin Islands copies the US federal tax code: 10% up to US$12,400 of taxable income, 12% up to US$50,400, 22% up to US$105,700, 24% up to US$201,775, 32% up to US$256,225, 35% up to US$640,600, then 37%"
+  },
+  "corporateTax": {
+    "label": "Corporate income tax",
+    "brackets": [
+      {
+        "rate": 0.231
+      }
+    ],
+    "verified": true
+  },
+  "selfEmployed": {
+    "contributions": [
+      {
+        "id": "ss",
+        "label": "Social Security (self-employment tax)",
+        "rate": 0.11451,
+        "ceilingAnnual": 199774,
+        "deductibleShare": 0.5,
+        "plain": "Self-employed people pay both the employee and employer share: 12.4% on 92.35% of their earnings, up to US$184,500 of earnings a year. Half of it lowers your taxable income.",
+        "verified": true
+      },
+      {
+        "id": "med",
+        "label": "Medicare (self-employment tax)",
+        "rate": 0.02679,
+        "deductibleShare": 0.5,
+        "plain": "2.9% on 92.35% of your earnings, with no ceiling. Half of it lowers your taxable income.",
+        "verified": true
+      }
+    ],
+    "verified": true
+  },
+  "employee": [
+    {
+      "id": "ss",
+      "rate": 0.062,
+      "ceilingAnnual": 184500
+    },
+    {
+      "id": "med",
+      "rate": 0.0145
+    }
+  ],
+  "employer": {
+    "items": [
+      {
+        "id": "ss",
+        "label": "Social Security (employer share)",
+        "rate": 0.062,
+        "ceilingAnnual": 184500
+      },
+      {
+        "id": "med",
+        "label": "Medicare (employer share)",
+        "rate": 0.0145
+      }
+    ],
+    "verified": true
+  },
+  "salesLevies": [
+    {
+      "id": "grt",
+      "label": "Gross receipts tax",
+      "bands": [
+        {
+          "upTo": 225000,
+          "rate": 0.0
+        },
+        {
+          "rate": 0.05
+        }
+      ],
+      "verified": true
+    }
+  ],
+  "vat": null,
+  "calendar": {
+    "quarterly": [],
+    "quarterlyList": "",
+    "quarterlyTextPersonal": "",
+    "quarterlyTextCorporate": "",
+    "monthlyLabel": "Every month",
+    "monthlyText": "If your receipts are above US$225,000 a year, file and pay the gross receipts tax monthly (Form 720-VI) to the Bureau of Internal Revenue.",
+    "annualLabel": "By April 15",
+    "annualTextPersonal": "File your income tax return with the Virgin Islands Bureau of Internal Revenue. Below US$225,000 of receipts, file the annual gross receipts return (Form 720-B) by January 30.",
+    "payrollDay": 15,
+    "payrollText": "With employees: deposit the withheld income tax, Social Security and Medicare, and file the quarterly employer return (Form 941)."
+  },
+  "notes": [
+    "The US Virgin Islands has no sales tax. Businesses pay a 5% gross receipts tax on everything they sell once their receipts reach US$225,000 a year, with no deduction for what they buy.",
+    "Income tax follows the US federal tax code and rates but is paid to the Virgin Islands Bureau of Internal Revenue, not the IRS. Self-employment tax is on top. Businesses approved by the Economic Development Commission can get large tax reductions: ask the Commission.",
+    "A corporation pays the federal rate of 21% plus a 10% territorial surtax (23.1% in total). The owner's own pay is not in the estimate."
+  ],
+  "toVerify": [
+    "Business licence fee for your activity",
+    "Territorial unemployment insurance rate for employers",
+    "Economic Development Commission benefits"
+  ],
+  "sources": [
+    {
+      "label": "Virgin Islands Bureau of Internal Revenue: tax structure",
+      "url": "https://bir.vi.gov/content/booklets/tax_structure.pdf"
+    },
+    {
+      "label": "Chambers: US Virgin Islands business law overview",
+      "url": "https://chambers.com/content/item/6862"
+    },
+    {
+      "label": "Rivermate: Virgin Islands (U.S.) taxes",
+      "url": "https://rivermate.com/guides/virgin-islands-us/taxes"
+    }
+  ]
+}
