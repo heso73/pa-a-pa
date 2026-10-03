@@ -146,18 +146,18 @@
       {
         "id": "ss",
         "label": "Social Security",
-        "rate": 0.16,
+        "rate": 0.1,
         "ceilingAnnual": 78000,
-        "plain": "Social security gives access to a pension and other benefits. The Social Security Board tells you the rate that applies to you when you register.",
-        "verified": false
+        "plain": "Social security gives access to a pension and other benefits. Self-employed people pay 10% of their declared earnings, up to EC$6,500 a month.",
+        "verified": true
       }
     ],
-    "verified": false
+    "verified": true
   },
   "employee": [
     {
       "id": "ss",
-      "rate": 0.07,
+      "rate": 0.065,
       "ceilingAnnual": 78000
     }
   ],
@@ -166,12 +166,17 @@
       {
         "id": "ss",
         "label": "Social Security",
-        "rate": 0.09,
-        "ceilingAnnual": 78000,
-        "verified": false
+        "rate": 0.085,
+        "ceilingAnnual": 78000
+      },
+      {
+        "id": "mbs",
+        "label": "Medical Benefits Scheme",
+        "rate": 0.035,
+        "ceilingAnnual": 78000
       }
     ],
-    "verified": false
+    "verified": true
   },
   "vat": {
     "label": "Antigua and Barbuda Sales Tax",
@@ -196,18 +201,21 @@
     "vatText": "If registered for ABST: file your return every month."
   },
   "notes": [
-    "Antigua and Barbuda has no personal income tax. The Medical Benefits Scheme and the Education Levy on pay are not included in your estimate."
+    "Antigua and Barbuda has no personal income tax. The Education Levy on pay is not included in your estimate."
   ],
   "toVerify": [
-    "Social Security rates and ceiling (employees, employers and self-employed)",
     "ABST registration threshold",
-    "Medical Benefits Scheme and Education Levy",
-    "Business registration fees"
+    "Business registration fees",
+    "Education Levy on pay"
   ],
   "sources": [
     {
       "label": "HeadOffice: Antigua and Barbuda tax forms",
       "url": "https://headoffice-marketing-site-production-a7kpwu.laravel.cloud/antigua-and-barbuda/blog/antigua-and-barbuda-tax-forms"
+    },
+    {
+      "label": "KPMG: Caribbean payroll changes 2023 (Antigua and Barbuda)",
+      "url": "https://assets.kpmg.com/content/dam/kpmg/bb/pdf/2023/01/Tax%20NewsFlash%20-%20Caribbean%20Payroll%20Withholding%20Changes%202023.pdf"
     }
   ]
 }

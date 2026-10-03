@@ -146,13 +146,13 @@
       {
         "id": "ss",
         "label": "Social Security",
-        "rate": 0.11,
+        "rate": 0.1,
         "ceilingAnnual": 78000,
-        "plain": "Social security gives access to a pension and other benefits. The Social Security Board tells you the rate that applies to you when you register.",
-        "verified": false
+        "plain": "Social security gives access to a pension and other benefits. Self-employed people pay 10% of their monthly earnings, up to EC$6,500 a month.",
+        "verified": true
       }
     ],
-    "verified": false
+    "verified": true
   },
   "employee": [
     {
@@ -165,13 +165,22 @@
     "items": [
       {
         "id": "ss",
-        "label": "Social Security",
+        "label": "Social Security and employment injury",
         "rate": 0.06,
-        "ceilingAnnual": 78000,
-        "verified": false
+        "ceilingAnnual": 78000
+      },
+      {
+        "id": "hsdl",
+        "label": "Housing and Social Development Levy",
+        "rate": 0.03
+      },
+      {
+        "id": "sev",
+        "label": "Severance payment fund",
+        "rate": 0.01
       }
     ],
-    "verified": false
+    "verified": true
   },
   "vat": {
     "label": "Value Added Tax",
@@ -196,10 +205,9 @@
     "vatText": "If registered for VAT: file your return every month, by the 15th of the following month."
   },
   "notes": [
-    "Saint Kitts and Nevis has no personal income tax. An unincorporated business tax and a Housing and Social Development Levy may apply: they are not included in your estimate."
+    "Saint Kitts and Nevis has no personal income tax. An unincorporated business tax may apply to some businesses: the Inland Revenue Department tells you at registration."
   ],
   "toVerify": [
-    "Social Security rates and ceiling (employees, employers and self-employed)",
     "VAT registration threshold",
     "Unincorporated business tax and social development levy",
     "Business registration fees"
@@ -208,6 +216,10 @@
     {
       "label": "Expanship: Saint Kitts and Nevis tax authority",
       "url": "https://www.expanship.com/kn/blog/st-kitts-and-nevis-tax-authority"
+    },
+    {
+      "label": "Invest St Kitts: rates of contribution for Social Security",
+      "url": "https://investstkitts.kn/?p=1656"
     }
   ]
 }

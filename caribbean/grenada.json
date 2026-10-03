@@ -161,18 +161,18 @@
       {
         "id": "nis",
         "label": "National Insurance (NIS)",
-        "rate": 0.14,
+        "rate": 0.135,
         "ceilingAnnual": 62400,
-        "plain": "National insurance gives access to a pension and other benefits. The National Insurance office tells you the rate that applies to you when you register.",
-        "verified": false
+        "plain": "National insurance gives access to a pension and other benefits. Self-employed people pay 13.5% of their earnings, up to EC$5,200 a month.",
+        "verified": true
       }
     ],
-    "verified": false
+    "verified": true
   },
   "employee": [
     {
       "id": "nis",
-      "rate": 0.065,
+      "rate": 0.0625,
       "ceilingAnnual": 62400
     }
   ],
@@ -181,12 +181,11 @@
       {
         "id": "nis",
         "label": "National Insurance (NIS)",
-        "rate": 0.075,
-        "ceilingAnnual": 62400,
-        "verified": false
+        "rate": 0.0725,
+        "ceilingAnnual": 62400
       }
     ],
-    "verified": false
+    "verified": true
   },
   "vat": {
     "label": "Value Added Tax",
@@ -213,7 +212,6 @@
   "notes": [],
   "toVerify": [
     "Personal allowance for 2026 (EC$36,000 in one source)",
-    "NIS rate and ceiling for the self-employed",
     "Filing and payment dates",
     "Business registration fees"
   ],
@@ -221,6 +219,10 @@
     {
       "label": "Deloitte: Grenada Highlights 2025",
       "url": "https://www.deloitte.com/content/dam/assets-shared/docs/services/tax/2025/dttl-tax-grenadahighlights-2025.pdf"
+    },
+    {
+      "label": "NIS Grenada: contributors",
+      "url": "https://www.nisgrenada.org/"
     }
   ]
 }

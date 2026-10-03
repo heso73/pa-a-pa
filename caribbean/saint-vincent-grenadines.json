@@ -165,13 +165,13 @@
       {
         "id": "nis",
         "label": "National Insurance (NIS)",
-        "rate": 0.14,
+        "rate": 0.135,
         "ceilingAnnual": 62400,
-        "plain": "National insurance gives access to a pension and other benefits. The National Insurance office tells you the rate that applies to you when you register.",
-        "verified": false
+        "plain": "National insurance gives access to a pension and other benefits. Since January 2026 self-employed people pay 13.5% of their earnings, up to EC$5,200 a month.",
+        "verified": true
       }
     ],
-    "verified": false
+    "verified": true
   },
   "employee": [
     {
@@ -189,7 +189,7 @@
         "ceilingAnnual": 62400
       }
     ],
-    "verified": false
+    "verified": true
   },
   "vat": {
     "label": "Value Added Tax",
@@ -219,13 +219,16 @@
   "toVerify": [
     "Income tax bands and allowance (two different tables are published)",
     "VAT registration threshold",
-    "NIS rate for the self-employed",
     "Business registration fees"
   ],
   "sources": [
     {
       "label": "Deloitte: Saint Vincent and the Grenadines Highlights 2025",
       "url": "https://www.deloitte.com/content/dam/assets-shared/docs/services/tax/2025/dttl-tax-stvincenthighlights-2025.pdf"
+    },
+    {
+      "label": "NIS Saint Vincent: contribution increase from 1 January 2026",
+      "url": "https://onenewsstvincent.com/2025/12/30/all-employers-and-employees-reminded-of-nis-increase-from-jan-1-2026/"
     }
   ]
 }

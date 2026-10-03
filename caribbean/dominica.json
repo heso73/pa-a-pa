@@ -166,19 +166,19 @@
       {
         "id": "ss",
         "label": "Social Security",
-        "rate": 0.14,
-        "ceilingAnnual": 78000,
-        "plain": "Social security gives access to a pension and other benefits. The Social Security Board tells you the rate that applies to you when you register.",
-        "verified": false
+        "rate": 0.1375,
+        "ceilingAnnual": 84000,
+        "plain": "Social security gives access to a pension and other benefits. Self-employed people pay about 13.75% of their declared earnings, up to EC$7,000 a month. The rate rises by 0.25 point each year until 2031.",
+        "verified": true
       }
     ],
-    "verified": false
+    "verified": true
   },
   "employee": [
     {
       "id": "ss",
-      "rate": 0.065,
-      "ceilingAnnual": 78000
+      "rate": 0.07,
+      "ceilingAnnual": 84000
     }
   ],
   "employer": {
@@ -186,12 +186,11 @@
       {
         "id": "ss",
         "label": "Social Security",
-        "rate": 0.075,
-        "ceilingAnnual": 78000,
-        "verified": false
+        "rate": 0.0775,
+        "ceilingAnnual": 84000
       }
     ],
-    "verified": false
+    "verified": true
   },
   "vat": {
     "label": "Value Added Tax",
@@ -217,7 +216,6 @@
   },
   "notes": [],
   "toVerify": [
-    "Social Security rates and ceiling (employees, employers and self-employed)",
     "VAT registration threshold",
     "Filing and payment dates",
     "Business registration fees"
@@ -226,6 +224,10 @@
     {
       "label": "Invest Dominica Authority: taxation",
       "url": "https://investdominica.com/doing-business/taxation/"
+    },
+    {
+      "label": "Dominica Social Security: contributions FAQ",
+      "url": "https://dss.dm/faq/"
     }
   ]
 }
