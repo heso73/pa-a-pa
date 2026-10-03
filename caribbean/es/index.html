@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B3C49">
+<title>Pa a Pa Caribe: prueba tu idea de negocio</title>
+<meta name="description" content="Herramienta gratuita para probar si tu idea de negocio en la República Dominicana puede pagar tus gastos. Sin registro. Cada pregunta y cada cifra explicadas con palabras sencillas.">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pa a Pa Caribe">
+<script src="../../stats.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="Pa a Pa Caribe, inicio">
+      <svg width="32" height="32" viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="4" y="30" width="10" height="14" rx="3" fill="#1F7A8C"></rect>
+        <rect x="19" y="19" width="10" height="25" rx="3" fill="#0B3C49"></rect>
+        <rect x="34" y="6" width="10" height="38" rx="3" fill="#E8A33D"></rect>
+      </svg>
+      <span>Pa a Pa <small>Caribe</small></span>
+    </a>
+    <details class="country" id="cmenu">
+      <summary id="cname">País
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#12262B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4l4 4 4-4"></path></svg>
+      </summary>
+      <div class="pop" id="cpop"></div>
+    </details>
+  </header>
+
+  <noscript><p class="error">Esta app necesita JavaScript. Actívalo en tu navegador.</p></noscript>
+  <div id="err" class="error" role="alert"></div>
+  <main id="view" tabindex="-1" aria-live="polite"></main>
+</div>
+
+<nav class="tabs" aria-label="Principal">
+  <ul>
+    <li><a href="#/" data-tab="home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"></path></svg>Inicio</a></li>
+    <li><a href="#/test" data-tab="test"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"></path></svg>Prueba</a></li>
+    <li><a href="#/vision" data-tab="vision"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>Visión</a></li>
+    <li><a href="#/next" data-tab="next"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V14M10 20V9M16 20V4M22 20H2"></path></svg>Pasos</a></li>
+    <li><a href="#/coach" data-tab="coach"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-5.5A8 8 0 1 1 21 12z"></path></svg>Coach</a></li>
+  </ul>
+</nav>
+
+<script src="../engine.js"></script>
+<script src="report-es.js"></script>
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('../sw.js').catch(function () {}); });
+}
+</script>
+</body>
+</html>

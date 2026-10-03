@@ -1,0 +1,13 @@
+{
+  "countries": [
+    {
+      "id": "DO",
+      "name": "República Dominicana",
+      "file": "dominican-republic.json"
+    }
+  ],
+  "comingSoon": [
+    "Puerto Rico",
+    "Cuba"
+  ]
+}

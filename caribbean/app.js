@@ -50,7 +50,7 @@
     return `<footer class="fine"><p>These figures are estimates to help you decide. They are not tax or legal advice. Data for ${esc(D.name)} last checked on ${esc(D.dataVerifiedOn)}. Always confirm with ${link(a.tax)} and ${link(a.registry)}.</p>` +
       `<details class="more"><summary>Still being verified</summary>${li(D.toVerify.map(esc))}</details>` +
       (src ? `<details class="more"><summary>Sources</summary><ul>${src}</ul></details>` : '') +
-      `<p>Pa a Pa is published by Caribbean Metadata. <a href="../app/">Version française</a></p></footer>`;
+      `<p>Pa a Pa is published by Caribbean Metadata. <a href="es/">Español</a> · <a href="../app/">Version française</a></p></footer>`;
   }
 
   /* ---------- HOME ---------- */
@@ -348,7 +348,7 @@
     $('#cname').firstChild.nodeValue = D.name + ' ';
     const list = COUNTRIES.countries.map(c => `<button class="copt" data-country="${c.id}" ${c.id === D.country ? 'aria-current="true"' : ''}>${esc(c.name)}${c.preview ? ' (preview)' : ''}${c.id === D.country ? ' ✓' : ''}</button>`).join('');
     const soon = (COUNTRIES.comingSoon || []).length ? `<p class="muted small" style="margin:10px 0 0">Coming next: ${esc(COUNTRIES.comingSoon.join(', '))}. Each country has its own taxes and rules.</p>` : '';
-    $('#cpop').innerHTML = list + soon;
+    $('#cpop').innerHTML = list + soon + '<p class="small" style="margin:10px 0 0"><a href="es/">Español: República Dominicana</a></p>';
   }
   function useCountry(entry) {
     return fetch(entry.file).then(r => { if (!r.ok) throw new Error('data'); return r.json(); }).then(d => {
