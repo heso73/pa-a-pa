@@ -61,8 +61,25 @@
       "file": "saint-kitts-nevis.json"
     }
   ],
-  "comingSoon": [
-    "Puerto Rico (in Spanish)",
-    "Cuba (in Spanish)"
+  "comingSoon": [],
+  "external": [
+    {
+      "id": "DO",
+      "name": "República Dominicana",
+      "url": "es/",
+      "key": "papa-es-country"
+    },
+    {
+      "id": "PR",
+      "name": "Puerto Rico",
+      "url": "es/",
+      "key": "papa-es-country"
+    },
+    {
+      "id": "CU",
+      "name": "Cuba",
+      "url": "es/",
+      "key": "papa-es-country"
+    }
   ]
 }

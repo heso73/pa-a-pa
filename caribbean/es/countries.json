@@ -16,5 +16,79 @@
       "file": "cuba.json"
     }
   ],
-  "comingSoon": []
+  "comingSoon": [],
+  "external": [
+    {
+      "id": "JM",
+      "name": "Jamaica",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "TT",
+      "name": "Trinidad and Tobago",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "GY",
+      "name": "Guyana",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "BB",
+      "name": "Barbados",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "BS",
+      "name": "The Bahamas",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "BZ",
+      "name": "Belize",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "LC",
+      "name": "Saint Lucia",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "DM",
+      "name": "Dominica",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "GD",
+      "name": "Grenada",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "AG",
+      "name": "Antigua and Barbuda",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "KN",
+      "name": "Saint Kitts and Nevis",
+      "url": "../",
+      "key": "papa-country"
+    }
+  ]
 }

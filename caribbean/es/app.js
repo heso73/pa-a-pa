@@ -335,7 +335,8 @@
     $('#cname').firstChild.nodeValue = D.name + ' ';
     const list = COUNTRIES.countries.map(c => `<button class="copt" data-country="${c.id}" ${c.id === D.country ? 'aria-current="true"' : ''}>${esc(c.name)}${c.preview ? ' (vista previa)' : ''}${c.id === D.country ? ' ✓' : ''}</button>`).join('');
     const soon = (COUNTRIES.comingSoon || []).length ? `<p class="muted small" style="margin:10px 0 0">Próximamente: ${esc(COUNTRIES.comingSoon.join(', '))}. Cada país tiene sus propios impuestos y reglas.</p>` : '';
-    $('#cpop').innerHTML = list + soon + '<p class="small" style="margin:10px 0 0"><a href="../">Otros países (English)</a></p>';
+    const ext = (COUNTRIES.external || []).map(c => `<button class="copt" data-url="${esc(c.url)}" data-key="${esc(c.key)}" data-id="${esc(c.id)}">${esc(c.name)} <span class="muted small">&nbsp;in English →</span></button>`).join('');
+    $('#cpop').innerHTML = list + ext + soon;
   }
   function useCountry(entry) {
     return fetch(entry.file).then(r => { if (!r.ok) throw new Error('data'); return r.json(); }).then(d => {
@@ -408,6 +409,8 @@
       }
     });
     $('#cpop').addEventListener('click', e => {
+      const x = e.target.closest('[data-url]');
+      if (x) { try { localStorage.setItem(x.dataset.key, x.dataset.id); } catch (err) { /* ignorar */ } location.href = x.dataset.url; return; }
       const b = e.target.closest('[data-country]'); if (!b) return;
       const entry = COUNTRIES.countries.find(c => c.id === b.dataset.country);
       $('#cmenu').removeAttribute('open');
