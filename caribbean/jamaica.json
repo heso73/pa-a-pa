@@ -3,30 +3,33 @@
   "name": "Jamaica",
   "language": "en",
   "currency": { "code": "JMD", "symbol": "J$" },
-  "dataVerifiedOn": "2026-09-30",
-  "status": "draft",
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
   "authorities": {
     "tax": { "name": "Tax Administration Jamaica (TAJ)", "url": "https://www.jamaicatax.gov.jm" },
     "registry": { "name": "Companies Office of Jamaica (COJ)", "url": "https://www.orcjamaica.com" },
     "support": [
-      { "name": "Jamaica Business Development Corporation (JBDC)", "url": "https://www.jbdc.net", "toDetail": true },
-      { "name": "Development Bank of Jamaica (DBJ)", "toDetail": true }
+      { "name": "Jamaica Business Development Corporation (JBDC)", "url": "https://www.jbdc.net" },
+      { "name": "Development Bank of Jamaica (DBJ)", "url": "https://www.dbankjm.com" }
     ]
   },
   "legalStatuses": [
     {
       "id": "business_name",
-      "label": "Registered business name (sole trader / partnership)",
-      "law": "Business Names Act",
+      "label": "Registered business name",
+      "short": "You on your own, or with partners",
+      "plain": "You run the business under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+      "law": "Registration of Business Names Act",
       "registeredAt": "COJ",
-      "needs": ["TRN", "valid ID", "proof of address"],
-      "feeJMD": null,
-      "feeNote": "Sources disagree (free vs J$2,500 for sole trader). To verify on orcjamaica.com.",
-      "verified": false
+      "needs": ["TRN", "valid ID", "business address in Jamaica"],
+      "fees": { "registrationJMD": 2500, "validityYears": 3 },
+      "verified": true
     },
     {
       "id": "limited_company",
       "label": "Limited company",
+      "short": "A separate legal entity",
+      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
       "law": "Companies Act",
       "registeredAt": "COJ",
       "nameRule": "Name must end with 'Limited'; registered office must be in Jamaica",
@@ -36,28 +39,27 @@
     }
   ],
   "launchSteps": [
-    { "id": "trn", "label": "Get a TRN (Taxpayer Registration Number) from TAJ", "appliesTo": ["business_name", "limited_company"] },
-    { "id": "name", "label": "Search and reserve the business or company name at COJ", "appliesTo": ["business_name", "limited_company"] },
-    { "id": "register", "label": "Register with COJ (online portal)", "appliesTo": ["business_name", "limited_company"] },
-    { "id": "superform", "label": "Business Registration Form (BRF1) covering NIS, TRN, GCT, HEART and NHT", "appliesTo": ["limited_company"] },
-    { "id": "gct", "label": "Register for GCT if turnover exceeds the threshold (within 21 days of crossing it)", "appliesTo": ["business_name", "limited_company"], "conditional": "turnover > gct.registrationThresholdJMD" }
+    { "id": "trn", "label": "Get your TRN (Taxpayer Registration Number) from TAJ", "plain": "A number that identifies you to the tax office. You need it for almost every other step.", "appliesTo": ["business_name", "limited_company"], "url": "https://www.jamaicatax.gov.jm" },
+    { "id": "name", "label": "Choose your business name and check that it is free", "plain": "If you trade under any name other than your own full name, you must register it. Search the name at COJ first.", "appliesTo": ["business_name", "limited_company"], "url": "https://www.orcjamaica.com" },
+    { "id": "register", "label": "Register with the Companies Office (COJ)", "plain": "Online or in person. For a business name, registration lasts three years, then you renew it.", "appliesTo": ["business_name", "limited_company"], "url": "https://www.orcjamaica.com" },
+    { "id": "superform", "label": "Complete the Business Registration Form (BRF1)", "plain": "One form that also covers your tax and contribution registrations (TRN, NIS, GCT, HEART, NHT).", "appliesTo": ["limited_company"] },
+    { "id": "se_estimate", "label": "Register as self-employed with TAJ and file your yearly income estimate (form S04A) by March 15", "plain": "This estimate sets the amount of your quarterly payments to TAJ.", "appliesTo": ["business_name"], "url": "https://www.jamaicatax.gov.jm" },
+    { "id": "bank", "label": "Open a separate bank account for the business", "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.", "appliesTo": ["business_name", "limited_company"] },
+    { "id": "employer", "label": "Register as an employer and prepare monthly payroll payments", "plain": "With employees you pay deductions (income tax, NIS, NHT, Education Tax, HEART/NTA) to TAJ by the 14th of each month.", "appliesTo": ["business_name", "limited_company"], "when": "employees" },
+    { "id": "gct", "label": "Register for GCT", "plain": "Required when your yearly sales pass the GCT threshold. Register within 21 days of crossing it.", "appliesTo": ["business_name", "limited_company"], "when": "gct" }
   ],
   "taxes": {
     "gct": {
-      "label": "General Consumption Tax (VAT equivalent)",
+      "label": "General Consumption Tax (like VAT)",
       "standardRate": 0.15,
       "registrationThresholdJMD": 15000000,
       "thresholdEffectiveFrom": "2025-04-01",
-      "otherRates": { "telecom": 0.25, "tourism": 0.10 },
-      "importAdvanceRate": 0.05,
-      "returnFrequency": "monthly or bi-monthly",
       "returnDeadline": "25th of the month following the period",
       "verified": true
     },
     "personalIncomeTax": {
       "thresholdJMD": 1902360,
       "thresholdEffectiveFrom": "2026-04-01",
-      "effectiveThreshold2026JMD": 1876614,
       "brackets": [
         { "upToJMD": 6000000, "rate": 0.25 },
         { "aboveJMD": 6000000, "rate": 0.30 }
@@ -67,27 +69,29 @@
     },
     "corporateIncomeTax": {
       "standardRate": 0.25,
-      "regulatedCompanyRate": 0.3333,
       "verified": false,
-      "note": "Standard rate from a secondary source. To confirm with TAJ."
+      "note": "Standard rate from secondary sources. Regulated companies pay a higher rate. Confirm with TAJ."
     },
-    "quarterlyEstimates": {
-      "selfEmployed": true,
-      "verified": false,
-      "note": "Quarterly estimated payments for self-employed (form S04A) cited by a secondary source. To confirm with TAJ."
+    "quarterlyPayments": {
+      "months": [3, 6, 9, 12],
+      "day": 15,
+      "appliesTo": "Self-employed statutory payments and estimated corporate income tax",
+      "verified": true
     }
   },
   "selfEmployedContributions": {
     "nis": { "rate": 0.06, "ceilingJMD": 5000000 },
-    "nht": { "rate": 0.02 },
+    "nht": { "rate": 0.03 },
     "educationTax": { "rate": 0.0225 },
-    "verified": true
+    "verified": true,
+    "note": "NHT for the self-employed corrected to 3% on 2026-10-03 (NHT website). The earlier draft used 2%."
   },
   "employerContributions": {
     "nis": 0.03,
     "nht": 0.03,
     "educationTax": 0.035,
-    "heartNta": { "rate": 0.03, "note": "Applies above a monthly payroll threshold" },
+    "heartNta": { "rate": 0.03, "minEmployees": 3, "monthlyPayrollThresholdJMD": 14444, "verified": false },
+    "payrollDueDay": 14,
     "verified": true
   },
   "employeeContributions": {
@@ -95,19 +99,14 @@
     "nht": 0.02,
     "educationTax": 0.0225
   },
-  "upcomingChanges": [
-    {
-      "id": "gct_digital_services",
-      "label": "GCT on foreign digital services and intangibles (proposed, FY2026/27)",
-      "expectedStart": "early 2027",
-      "impactOnAssessment": "none for now"
-    }
-  ],
   "toVerify": [
-    "Business name registration fee",
-    "Corporate income tax standard rate",
-    "Quarterly estimated tax for self-employed",
-    "HEART/NTA payroll threshold",
-    "Financing programs of JBDC and DBJ"
+    "Company income tax rate (25% standard, from secondary sources)",
+    "HEART/NTA rule: 3 or more employees and payroll above J$14,444 a month",
+    "Financing programmes of JBDC and DBJ (not yet detailed)"
+  ],
+  "sources": [
+    { "label": "Ministry of Industry, Investment and Commerce: business name fees", "url": "https://www.miic.gov.jm/registration-business-jamaica/" },
+    { "label": "National Housing Trust: self-employed contributions", "url": "https://nht.gov.jm/self-employed-contributions" },
+    { "label": "Jamaica Information Service: TAJ quarterly payment reminders", "url": "https://jis.gov.jm/3rd-quarter-estimated-income-tax-payments-due/" }
   ]
 }
