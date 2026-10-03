@@ -1,0 +1,233 @@
+{
+  "note": "Months in which each country's rates usually change. They are prompts to re-check the official source, not facts about the current law.",
+  "reviewWindows": {
+    "JM": {
+      "months": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "watch": "tax year starts in January; Budget Debate in March"
+    },
+    "TT": {
+      "months": [
+        9,
+        10,
+        11,
+        1
+      ],
+      "watch": "Budget presented in early October; NIS rates change in the new year"
+    },
+    "GY": {
+      "months": [
+        1,
+        2,
+        3
+      ],
+      "watch": "Budget presented in the first quarter; NIS ceilings change in January"
+    },
+    "BB": {
+      "months": [
+        3,
+        4
+      ],
+      "watch": "Budget in March; NIS ceilings change in the new year"
+    },
+    "BS": {
+      "months": [
+        5,
+        6,
+        7
+      ],
+      "watch": "Budget in late May or June for the July fiscal year"
+    },
+    "BZ": {
+      "months": [
+        3,
+        4
+      ],
+      "watch": "Budget in March or April; Social Security wage ceilings change"
+    },
+    "LC": {
+      "months": [
+        12,
+        1,
+        2
+      ],
+      "watch": "Budget in March; NIC ceilings and income tax allowances"
+    },
+    "DM": {
+      "months": [
+        12,
+        1,
+        7
+      ],
+      "watch": "Budget in July; Social Security rate steps up each January"
+    },
+    "GD": {
+      "months": [
+        1,
+        2,
+        3
+      ],
+      "watch": "NIS rate and ceiling change in January"
+    },
+    "VC": {
+      "months": [
+        12,
+        1,
+        2
+      ],
+      "watch": "NIS rate increases from January; budget in December"
+    },
+    "AG": {
+      "months": [
+        11,
+        12,
+        1
+      ],
+      "watch": "Budget in November or December; Social Security ceilings"
+    },
+    "KN": {
+      "months": [
+        11,
+        12,
+        1
+      ],
+      "watch": "Budget in December; Social Security ceilings"
+    },
+    "KY": {
+      "months": [
+        1,
+        2
+      ],
+      "watch": "Pension earnings cap and licence fees; Budget in the first quarter"
+    },
+    "VG": {
+      "months": [
+        1,
+        2
+      ],
+      "watch": "Social Security and NHI ceilings change each January"
+    },
+    "TC": {
+      "months": [
+        2,
+        3,
+        4
+      ],
+      "watch": "Business licence renewals run February to April; NIB changes"
+    },
+    "AI": {
+      "months": [
+        1,
+        2,
+        3
+      ],
+      "watch": "Budget in the first quarter; GST and levy rates"
+    },
+    "MS": {
+      "months": [
+        1,
+        2,
+        3
+      ],
+      "watch": "Budget in the first quarter; income tax allowances; Social Security rate steps"
+    },
+    "VI": {
+      "months": [
+        10,
+        11,
+        12,
+        1
+      ],
+      "watch": "US federal inflation adjustments are published in October or November and mirrored from January"
+    },
+    "DO": {
+      "months": [
+        1,
+        2
+      ],
+      "watch": "Income tax brackets and social security ceilings are indexed each January"
+    },
+    "PR": {
+      "months": [
+        1,
+        2,
+        7
+      ],
+      "watch": "Income tax brackets and Social Security base change each January; budget in June"
+    },
+    "CU": {
+      "months": [
+        1,
+        2,
+        12
+      ],
+      "watch": "Mipyme tax rules and minimum wage change by decree, often in January"
+    },
+    "HT": {
+      "months": [
+        9,
+        10,
+        11,
+        1
+      ],
+      "watch": "Fiscal year starts on 1 October; new tax code planned for October 2026"
+    },
+    "AW": {
+      "months": [
+        1,
+        2
+      ],
+      "watch": "Wage and income tax tables are published in January"
+    },
+    "CW": {
+      "months": [
+        1,
+        2
+      ],
+      "watch": "Income tax brackets and SVB ceilings are published in January"
+    },
+    "SR": {
+      "months": [
+        1,
+        2
+      ],
+      "watch": "Income tax thresholds and the VAT rules are updated yearly"
+    },
+    "SXM": {
+      "months": [
+        1,
+        2,
+        3
+      ],
+      "watch": "Income tax tables published late; 2026 tables expected March"
+    },
+    "BON": {
+      "months": [
+        9,
+        10,
+        1
+      ],
+      "watch": "Tax Plan is presented in September; new rates apply from 1 January"
+    },
+    "STA": {
+      "months": [
+        9,
+        10,
+        1
+      ],
+      "watch": "Tax Plan is presented in September; new rates apply from 1 January"
+    },
+    "SAB": {
+      "months": [
+        9,
+        10,
+        1
+      ],
+      "watch": "Tax Plan is presented in September; new rates apply from 1 January"
+    }
+  }
+}

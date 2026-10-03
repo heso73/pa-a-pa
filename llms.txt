@@ -66,6 +66,8 @@
 - [Pa a Pa Caraïben, de app (Nederlands)](https://heso73.github.io/pa-a-pa/caribbean/nl/): test voor bedrijfsideeën voor Aruba, Curaçao en Suriname
 - [Pa a Pa Caraïbe, l’application (français)](https://heso73.github.io/pa-a-pa/caribbean/fr/): test d’idées d’entreprise pour Haïti
 - [Partner kit: messages, flyers and QR codes in four languages](https://heso73.github.io/pa-a-pa/caribbean/partners/): for chambers of commerce, business support agencies and community groups
+- [Data status: when each country was last verified](https://heso73.github.io/pa-a-pa/caribbean/data-status/)
+- [Changelog](https://heso73.github.io/pa-a-pa/caribbean/changelog/)
 
 - Figures are 2026 planning estimates, not tax or legal advice; the tax authority of each country gives the exact amounts at registration.
 

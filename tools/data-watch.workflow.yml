@@ -1,0 +1,22 @@
+name: Data watch
+on:
+  schedule:
+    - cron: '0 12 1 * *'     # the 1st of every month, 12:00 UTC
+  workflow_dispatch: {}      # also runnable by hand from the Actions tab
+permissions:
+  contents: read
+  issues: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the data watch
+        id: watch
+        run: python3 tools/check_data.py
+      - name: Open the monthly issue
+        if: steps.watch.outputs.needs_action == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "Data watch $(date +%Y-%m)" --body-file tools/data-watch-report.md --label "data-watch" || gh issue create --title "Data watch $(date +%Y-%m)" --body-file tools/data-watch-report.md
