@@ -1,5 +1,5 @@
 // Pa a Pa Caribbean: offline support. To publish an update, change VERSION below.
-const VERSION = 'papa-caribbean-v9';
+const VERSION = 'papa-caribbean-v10';
 const APP = ['./', './index.html', './styles.css', './engine.js', './app.js', './countries.json', './jamaica.json', './trinidad-tobago.json', './guyana.json', './barbados.json', './bahamas.json', './belize.json', './saint-lucia.json', './dominica.json', './grenada.json', './saint-vincent-grenadines.json', './antigua-barbuda.json', './saint-kitts-nevis.json', './es/', './es/index.html', './es/app.js', './es/report-es.js', './es/countries.json', './es/dominican-republic.json', './es/puerto-rico.json', './es/cuba.json', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png'];
 

@@ -428,6 +428,7 @@
     COUNTRIES = list;
     let id = list.countries[0].id;
     try { id = localStorage.getItem('papa-es-country') || id; } catch (e) { /* ignorar */ }
+    try { const q = new URLSearchParams(location.search).get('c'); if (q) id = q.toUpperCase(); } catch (e) { /* ignore */ }
     const entry = list.countries.find(c => c.id === id) || list.countries[0];
     return useCountry(entry);
   }).then(() => { defTopics(); bindEvents(); route(); }).catch(showErr);

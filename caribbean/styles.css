@@ -150,3 +150,15 @@ details.country .pop{width:260px}
 .tag{font-size:11px;background:var(--sun-soft);color:var(--warn-ink);border-radius:4px;padding:1px 6px;margin-left:4px;white-space:nowrap}
 
 details.country .pop{max-height:70vh;overflow:auto}
+
+main.page{padding:8px 0 56px}
+.page h1{margin-bottom:10px}
+.page h2{margin-top:30px;margin-bottom:10px}
+.page h3{margin:18px 0 6px;font-size:17px}
+.page ul,.page ol{padding-left:22px;display:flex;flex-direction:column;gap:10px}
+.page .lead{font-size:17px}
+.page .btn{display:inline-flex;width:auto;text-decoration:none}
+.page table.facts td:first-child{font-weight:600;width:42%}
+.page table.facts td:last-child{white-space:normal;text-align:left}
+.crumbs{font-size:13px;color:var(--muted);margin:4px 0 12px}
+.related a{display:inline-block;margin:4px 0}
