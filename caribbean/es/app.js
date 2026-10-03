@@ -239,6 +239,8 @@
       if (st.taxModel === 'corporate') {
         const ct = D.corporateTax;
         m.push(`<p>Una sociedad paga el <b>${esc(ct.label.toLowerCase())}</b> sobre su ganancia: ${esc(bracketsText(ct.brackets))}.${r ? ` En tu plan: unos <b>${J(r.c.corpTax)}</b> al año.` : ''}${ct.note ? ' ' + esc(ct.note) : ''}</p>`);
+        const lv = (D.salesLevies || []).filter(l => !l.appliesTo || l.appliesTo.includes(st.id));
+        if (lv.length) m.push(`<p>Además se pagan sobre las ventas (no sobre la ganancia): ${lv.map(l => '<b>' + esc(l.label) + '</b> (' + pct(l.rate) + ')').join(', ')}.</p>`);
         m.push('<p>Lo que retiras para ti (sueldo o dividendos) se grava aparte y no está en estas cifras. Pide a un contador que lo planifique.</p>');
       } else {
         m.push('<p>Como persona física, tu ganancia se grava como ingreso personal. Esto es lo que se paga sobre ella:</p>');
@@ -338,6 +340,7 @@
   function useCountry(entry) {
     return fetch(entry.file).then(r => { if (!r.ok) throw new Error('data'); return r.json(); }).then(d => {
       D = d; KEY = keyFor(D.country); S = load(); chat = []; visited = {}; errMsg = '';
+      if (!D.legalStatuses.some(x => x.id === S.input.status)) S.input.status = D.legalStatuses[0].id;
       try { localStorage.setItem('papa-es-country', D.country); } catch (e) { /* ignorar */ }
       renderCountryMenu();
       document.title = 'Pa a Pa Caribe: prueba tu idea de negocio en ' + D.name;

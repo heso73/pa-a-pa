@@ -354,6 +354,7 @@
   function useCountry(entry) {
     return fetch(entry.file).then(r => { if (!r.ok) throw new Error('data'); return r.json(); }).then(d => {
       D = d; KEY = keyFor(D.country); S = load(); chat = []; visited = {}; errMsg = '';
+      if (!D.legalStatuses.some(x => x.id === S.input.status)) S.input.status = D.legalStatuses[0].id;
       try { localStorage.setItem('papa-country', D.country); } catch (e) { /* ignore */ }
       renderCountryMenu();
       document.title = 'Pa a Pa Caribbean: test your business idea in ' + D.name;

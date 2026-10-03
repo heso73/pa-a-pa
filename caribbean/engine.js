@@ -70,7 +70,7 @@
           amount = base * ct.rate;
         }
         amt[ct.id] = amount;
-        if (ct.deductible) deductible += amount;
+        if (ct.deductibleShare != null) deductible += amount * ct.deductibleShare; else if (ct.deductible) deductible += amount;
         c.lines.push({ id: ct.id, label: ct.rate != null ? `${ct.label} (${pct(ct.rate)})` : ct.label, amount, tag: ct.verified === false ? 'to confirm' : '' });
       });
       if (D.incomeTax) {

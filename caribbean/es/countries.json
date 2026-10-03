@@ -4,10 +4,17 @@
       "id": "DO",
       "name": "República Dominicana",
       "file": "dominican-republic.json"
+    },
+    {
+      "id": "PR",
+      "name": "Puerto Rico",
+      "file": "puerto-rico.json"
+    },
+    {
+      "id": "CU",
+      "name": "Cuba",
+      "file": "cuba.json"
     }
   ],
-  "comingSoon": [
-    "Puerto Rico",
-    "Cuba"
-  ]
+  "comingSoon": []
 }
