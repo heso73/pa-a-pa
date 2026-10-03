@@ -119,6 +119,18 @@
       "name": "Montserrat",
       "url": "../",
       "key": "papa-country"
+    },
+    {
+      "id": "AW",
+      "name": "Aruba",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "CW",
+      "name": "Curaçao",
+      "url": "../",
+      "key": "papa-country"
     }
   ]
 }

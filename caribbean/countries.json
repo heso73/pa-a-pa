@@ -84,6 +84,16 @@
       "id": "MS",
       "name": "Montserrat",
       "file": "montserrat.json"
+    },
+    {
+      "id": "AW",
+      "name": "Aruba",
+      "file": "aruba.json"
+    },
+    {
+      "id": "CW",
+      "name": "Curaçao",
+      "file": "curacao.json"
     }
   ],
   "comingSoon": [],

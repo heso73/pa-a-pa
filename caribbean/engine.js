@@ -79,7 +79,7 @@
         let allowance = it.allowance || 0;
         if (it.allowanceShare) allowance = Math.max(allowance, base * it.allowanceShare);
         c.chargeable = Math.max(0, base - allowance);
-        c.incomeTax = bandTax(it.brackets, c.chargeable);
+        c.incomeTax = Math.max(0, bandTax(it.brackets, c.chargeable) - (it.credit || 0));
         c.lines.push({ id: 'tax', label: it.label, amount: c.incomeTax });
       }
     }
@@ -95,7 +95,7 @@
         rate = b.rate;
         label = rate > 0 ? `${l.label} (${pct(rate)} of sales)` : `${l.label} (exempt below ${money(D, l.bands[0].upTo)})`;
       }
-      c.lines.push({ id: l.id, label, amount: exempt ? 0 : c.annualSales * rate, tag: l.verified === false ? 'to confirm' : '' });
+      c.lines.push({ id: l.id, label, amount: exempt ? 0 : Math.max(0, c.annualSales - (l.exemptFirst || 0)) * rate, tag: l.verified === false ? 'to confirm' : '' });
     });
     c.levies = c.lines.reduce((a, l) => a + l.amount, 0);
     c.net = c.profit - c.levies;
