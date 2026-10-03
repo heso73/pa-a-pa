@@ -3,7 +3,7 @@
   'use strict';
 
   const num = v => Math.max(0, parseFloat(String(v == null ? '' : v).replace(/,/g, '')) || 0);
-  const money = (D, n) => (n < 0 ? '-' : '') + D.currency.symbol + Math.round(Math.abs(n)).toLocaleString('en-US');
+  const money = (D, n) => (n < 0 ? '-' : '') + D.currency.symbol + Math.round(Math.abs(n)).toLocaleString(D.language === 'fr' ? 'fr-FR' : 'en-US');
   const pct = r => parseFloat((r * 100).toFixed(2)) + '%';
 
   // Tax on `x` through bands whose limits (upToChargeable) are cumulative.

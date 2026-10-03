@@ -351,7 +351,7 @@
     $('#cname').firstChild.nodeValue = D.name + ' ';
     const list = COUNTRIES.countries.map(c => `<button class="copt" data-country="${c.id}" ${c.id === D.country ? 'aria-current="true"' : ''}>${esc(c.name)}${c.preview ? ' (preview)' : ''}${c.id === D.country ? ' ✓' : ''}</button>`).join('');
     const soon = (COUNTRIES.comingSoon || []).length ? `<p class="muted small" style="margin:10px 0 0">Coming next: ${esc(COUNTRIES.comingSoon.join(', '))}. Each country has its own taxes and rules.</p>` : '';
-    const ext = (COUNTRIES.external || []).map(c => `<button class="copt" data-url="${esc(c.url)}" data-key="${esc(c.key)}" data-id="${esc(c.id)}">${esc(c.name)} <span class="muted small">&nbsp;en español →</span></button>`).join('');
+    const ext = (COUNTRIES.external || []).map(c => `<button class="copt" data-url="${esc(c.url)}" data-key="${esc(c.key)}" data-id="${esc(c.id)}">${esc(c.name)} <span class="muted small">&nbsp;${c.lang === 'fr' ? 'en français' : 'en español'} →</span></button>`).join('');
     $('#cpop').innerHTML = list + ext + soon;
   }
   function useCountry(entry) {

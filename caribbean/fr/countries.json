@@ -1,19 +1,9 @@
 {
   "countries": [
     {
-      "id": "DO",
-      "name": "República Dominicana",
-      "file": "dominican-republic.json"
-    },
-    {
-      "id": "PR",
-      "name": "Puerto Rico",
-      "file": "puerto-rico.json"
-    },
-    {
-      "id": "CU",
-      "name": "Cuba",
-      "file": "cuba.json"
+      "id": "HT",
+      "name": "Haïti",
+      "file": "haiti.json"
     }
   ],
   "comingSoon": [],
@@ -145,11 +135,25 @@
       "key": "papa-country"
     },
     {
-      "id": "HT",
-      "name": "Haïti",
-      "url": "../fr/",
-      "key": "papa-fr-country",
-      "lang": "fr"
+      "id": "DO",
+      "name": "República Dominicana",
+      "url": "../es/",
+      "key": "papa-es-country",
+      "lang": "es"
+    },
+    {
+      "id": "PR",
+      "name": "Puerto Rico",
+      "url": "../es/",
+      "key": "papa-es-country",
+      "lang": "es"
+    },
+    {
+      "id": "CU",
+      "name": "Cuba",
+      "url": "../es/",
+      "key": "papa-es-country",
+      "lang": "es"
     }
   ]
 }

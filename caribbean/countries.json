@@ -125,6 +125,13 @@
       "name": "Cuba",
       "url": "es/",
       "key": "papa-es-country"
+    },
+    {
+      "id": "HT",
+      "name": "Haïti",
+      "url": "fr/",
+      "key": "papa-fr-country",
+      "lang": "fr"
     }
   ]
 }
