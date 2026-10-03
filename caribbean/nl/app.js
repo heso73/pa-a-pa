@@ -46,7 +46,7 @@
     const a = D.authorities;
     const link = x => (x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name));
     const src = (D.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
-    return `<footer class="fine"><p>Deze cijfers zijn schattingen om je te helpen beslissen. Het is geen fiscaal of juridisch advies. Gegevens van ${esc(D.name)} voor het laatst gecontroleerd op ${esc(D.dataVerifiedOn)}. Bevestig altijd bij ${link(a.tax)} en bij ${link(a.registry)}.</p>` +
+    return `<div class="share"><b>Deel deze app</b> <a class="chip soft" data-share="whatsapp" href="https://wa.me/?text=Gratis%20hulpmiddel%20om%20een%20bedrijfsidee%20in%20het%20Caribisch%20gebied%20te%20testen%3A%20belastingen%2C%20wat%20je%20overhoudt%20en%20een%20plan.%20Zonder%20aanmelding.%20https%3A//heso73.github.io/pa-a-pa/caribbean/nl/" target="_blank" rel="noopener">WhatsApp</a> <a class="chip soft" data-share="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//heso73.github.io/pa-a-pa/caribbean/nl/" target="_blank" rel="noopener">Facebook</a> <button class="chip soft" data-act="copylink" data-url="https://heso73.github.io/pa-a-pa/caribbean/nl/">Link kopiëren</button> <span id="copiedlink" class="small muted" role="status"></span></div><p class="small"><a href="../partners/">Voor organisaties: partnerkit</a></p>` + `<footer class="fine"><p>Deze cijfers zijn schattingen om je te helpen beslissen. Het is geen fiscaal of juridisch advies. Gegevens van ${esc(D.name)} voor het laatst gecontroleerd op ${esc(D.dataVerifiedOn)}. Bevestig altijd bij ${link(a.tax)} en bij ${link(a.registry)}.</p>` +
       `<details class="more"><summary>Vraag dit aan de belastingdienst</summary>${li(D.toVerify.map(esc))}</details>` +
       (src ? `<details class="more"><summary>Bronnen</summary><ul>${src}</ul></details>` : '') +
       `<p>Pa a Pa wordt uitgegeven door Caribbean Metadata. <a href="../">English version</a> · <a href="../es/">Versión en español</a> · <a href="../fr/">Version française</a></p></footer>`;
@@ -400,12 +400,17 @@
       else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Ik kan de onderwerpen hieronder uitleggen. Kies er een of formuleer je vraag opnieuw met een woord als prijs, belasting, klanten of sparen.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
+      const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);
       const b = e.target.closest('[data-act]'); if (!b) return;
       const act = b.dataset.act;
       if (act === 'ask') coachAsk(b.dataset.topic);
       else if (act === 'back') { S.step = Math.max(0, S.step - 1); errMsg = ''; save(); rerender(); window.scrollTo(0, 0); }
       else if (act === 'next') { errMsg = validate(S.step); if (!errMsg) { if (S.step === 0) track('caribbean-test-started-' + D.country.toLowerCase()); S.step += 1; save(); } rerender(); window.scrollTo(0, 0); }
       else if (act === 'finish') { errMsg = validate(3); if (errMsg) { rerender(); window.scrollTo(0, 0); return; } S.ready = true; S.step = 0; chat = []; visited = {}; save(); track('caribbean-report-done-' + D.country.toLowerCase()); location.hash = '#/report'; }
+      else if (act === 'copylink') {
+        const done = ok => { const el = $('#copiedlink'); if (el) el.textContent = ok ? 'Link gekopieerd.' : b.dataset.url; track('caribbean-share-copy'); };
+        try { navigator.clipboard.writeText(b.dataset.url).then(() => done(true), () => done(false)); } catch (err) { done(false); }
+      }
       else if (act === 'copy') {
         const txt = visionText(), done = ok => { const el = $('#copied'); if (el) el.textContent = ok ? 'Gekopieerd.' : 'Selecteer de tekst hierboven en kopieer die.'; };
         try { navigator.clipboard.writeText(txt).then(() => done(true), () => done(false)); } catch (err) { done(false); }

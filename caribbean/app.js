@@ -48,7 +48,7 @@
     const a = D.authorities;
     const link = x => (x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name));
     const src = (D.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
-    return `<footer class="fine"><p>These figures are estimates to help you decide. They are not tax or legal advice. Data for ${esc(D.name)} last checked on ${esc(D.dataVerifiedOn)}. Always confirm with ${link(a.tax)} and ${link(a.registry)}.</p>` +
+    return `<div class="share"><b>Share this app</b> <a class="chip soft" data-share="whatsapp" href="https://wa.me/?text=Free%20tool%20to%20test%20a%20business%20idea%20in%20the%20Caribbean%3A%20taxes%2C%20take-home%20income%20and%20a%20plan.%20No%20sign-up.%20https%3A//heso73.github.io/pa-a-pa/caribbean/" target="_blank" rel="noopener">WhatsApp</a> <a class="chip soft" data-share="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//heso73.github.io/pa-a-pa/caribbean/" target="_blank" rel="noopener">Facebook</a> <button class="chip soft" data-act="copylink" data-url="https://heso73.github.io/pa-a-pa/caribbean/">Copy link</button> <span id="copiedlink" class="small muted" role="status"></span></div><p class="small"><a href="partners/">For organizations: partner kit</a></p>` + `<footer class="fine"><p>These figures are estimates to help you decide. They are not tax or legal advice. Data for ${esc(D.name)} last checked on ${esc(D.dataVerifiedOn)}. Always confirm with ${link(a.tax)} and ${link(a.registry)}.</p>` +
       `<details class="more"><summary>Good to ask the tax office</summary>${li(D.toVerify.map(esc))}</details>` +
       (src ? `<details class="more"><summary>Sources</summary><ul>${src}</ul></details>` : '') +
       `<p>Pa a Pa is published by Caribbean Metadata. <a href="es/">Español</a> · <a href="../app/">Version française</a></p></footer>`;
@@ -414,12 +414,17 @@
       else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>I can explain the topics below. Pick one, or rephrase your question with a word like price, tax, customers or savings.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
+      const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);
       const b = e.target.closest('[data-act]'); if (!b) return;
       const act = b.dataset.act;
       if (act === 'ask') coachAsk(b.dataset.topic);
       else if (act === 'back') { S.step = Math.max(0, S.step - 1); errMsg = ''; save(); rerender(); window.scrollTo(0, 0); }
       else if (act === 'next') { errMsg = validate(S.step); if (!errMsg) { if (S.step === 0) track('caribbean-test-started-' + D.country.toLowerCase()); S.step += 1; save(); } rerender(); window.scrollTo(0, 0); }
       else if (act === 'finish') { errMsg = validate(3); if (errMsg) { rerender(); window.scrollTo(0, 0); return; } S.ready = true; S.step = 0; chat = []; visited = {}; save(); track('caribbean-report-done-' + D.country.toLowerCase()); location.hash = '#/report'; }
+      else if (act === 'copylink') {
+        const done = ok => { const el = $('#copiedlink'); if (el) el.textContent = ok ? 'Link copied.' : b.dataset.url; track('caribbean-share-copy'); };
+        try { navigator.clipboard.writeText(b.dataset.url).then(() => done(true), () => done(false)); } catch (err) { done(false); }
+      }
       else if (act === 'copy') {
         const txt = visionText(), done = ok => { const el = $('#copied'); if (el) el.textContent = ok ? 'Copied.' : 'Select the text above and copy it.'; };
         try { navigator.clipboard.writeText(txt).then(() => done(true), () => done(false)); } catch (err) { done(false); }

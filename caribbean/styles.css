@@ -162,3 +162,7 @@ main.page{padding:8px 0 56px}
 .page table.facts td:last-child{white-space:normal;text-align:left}
 .crumbs{font-size:13px;color:var(--muted);margin:4px 0 12px}
 .related a{display:inline-block;margin:4px 0}
+
+.share{margin:22px 0 4px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.share b{margin-right:4px}
+.page .share a{text-decoration:none}

@@ -46,7 +46,7 @@
     const a = D.authorities;
     const link = x => (x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name));
     const src = (D.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
-    return `<footer class="fine"><p>Estas cifras son estimaciones para ayudarte a decidir. No son asesoría fiscal ni legal. Datos de ${esc(D.name)} verificados por última vez el ${esc(D.dataVerifiedOn)}. Confirma siempre con ${link(a.tax)} y con ${link(a.registry)}.</p>` +
+    return `<div class="share"><b>Comparte esta app</b> <a class="chip soft" data-share="whatsapp" href="https://wa.me/?text=Herramienta%20gratuita%20para%20probar%20una%20idea%20de%20negocio%20en%20el%20Caribe%3A%20impuestos%2C%20lo%20que%20te%20queda%20y%20un%20plan.%20Sin%20registro.%20https%3A//heso73.github.io/pa-a-pa/caribbean/es/" target="_blank" rel="noopener">WhatsApp</a> <a class="chip soft" data-share="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//heso73.github.io/pa-a-pa/caribbean/es/" target="_blank" rel="noopener">Facebook</a> <button class="chip soft" data-act="copylink" data-url="https://heso73.github.io/pa-a-pa/caribbean/es/">Copiar enlace</button> <span id="copiedlink" class="small muted" role="status"></span></div><p class="small"><a href="../partners/">Para organizaciones: kit para aliados</a></p>` + `<footer class="fine"><p>Estas cifras son estimaciones para ayudarte a decidir. No son asesoría fiscal ni legal. Datos de ${esc(D.name)} verificados por última vez el ${esc(D.dataVerifiedOn)}. Confirma siempre con ${link(a.tax)} y con ${link(a.registry)}.</p>` +
       `<details class="more"><summary>Conviene preguntar a la DGII</summary>${li(D.toVerify.map(esc))}</details>` +
       (src ? `<details class="more"><summary>Fuentes</summary><ul>${src}</ul></details>` : '') +
       `<p>Pa a Pa es publicado por Caribbean Metadata. <a href="../">English version</a> · <a href="../../app/">Version française</a></p></footer>`;
@@ -399,12 +399,17 @@
       else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Puedo explicar los temas de abajo. Elige uno o reformula tu pregunta con una palabra como precio, impuesto, clientes o ahorros.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
+      const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);
       const b = e.target.closest('[data-act]'); if (!b) return;
       const act = b.dataset.act;
       if (act === 'ask') coachAsk(b.dataset.topic);
       else if (act === 'back') { S.step = Math.max(0, S.step - 1); errMsg = ''; save(); rerender(); window.scrollTo(0, 0); }
       else if (act === 'next') { errMsg = validate(S.step); if (!errMsg) { if (S.step === 0) track('caribbean-test-started-' + D.country.toLowerCase()); S.step += 1; save(); } rerender(); window.scrollTo(0, 0); }
       else if (act === 'finish') { errMsg = validate(3); if (errMsg) { rerender(); window.scrollTo(0, 0); return; } S.ready = true; S.step = 0; chat = []; visited = {}; save(); track('caribbean-report-done-' + D.country.toLowerCase()); location.hash = '#/report'; }
+      else if (act === 'copylink') {
+        const done = ok => { const el = $('#copiedlink'); if (el) el.textContent = ok ? 'Enlace copiado.' : b.dataset.url; track('caribbean-share-copy'); };
+        try { navigator.clipboard.writeText(b.dataset.url).then(() => done(true), () => done(false)); } catch (err) { done(false); }
+      }
       else if (act === 'copy') {
         const txt = visionText(), done = ok => { const el = $('#copied'); if (el) el.textContent = ok ? 'Copiado.' : 'Selecciona el texto de arriba y cópialo.'; };
         try { navigator.clipboard.writeText(txt).then(() => done(true), () => done(false)); } catch (err) { done(false); }

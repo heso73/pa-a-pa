@@ -65,8 +65,8 @@
 - [Een bedrijf starten in Sint Maarten](https://heso73.github.io/pa-a-pa/caribbean/nl/sint-maarten/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
 - [Pa a Pa Caraïben, de app (Nederlands)](https://heso73.github.io/pa-a-pa/caribbean/nl/): test voor bedrijfsideeën voor Aruba, Curaçao en Suriname
 - [Pa a Pa Caraïbe, l’application (français)](https://heso73.github.io/pa-a-pa/caribbean/fr/): test d’idées d’entreprise pour Haïti
+- [Partner kit: messages, flyers and QR codes in four languages](https://heso73.github.io/pa-a-pa/caribbean/partners/): for chambers of commerce, business support agencies and community groups
 
-- The French West Indies (Martinique, Guadeloupe, Saint-Martin, Saint-Barthélemy) follow French tax rules and are covered by the French version of Pa a Pa: https://heso73.github.io/pa-a-pa/app/
 - Figures are 2026 planning estimates, not tax or legal advice; the tax authority of each country gives the exact amounts at registration.
 
 ## Limites
