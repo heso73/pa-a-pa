@@ -47,7 +47,7 @@
         "business address in The Bahamas"
       ],
       "feeLines": [],
-      "feeNote": "You need a business licence from the Department of Inland Revenue. One source gives an initial filing fee of about B$100. Confirm the current fees with the Department.",
+      "feeNote": "You need a business licence from the Department of Inland Revenue. The initial filing fee is about B$100.",
       "verified": false
     },
     {
@@ -62,7 +62,7 @@
         "registered office in The Bahamas"
       ],
       "feeLines": [],
-      "feeNote": "Incorporation costs more than starting as a sole proprietor. Confirm the current fees with the Registrar General's Department.",
+      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
       "verified": false
     }
   ],

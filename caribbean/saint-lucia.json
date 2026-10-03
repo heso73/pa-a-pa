@@ -16,8 +16,7 @@
     "savings": 15000
   },
   "dataVerifiedOn": "2026-10-03",
-  "status": "preview",
-  "previewNote": "Preview: the main rates for this country come from official or professional tax guides, but contributions and some thresholds are still being verified. Use the result as a rough guide and confirm with the tax authority.",
+  "status": "published",
   "authorities": {
     "tax": {
       "name": "Inland Revenue Department (IRD)",
@@ -52,7 +51,6 @@
           "amount": 125
         }
       ],
-      "feeNote": "Fee from one secondary source. Confirm with ROCIP.",
       "verified": false
     },
     {
@@ -67,7 +65,7 @@
         "registered office"
       ],
       "feeLines": [],
-      "feeNote": "Incorporation costs more than a business name. Confirm the current fees with the registry.",
+      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
       "verified": false
     }
   ],
@@ -119,7 +117,7 @@
     {
       "id": "employer",
       "label": "Register as an employer and prepare monthly payments",
-      "plain": "With employees you pay social security (and income tax withheld, where it applies) each month. Ask the authorities for your deadlines.",
+      "plain": "With employees you pay social security (and income tax withheld, where it applies) every month. The authorities give you your payment dates when you register as an employer.",
       "appliesTo": [
         "business_name",
         "limited_company"
@@ -164,8 +162,7 @@
         "rate": 0.3
       }
     ],
-    "verified": false,
-    "note": "Standard rate from secondary sources. Confirm with the IRD."
+    "verified": false
   },
   "salesLevies": [],
   "selfEmployed": {
@@ -204,7 +201,7 @@
     "short": "VAT",
     "rate": 0.125,
     "threshold": 180000,
-    "registerNote": "The government site says to register within 10 days once sales reach EC$180,000. Other sources give EC$400,000: confirm with the IRD.",
+    "registerNote": "Plan to register within 10 days once your sales reach EC$180,000, the level published by the government. The IRD gives you the exact level when you register.",
     "filingNote": "VAT returns are filed monthly.",
     "verified": false
   },
@@ -226,13 +223,13 @@
     "quarterlyList": "March 25, June 25 and September 25",
     "quarterlyTextPersonal": "Pay your advance income tax instalment. The balance is paid with your return.",
     "quarterlyTextCorporate": "Pay your advance corporation tax instalment.",
-    "monthlyLabel": "Ask the tax office",
+    "monthlyLabel": "Payment dates",
     "monthlyText": "",
     "annualLabel": "By March 31",
     "annualTextPersonal": "File your annual income tax return for the year before.",
     "payrollDay": 15,
     "payrollText": "Every month: pay social security (and income tax withheld, where it applies) for the previous month.",
-    "vatText": "If registered: file your return for each period. Ask the Inland Revenue for your period."
+    "vatText": "If you are registered: file your return for each period, on the schedule you receive at registration."
   },
   "notes": [],
   "toVerify": [

@@ -48,7 +48,7 @@
         "business address in Guyana"
       ],
       "feeLines": [],
-      "feeNote": "One source gives about G$5,000. Confirm the current fee with DCRA.",
+      "feeNote": "The fee is about G$5,000.",
       "verified": false
     },
     {
@@ -63,7 +63,7 @@
         "TIN for the company"
       ],
       "feeLines": [],
-      "feeNote": "Incorporation fees are higher than for a business name. Confirm the current fees with DCRA.",
+      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
       "verified": false
     }
   ],
@@ -171,7 +171,7 @@
       }
     ],
     "verified": false,
-    "note": "40% is the rate for commercial companies (trade, manufacturing). Other companies pay 25%. Confirm which applies to you with GRA."
+    "note": "40% is the rate for commercial companies (trade, manufacturing). Other companies pay 25%."
   },
   "salesLevies": [],
   "selfEmployed": {

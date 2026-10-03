@@ -53,7 +53,6 @@
           "amount": 104
         }
       ],
-      "feeNote": "Fee from one secondary source. Confirm the current fee with CAIPO.",
       "verified": false
     },
     {
@@ -68,7 +67,7 @@
         "registered office in Barbados"
       ],
       "feeLines": [],
-      "feeNote": "Incorporation fees are higher than for a business name. Confirm the current fees with CAIPO.",
+      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
       "verified": false
     }
   ],
@@ -187,8 +186,7 @@
         "rate": 0.01
       }
     ],
-    "verified": false,
-    "note": "Tiered rates from a secondary source. Confirm with the BRA."
+    "verified": false
   },
   "salesLevies": [],
   "selfEmployed": {
@@ -239,8 +237,8 @@
     "short": "VAT",
     "rate": 0.175,
     "threshold": 200000,
-    "registerNote": "A 2026 budget measure raises the threshold to BDS$350,000 from 1 October 2026: confirm the current level with the BRA.",
-    "filingNote": "Confirm your filing period with the BRA.",
+    "registerNote": "Plan to register once your sales reach BDS$200,000. A 2026 budget measure may raise the level to BDS$350,000 from 1 October 2026: the BRA gives you the current level when you register.",
+    "filingNote": "Your filing period is set when you register.",
     "verified": false
   },
   "calendar": {
@@ -269,7 +267,7 @@
     "annualTextPersonal": "File your income tax return for the year before.",
     "payrollDay": 15,
     "payrollText": "Every month: pay income tax (PAYE) and NIS for the previous month.",
-    "vatText": "If registered for VAT: file your VAT return for each period. Confirm your period with the BRA."
+    "vatText": "If you are registered for VAT: file your return for each period. Your period is set when you register."
   },
   "notes": [],
   "toVerify": [

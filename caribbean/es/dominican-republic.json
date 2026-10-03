@@ -51,7 +51,7 @@
         "dirección del negocio"
       ],
       "feeLines": [],
-      "feeNote": "El RNC se solicita en la DGII. El registro mercantil y el nombre comercial tienen un costo en la Cámara de Comercio y en ONAPI. Confirma las tarifas vigentes.",
+      "feeNote": "El RNC se solicita en la DGII. La Cámara de Comercio y ONAPI te dan las tarifas vigentes del registro mercantil y del nombre comercial.",
       "verified": false
     },
     {
@@ -67,7 +67,7 @@
         "cédula de los socios"
       ],
       "feeLines": [],
-      "feeNote": "Crear una sociedad cuesta más que operar como persona física. Confirma las tarifas vigentes en la Cámara de Comercio.",
+      "feeNote": "Crear una sociedad cuesta más que operar como persona física. La Cámara de Comercio te da las tarifas vigentes.",
       "verified": false
     }
   ],
@@ -241,7 +241,7 @@
     "rate": 0.18,
     "threshold": 0,
     "registerNote": "No existe un mínimo de ventas: aplica desde la primera venta gravada.",
-    "filingNote": "La declaración es mensual, a más tardar el día 20 del mes siguiente (confirma con la DGII).",
+    "filingNote": "La declaración es mensual, a más tardar el día 20 del mes siguiente.",
     "verified": true
   },
   "calendar": {
@@ -250,25 +250,25 @@
     "quarterlyTextPersonal": "",
     "quarterlyTextCorporate": "",
     "monthlyLabel": "Cada mes",
-    "monthlyText": "Declara y paga el ITBIS del mes anterior, a más tardar el día 20 (confirma con la DGII).",
+    "monthlyText": "Declara y paga el ITBIS del mes anterior, a más tardar el día 20.",
     "annualLabel": "Cada año",
-    "annualTextPersonal": "Presenta tu declaración jurada del ISR (formulario IR-1). Confirma la fecha límite con la DGII.",
-    "annualTextCorporate": "Presenta la declaración jurada de la sociedad (formulario IR-2). Confirma la fecha límite con la DGII.",
+    "annualTextPersonal": "Presenta tu declaración jurada del ISR (formulario IR-1). La DGII publica la fecha límite cada año.",
+    "annualTextCorporate": "Presenta la declaración jurada de la sociedad (formulario IR-2). La DGII publica la fecha límite cada año.",
     "payrollLabel": "Cada mes",
     "payrollText": "Cada mes: paga la seguridad social y el INFOTEP del mes anterior a través del sistema de la TSS, y entrega el ISR retenido a la DGII.",
     "vatText": "Declara el ITBIS cada mes, a más tardar el día 20 del mes siguiente."
   },
   "notes": [
-    "Una reforma (Ley 30-26) sube a RD$480,000 la renta anual exenta desde 2027.",
+    "Desde 2027, la Ley 30-26 sube a RD$480,000 la renta anual exenta.",
     "Esta estimación usa el régimen general. Si tus ingresos no pasan de RD$12,068,181 al año, el Régimen Simplificado (RST) puede reducir el papeleo.",
-    "No se incluyen cotizaciones de seguridad social del propietario: afiliarse como trabajador independiente es posible, pero depende de tu situación."
+    "La estimación no incluye cotizaciones de seguridad social del propietario: la TSS te dice si puedes afiliarte como trabajador independiente."
   ],
   "toVerify": [
     "Cotización de seguridad social del propietario (trabajador independiente)",
     "Tasa del seguro de riesgos laborales (entre 1.1 % y 1.3 % según la actividad)",
     "Tarifas de registro mercantil, nombre comercial y constitución de sociedad",
     "Fechas límite de declaración del ISR y del ITBIS",
-    "Reforma tributaria Ley 30-26: cambios desde 2027"
+    "Cambios de la Ley 30-26 desde 2027"
   ],
   "sources": [
     {

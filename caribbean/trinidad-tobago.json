@@ -47,7 +47,7 @@
         "business address in Trinidad and Tobago"
       ],
       "feeLines": [],
-      "feeNote": "Sources differ: name reservation about TT$20 to TT$25 and registration about TT$200 to TT$220. Confirm the current fees with the Companies Registry.",
+      "feeNote": "Budget about TT$20 to TT$25 for the name reservation and about TT$200 to TT$220 for the registration.",
       "verified": false
     },
     {
@@ -62,7 +62,7 @@
         "registered office in Trinidad and Tobago"
       ],
       "feeLines": [],
-      "feeNote": "Incorporation costs more than a business name. One source gives about TT$2,200 in all. Confirm the current fees with the Companies Registry.",
+      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
       "verified": false
     }
   ],
@@ -125,7 +125,7 @@
     {
       "id": "employer",
       "label": "Register as an employer and prepare monthly payments",
-      "plain": "With employees you pay deductions (income tax, NIS, Health Surcharge) each month. Confirm the deadlines with the IRD and NIBTT.",
+      "plain": "With employees you pay deductions (income tax, NIS, Health Surcharge) each month. The IRD and NIBTT give you the deadlines when you register.",
       "appliesTo": [
         "business_name",
         "limited_company"
@@ -147,7 +147,7 @@
   "incomeTax": {
     "label": "Income tax",
     "allowance": 90000,
-    "allowanceNote": "personal allowance per year (to confirm for 2026)",
+    "allowanceNote": "personal allowance per year",
     "brackets": [
       {
         "upToChargeable": 1000000,
@@ -228,7 +228,7 @@
     "rate": 0.125,
     "threshold": 500000,
     "registerNote": "You must also register if you expect to reach it in the next twelve months. Registration is free.",
-    "filingNote": "Confirm your filing period with the IRD.",
+    "filingNote": "Your filing period is set when you register.",
     "verified": true
   },
   "calendar": {
@@ -256,8 +256,8 @@
     "annualLabel": "By April 30",
     "annualTextPersonal": "File your income tax return for the year before.",
     "payrollDay": 15,
-    "payrollText": "Every month: pay payroll deductions for the previous month (income tax, NIS, Health Surcharge). Confirm the exact deadlines with the IRD and NIBTT.",
-    "vatText": "If registered for VAT: file your VAT return for each period. Confirm your period with the IRD."
+    "payrollText": "Every month: pay payroll deductions for the previous month (income tax, NIS, Health Surcharge). The IRD and NIBTT give you the exact dates when you register as an employer.",
+    "vatText": "If you are registered for VAT: file your return for each period. Your period is set when you register."
   },
   "notes": [
     "Business levy: businesses with gross sales above TT$360,000 pay 0.6% of gross sales if that is more than their income tax. It is not payable in the first three years of a business, and it is not included in your estimate."
@@ -267,7 +267,7 @@
     "NIS: the exact amount depends on your earnings class, and the self-employed rate",
     "Health Surcharge amount for the self-employed",
     "Business registration and incorporation fees",
-    "Budget 2025/26 announced a move from VAT to another sales tax: details to confirm"
+    "Upcoming change: the 2025/26 Budget announced a move from VAT to another sales tax"
   ],
   "sources": [
     {

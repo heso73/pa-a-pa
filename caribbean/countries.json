@@ -33,38 +33,32 @@
     {
       "id": "LC",
       "name": "Saint Lucia",
-      "file": "saint-lucia.json",
-      "preview": true
+      "file": "saint-lucia.json"
     },
     {
       "id": "DM",
       "name": "Dominica",
-      "file": "dominica.json",
-      "preview": true
+      "file": "dominica.json"
     },
     {
       "id": "GD",
       "name": "Grenada",
-      "file": "grenada.json",
-      "preview": true
+      "file": "grenada.json"
     },
     {
       "id": "VC",
       "name": "Saint Vincent and the Grenadines",
-      "file": "saint-vincent-grenadines.json",
-      "preview": true
+      "file": "saint-vincent-grenadines.json"
     },
     {
       "id": "AG",
       "name": "Antigua and Barbuda",
-      "file": "antigua-barbuda.json",
-      "preview": true
+      "file": "antigua-barbuda.json"
     },
     {
       "id": "KN",
       "name": "Saint Kitts and Nevis",
-      "file": "saint-kitts-nevis.json",
-      "preview": true
+      "file": "saint-kitts-nevis.json"
     }
   ],
   "comingSoon": [

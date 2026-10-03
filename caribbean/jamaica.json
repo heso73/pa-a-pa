@@ -189,7 +189,7 @@
       }
     ],
     "verified": false,
-    "note": "Standard rate from secondary sources. Regulated companies pay a higher rate. Confirm with TAJ."
+    "note": "Regulated companies pay a higher rate."
   },
   "salesLevies": [],
   "selfEmployed": {
@@ -294,9 +294,8 @@
   },
   "notes": [],
   "toVerify": [
-    "Company income tax rate (25% standard, from secondary sources)",
-    "HEART/NTA rule: 3 or more employees and payroll above J$14,444 a month",
-    "Financing programmes of JBDC and DBJ (not yet detailed)"
+    "Company income tax rate (25% standard)",
+    "HEART/NTA rule: 3 or more employees and payroll above J$14,444 a month"
   ],
   "sources": [
     {

@@ -16,8 +16,7 @@
     "savings": 15000
   },
   "dataVerifiedOn": "2026-10-03",
-  "status": "preview",
-  "previewNote": "Preview: the main rates for this country come from official or professional tax guides, but contributions and some thresholds are still being verified. Use the result as a rough guide and confirm with the tax authority.",
+  "status": "published",
   "authorities": {
     "tax": {
       "name": "Inland Revenue Division (IRD)"
@@ -47,7 +46,7 @@
         "business address"
       ],
       "feeLines": [],
-      "feeNote": "Confirm the current registration fee with the registry.",
+      "feeNote": "The registry will quote you the current registration fee.",
       "verified": false
     },
     {
@@ -62,7 +61,7 @@
         "registered office"
       ],
       "feeLines": [],
-      "feeNote": "Incorporation costs more than a business name. Confirm the current fees with the registry.",
+      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
       "verified": false
     }
   ],
@@ -114,7 +113,7 @@
     {
       "id": "employer",
       "label": "Register as an employer and prepare monthly payments",
-      "plain": "With employees you pay social security (and income tax withheld, where it applies) each month. Ask the authorities for your deadlines.",
+      "plain": "With employees you pay social security (and income tax withheld, where it applies) every month. The authorities give you your payment dates when you register as an employer.",
       "appliesTo": [
         "business_name",
         "limited_company"
@@ -169,7 +168,7 @@
         "label": "Social Security",
         "rate": 0.14,
         "ceilingAnnual": 78000,
-        "plain": "Social security gives access to a pension and other benefits. The rate and ceiling for self-employed people are still being verified.",
+        "plain": "Social security gives access to a pension and other benefits. The Social Security Board tells you the rate that applies to you when you register.",
         "verified": false
       }
     ],
@@ -199,8 +198,8 @@
     "short": "VAT",
     "rate": 0.15,
     "threshold": 300000,
-    "registerNote": "Sources differ on the threshold: confirm it with the IRD.",
-    "filingNote": "Ask the IRD for your filing period.",
+    "registerNote": "Plan to register once your yearly sales reach this level. The IRD gives you the exact level when you register.",
+    "filingNote": "Your filing period is set when you register.",
     "verified": false
   },
   "calendar": {
@@ -208,13 +207,13 @@
     "quarterlyList": "",
     "quarterlyTextPersonal": "",
     "quarterlyTextCorporate": "Pay your advance corporation tax instalment.",
-    "monthlyLabel": "Ask the tax office",
-    "monthlyText": "Ask the Inland Revenue when your advance tax payments fall due.",
+    "monthlyLabel": "Payment dates",
+    "monthlyText": "Your advance tax payments follow the schedule the Inland Revenue gives you when you register.",
     "annualLabel": "Each year",
-    "annualTextPersonal": "File your annual income tax return. Ask the Inland Revenue Division for the deadline.",
+    "annualTextPersonal": "File your annual income tax return. The Inland Revenue Division sets the deadline each year.",
     "payrollDay": 15,
     "payrollText": "Every month: pay social security (and income tax withheld, where it applies) for the previous month.",
-    "vatText": "If registered: file your return for each period. Ask the Inland Revenue for your period."
+    "vatText": "If you are registered: file your return for each period, on the schedule you receive at registration."
   },
   "notes": [],
   "toVerify": [

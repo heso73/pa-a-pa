@@ -71,7 +71,7 @@
         "business address in Belize"
       ],
       "feeLines": [],
-      "feeNote": "You need a trade licence from your local authority. Confirm the current fees with your town or city council.",
+      "feeNote": "You need a trade licence from your local authority. Your town or city council gives you the current fees.",
       "verified": false
     },
     {
@@ -86,7 +86,7 @@
         "registered office in Belize"
       ],
       "feeLines": [],
-      "feeNote": "Incorporation costs more than starting as a sole trader. Confirm the current fees with BCCAR.",
+      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
       "verified": false
     }
   ],
@@ -122,7 +122,7 @@
     {
       "id": "ssb",
       "label": "Register with the Social Security Board",
-      "plain": "Self-employed people can register and pay 7% of their declared weekly income. Ask the Board what applies to you.",
+      "plain": "Self-employed people can register and pay 7% of their declared weekly income.",
       "appliesTo": [
         "business_name"
       ],
@@ -207,7 +207,7 @@
     "rate": 0.125,
     "threshold": 75000,
     "registerNote": "Apply to the GST Department.",
-    "filingNote": "Confirm your filing period with the GST Department.",
+    "filingNote": "Your filing period is set when you register.",
     "verified": true
   },
   "calendar": {
@@ -216,12 +216,12 @@
     "quarterlyTextPersonal": "",
     "quarterlyTextCorporate": "",
     "monthlyLabel": "Every month",
-    "monthlyText": "Pay business tax on your total receipts for the month. Confirm the deadline with the Belize Tax Service.",
+    "monthlyText": "Pay business tax on your total receipts for the month. The Belize Tax Service gives you the payment date when you register.",
     "annualLabel": "By March 31",
-    "annualTextPersonal": "File your annual tax return. Confirm the form and date with the Belize Tax Service.",
+    "annualTextPersonal": "File your annual tax return. The Belize Tax Service gives you the form and the date.",
     "payrollDay": 14,
     "payrollText": "Every month: pay Social Security and income tax withheld for the previous month.",
-    "vatText": "If registered for GST: file your return for each period. Confirm your period with the GST Department."
+    "vatText": "If you are registered for GST: file your return for each period. Your period is set when you register."
   },
   "notes": [
     "Business tax in Belize is charged on your total receipts (sales), not on your profit. No costs are deducted. It applies once your yearly sales pass BZ$75,000 (BZ$20,000 for professional services)."

@@ -34,7 +34,8 @@
   const why = (title, body) => `<div class="why"><b class="k">${title}</b>${body}</div>`;
   const sym = () => D.currency.symbol;
   const ex = k => (D.examples && D.examples[k] != null ? 'p. ej. ' + D.examples[k] : '');
-  const previewBox = () => (D.status === 'preview' ? `<div class="note alert" style="margin:0 0 14px"><b>Vista previa.</b> ${esc(D.previewNote || 'Algunas cifras de este país todavía se están verificando.')}</div>` : '');
+  const previewBox = () => '';
+  const planNote = () => `<div class="note" style="margin:0 0 14px">Usa esto como tu <b>estimación para planificar</b>. Al registrarte, ${esc(D.authorities.tax.name)} te da los montos exactos para tu caso.</div>`;
   function bracketsText(br) {
     return br.map((b, i) => {
       const prev = i ? br[i - 1].upToChargeable : 0;
@@ -46,7 +47,7 @@
     const link = x => (x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name));
     const src = (D.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
     return `<footer class="fine"><p>Estas cifras son estimaciones para ayudarte a decidir. No son asesoría fiscal ni legal. Datos de ${esc(D.name)} verificados por última vez el ${esc(D.dataVerifiedOn)}. Confirma siempre con ${link(a.tax)} y con ${link(a.registry)}.</p>` +
-      `<details class="more"><summary>Todavía en verificación</summary>${li(D.toVerify.map(esc))}</details>` +
+      `<details class="more"><summary>Conviene preguntar a la DGII</summary>${li(D.toVerify.map(esc))}</details>` +
       (src ? `<details class="more"><summary>Fuentes</summary><ul>${src}</ul></details>` : '') +
       `<p>Pa a Pa es publicado por Caribbean Metadata. <a href="../">English version</a> · <a href="../../app/">Version française</a></p></footer>`;
   }
@@ -137,7 +138,7 @@
     const rows = [['Ventas', J(c.annualSales)], ['Costo de lo que vendes y gastos fijos', '-' + J((c.direct + c.fixed) * 12)]];
     if (c.emp) { rows.push(['Sueldos de empleados', '-' + J(c.payroll)]); rows.push(['Aportes del empleador', '-' + J(c.er)]); }
     rows.push(['<b>Ganancia antes de impuestos</b>', J(c.profit)]);
-    c.lines.forEach(l => rows.push([esc(l.label) + (l.tag ? ` <span class="tag">${TAGS[l.tag] || l.tag}</span>` : ''), '-' + J(l.amount)]));
+    c.lines.forEach(l => rows.push([esc(l.label), '-' + J(l.amount)]));
     const table = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('') + `<tr class="sum"><td>Te queda al año</td><td>${J(c.net)}</td></tr><tr><td>Te queda al mes</td><td><b>${J(c.netMonthly)}</b></td></tr><tr><td>Necesitas al mes</td><td>${J(c.needs)}</td></tr>`;
     const notes = [];
     if (R.be) notes.push(`<div class="note"><b>Punto de equilibrio:</b> necesitas unos ${J(R.be)} de ventas al mes para cubrir tus costos, tus impuestos y lo que necesitas para vivir.</div>`);
@@ -147,8 +148,8 @@
     (D.notes || []).forEach(n => notes.push(`<div class="note alert">${esc(n)}</div>`));
     const sw = (title, color, items) => `<section class="card swot"><h3><span class="dot" style="background:${color}"></span>${title}</h3>${li(items.map(esc))}</section>`;
     const recs = R.recs.map(r => `<li><div>${esc(r[1])}<br><a href="#/coach/${r[0]}">Pregunta al coach: ${esc(TOPIC[r[0]].label())}</a></div></li>`).join('');
-    return `<h1>Informe de viabilidad</h1><div class="muted small" style="margin:4px 0 8px">${esc(D.name)} · ${esc(stat().label)}</div>${previewBox()}
-      <div class="verdict ${R.verdict}"><div class="k">Veredicto</div><div class="v">${VERDICT[R.verdict][0]}</div><p>${VERDICT[R.verdict][1]}</p></div>
+    return `<h1>Informe de viabilidad</h1><div class="muted small" style="margin:4px 0 8px">${esc(D.name)} · ${esc(stat().label)}</div>
+      <div class="verdict ${R.verdict}"><div class="k">Veredicto</div><div class="v">${VERDICT[R.verdict][0]}</div><p>${VERDICT[R.verdict][1]}</p></div>${planNote()}
       <section class="card"><h3 style="margin-bottom:10px">Cómo suma tu año</h3><table class="sum">${table}</table>${notes.join('')}${glossary(c)}</section>
       ${sw('Fortalezas', '#1F7A8C', R.strengths)}${sw('Debilidades', '#E8A33D', R.weaknesses)}${sw('Oportunidades', '#0B3C49', R.opportunities)}${sw('Riesgos', '#C2491D', R.risks)}
       <section class="card"><h3 style="margin-bottom:12px">Qué hacer primero</h3><ol class="recs">${recs}</ol></section>

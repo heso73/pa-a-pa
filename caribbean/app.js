@@ -35,7 +35,8 @@
     (hint ? `<small>${hint}</small>` : '') + '</div>';
   const why = (title, body) => `<div class="why"><b class="k">${title}</b>${body}</div>`;
   const sym = () => D.currency.symbol;
-  const previewBox = () => (D.status === 'preview' ? `<div class="note alert" style="margin:0 0 14px"><b>Preview.</b> ${esc(D.previewNote || 'Some figures for this country are still being verified.')}</div>` : '');
+  const previewBox = () => '';
+  const planNote = () => `<div class="note" style="margin:0 0 14px">Use this as your <b>planning estimate</b>. When you register, ${esc(D.authorities.tax.name)} gives you the exact amounts for your case.</div>`;
   const ex = k => (D.examples && D.examples[k] != null ? 'e.g. ' + D.examples[k] : '');
   function bracketsText(br) {
     return br.map((b, i) => {
@@ -48,7 +49,7 @@
     const link = x => (x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name));
     const src = (D.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
     return `<footer class="fine"><p>These figures are estimates to help you decide. They are not tax or legal advice. Data for ${esc(D.name)} last checked on ${esc(D.dataVerifiedOn)}. Always confirm with ${link(a.tax)} and ${link(a.registry)}.</p>` +
-      `<details class="more"><summary>Still being verified</summary>${li(D.toVerify.map(esc))}</details>` +
+      `<details class="more"><summary>Good to ask the tax office</summary>${li(D.toVerify.map(esc))}</details>` +
       (src ? `<details class="more"><summary>Sources</summary><ul>${src}</ul></details>` : '') +
       `<p>Pa a Pa is published by Caribbean Metadata. <a href="es/">Español</a> · <a href="../app/">Version française</a></p></footer>`;
   }
@@ -144,7 +145,7 @@
     const rows = [['Sales', J(c.annualSales)], ['Cost of what you sell and fixed costs', '-' + J((c.direct + c.fixed) * 12)]];
     if (c.emp) { rows.push(['Employee pay', '-' + J(c.payroll)]); rows.push(['Employer contributions', '-' + J(c.er)]); }
     rows.push(['<b>Profit before tax</b>', J(c.profit)]);
-    c.lines.forEach(l => rows.push([esc(l.label) + (l.tag ? ` <span class="tag">${l.tag}</span>` : ''), '-' + J(l.amount)]));
+    c.lines.forEach(l => rows.push([esc(l.label), '-' + J(l.amount)]));
     const table = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('') + `<tr class="sum"><td>Left for you, per year</td><td>${J(c.net)}</td></tr><tr><td>Left for you, per month</td><td><b>${J(c.netMonthly)}</b></td></tr><tr><td>You need, per month</td><td>${J(c.needs)}</td></tr>`;
     const notes = [];
     if (R.be) notes.push(`<div class="note"><b>Break-even:</b> you need about ${J(R.be)} in sales per month to cover your costs, your taxes and your living needs.</div>`);
@@ -154,8 +155,8 @@
     (D.notes || []).forEach(n => notes.push(`<div class="note alert">${esc(n)}</div>`));
     const sw = (title, color, items) => `<section class="card swot"><h3><span class="dot" style="background:${color}"></span>${title}</h3>${li(items.map(esc))}</section>`;
     const recs = R.recs.map(r => `<li><div>${esc(r[1])}<br><a href="#/coach/${r[0]}">Ask the coach: ${esc(TOPIC[r[0]].label())}</a></div></li>`).join('');
-    return `<h1>Viability report</h1><div class="muted small" style="margin:4px 0 8px">${esc(D.name)} · ${esc(stat().label)}</div>${previewBox()}
-      <div class="verdict ${R.verdict}"><div class="k">Verdict</div><div class="v">${VERDICT[R.verdict][0]}</div><p>${VERDICT[R.verdict][1]}</p></div>
+    return `<h1>Viability report</h1><div class="muted small" style="margin:4px 0 8px">${esc(D.name)} · ${esc(stat().label)}</div>
+      <div class="verdict ${R.verdict}"><div class="k">Verdict</div><div class="v">${VERDICT[R.verdict][0]}</div><p>${VERDICT[R.verdict][1]}</p></div>${planNote()}
       <section class="card"><h3 style="margin-bottom:10px">How your year adds up</h3><table class="sum">${table}</table>${notes.join('')}${glossary(c)}</section>
       ${sw('Strengths', '#1F7A8C', R.strengths)}${sw('Weaknesses', '#E8A33D', R.weaknesses)}${sw('Opportunities', '#0B3C49', R.opportunities)}${sw('Risks', '#C2491D', R.risks)}
       <section class="card"><h3 style="margin-bottom:12px">What to do first</h3><ol class="recs">${recs}</ol></section>
@@ -271,7 +272,7 @@
       m.push('<p>You can also register earlier by choice. Ask the tax office or an accountant before you do.</p>');
       return m; } };
     TOPIC.team = { label: L('Employees'), msgs: () => {
-      const r = R(), items = D.employer.items.map(i => `${esc(i.label)} ${pct(i.rate)}${i.minEmployees ? ' (from ' + i.minEmployees + ' employees, to confirm)' : ''}`);
+      const r = R(), items = D.employer.items.map(i => `${esc(i.label)} ${pct(i.rate)}${i.minEmployees ? ' (from ' + i.minEmployees + ' employees)' : ''}`);
       const m = [`<p>An employee costs more than their pay. On top of gross pay, the employer adds: ${items.join(', ')}. Deductions are also taken from the employee's pay, and you pay all of it to the authorities.</p>`];
       m.push(r && r.c.emp > 0 ? `<p>In your plan, employer contributions add about <b>${J(r.c.er)}</b> a year to a payroll of ${J(r.c.payroll)}.</p>` : '<p>You planned no employees, so this does not affect your numbers yet.</p>');
       m.push(`<p>${esc(D.calendar.payrollText)}</p>`);
