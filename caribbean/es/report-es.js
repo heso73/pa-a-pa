@@ -5,7 +5,7 @@
   function buildReportEs(D, input) {
     const J = n => E.money(D, n), pct = E.pct, num = E.num;
     const c = E.compute(D, input), be = E.breakEven(D, input), st = E.stress(D, input, 0.8);
-    const vs = D.vat.short, thr = D.vat.threshold;
+    const hasVat = !!D.vat, vs = hasVat ? D.vat.short : '', thr = hasVat ? D.vat.threshold : Infinity;
     const gap = c.netMonthly - c.needs, short = gap < 0;
 
     let verdict;
@@ -34,7 +34,7 @@
     if (!weaknesses.length) weaknesses.push('Tus cifras no muestran una debilidad importante. Revísalas cada mes cuando empieces.');
 
     if (!c.credit) opportunities.push('Tus clientes pagan al momento, así que no tienes que financiar su demora.');
-    if (thr > 0 && !c.vat) opportunities.push(`Tus ventas anuales están por debajo de ${J(thr)}, así que todavía no tienes que cobrar ${vs}.`);
+    if (hasVat && thr > 0 && !c.vat) opportunities.push(`Tus ventas anuales están por debajo de ${J(thr)}, así que todavía no tienes que cobrar ${vs}.`);
     if (c.model === 'personal') opportunities.push('Registrar tu negocio te permite emitir comprobantes fiscales, abrir cuentas empresariales y acceder a crédito formal.');
     opportunities.push('Existen programas de apoyo a las micro, pequeñas y medianas empresas (Mipymes). Pregunta qué asesoría y qué financiamiento están abiertos ahora.');
 
@@ -44,8 +44,8 @@
     risks.push(`Aparta unos ${J(c.setAside)} cada mes para impuestos y aportes, para tenerlos listos cuando toque pagar.`);
     if (c.model === 'corporate') risks.push('Tu propio pago o los dividendos de la sociedad no están en estas cifras. Planéalos con un contador.');
     if (c.emp > 0) risks.push('Con empleados, los pagos de nómina vencen todos los meses, incluso en un mes lento.');
-    if (thr === 0) risks.push(`Debes cobrar ${vs} desde tu primera venta de bienes o servicios gravados, y declararlo cada mes.`);
-    else if (c.annualSales >= thr * 0.8) risks.push(c.vat ? `Tus ventas superan ${J(thr)} al año: debes registrarte para el ${vs}.` : `Estás cerca del límite de ${vs} de ${J(thr)} al año. Prepárate para el ${vs}.`);
+    if (hasVat && thr === 0) risks.push(`Debes cobrar ${vs} desde tu primera venta de bienes o servicios gravados, y declararlo cada mes.`);
+    else if (hasVat && c.annualSales >= thr * 0.8) risks.push(c.vat ? `Tus ventas superan ${J(thr)} al año: debes registrarte para el ${vs}.` : `Estás cerca del límite de ${vs} de ${J(thr)} al año. Prepárate para el ${vs}.`);
 
     if (c.netMonthly <= 0 || short || c.margin < 0.25) recs.push(['cost', 'Calcula tu costo real y comprueba que tu precio de venta deja lo suficiente.']);
     if (be && c.sales > 0 && be > c.sales * 1.02) recs.push(['breakeven', 'Cierra la brecha hasta tu punto de equilibrio: sube un precio, baja un costo o planea más ventas.']);
@@ -55,7 +55,7 @@
     if (c.motivation < 8) recs.push(['motivation', 'Prepárate para los meses difíciles con una prueba pequeña primero.']);
     recs.push(['tax', 'Entiende tus impuestos y aparta dinero cada mes.']);
     if (c.emp > 0) recs.push(['team', 'Aprende lo que un empleador debe pagar cada mes.']);
-    if (thr === 0 || c.annualSales >= thr * 0.8) recs.push(['vat', `Entiende el ${vs} antes de tu primera factura.`]);
+    if (hasVat && (thr === 0 || c.annualSales >= thr * 0.8)) recs.push(['vat', `Entiende el ${vs} antes de tu primera factura.`]);
 
     return { c, be, st, verdict, strengths, weaknesses, opportunities, risks, recs: recs.slice(0, 5), gap };
   }

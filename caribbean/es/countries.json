@@ -89,6 +89,36 @@
       "name": "Saint Kitts and Nevis",
       "url": "../",
       "key": "papa-country"
+    },
+    {
+      "id": "KY",
+      "name": "Cayman Islands",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "VG",
+      "name": "British Virgin Islands",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "TC",
+      "name": "Turks and Caicos Islands",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "AI",
+      "name": "Anguilla",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "MS",
+      "name": "Montserrat",
+      "url": "../",
+      "key": "papa-country"
     }
   ]
 }

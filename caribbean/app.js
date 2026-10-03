@@ -265,8 +265,9 @@
       }
       (D.notes || []).forEach(n => m.push(`<p class="muted small">${esc(n)}</p>`));
       return m; } };
-    TOPIC.vat = { label: () => D.vat.short + ' (sales tax)', msgs: () => {
-      const r = R(), v = D.vat;
+    TOPIC.vat = { label: () => (D.vat ? D.vat.short : 'Sales tax') + ' (sales tax)', msgs: () => {
+      const r = R(), v = D.vat || {};
+      if (!D.vat) return [`<p>${esc(D.name)} has no general sales tax on what you sell. Check the other costs listed in your report: licences, social contributions and payroll charges.</p>`];
       const m = [`<p><b>${esc(v.short)}</b> is the sales tax (${esc(v.label)}). The standard rate is ${pct(v.rate)}. You must register once your yearly sales reach <b>${J(v.threshold)}</b>. ${esc(v.registerNote)} After that you charge ${esc(v.short)} on your sales and file returns. ${esc(v.filingNote)}</p>`];
       if (r) m.push(`<p>Your planned yearly sales are ${J(r.c.annualSales)}.${r.c.vat ? ' You are over the line.' : ' You are below the line for now.'}</p>`);
       m.push('<p>You can also register earlier by choice. Ask the tax office or an accountant before you do.</p>');
@@ -289,12 +290,13 @@
       m.push(`<p>${D.authorities.support.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)).join('<br>')}</p>`);
       return m; } };
   }
-  const ORDER = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
   const KEYWORDS = [['cost', /cost price|price|pricing|margin|charge|how much (should|do) i sell/], ['breakeven', /break.?even|how much (do i )?need to sell/], ['cash', /late|invoice|unpaid|working capital|cash ?flow|bfr|credit/], ['savings', /saving|reserve|runway|safety/], ['tax', /tax|nis|nht|contribution|income tax|trn|tin|levy|surcharge/], ['vat', /gct|vat|sales tax/], ['team', /employ|staff|hire|payroll|worker/], ['customers', /customer|client|market|buyer|sell to/], ['motivation', /motivat|afraid|scared|stress|quit|doubt|fear/], ['funding', /loan|fund|grant|borrow|bank|support/]];
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
-    const r = report(), pri = r ? r.recs.map(x => x[0]) : [], pool = pri.concat(ORDER);
+    const r = report(), pri = r ? r.recs.map(x => x[0]) : [], pool = pri.concat(orderList());
     const ids = []; pool.forEach(id => { if (id !== current && !visited[id] && !ids.includes(id)) ids.push(id); });
     return ids.length ? `<p class="muted small" style="margin:6px 0 2px">What next?</p>${chips(ids.slice(0, 3), true)}${r ? '<a class="chip soft" href="#/report">My report</a>' : ''}` : '';
   }
@@ -333,7 +335,7 @@
     const r = report();
     const first = [{ from: 'coach', html: `<p>Hello! I am your guide for ${esc(D.name)}. I am a tool built into this app, not a person, and I explain things in plain words. I do not replace an accountant.</p>` }];
     if (r) { first.push({ from: 'coach', html: '<p>Your report is ready. These are the most useful points to work on first:</p>' }); first.push({ raw: true, html: chips(r.recs.map(x => x[0])) }); }
-    else { first.push({ from: 'coach', html: '<p>Take <a href="#/test">the test</a> first and I can build advice from your own numbers. Meanwhile, pick any topic:</p>' }); first.push({ raw: true, html: chips(ORDER.slice(0, 6)) }); }
+    else { first.push({ from: 'coach', html: '<p>Take <a href="#/test">the test</a> first and I can build advice from your own numbers. Meanwhile, pick any topic:</p>' }); first.push({ raw: true, html: chips(orderList().slice(0, 6)) }); }
     return first;
   }
   function coach(arg) {
@@ -409,7 +411,7 @@
       inp.value = '';
       const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
       if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>I can explain the topics below. Pick one, or rephrase your question with a word like price, tax, customers or savings.</p>' }, { raw: true, html: chips(ORDER.slice(0, 6), true) }]);
+      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>I can explain the topics below. Pick one, or rephrase your question with a word like price, tax, customers or savings.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
       const b = e.target.closest('[data-act]'); if (!b) return;

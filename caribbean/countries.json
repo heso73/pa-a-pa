@@ -59,6 +59,31 @@
       "id": "KN",
       "name": "Saint Kitts and Nevis",
       "file": "saint-kitts-nevis.json"
+    },
+    {
+      "id": "KY",
+      "name": "Cayman Islands",
+      "file": "cayman-islands.json"
+    },
+    {
+      "id": "VG",
+      "name": "British Virgin Islands",
+      "file": "british-virgin-islands.json"
+    },
+    {
+      "id": "TC",
+      "name": "Turks and Caicos Islands",
+      "file": "turks-and-caicos-islands.json"
+    },
+    {
+      "id": "AI",
+      "name": "Anguilla",
+      "file": "anguilla.json"
+    },
+    {
+      "id": "MS",
+      "name": "Montserrat",
+      "file": "montserrat.json"
     }
   ],
   "comingSoon": [],

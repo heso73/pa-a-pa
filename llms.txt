@@ -14,7 +14,7 @@
 - [Ouvrir l'application](https://heso73.github.io/pa-a-pa/app/): bilan de faisabilité, parcours de création, pilotage de l'activité et outils de calcul (interface interactive, non indexée)
 
 ## Pa a Pa Caribbean (English) and Pa a Pa Caribe (español)
-> Free web app and country guides for first-time entrepreneurs in 15 Caribbean countries (Jamaica, Trinidad and Tobago, Guyana, Barbados, The Bahamas, Belize, Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda, Saint Kitts and Nevis, Dominican Republic, Puerto Rico, Cuba). It tests whether a business idea can pay the owner's bills: estimated income tax, social contributions and sales tax, take-home income, a strengths and risks report, launch steps, a tax calendar and a step-by-step coach. Free, no sign-up, answers stay on the user's device. Published by Caribbean Metadata.
+> Free web app and country guides for first-time entrepreneurs in 20 Caribbean countries and territories (Jamaica, Trinidad and Tobago, Guyana, Barbados, The Bahamas, Belize, Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda, Saint Kitts and Nevis, Cayman Islands, British Virgin Islands, Turks and Caicos Islands, Anguilla, Montserrat, República Dominicana, Puerto Rico, Cuba). It tests whether a business idea can pay the owner's bills: estimated income tax, social contributions and sales tax, take-home income, a strengths and risks report, launch steps, a tax calendar and a step-by-step coach. Free, no sign-up, answers stay on the user's device. Published by Caribbean Metadata.
 
 - [Pa a Pa Caribbean, the app (English)](https://heso73.github.io/pa-a-pa/caribbean/): interactive business idea test for the Caribbean
 - [Pa a Pa Caribe, la app (español)](https://heso73.github.io/pa-a-pa/caribbean/es/): prueba de ideas de negocio para la República Dominicana, Puerto Rico y Cuba
@@ -32,6 +32,11 @@
 - [Starting a business in Saint Vincent and the Grenadines](https://heso73.github.io/pa-a-pa/caribbean/saint-vincent-and-the-grenadines/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
 - [Starting a business in Antigua and Barbuda](https://heso73.github.io/pa-a-pa/caribbean/antigua-and-barbuda/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
 - [Starting a business in Saint Kitts and Nevis](https://heso73.github.io/pa-a-pa/caribbean/saint-kitts-and-nevis/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Cayman Islands](https://heso73.github.io/pa-a-pa/caribbean/cayman-islands/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in British Virgin Islands](https://heso73.github.io/pa-a-pa/caribbean/british-virgin-islands/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Turks and Caicos Islands](https://heso73.github.io/pa-a-pa/caribbean/turks-and-caicos-islands/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Anguilla](https://heso73.github.io/pa-a-pa/caribbean/anguilla/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Montserrat](https://heso73.github.io/pa-a-pa/caribbean/montserrat/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
 
 ### Guías por país (español)
 - [Cómo montar un negocio en República Dominicana](https://heso73.github.io/pa-a-pa/caribbean/es/republica-dominicana/): impuestos, seguridad social, impuesto a las ventas, pasos de registro, calendario y un ejemplo calculado

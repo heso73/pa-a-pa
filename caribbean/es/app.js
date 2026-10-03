@@ -128,7 +128,7 @@
       D.selfEmployed.contributions.forEach(ct => items.push([ct.label, ct.plain]));
       if (D.incomeTax) items.push([D.incomeTax.label, 'Impuesto sobre tu ganancia después de la parte exenta (' + D.incomeTax.allowanceNote + '). Tasas: ' + (D.incomeTax.bracketText || bracketsText(D.incomeTax.brackets)) + '.']);
     }
-    items.push([D.vat.short, D.vat.label + '. Es el impuesto que cobras a tus clientes sobre las ventas gravadas y luego entregas al Estado.']);
+    if (D.vat) items.push([D.vat.short, D.vat.label + '. Es el impuesto que cobras a tus clientes sobre las ventas gravadas y luego entregas al Estado.']);
     return `<details class="more"><summary>¿Qué significan estas palabras?</summary><dl>${items.map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join('')}</dl></details>`;
   }
   function reportView() {
@@ -252,8 +252,9 @@
       }
       (D.notes || []).forEach(n => m.push(`<p class="muted small">${esc(n)}</p>`));
       return m; } };
-    TOPIC.vat = { label: () => D.vat.short + ' (impuesto a las ventas)', msgs: () => {
-      const r = R(), v = D.vat;
+    TOPIC.vat = { label: () => (D.vat ? D.vat.short : 'Impuesto a las ventas') + ' (impuesto a las ventas)', msgs: () => {
+      const r = R(), v = D.vat || {};
+      if (!D.vat) return [`<p>${esc(D.name)} no tiene un impuesto general a las ventas. Revisa los otros costos de tu informe: licencias, aportes y cargas de nómina.</p>`];
       const m = [`<p>El <b>${esc(v.short)}</b> es el impuesto a las ventas (${esc(v.label)}). La tasa general es ${pct(v.rate)}. ${esc(v.registerNote)} Después cobras ${esc(v.short)} en tus ventas y presentas declaraciones. ${esc(v.filingNote)}</p>`];
       if (r) m.push(`<p>Tus ventas anuales previstas son ${J(r.c.annualSales)}.</p>`);
       m.push('<p>Antes de tu primera factura, confirma con la DGII o con un contador cómo debes registrarte y emitir comprobantes fiscales.</p>');
@@ -276,12 +277,13 @@
       m.push(`<p>${D.authorities.support.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)).join('<br>')}</p>`);
       return m; } };
   }
-  const ORDER = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
   const KEYWORDS = [['cost', /costo|precio|margen|cobrar|cu[aá]nto (debo|cobro)/], ['breakeven', /equilibrio|cu[aá]nto (debo|necesito) vender/], ['cash', /tarde|factura|moroso|capital de trabajo|cr[eé]dito/], ['savings', /ahorro|reserva|colch[oó]n/], ['tax', /impuesto|isr|dgii|rnc|aporte|tss|cotizaci/], ['vat', /itbis|iva|ventas gravadas/], ['team', /empleado|personal|contratar|n[oó]mina|trabajador/], ['customers', /cliente|mercado|comprador|vender a/], ['motivation', /motiva|miedo|estr[eé]s|dudas|renunciar/], ['funding', /pr[eé]stamo|financ|banco|apoyo|subsidio/]];
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
-    const r = report(), pri = r ? r.recs.map(x => x[0]) : [], pool = pri.concat(ORDER);
+    const r = report(), pri = r ? r.recs.map(x => x[0]) : [], pool = pri.concat(orderList());
     const ids = []; pool.forEach(id => { if (id !== current && !visited[id] && !ids.includes(id)) ids.push(id); });
     return ids.length ? `<p class="muted small" style="margin:6px 0 2px">¿Y ahora?</p>${chips(ids.slice(0, 3), true)}${r ? '<a class="chip soft" href="#/report">Mi informe</a>' : ''}` : '';
   }
@@ -320,7 +322,7 @@
     const r = report();
     const first = [{ from: 'coach', html: `<p>¡Hola! Soy tu guía para ${esc(D.name)}. Soy una herramienta integrada en esta app, no una persona, y explico las cosas con palabras sencillas. No sustituyo a un contador.</p>` }];
     if (r) { first.push({ from: 'coach', html: '<p>Tu informe está listo. Estos son los puntos más útiles para trabajar primero:</p>' }); first.push({ raw: true, html: chips(r.recs.map(x => x[0])) }); }
-    else { first.push({ from: 'coach', html: '<p>Haz primero <a href="#/test">la prueba</a> y podré armar consejos con tus propias cifras. Mientras tanto, elige cualquier tema:</p>' }); first.push({ raw: true, html: chips(ORDER.slice(0, 6)) }); }
+    else { first.push({ from: 'coach', html: '<p>Haz primero <a href="#/test">la prueba</a> y podré armar consejos con tus propias cifras. Mientras tanto, elige cualquier tema:</p>' }); first.push({ raw: true, html: chips(orderList().slice(0, 6)) }); }
     return first;
   }
   function coach(arg) {
@@ -394,7 +396,7 @@
       inp.value = '';
       const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
       if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Puedo explicar los temas de abajo. Elige uno o reformula tu pregunta con una palabra como precio, impuesto, clientes o ahorros.</p>' }, { raw: true, html: chips(ORDER.slice(0, 6), true) }]);
+      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Puedo explicar los temas de abajo. Elige uno o reformula tu pregunta con una palabra como precio, impuesto, clientes o ahorros.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
       const b = e.target.closest('[data-act]'); if (!b) return;

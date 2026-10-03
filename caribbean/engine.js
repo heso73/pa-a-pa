@@ -38,6 +38,7 @@
       if (it.minEmployees && c.emp < it.minEmployees) return;
       if (it.minMonthlyPayroll && c.payroll / 12 <= it.minMonthlyPayroll) return;
       let base = perEmp - (it.baseLess ? (empShare[it.baseLess] || 0) : 0);
+      if (it.exemptAnnual) base -= it.exemptAnnual;
       if (it.ceilingAnnual != null) base = Math.min(base, it.ceilingAnnual);
       const amount = Math.max(0, base) * c.emp * it.rate;
       c.erLines.push({ id: it.id, label: it.label, rate: it.rate, amount });
@@ -65,7 +66,7 @@
         if (ct.annualFlat != null) amount = p > 0 ? ct.annualFlat : 0;
         else {
           let base = p - (ct.baseLess ? (amt[ct.baseLess] || 0) : 0);
-          base = Math.max(0, base);
+          base = Math.max(0, base - (ct.exemptAnnual || 0));
           if (ct.ceilingAnnual != null) base = Math.min(base, ct.ceilingAnnual);
           amount = base * ct.rate;
         }
@@ -100,7 +101,7 @@
     c.net = c.profit - c.levies;
     c.netMonthly = c.net / 12;
     c.setAside = c.levies / 12;
-    c.vat = c.annualSales >= D.vat.threshold;
+    c.vat = !!D.vat && c.annualSales >= D.vat.threshold;
     c.margin = c.sales > 0 ? (c.sales - c.direct) / c.sales : 0;
 
     const mode = input.payMode || 'now';
@@ -133,7 +134,7 @@
   function buildReport(D, input) {
     const J = n => money(D, n);
     const c = compute(D, input), be = breakEven(D, input), st = stress(D, input, 0.8);
-    const vatShort = D.vat.short, thr = D.vat.threshold;
+    const hasVat = !!D.vat, vatShort = hasVat ? D.vat.short : '', thr = hasVat ? D.vat.threshold : Infinity;
     const gap = c.netMonthly - c.needs, short = gap < 0;
 
     let verdict;
@@ -162,7 +163,7 @@
     if (!weaknesses.length) weaknesses.push('No major weakness shows in your numbers. Check them again every month once you start.');
 
     if (!c.credit) opportunities.push('Your customers pay on the spot, so you do not have to fund their delay.');
-    if (!c.vat) opportunities.push(`Your yearly sales are below ${J(thr)}, so you do not have to charge ${vatShort} yet. Your paperwork stays lighter.`);
+    if (hasVat && !c.vat) opportunities.push(`Your yearly sales are below ${J(thr)}, so you do not have to charge ${vatShort} yet. Your paperwork stays lighter.`);
     if (c.model === 'personal') opportunities.push('A registered business name lets you advertise under it and build a name customers recognise.');
     opportunities.push('Small-business support bodies exist. Ask them what advice and financing are open now.');
 
@@ -174,7 +175,7 @@
       : `Set aside about ${J(c.setAside)} each month for your taxes, fees and contributions, so they are ready when due.`);
     else risks.push('Your own pay or dividends from the company are not included in these numbers. Plan them with an accountant.');
     if (c.emp > 0) risks.push('With employees, payroll payments are due every month, even in a slow month.');
-    if (c.annualSales >= thr * 0.8) risks.push(c.vat ? `Your sales pass ${J(thr)} a year: you must register for ${vatShort}.` : `You are close to the ${vatShort} line of ${J(thr)} a year. Plan for ${vatShort}.`);
+    if (hasVat && c.annualSales >= thr * 0.8) risks.push(c.vat ? `Your sales pass ${J(thr)} a year: you must register for ${vatShort}.` : `You are close to the ${vatShort} line of ${J(thr)} a year. Plan for ${vatShort}.`);
 
     if (c.netMonthly <= 0 || short || c.margin < 0.25) recs.push(['cost', 'Work out your real cost price, then check that your selling price leaves enough.']);
     if (be && c.sales > 0 && be > c.sales * 1.02) recs.push(['breakeven', 'Close the gap to your break-even sales: raise a price, cut a cost, or plan more sales.']);
@@ -184,7 +185,7 @@
     if (c.motivation < 8) recs.push(['motivation', 'Prepare for the hard months with a small test first.']);
     recs.push(['tax', 'Understand your taxes and set money aside every month.']);
     if (c.emp > 0) recs.push(['team', 'Learn what an employer must pay each month.']);
-    if (c.annualSales >= thr * 0.8) recs.push(['vat', `Understand ${vatShort} before you reach the registration line.`]);
+    if (hasVat && c.annualSales >= thr * 0.8) recs.push(['vat', `Understand ${vatShort} before you reach the registration line.`]);
 
     return { c, be, st, verdict, strengths, weaknesses, opportunities, risks, recs: recs.slice(0, 5), gap };
   }

@@ -1,0 +1,230 @@
+{
+  "country": "VG",
+  "name": "British Virgin Islands",
+  "language": "en",
+  "currency": {
+    "code": "USD",
+    "symbol": "US$"
+  },
+  "examples": {
+    "sales": 6000,
+    "direct": 2200,
+    "fixed": 1000,
+    "needs": 2500,
+    "pay": 2000,
+    "startup": 8000,
+    "savings": 15000
+  },
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
+  "authorities": {
+    "tax": {
+      "name": "Inland Revenue Department (IRD)"
+    },
+    "registry": {
+      "name": "BVI Financial Services Commission (Registry of Corporate Affairs)"
+    },
+    "support": [
+      {
+        "name": "Social Security Board"
+      },
+      {
+        "name": "National Health Insurance (NHI)"
+      },
+      {
+        "name": "Department of Trade and Consumer Affairs"
+      }
+    ]
+  },
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "taxModel": "personal",
+      "label": "Sole trader (registered business)",
+      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+      "registeredAt": "BVI Financial Services Commission (Registry of Corporate Affairs)",
+      "needs": [
+        "valid ID",
+        "business address"
+      ],
+      "feeLines": [],
+      "feeNote": "The Department of Trade and Consumer Affairs quotes the trade licence fee for your activity.",
+      "verified": true
+    },
+    {
+      "id": "limited_company",
+      "taxModel": "corporate",
+      "label": "Limited company",
+      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+      "registeredAt": "BVI Financial Services Commission (Registry of Corporate Affairs)",
+      "needs": [
+        "name reservation",
+        "articles of incorporation",
+        "registered office"
+      ],
+      "feeLines": [],
+      "feeNote": "A company costs more to set up than a sole trader business. The Registry of Corporate Affairs quotes the current fees.",
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    {
+      "id": "name",
+      "label": "Choose your business name and check that it is free",
+      "plain": "Search the name first.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "register",
+      "label": "Incorporate the company with the Registry of Corporate Affairs",
+      "plain": "Only needed for a limited company.",
+      "appliesTo": [
+        "limited_company"
+      ]
+    },
+    {
+      "id": "licence",
+      "label": "Get your trade licence",
+      "plain": "Most businesses need a licence for their activity from the Department of Trade and Consumer Affairs.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "ird",
+      "label": "Register with the Inland Revenue Department within 30 days",
+      "plain": "This registers you for payroll tax. Self-employed owners pay payroll tax on their own earnings.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "ssb",
+      "label": "Register with the Social Security Board and the National Health Insurance (NHI)",
+      "plain": "Self-employed people must contribute to both.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "bank",
+      "label": "Open a separate bank account for the business",
+      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "employer",
+      "label": "Prepare payroll tax, Social Security and NHI for your employees",
+      "plain": "With employees you pay all three every month, by the 15th of the following month.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "when": "employees"
+    }
+  ],
+  "incomeTax": {
+    "label": "Payroll tax",
+    "allowance": 10000,
+    "allowanceNote": "the first US$10,000 a year is exempt",
+    "brackets": [
+      {
+        "rate": 0.1
+      }
+    ],
+    "verified": true,
+    "bracketText": "10% of earnings above US$10,000 (14% if you employ 7 or more people)"
+  },
+  "corporateTax": null,
+  "salesLevies": [],
+  "selfEmployed": {
+    "contributions": [
+      {
+        "id": "ssb",
+        "label": "Social Security",
+        "rate": 0.085,
+        "ceilingAnnual": 53400,
+        "plain": "Social Security gives access to a pension and other benefits. Self-employed people pay 8.5% of their earnings, up to US$53,400 a year.",
+        "verified": true
+      },
+      {
+        "id": "nhi",
+        "label": "National Health Insurance (NHI)",
+        "rate": 0.075,
+        "ceilingAnnual": 106800,
+        "plain": "NHI covers health care. Self-employed people pay both shares: 7.5% of their earnings, up to US$106,800 a year.",
+        "verified": true
+      }
+    ],
+    "verified": true
+  },
+  "employee": [
+    {
+      "id": "ssb",
+      "rate": 0.04,
+      "ceilingAnnual": 53400
+    }
+  ],
+  "employer": {
+    "items": [
+      {
+        "id": "pt",
+        "label": "Payroll tax (employer share)",
+        "rate": 0.02,
+        "exemptAnnual": 10000
+      },
+      {
+        "id": "ssb",
+        "label": "Social Security",
+        "rate": 0.045,
+        "ceilingAnnual": 53400
+      },
+      {
+        "id": "nhi",
+        "label": "National Health Insurance (NHI)",
+        "rate": 0.0375,
+        "ceilingAnnual": 106800
+      }
+    ],
+    "verified": true
+  },
+  "vat": null,
+  "calendar": {
+    "quarterly": [],
+    "quarterlyList": "",
+    "quarterlyTextPersonal": "",
+    "quarterlyTextCorporate": "",
+    "monthlyLabel": "Every month",
+    "monthlyText": "Pay payroll tax, Social Security and NHI for your employees by the 15th of the following month.",
+    "annualLabel": "Every year",
+    "annualTextPersonal": "File your payroll tax return with the Inland Revenue Department.",
+    "payrollDay": 15,
+    "payrollText": "Every month: pay payroll tax, Social Security and NHI for the previous month, by the 15th."
+  },
+  "notes": [
+    "The British Virgin Islands has no income tax and no sales tax. Self-employed owners pay payroll tax on their own earnings above US$10,000, plus Social Security and NHI.",
+    "Payroll tax for a business with fewer than 7 employees: 10% of pay above US$10,000 per employee (8% deducted from the employee, 2% paid by the employer)."
+  ],
+  "toVerify": [
+    "Trade licence fee for your activity"
+  ],
+  "sources": [
+    {
+      "label": "Legal 500: BVI payroll tax and social contributions",
+      "url": "https://careyolsen.com/node/1526"
+    },
+    {
+      "label": "Celery Payroll: BVI Social Security and NHI ceilings for 2026",
+      "url": "https://www.celerypayroll.com/en/?p=23993"
+    }
+  ]
+}
