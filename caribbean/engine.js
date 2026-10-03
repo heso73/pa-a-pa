@@ -84,16 +84,17 @@
       }
     }
     // Levies charged on sales (business licence, gross-receipts business tax, green fund...)
+    const W = ({ nl: { of: 'van de omzet', exempt: 'vrijgesteld onder' }, es: { of: 'de las ventas', exempt: 'exento por debajo de' }, fr: { of: 'du chiffre d’affaires', exempt: 'exonéré en dessous de' } })[D.language] || { of: 'of sales', exempt: 'exempt below' };
     (D.salesLevies || []).filter(l => !l.appliesTo || l.appliesTo.includes(c.status)).forEach(l => {
       let rate = l.rate || 0, exempt = false, label = l.label;
       if (l.rateByActivity && c.activity) {
         rate = c.activity.rate;
         if (c.activity.exemptBelow != null && c.annualSales < c.activity.exemptBelow) exempt = true;
-        label = `${l.label} (${pct(rate)} of sales)`;
+        label = `${l.label} (${pct(rate)} ${W.of})`;
       } else if (l.bands) {
         const b = l.bands.find(x => x.upTo == null || c.annualSales <= x.upTo) || l.bands[l.bands.length - 1];
         rate = b.rate;
-        label = rate > 0 ? `${l.label} (${pct(rate)} of sales)` : `${l.label} (exempt below ${money(D, l.bands[0].upTo)})`;
+        label = rate > 0 ? `${l.label} (${pct(rate)} ${W.of})` : `${l.label} (${W.exempt} ${money(D, l.bands[0].upTo)})`;
       }
       c.lines.push({ id: l.id, label, amount: exempt ? 0 : Math.max(0, c.annualSales - (l.exemptFirst || 0)) * rate, tag: l.verified === false ? 'to confirm' : '' });
     });

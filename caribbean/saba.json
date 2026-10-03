@@ -1,0 +1,234 @@
+{
+  "country": "SAB",
+  "name": "Saba",
+  "language": "en",
+  "currency": {
+    "code": "USD",
+    "symbol": "US$"
+  },
+  "examples": {
+    "sales": 9000,
+    "direct": 3500,
+    "fixed": 1800,
+    "needs": 3000,
+    "pay": 2200,
+    "startup": 8000,
+    "savings": 15000
+  },
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
+  "authorities": {
+    "tax": {
+      "name": "Tax and Customs Administration Caribbean Netherlands (Belastingdienst/Caribisch Nederland)",
+      "url": "https://www.belastingdienst-cn.nl"
+    },
+    "registry": {
+      "name": "Chamber of Commerce Saba"
+    },
+    "support": [
+      {
+        "name": "Rijksdienst Caribisch Nederland (RCN)"
+      },
+      {
+        "name": "Social Insurance Bank (SVB) Caribbean Netherlands"
+      }
+    ]
+  },
+  "activities": [
+    {
+      "id": "services",
+      "label": "Offering a service",
+      "plain": "Repairs, transport, hospitality, consulting, hairdressing and similar.",
+      "rate": 0.04,
+      "exemptBelow": 20000
+    },
+    {
+      "id": "production",
+      "label": "Making and selling goods yourself",
+      "plain": "You produce or process the goods you sell: a bakery, a workshop, a food producer.",
+      "rate": 0.06,
+      "exemptBelow": 20000
+    },
+    {
+      "id": "resale",
+      "label": "Reselling goods you import",
+      "plain": "A shop that buys imported goods. The expenditure tax (ABB) is already paid at import, so you do not charge it again when you resell.",
+      "rate": 0.0
+    }
+  ],
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "taxModel": "personal",
+      "label": "Sole proprietorship (eenmanszaak)",
+      "plain": "You work in your own name. It is the simplest and cheapest way to start.",
+      "registeredAt": "Chamber of Commerce Saba",
+      "needs": [
+        "valid ID",
+        "business address"
+      ],
+      "feeLines": [],
+      "feeNote": "The Chamber of Commerce quotes the registration fee for your island.",
+      "verified": true
+    },
+    {
+      "id": "limited_company",
+      "taxModel": "corporate",
+      "label": "Limited company (B.V. or N.V.)",
+      "plain": "A company is a separate entity from you. It costs more to set up and needs more bookkeeping.",
+      "registeredAt": "Chamber of Commerce Saba",
+      "needs": [
+        "name check",
+        "deed of incorporation via a notary",
+        "registered address"
+      ],
+      "feeLines": [],
+      "feeNote": "A company is incorporated through a notary and costs more than a sole proprietorship. The company itself pays no profit tax: the owner-director pays tax on a customary salary, and dividends bear 7.5%.",
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    {
+      "id": "name",
+      "label": "Choose your business name and check that it is free",
+      "plain": "Search the name at the Chamber of Commerce first.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "register",
+      "label": "Register with the Chamber of Commerce",
+      "plain": "Every business is entered in the commercial register. A company is incorporated through a notary first.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "permit",
+      "label": "Check the business permit for your island",
+      "plain": "The island government (Openbaar Lichaam) can require a permit for your activity.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "tax",
+      "label": "Register with the Tax and Customs Administration",
+      "plain": "You get your tax number and access to the online portal MijnCN, where you file returns.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.belastingdienst-cn.nl"
+    },
+    {
+      "id": "bank",
+      "label": "Open a separate bank account for the business",
+      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "employer",
+      "label": "Register as an employer for payroll levies",
+      "plain": "With employees you withhold wage tax and pay employer premiums every month. The owner of a company must also take a customary salary.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "when": "employees"
+    }
+  ],
+  "incomeTax": {
+    "label": "Income tax and premiums",
+    "allowance": 21956,
+    "allowanceNote": "tax-free allowance per year",
+    "brackets": [
+      {
+        "upToChargeable": 53198,
+        "rate": 0.294
+      },
+      {
+        "rate": 0.384
+      }
+    ],
+    "verified": true,
+    "bracketText": "29.4% up to US$53,198 after the tax-free allowance, then 38.4%. The rate already includes the old-age (AOV), widows and orphans (AWW) and health premiums"
+  },
+  "corporateTax": null,
+  "salesLevies": [
+    {
+      "id": "abb",
+      "label": "General expenditure tax (ABB)",
+      "rateByActivity": true,
+      "verified": true
+    }
+  ],
+  "selfEmployed": {
+    "contributions": [],
+    "verified": true
+  },
+  "employee": [],
+  "employer": {
+    "items": [
+      {
+        "id": "zv",
+        "label": "Sickness, accident and severance premiums (ZV, OV, Cessantia)",
+        "rate": 0.01
+      },
+      {
+        "id": "zorg",
+        "label": "Health-care premium (employer share)",
+        "rate": 0.093
+      }
+    ],
+    "verified": true
+  },
+  "vat": null,
+  "calendar": {
+    "quarterly": [],
+    "quarterlyList": "",
+    "quarterlyTextPersonal": "",
+    "quarterlyTextCorporate": "",
+    "monthlyLabel": "Every month",
+    "monthlyText": "Pay the payroll levies of the previous period. The Tax Administration gives your filing dates when you register.",
+    "annualLabel": "Every year",
+    "annualTextPersonal": "File your income tax return online in MijnCN. Filing opens in March for the previous year.",
+    "payrollDay": 15,
+    "payrollText": "Every month: withhold wage tax and pay the employer premiums for the previous period."
+  },
+  "notes": [
+    "Saba belongs to the Netherlands as a special municipality and pays in US dollars. Income tax, old-age insurance and health premiums are one combined charge for the self-employed: 29.4% up to US$53,198 after a US$21,956 tax-free allowance, then 38.4%.",
+    "The general expenditure tax (ABB) is 4% on services and 6% on goods you make yourself. Goods you import carry the tax at import.",
+    "A company pays no profit tax. The owner-director takes a customary salary of at least US$43,912, taxed like any wage, plus 10.3% employer premiums on it. Dividends bear 7.5% dividend tax. These are not in your estimate."
+  ],
+  "toVerify": [
+    "Chamber of Commerce registration fee for your island",
+    "Business permit rules of your island government",
+    "ABB filing period and due date"
+  ],
+  "sources": [
+    {
+      "label": "Belastingdienst Caribisch Nederland: tarieven en belastingvrije bedragen inkomstenbelasting",
+      "url": "https://www.belastingdienst-cn.nl/onderwerpen/belastingzaken-particulieren/inkomstenbelasting/tarieven-en-belastingvrije-bedragen-inkomstenbelasting"
+    },
+    {
+      "label": "Belastingdienst Caribisch Nederland: tarieven algemene bestedingsbelasting",
+      "url": "https://www.belastingdienst-cn.nl/onderwerpen/algemene-bestedingsbelasting-bedrijven/tarieven-abb"
+    },
+    {
+      "label": "Belastingdienst Caribisch Nederland: rekenregels loonheffingen 2026",
+      "url": "https://www.belastingdienst-cn.nl/site/binaries/site-content/collections/documents/belastingdienst/lh/tabellen-en-rekenregels-2026/rekenregels-2026/rekenregels-tabellen-lb-en-premies-2026.pdf"
+    },
+    {
+      "label": "Belastingdienst Caribisch Nederland: gebruikelijk loon",
+      "url": "https://www.belastingdienst-cn.nl/onderwerpen/belastingzaken-bedrijven/loonheffing/gebruikelijk-loon"
+    }
+  ]
+}

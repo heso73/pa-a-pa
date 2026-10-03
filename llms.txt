@@ -14,7 +14,7 @@
 - [Ouvrir l'application](https://heso73.github.io/pa-a-pa/app/): bilan de faisabilité, parcours de création, pilotage de l'activité et outils de calcul (interface interactive, non indexée)
 
 ## Pa a Pa Caribbean (English) and Pa a Pa Caribe (español)
-> Free web app and country guides for first-time entrepreneurs in 24 Caribbean countries and territories (Jamaica, Trinidad and Tobago, Guyana, Barbados, The Bahamas, Belize, Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda, Saint Kitts and Nevis, Cayman Islands, British Virgin Islands, Turks and Caicos Islands, Anguilla, Montserrat, Aruba, Curaçao, Suriname, Haiti, República Dominicana, Puerto Rico, Cuba, Haïti). It tests whether a business idea can pay the owner's bills: estimated income tax, social contributions and sales tax, take-home income, a strengths and risks report, launch steps, a tax calendar and a step-by-step coach. Free, no sign-up, answers stay on the user's device. Published by Caribbean Metadata.
+> Free web app and country guides for first-time entrepreneurs in 28 Caribbean countries and territories (Jamaica, Trinidad and Tobago, Guyana, Barbados, The Bahamas, Belize, Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda, Saint Kitts and Nevis, Cayman Islands, British Virgin Islands, Turks and Caicos Islands, Anguilla, Montserrat, Aruba, Curaçao, Suriname, Haiti, Bonaire, Sint Eustatius, Saba, Sint Maarten, República Dominicana, Puerto Rico, Cuba, Haïti). It tests whether a business idea can pay the owner's bills: estimated income tax, social contributions and sales tax, take-home income, a strengths and risks report, launch steps, a tax calendar and a step-by-step coach. Free, no sign-up, answers stay on the user's device. Published by Caribbean Metadata.
 
 - [Pa a Pa Caribbean, the app (English)](https://heso73.github.io/pa-a-pa/caribbean/): interactive business idea test for the Caribbean
 - [Pa a Pa Caribe, la app (español)](https://heso73.github.io/pa-a-pa/caribbean/es/): prueba de ideas de negocio para la República Dominicana, Puerto Rico y Cuba
@@ -41,6 +41,10 @@
 - [Starting a business in Curaçao](https://heso73.github.io/pa-a-pa/caribbean/curacao/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
 - [Starting a business in Suriname](https://heso73.github.io/pa-a-pa/caribbean/suriname/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
 - [Starting a business in Haiti](https://heso73.github.io/pa-a-pa/caribbean/haiti/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Bonaire](https://heso73.github.io/pa-a-pa/caribbean/bonaire/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Sint Eustatius](https://heso73.github.io/pa-a-pa/caribbean/sint-eustatius/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Saba](https://heso73.github.io/pa-a-pa/caribbean/saba/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
+- [Starting a business in Sint Maarten](https://heso73.github.io/pa-a-pa/caribbean/sint-maarten/): taxes, social contributions, sales tax, registration steps, tax calendar and a worked example
 
 ### Guías por país (español)
 - [Cómo montar un negocio en República Dominicana](https://heso73.github.io/pa-a-pa/caribbean/es/republica-dominicana/): impuestos, seguridad social, impuesto a las ventas, pasos de registro, calendario y un ejemplo calculado
@@ -54,6 +58,10 @@
 - [Een bedrijf starten in Aruba](https://heso73.github.io/pa-a-pa/caribbean/nl/aruba/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
 - [Een bedrijf starten in Curaçao](https://heso73.github.io/pa-a-pa/caribbean/nl/curacao/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
 - [Een bedrijf starten in Suriname](https://heso73.github.io/pa-a-pa/caribbean/nl/suriname/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
+- [Een bedrijf starten in Bonaire](https://heso73.github.io/pa-a-pa/caribbean/nl/bonaire/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
+- [Een bedrijf starten in Sint Eustatius](https://heso73.github.io/pa-a-pa/caribbean/nl/sint-eustatius/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
+- [Een bedrijf starten in Saba](https://heso73.github.io/pa-a-pa/caribbean/nl/saba/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
+- [Een bedrijf starten in Sint Maarten](https://heso73.github.io/pa-a-pa/caribbean/nl/sint-maarten/): belastingen, sociale premies, omzetbelasting, inschrijvingsstappen, belastingkalender en een rekenvoorbeeld
 - [Pa a Pa Caraïben, de app (Nederlands)](https://heso73.github.io/pa-a-pa/caribbean/nl/): test voor bedrijfsideeën voor Aruba, Curaçao en Suriname
 - [Pa a Pa Caraïbe, l’application (français)](https://heso73.github.io/pa-a-pa/caribbean/fr/): test d’idées d’entreprise pour Haïti
 

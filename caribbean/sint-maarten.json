@@ -1,0 +1,299 @@
+{
+  "country": "SXM",
+  "name": "Sint Maarten",
+  "language": "en",
+  "currency": {
+    "code": "XCG",
+    "symbol": "Cg "
+  },
+  "examples": {
+    "sales": 14000,
+    "direct": 5000,
+    "fixed": 2500,
+    "needs": 4000,
+    "pay": 2800,
+    "startup": 15000,
+    "savings": 25000
+  },
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
+  "authorities": {
+    "tax": {
+      "name": "Tax Administration Sint Maarten (Belastingdienst Sint Maarten)",
+      "url": "https://www.sintmaartengov.org"
+    },
+    "registry": {
+      "name": "St. Maarten Chamber of Commerce & Industry",
+      "url": "https://www.chamberofcommerce.sx/?page_id=2413"
+    },
+    "support": [
+      {
+        "name": "Social and Health Insurances (SZV)",
+        "url": "https://www.szv.sx"
+      },
+      {
+        "name": "Department of Economic Licenses (Ministry of TEATT)",
+        "url": "https://www.sintmaartengov.org/Ministries/Departments/Pages/Department-of-Economic-Licenses.aspx"
+      }
+    ]
+  },
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "taxModel": "personal",
+      "label": "Sole proprietorship (eenmanszaak)",
+      "plain": "You work in your own name. It is the simplest and cheapest way to start.",
+      "registeredAt": "St. Maarten Chamber of Commerce & Industry",
+      "needs": [
+        "census registration",
+        "valid passport or ID",
+        "business address",
+        "CRIB number declaration"
+      ],
+      "feeLines": [],
+      "feeNote": "Business licence NAf 312.50 for a sole proprietorship, after an NAf 150 processing fee on submission. Chamber of Commerce registration Fls 315.00 (US$175).",
+      "verified": true
+    },
+    {
+      "id": "limited_company",
+      "taxModel": "corporate",
+      "label": "Limited company (N.V. or B.V.)",
+      "plain": "A company is a separate entity from you. It costs more to set up and needs more bookkeeping.",
+      "registeredAt": "St. Maarten Chamber of Commerce & Industry",
+      "needs": [
+        "name check",
+        "deed of incorporation via a notary",
+        "director licence",
+        "business address"
+      ],
+      "feeLines": [],
+      "feeNote": "Business licence NAf 1,550 for an N.V. or B.V., plus an NAf 312.50 director licence (NAf 625 for more than one director). A civil-law notary incorporates the company before it is entered in the Chamber of Commerce.",
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    {
+      "id": "name",
+      "label": "Choose your business name and check that it is free",
+      "plain": "Search the name at the Chamber of Commerce first.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "crib",
+      "label": "Get your CRIB number from the Tax Administration",
+      "plain": "You need the CRIB number and a business CRIB declaration for the licence application.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.sintmaartengov.org"
+    },
+    {
+      "id": "licence",
+      "label": "Apply for your business licence",
+      "plain": "Apply to the Department of Economic Licenses (TEATT). It takes at least six weeks. Bars, restaurants, hotels and supermarkets also need an operational licence.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.sintmaartengov.org/services/pages/Sole-Proprietorship-License.aspx"
+    },
+    {
+      "id": "register",
+      "label": "Register with the Chamber of Commerce",
+      "plain": "A sole proprietorship registers directly. A company is incorporated by a notary and then entered in the commercial register.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.chamberofcommerce.sx/?page_id=2413"
+    },
+    {
+      "id": "bot",
+      "label": "Register for turnover tax (BBO)",
+      "plain": "You file and pay turnover tax of 5% on your sales every month, even in a month without sales.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "bank",
+      "label": "Open a separate bank account for the business",
+      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "employer",
+      "label": "Register as an employer with SZV and the Tax Administration",
+      "plain": "With employees you withhold wage tax and pay the AOV, AWW, ZV and OV premiums every month.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "when": "employees",
+      "url": "https://www.szv.sx"
+    }
+  ],
+  "incomeTax": {
+    "label": "Income tax",
+    "allowance": 0,
+    "allowanceNote": "tax credits equal to a tax-free income of about Cg 27,107",
+    "credit": 3388.32,
+    "brackets": [
+      {
+        "upToChargeable": 35831,
+        "rate": 0.125
+      },
+      {
+        "upToChargeable": 53747,
+        "rate": 0.2
+      },
+      {
+        "upToChargeable": 74649,
+        "rate": 0.2625
+      },
+      {
+        "upToChargeable": 111971,
+        "rate": 0.3375
+      },
+      {
+        "upToChargeable": 158252,
+        "rate": 0.4
+      },
+      {
+        "rate": 0.475
+      }
+    ],
+    "verified": true,
+    "bracketText": "12.5% up to Cg 35,831, 20% up to Cg 53,747, 26.25% up to Cg 74,649, 33.75% up to Cg 111,971, 40% up to Cg 158,252, then 47.5%, minus tax credits that make the first Cg 27,107 tax-free"
+  },
+  "corporateTax": {
+    "label": "Profit tax",
+    "brackets": [
+      {
+        "rate": 0.345
+      }
+    ],
+    "verified": true
+  },
+  "selfEmployed": {
+    "contributions": [
+      {
+        "id": "aov",
+        "label": "Old age and survivors insurance (AOV/AWW)",
+        "rate": 0.14,
+        "ceilingAnnual": 132824,
+        "deductible": true,
+        "plain": "A pension insurance. Self-employed people pay it on their own income, up to Cg 132,824 a year. The premium lowers your taxable income.",
+        "verified": true
+      }
+    ],
+    "verified": true
+  },
+  "employer": {
+    "items": [
+      {
+        "id": "aov",
+        "label": "Old age insurance (AOV)",
+        "rate": 0.07,
+        "ceilingAnnual": 132824
+      },
+      {
+        "id": "aww",
+        "label": "Widows and orphans insurance (AWW)",
+        "rate": 0.005,
+        "ceilingAnnual": 132824
+      },
+      {
+        "id": "zv",
+        "label": "Sickness insurance (ZV)",
+        "rate": 0.083,
+        "ceilingAnnual": 120000
+      },
+      {
+        "id": "ov",
+        "label": "Accident insurance (OV)",
+        "rate": 0.01,
+        "ceilingAnnual": 120000
+      }
+    ],
+    "verified": true
+  },
+  "employee": [
+    {
+      "id": "aov",
+      "rate": 0.06,
+      "ceilingAnnual": 132824
+    },
+    {
+      "id": "aww",
+      "rate": 0.005,
+      "ceilingAnnual": 132824
+    },
+    {
+      "id": "zv",
+      "rate": 0.042,
+      "ceilingAnnual": 120000
+    }
+  ],
+  "salesLevies": [
+    {
+      "id": "bbo",
+      "label": "Turnover tax (BBO)",
+      "rate": 0.05,
+      "verified": true
+    }
+  ],
+  "calendar": {
+    "quarterly": [],
+    "quarterlyList": "",
+    "quarterlyTextPersonal": "",
+    "quarterlyTextCorporate": "",
+    "monthlyLabel": "Every month",
+    "monthlyText": "File and pay your turnover tax (BBO) by the 15th of the following month, even when you have no sales.",
+    "annualLabel": "Every year",
+    "annualTextPersonal": "File your income tax return (Form A). The deadline was June 1 for 2025.",
+    "payrollDay": 15,
+    "payrollText": "Every month: pay wage tax and the SZV premiums for the previous month."
+  },
+  "notes": [
+    "Sint Maarten has no VAT. Businesses pay a 5% turnover tax (BBO) on their sales, with no deduction for what they buy.",
+    "Your estimate uses the 2025 income tax table, the latest one published by the Tax Administration, together with the 2026 pension premium ceiling. The 2026 table replaces it as soon as you check it with the Tax Administration.",
+    "Companies pay profit tax at 34.5%. The owner's own salary or dividends are not in the estimate."
+  ],
+  "toVerify": [
+    "2026 income tax table",
+    "Self-employed premium rate (AOV/AWW) and health premium (AVBZ)",
+    "Provisional profit tax return: due March 31"
+  ],
+  "vat": null,
+  "sources": [
+    {
+      "label": "Government of Sint Maarten: income tax table 2025 (AB 2025 no. 25)",
+      "url": "https://www.sintmaartengov.org/Documents/Official%20Publications/AB%202025,%20no.%2025%20Bijlage%20I%20TABEL%20INKOMSTENBELASTING%202025.pdf"
+    },
+    {
+      "label": "SZV: AOV/AWW amounts 2026",
+      "url": "https://www.szv.sx/publicfiles/868/documents/2026%20SZV%20AOV%20AWW%20Amounts.pdf"
+    },
+    {
+      "label": "SZV: wage limits and premiums",
+      "url": "https://www.szv.sx/publicfiles/868/documents/Check-Lists/SZV%20-%20Wage%20Limits%20&%20Premium_2024_April.pdf"
+    },
+    {
+      "label": "Sint Maarten Chamber of Commerce: starting a business",
+      "url": "https://www.chamberofcommerce.sx/?page_id=2413"
+    },
+    {
+      "label": "IMF Country Report No. 21/231: Sint Maarten (profit tax and turnover tax)",
+      "url": "https://www.imf.org/-/media/Files/Publications/CR/2021/English/1SXMEA2021001.ashx"
+    }
+  ]
+}

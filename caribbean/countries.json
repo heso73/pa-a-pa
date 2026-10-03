@@ -104,6 +104,26 @@
       "id": "HT",
       "name": "Haiti",
       "file": "haiti.json"
+    },
+    {
+      "id": "BON",
+      "name": "Bonaire",
+      "file": "bonaire.json"
+    },
+    {
+      "id": "STA",
+      "name": "Sint Eustatius",
+      "file": "sint-eustatius.json"
+    },
+    {
+      "id": "SAB",
+      "name": "Saba",
+      "file": "saba.json"
+    },
+    {
+      "id": "SXM",
+      "name": "Sint Maarten",
+      "file": "sint-maarten.json"
     }
   ],
   "comingSoon": [],
@@ -112,19 +132,22 @@
       "id": "DO",
       "name": "República Dominicana",
       "url": "es/",
-      "key": "papa-es-country"
+      "key": "papa-es-country",
+      "lang": "es"
     },
     {
       "id": "PR",
       "name": "Puerto Rico",
       "url": "es/",
-      "key": "papa-es-country"
+      "key": "papa-es-country",
+      "lang": "es"
     },
     {
       "id": "CU",
       "name": "Cuba",
       "url": "es/",
-      "key": "papa-es-country"
+      "key": "papa-es-country",
+      "lang": "es"
     },
     {
       "id": "HT",
@@ -150,6 +173,34 @@
     {
       "id": "SR",
       "name": "Suriname",
+      "url": "nl/",
+      "key": "papa-nl-country",
+      "lang": "nl"
+    },
+    {
+      "id": "BON",
+      "name": "Bonaire",
+      "url": "nl/",
+      "key": "papa-nl-country",
+      "lang": "nl"
+    },
+    {
+      "id": "STA",
+      "name": "Sint Eustatius",
+      "url": "nl/",
+      "key": "papa-nl-country",
+      "lang": "nl"
+    },
+    {
+      "id": "SAB",
+      "name": "Saba",
+      "url": "nl/",
+      "key": "papa-nl-country",
+      "lang": "nl"
+    },
+    {
+      "id": "SXM",
+      "name": "Sint Maarten",
       "url": "nl/",
       "key": "papa-nl-country",
       "lang": "nl"

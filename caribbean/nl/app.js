@@ -72,7 +72,8 @@
     const pm = modes.map(m => `<label class="opt"><input type="radio" name="payMode" data-k="payMode" value="${m[0]}" ${S.input.payMode === m[0] ? 'checked' : ''}><span class="t">${m[1]}</span><small>${m[2]}</small></label>`).join('');
     const pmode = S.input.payMode;
     const extra = pmode === 'later' || pmode === 'both' ? `<div class="grid2">${pmode === 'both' ? fieldNum('creditShare', 'Deel van de omzet dat later wordt betaald', '(%)', '', '50') : ''}${fieldNum('cdays', 'Dagen die klanten nodig hebben om te betalen', '(dagen)', '', '30')}${fieldNum('sdays', 'Dagen die leveranciers je geven om te betalen', '(dagen)', 'Vul 0 in als je leveranciers meteen betaalt.', '0')}</div>` : '';
-    return `<h2 class="q">Hoe ga je werken?</h2><div class="opts">${st}</div>
+    const act = D.activities ? `<h2 class="q">Waar gaat je bedrijf zich vooral mee bezighouden?</h2><div class="opts">${D.activities.map(a => `<label class="opt"><input type="radio" name="activity" data-k="activity" value="${a.id}" ${S.input.activity === a.id ? 'checked' : ''}><span class="t">${esc(a.label)}</span><small>${esc(a.plain)}</small></label>`).join('')}</div>` : '';
+    return `<h2 class="q">Hoe ga je werken?</h2><div class="opts">${st}</div>${act}
       <h2 class="q">Hoe betalen je klanten je?</h2><div class="opts">${pm}</div>${extra}
       ${why('Waarom deze vragen?', '<p>Je rechtsvorm bepaalt welke belastingen en premies je betaalt. Twijfel je? Begin als eenmanszaak: dat is meestal het eenvoudigst.</p><p>Als klanten later betalen, schiet jij het geld intussen voor. Dat geld heet <b>werkkapitaal</b>. We rekenen het alleen uit als het voor jou geldt.</p>')}`;
   }
@@ -99,7 +100,7 @@
   }
   function validate(step) {
     const i = S.input;
-    if (step === 0) { if (!i.status) return 'Kies hoe je gaat werken.'; if (!i.payMode) return 'Kies hoe je klanten je betalen.'; if (i.payMode === 'both' && !(num(i.creditShare) > 0)) return 'Vul in welk deel van de omzet later wordt betaald.'; }
+    if (step === 0) { if (!i.status) return 'Kies hoe je gaat werken.'; if (D.activities && !i.activity) return 'Kies waar je bedrijf zich vooral mee bezighoudt.'; if (!i.payMode) return 'Kies hoe je klanten je betalen.'; if (i.payMode === 'both' && !(num(i.creditShare) > 0)) return 'Vul in welk deel van de omzet later wordt betaald.'; }
     if (step === 1) { if (!(num(i.sales) > 0)) return 'Vul je verwachte omzet per maand in.'; if (!(num(i.needs) > 0)) return 'Vul in wat je elke maand nodig hebt om van te leven.'; }
     if (step === 3) { if (!(+i.m1 && +i.m2 && +i.m3)) return 'Beoordeel alle drie de stellingen om door te gaan.'; }
     return '';

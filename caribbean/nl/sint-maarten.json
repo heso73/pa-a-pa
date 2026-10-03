@@ -1,0 +1,299 @@
+{
+  "country": "SXM",
+  "name": "Sint Maarten",
+  "language": "nl",
+  "currency": {
+    "code": "XCG",
+    "symbol": "Cg "
+  },
+  "examples": {
+    "sales": 14000,
+    "direct": 5000,
+    "fixed": 2500,
+    "needs": 4000,
+    "pay": 2800,
+    "startup": 15000,
+    "savings": 25000
+  },
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
+  "authorities": {
+    "tax": {
+      "name": "Belastingdienst Sint Maarten",
+      "url": "https://www.sintmaartengov.org"
+    },
+    "registry": {
+      "name": "Kamer van Koophandel en Nijverheid Sint Maarten",
+      "url": "https://www.chamberofcommerce.sx/?page_id=2413"
+    },
+    "support": [
+      {
+        "name": "Sociale en Ziektekostenverzekeringen (SZV)",
+        "url": "https://www.szv.sx"
+      },
+      {
+        "name": "Departement Economische Vergunningen (Ministerie van TEATT)",
+        "url": "https://www.sintmaartengov.org/Ministries/Departments/Pages/Department-of-Economic-Licenses.aspx"
+      }
+    ]
+  },
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "taxModel": "personal",
+      "label": "Eenmanszaak",
+      "plain": "Je werkt op eigen naam. Dit is de eenvoudigste en goedkoopste manier om te beginnen.",
+      "registeredAt": "Kamer van Koophandel en Nijverheid Sint Maarten",
+      "needs": [
+        "inschrijving bevolkingsregister",
+        "geldig paspoort of identiteitsbewijs",
+        "bedrijfsadres",
+        "CRIB-verklaring"
+      ],
+      "feeLines": [],
+      "feeNote": "Bedrijfsvergunning NAf 312,50 voor een eenmanszaak, na NAf 150 behandelingskosten bij indiening. Inschrijving bij de Kamer van Koophandel Fls 315,00 (US$ 175).",
+      "verified": true
+    },
+    {
+      "id": "limited_company",
+      "taxModel": "corporate",
+      "label": "Vennootschap (N.V. of B.V.)",
+      "plain": "Een vennootschap is een aparte entiteit naast jezelf. Ze is duurder om op te richten en vraagt meer administratie.",
+      "registeredAt": "Kamer van Koophandel en Nijverheid Sint Maarten",
+      "needs": [
+        "naamcontrole",
+        "oprichtingsakte via een notaris",
+        "directeursvergunning",
+        "bedrijfsadres"
+      ],
+      "feeLines": [],
+      "feeNote": "Bedrijfsvergunning NAf 1.550 voor een N.V. of B.V., plus een directeursvergunning van NAf 312,50 (NAf 625 bij meer dan één directeur). Een notaris richt de vennootschap op voordat ze bij de Kamer van Koophandel wordt ingeschreven.",
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    {
+      "id": "name",
+      "label": "Kies de naam van je bedrijf en controleer of die vrij is",
+      "plain": "Zoek de naam eerst op bij de Kamer van Koophandel.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "crib",
+      "label": "Vraag je CRIB-nummer aan bij de Belastingdienst",
+      "plain": "Je hebt het CRIB-nummer en een CRIB-verklaring voor het bedrijf nodig voor de vergunningaanvraag.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.sintmaartengov.org"
+    },
+    {
+      "id": "licence",
+      "label": "Vraag je bedrijfsvergunning aan",
+      "plain": "Aanvragen bij het Departement Economische Vergunningen (TEATT). Dit duurt minstens zes weken. Bars, restaurants, hotels en supermarkten hebben ook een exploitatievergunning nodig.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.sintmaartengov.org/services/pages/Sole-Proprietorship-License.aspx"
+    },
+    {
+      "id": "register",
+      "label": "Schrijf je in bij de Kamer van Koophandel",
+      "plain": "Een eenmanszaak schrijft zich direct in. Een vennootschap wordt via een notaris opgericht en daarna in het handelsregister ingeschreven.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.chamberofcommerce.sx/?page_id=2413"
+    },
+    {
+      "id": "bot",
+      "label": "Meld je aan voor omzetbelasting (BBO)",
+      "plain": "Je doet elke maand aangifte en betaalt 5% omzetbelasting over je omzet, ook in een maand zonder omzet.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "bank",
+      "label": "Open een aparte bankrekening voor het bedrijf",
+      "plain": "Zakelijk geld gescheiden houden van het geld van je huishouden maakt je cijfers duidelijker en je belastingen makkelijker te betalen.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "employer",
+      "label": "Meld je aan als werkgever bij SZV en de Belastingdienst",
+      "plain": "Met medewerkers houd je loonbelasting in en betaal je elke maand de premies AOV, AWW, ZV en OV.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "when": "employees",
+      "url": "https://www.szv.sx"
+    }
+  ],
+  "incomeTax": {
+    "label": "Inkomstenbelasting",
+    "allowance": 0,
+    "allowanceNote": "heffingskortingen die overeenkomen met een belastingvrij inkomen van ongeveer Cg 27.107",
+    "credit": 3388.32,
+    "brackets": [
+      {
+        "upToChargeable": 35831,
+        "rate": 0.125
+      },
+      {
+        "upToChargeable": 53747,
+        "rate": 0.2
+      },
+      {
+        "upToChargeable": 74649,
+        "rate": 0.2625
+      },
+      {
+        "upToChargeable": 111971,
+        "rate": 0.3375
+      },
+      {
+        "upToChargeable": 158252,
+        "rate": 0.4
+      },
+      {
+        "rate": 0.475
+      }
+    ],
+    "verified": true,
+    "bracketText": "12,5% tot Cg 35.831, 20% tot Cg 53.747, 26,25% tot Cg 74.649, 33,75% tot Cg 111.971, 40% tot Cg 158.252, daarna 47,5%, min heffingskortingen waardoor de eerste Cg 27.107 belastingvrij is"
+  },
+  "corporateTax": {
+    "label": "Winstbelasting",
+    "brackets": [
+      {
+        "rate": 0.345
+      }
+    ],
+    "verified": true
+  },
+  "selfEmployed": {
+    "contributions": [
+      {
+        "id": "aov",
+        "label": "Ouderdoms- en nabestaandenverzekering (AOV/AWW)",
+        "rate": 0.14,
+        "ceilingAnnual": 132824,
+        "deductible": true,
+        "plain": "Een pensioenverzekering. Zelfstandigen betalen die over hun eigen inkomen, tot Cg 132.824 per jaar. De premie verlaagt je belastbaar inkomen.",
+        "verified": true
+      }
+    ],
+    "verified": true
+  },
+  "employer": {
+    "items": [
+      {
+        "id": "aov",
+        "label": "Ouderdomsverzekering (AOV)",
+        "rate": 0.07,
+        "ceilingAnnual": 132824
+      },
+      {
+        "id": "aww",
+        "label": "Weduwen- en wezenverzekering (AWW)",
+        "rate": 0.005,
+        "ceilingAnnual": 132824
+      },
+      {
+        "id": "zv",
+        "label": "Ziekteverzekering (ZV)",
+        "rate": 0.083,
+        "ceilingAnnual": 120000
+      },
+      {
+        "id": "ov",
+        "label": "Ongevallenverzekering (OV)",
+        "rate": 0.01,
+        "ceilingAnnual": 120000
+      }
+    ],
+    "verified": true
+  },
+  "employee": [
+    {
+      "id": "aov",
+      "rate": 0.06,
+      "ceilingAnnual": 132824
+    },
+    {
+      "id": "aww",
+      "rate": 0.005,
+      "ceilingAnnual": 132824
+    },
+    {
+      "id": "zv",
+      "rate": 0.042,
+      "ceilingAnnual": 120000
+    }
+  ],
+  "salesLevies": [
+    {
+      "id": "bbo",
+      "label": "Omzetbelasting (BBO)",
+      "rate": 0.05,
+      "verified": true
+    }
+  ],
+  "calendar": {
+    "quarterly": [],
+    "quarterlyList": "",
+    "quarterlyTextPersonal": "",
+    "quarterlyTextCorporate": "",
+    "monthlyLabel": "Elke maand",
+    "monthlyText": "Doe aangifte en betaal je omzetbelasting (BBO) uiterlijk de 15e van de volgende maand, ook als je geen omzet hebt.",
+    "annualLabel": "Elk jaar",
+    "annualTextPersonal": "Doe je aangifte inkomstenbelasting (Formulier A). Voor 2025 was de uiterste datum 1 juni.",
+    "payrollDay": 15,
+    "payrollText": "Elke maand: betaal loonbelasting en de SZV-premies over de vorige maand."
+  },
+  "notes": [
+    "Sint Maarten heeft geen btw. Bedrijven betalen 5% omzetbelasting (BBO) over hun omzet, zonder aftrek van wat ze inkopen.",
+    "Je schatting gebruikt de inkomstenbelastingtabel van 2025, de laatste die de Belastingdienst heeft gepubliceerd, samen met het premieplafond voor pensioen van 2026. De tabel van 2026 vervangt haar zodra je die bij de Belastingdienst controleert.",
+    "Vennootschappen betalen 34,5% winstbelasting. Het eigen salaris of dividend van de eigenaar zit niet in de schatting."
+  ],
+  "toVerify": [
+    "Inkomstenbelastingtabel 2026",
+    "Premiepercentage voor zelfstandigen (AOV/AWW) en zorgpremie (AVBZ)",
+    "Voorlopige aangifte winstbelasting: uiterlijk 31 maart"
+  ],
+  "vat": null,
+  "sources": [
+    {
+      "label": "Government of Sint Maarten: income tax table 2025 (AB 2025 no. 25)",
+      "url": "https://www.sintmaartengov.org/Documents/Official%20Publications/AB%202025,%20no.%2025%20Bijlage%20I%20TABEL%20INKOMSTENBELASTING%202025.pdf"
+    },
+    {
+      "label": "SZV: AOV/AWW amounts 2026",
+      "url": "https://www.szv.sx/publicfiles/868/documents/2026%20SZV%20AOV%20AWW%20Amounts.pdf"
+    },
+    {
+      "label": "SZV: wage limits and premiums",
+      "url": "https://www.szv.sx/publicfiles/868/documents/Check-Lists/SZV%20-%20Wage%20Limits%20&%20Premium_2024_April.pdf"
+    },
+    {
+      "label": "Sint Maarten Chamber of Commerce: starting a business",
+      "url": "https://www.chamberofcommerce.sx/?page_id=2413"
+    },
+    {
+      "label": "IMF Country Report No. 21/231: Sint Maarten (profit tax and turnover tax)",
+      "url": "https://www.imf.org/-/media/Files/Publications/CR/2021/English/1SXMEA2021001.ashx"
+    }
+  ]
+}

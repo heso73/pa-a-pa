@@ -14,6 +14,26 @@
       "id": "SR",
       "name": "Suriname",
       "file": "suriname.json"
+    },
+    {
+      "id": "BON",
+      "name": "Bonaire",
+      "file": "bonaire.json"
+    },
+    {
+      "id": "STA",
+      "name": "Sint Eustatius",
+      "file": "sint-eustatius.json"
+    },
+    {
+      "id": "SAB",
+      "name": "Saba",
+      "file": "saba.json"
+    },
+    {
+      "id": "SXM",
+      "name": "Sint Maarten",
+      "file": "sint-maarten.json"
     }
   ],
   "comingSoon": [],

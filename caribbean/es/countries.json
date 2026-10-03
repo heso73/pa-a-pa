@@ -121,8 +121,50 @@
       "key": "papa-country"
     },
     {
+      "id": "AW",
+      "name": "Aruba",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "CW",
+      "name": "Curaçao",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
       "id": "HT",
       "name": "Haiti",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "BON",
+      "name": "Bonaire",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "STA",
+      "name": "Sint Eustatius",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "SAB",
+      "name": "Saba",
+      "url": "../",
+      "key": "papa-country"
+    },
+    {
+      "id": "SXM",
+      "name": "Sint Maarten",
       "url": "../",
       "key": "papa-country"
     },
@@ -132,27 +174,6 @@
       "url": "../fr/",
       "key": "papa-fr-country",
       "lang": "fr"
-    },
-    {
-      "id": "AW",
-      "name": "Aruba",
-      "url": "../nl/",
-      "key": "papa-nl-country",
-      "lang": "nl"
-    },
-    {
-      "id": "CW",
-      "name": "Curaçao",
-      "url": "../nl/",
-      "key": "papa-nl-country",
-      "lang": "nl"
-    },
-    {
-      "id": "SR",
-      "name": "Suriname",
-      "url": "../nl/",
-      "key": "papa-nl-country",
-      "lang": "nl"
     }
   ]
 }
