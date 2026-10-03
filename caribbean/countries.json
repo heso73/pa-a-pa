@@ -1,0 +1,43 @@
+{
+  "countries": [
+    {
+      "id": "JM",
+      "name": "Jamaica",
+      "file": "jamaica.json"
+    },
+    {
+      "id": "TT",
+      "name": "Trinidad and Tobago",
+      "file": "trinidad-tobago.json"
+    },
+    {
+      "id": "GY",
+      "name": "Guyana",
+      "file": "guyana.json"
+    },
+    {
+      "id": "BB",
+      "name": "Barbados",
+      "file": "barbados.json"
+    },
+    {
+      "id": "BS",
+      "name": "The Bahamas",
+      "file": "bahamas.json"
+    },
+    {
+      "id": "BZ",
+      "name": "Belize",
+      "file": "belize.json"
+    }
+  ],
+  "comingSoon": [
+    "Antigua and Barbuda",
+    "Dominica",
+    "Grenada",
+    "Saint Kitts and Nevis",
+    "Saint Lucia",
+    "Saint Vincent and the Grenadines",
+    "Dominican Republic"
+  ]
+}

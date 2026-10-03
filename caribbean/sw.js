@@ -1,6 +1,6 @@
 // Pa a Pa Caribbean: offline support. To publish an update, change VERSION below.
-const VERSION = 'papa-caribbean-v1';
-const APP = ['./', './index.html', './styles.css', './engine.js', './app.js', './jamaica.json', './manifest.webmanifest',
+const VERSION = 'papa-caribbean-v3';
+const APP = ['./', './index.html', './styles.css', './engine.js', './app.js', './countries.json', './jamaica.json', './trinidad-tobago.json', './guyana.json', './barbados.json', './bahamas.json', './belize.json', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
