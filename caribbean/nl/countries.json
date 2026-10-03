@@ -1,9 +1,19 @@
 {
   "countries": [
     {
-      "id": "HT",
-      "name": "Haïti",
-      "file": "haiti.json"
+      "id": "AW",
+      "name": "Aruba",
+      "file": "aruba.json"
+    },
+    {
+      "id": "CW",
+      "name": "Curaçao",
+      "file": "curacao.json"
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "file": "suriname.json"
     }
   ],
   "comingSoon": [],
@@ -138,25 +148,11 @@
       "lang": "es"
     },
     {
-      "id": "AW",
-      "name": "Aruba",
-      "url": "../nl/",
-      "key": "papa-nl-country",
-      "lang": "nl"
-    },
-    {
-      "id": "CW",
-      "name": "Curaçao",
-      "url": "../nl/",
-      "key": "papa-nl-country",
-      "lang": "nl"
-    },
-    {
-      "id": "SR",
-      "name": "Suriname",
-      "url": "../nl/",
-      "key": "papa-nl-country",
-      "lang": "nl"
+      "id": "HT",
+      "name": "Haïti",
+      "url": "../fr/",
+      "key": "papa-fr-country",
+      "lang": "fr"
     }
   ]
 }

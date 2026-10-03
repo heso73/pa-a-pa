@@ -1,0 +1,264 @@
+{
+  "country": "CW",
+  "name": "Curaçao",
+  "language": "nl",
+  "currency": {
+    "code": "XCG",
+    "symbol": "Cg "
+  },
+  "examples": {
+    "sales": 14000,
+    "direct": 5000,
+    "fixed": 2500,
+    "needs": 4000,
+    "pay": 2800,
+    "startup": 15000,
+    "savings": 25000
+  },
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
+  "authorities": {
+    "tax": {
+      "name": "Belastingdienst Curaçao (Inspectie der Belastingen)"
+    },
+    "registry": {
+      "name": "Kamer van Koophandel Curaçao"
+    },
+    "support": [
+      {
+        "name": "Sociale Verzekeringsbank (SVB)"
+      },
+      {
+        "name": "Kamer van Koophandel Curaçao"
+      }
+    ]
+  },
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "taxModel": "personal",
+      "label": "Eenmanszaak",
+      "plain": "Je werkt op eigen naam. Dit is de eenvoudigste en goedkoopste manier om te beginnen.",
+      "registeredAt": "Kamer van Koophandel Curaçao",
+      "needs": [
+        "geldig identiteitsbewijs",
+        "bedrijfsadres"
+      ],
+      "feeLines": [],
+      "feeNote": "De Kamer van Koophandel geeft het tarief voor inschrijving. Voor je activiteit heb je ook een vergunning nodig.",
+      "verified": true
+    },
+    {
+      "id": "limited_company",
+      "taxModel": "corporate",
+      "label": "Vennootschap (NV of BV)",
+      "plain": "Een vennootschap is een aparte entiteit naast jezelf. Ze is duurder om op te richten en vraagt meer administratie.",
+      "registeredAt": "Kamer van Koophandel Curaçao",
+      "needs": [
+        "naamreservering",
+        "oprichtingsakte via een notaris",
+        "bedrijfsadres"
+      ],
+      "feeLines": [],
+      "feeNote": "Een vennootschap is duurder om op te richten dan een eenmanszaak. De Kamer van Koophandel geeft de actuele tarieven.",
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    {
+      "id": "name",
+      "label": "Kies de naam van je bedrijf en controleer of die vrij is",
+      "plain": "Zoek de naam eerst op bij de Kamer van Koophandel.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "register",
+      "label": "Schrijf je in bij de Kamer van Koophandel",
+      "plain": "Elk bedrijf staat in het handelsregister. Een vennootschap wordt opgericht via een notaris.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "licence",
+      "label": "Vraag je bedrijfsvergunning aan",
+      "plain": "De meeste activiteiten hebben een vergunning van de overheid nodig.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "tax",
+      "label": "Meld je aan bij de Belastingdienst (CRIB-nummer)",
+      "plain": "Je krijgt je CRIB-nummer en je rekening voor omzetbelasting (OB). Je doet aangifte, ook voordat je omzet hebt.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "svb",
+      "label": "Meld je aan bij de Sociale Verzekeringsbank (SVB)",
+      "plain": "Zelfstandigen betalen ouderdomsverzekering (AOV) en de algemene verzekering voor bijzondere ziektekosten (AVBZ).",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "bank",
+      "label": "Open een aparte bankrekening voor het bedrijf",
+      "plain": "Zakelijk geld gescheiden houden van het geld van je huishouden maakt je cijfers duidelijker en je belastingen makkelijker te betalen.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "employer",
+      "label": "Meld je medewerkers aan en bereid de loonbetalingen voor",
+      "plain": "Met medewerkers houd je elke maand loonbelasting in en betaal je sociale verzekeringspremies.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "when": "employees"
+    }
+  ],
+  "incomeTax": {
+    "label": "Inkomstenbelasting",
+    "allowance": 0,
+    "allowanceNote": "algemene heffingskorting van Cg 2.850 per jaar",
+    "credit": 2850,
+    "brackets": [
+      {
+        "upToChargeable": 38225,
+        "rate": 0.0975
+      },
+      {
+        "upToChargeable": 50968,
+        "rate": 0.15
+      },
+      {
+        "upToChargeable": 76452,
+        "rate": 0.23
+      },
+      {
+        "upToChargeable": 108306,
+        "rate": 0.3
+      },
+      {
+        "upToChargeable": 159273,
+        "rate": 0.375
+      },
+      {
+        "rate": 0.465
+      }
+    ],
+    "verified": true,
+    "bracketText": "9,75% tot Cg 38.225, 15% tot Cg 50.968, 23% tot Cg 76.452, 30% tot Cg 108.306, 37,5% tot Cg 159.273, daarna 46,5%, min een algemene heffingskorting van Cg 2.850"
+  },
+  "corporateTax": {
+    "label": "Winstbelasting",
+    "brackets": [
+      {
+        "upToChargeable": 500000,
+        "rate": 0.15
+      },
+      {
+        "rate": 0.22
+      }
+    ],
+    "verified": true
+  },
+  "salesLevies": [],
+  "selfEmployed": {
+    "contributions": [
+      {
+        "id": "aov",
+        "label": "Ouderdomsverzekering (AOV/AWW)",
+        "rate": 0.15,
+        "ceilingAnnual": 132824,
+        "plain": "Een pensioenverzekering. Zelfstandigen betalen die over hun eigen inkomen, tot Cg 132.824 per jaar.",
+        "verified": true
+      },
+      {
+        "id": "avbz",
+        "label": "Bijzondere ziektekosten (AVBZ)",
+        "rate": 0.02,
+        "ceilingAnnual": 606247,
+        "plain": "Een algemene verzekering voor langdurige zorg en bijzondere ziektekosten. Ze wordt geïnd met je aangifte inkomstenbelasting.",
+        "verified": true
+      }
+    ],
+    "verified": true
+  },
+  "employee": [
+    {
+      "id": "aov",
+      "rate": 0.06,
+      "ceilingAnnual": 100000
+    }
+  ],
+  "employer": {
+    "items": [
+      {
+        "id": "aov",
+        "label": "Ouderdomsverzekering (AOV)",
+        "rate": 0.09,
+        "ceilingAnnual": 100000
+      },
+      {
+        "id": "avbz",
+        "label": "Bijzondere ziektekosten (AVBZ)",
+        "rate": 0.02,
+        "ceilingAnnual": 606247
+      }
+    ],
+    "verified": true
+  },
+  "vat": {
+    "label": "Omzetbelasting",
+    "short": "OB",
+    "rate": 0.06,
+    "threshold": 0,
+    "registerNote": "Met de kleinbedrijfsregeling (RKO) kunnen heel kleine eenmanszaken worden vrijgesteld van aangifte: vraag het aan de Belastingdienst.",
+    "filingNote": "Je doet jaarlijks aangifte als je belastbare omzet onder Cg 30.000 blijft, per kwartaal tot Cg 75.000 en per maand daarboven.",
+    "verified": true
+  },
+  "calendar": {
+    "quarterly": [],
+    "quarterlyList": "",
+    "quarterlyTextPersonal": "",
+    "quarterlyTextCorporate": "",
+    "monthlyLabel": "Elke maand",
+    "monthlyText": "Doe aangifte omzetbelasting (OB): jaarlijks onder Cg 30.000 omzet per jaar, per kwartaal tot Cg 75.000 en per maand daarboven.",
+    "annualLabel": "Elk jaar",
+    "annualTextPersonal": "Doe je aangifte inkomstenbelasting, uiterlijk 30 april.",
+    "payrollDay": 15,
+    "payrollText": "Elke maand: betaal loonbelasting en sociale verzekeringspremies over de vorige maand, uiterlijk de 15e.",
+    "vatText": "Doe aangifte omzetbelasting (OB) voor elke periode, ook als je geen omzet hebt."
+  },
+  "notes": [
+    "Curaçao heeft een omzetbelasting (OB) van 6% over de omzet, vergelijkbaar met btw. Eenmanszaken betalen inkomstenbelasting over hun winst, met een algemene heffingskorting.",
+    "Vennootschappen betalen winstbelasting: 15% over de eerste Cg 500.000 en 22% daarboven."
+  ],
+  "toVerify": [
+    "Vergunningsleges voor jouw activiteit"
+  ],
+  "sources": [
+    {
+      "label": "Curaçao Chronicle: gids van de Belastingdienst voor startende ondernemers",
+      "url": "https://www.curacaochronicle.com/post/unknown/curacao-tax-authority-launches-practical-guide-to-help-entrepreneurs-start-and-grow-their-businesses"
+    },
+    {
+      "label": "Orbitax: inkomstenbelasting Curaçao 2025",
+      "url": "https://orbitax.com/news/country/article/Curacao-Sets-Individual-Income-57640"
+    }
+  ]
+}

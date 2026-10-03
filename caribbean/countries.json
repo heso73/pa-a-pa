@@ -132,6 +132,27 @@
       "url": "fr/",
       "key": "papa-fr-country",
       "lang": "fr"
+    },
+    {
+      "id": "AW",
+      "name": "Aruba",
+      "url": "nl/",
+      "key": "papa-nl-country",
+      "lang": "nl"
+    },
+    {
+      "id": "CW",
+      "name": "Curaçao",
+      "url": "nl/",
+      "key": "papa-nl-country",
+      "lang": "nl"
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "url": "nl/",
+      "key": "papa-nl-country",
+      "lang": "nl"
     }
   ]
 }

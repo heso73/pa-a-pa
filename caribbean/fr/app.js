@@ -35,7 +35,7 @@
   const sym = () => D.currency.symbol;
   const ex = k => (D.examples && D.examples[k] != null ? 'ex. : ' + D.examples[k] : '');
   const previewBox = () => '';
-  const planNote = () => `<div class="note" style="margin:0 0 14px">Utilisez ceci comme <b>estimation pour planifier</b>. À l’inscription, l’administration fiscale (${esc(D.authorities.tax.name)}) vous donne les montants exacts pour votre cas.</div>`;
+  const planNote = () => `<div class="note" style="margin:0 0 14px">Utilisez ceci comme <b>estimation pour planifier</b>. À l’inscription, ${esc(D.authorities.tax.name)} vous donne les montants exacts pour votre cas.</div>`;
   function bracketsText(br) {
     return br.map((b, i) => {
       const prev = i ? br[i - 1].upToChargeable : 0;
@@ -337,7 +337,7 @@
     $('#cname').firstChild.nodeValue = D.name + ' ';
     const list = COUNTRIES.countries.map(c => `<button class="copt" data-country="${c.id}" ${c.id === D.country ? 'aria-current="true"' : ''}>${esc(c.name)}${c.preview ? ' (aperçu)' : ''}${c.id === D.country ? ' ✓' : ''}</button>`).join('');
     const soon = (COUNTRIES.comingSoon || []).length ? `<p class="muted small" style="margin:10px 0 0">Bientôt : ${esc(COUNTRIES.comingSoon.join(', '))}. Chaque pays a ses propres impôts et règles.</p>` : '';
-    const ext = (COUNTRIES.external || []).map(c => `<button class="copt" data-url="${esc(c.url)}" data-key="${esc(c.key)}" data-id="${esc(c.id)}">${esc(c.name)} <span class="muted small">&nbsp;${c.lang === 'es' ? 'en español' : 'in English'} →</span></button>`).join('');
+    const ext = (COUNTRIES.external || []).map(c => `<button class="copt" data-url="${esc(c.url)}" data-key="${esc(c.key)}" data-id="${esc(c.id)}">${esc(c.name)} <span class="muted small">&nbsp;${c.lang === 'nl' ? 'in het Nederlands' : c.lang === 'es' ? 'en español' : 'in English'} →</span></button>`).join('');
     $('#cpop').innerHTML = list + ext + soon;
   }
   function useCountry(entry) {

@@ -1,0 +1,249 @@
+{
+  "country": "AW",
+  "name": "Aruba",
+  "language": "nl",
+  "currency": {
+    "code": "AWG",
+    "symbol": "Afl. "
+  },
+  "examples": {
+    "sales": 14000,
+    "direct": 5000,
+    "fixed": 2500,
+    "needs": 4000,
+    "pay": 2800,
+    "startup": 15000,
+    "savings": 25000
+  },
+  "dataVerifiedOn": "2026-10-03",
+  "status": "published",
+  "authorities": {
+    "tax": {
+      "name": "Departamento di Impuesto (belastingdienst)"
+    },
+    "registry": {
+      "name": "Kamer van Koophandel Aruba"
+    },
+    "support": [
+      {
+        "name": "DEACI: Departamento di Asuntonan Economico, Comercio y Industria",
+        "url": "https://www.deaci.aw"
+      },
+      {
+        "name": "Sociale Verzekeringsbank (SVb)"
+      }
+    ]
+  },
+  "legalStatuses": [
+    {
+      "id": "business_name",
+      "taxModel": "personal",
+      "label": "Eenmanszaak",
+      "plain": "Je werkt op eigen naam. Dit is de eenvoudigste en goedkoopste manier om te beginnen.",
+      "registeredAt": "Kamer van Koophandel Aruba",
+      "needs": [
+        "geldig identiteitsbewijs",
+        "bedrijfsadres"
+      ],
+      "feeLines": [],
+      "feeNote": "De Kamer van Koophandel geeft het tarief voor inschrijving. Voor je activiteit heb je ook een vergunning nodig.",
+      "verified": true
+    },
+    {
+      "id": "limited_company",
+      "taxModel": "corporate",
+      "label": "Vennootschap (NV of VBA)",
+      "plain": "Een vennootschap is een aparte entiteit naast jezelf. Ze is duurder om op te richten en vraagt meer administratie.",
+      "registeredAt": "Kamer van Koophandel Aruba",
+      "needs": [
+        "naamreservering",
+        "oprichtingsakte via een notaris",
+        "bedrijfsadres"
+      ],
+      "feeLines": [],
+      "feeNote": "Een vennootschap is duurder om op te richten dan een eenmanszaak. De Kamer van Koophandel geeft de actuele tarieven.",
+      "verified": true
+    }
+  ],
+  "launchSteps": [
+    {
+      "id": "name",
+      "label": "Kies de naam van je bedrijf en controleer of die vrij is",
+      "plain": "Zoek de naam eerst op bij de Kamer van Koophandel.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "register",
+      "label": "Schrijf je in bij de Kamer van Koophandel",
+      "plain": "Elk bedrijf staat in het handelsregister. Een vennootschap wordt opgericht via een notaris.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "licence",
+      "label": "Vraag je bedrijfsvergunning aan",
+      "plain": "De meeste activiteiten hebben een vergunning nodig. DEACI legt de stappen en documenten uit.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "url": "https://www.deaci.aw"
+    },
+    {
+      "id": "tax",
+      "label": "Meld je aan bij het Departamento di Impuesto",
+      "plain": "Je krijgt je belastingnummer en je rekening voor omzetbelasting (BBO). Doe aangifte, ook in maanden zonder omzet.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "svb",
+      "label": "Meld je aan bij de Sociale Verzekeringsbank (SVb)",
+      "plain": "Zelfstandigen betalen ouderdoms- en weduwen-/wezenverzekering (AOV/AWW) over hun eigen inkomen.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "bank",
+      "label": "Open een aparte bankrekening voor het bedrijf",
+      "plain": "Zakelijk geld gescheiden houden van het geld van je huishouden maakt je cijfers duidelijker en je belastingen makkelijker te betalen.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ]
+    },
+    {
+      "id": "employer",
+      "label": "Meld je medewerkers aan en bereid de loonbetalingen voor",
+      "plain": "Met medewerkers betaal je elke maand loonbelasting, AOV/AWW en AZV-ziektekostenverzekering.",
+      "appliesTo": [
+        "business_name",
+        "limited_company"
+      ],
+      "when": "employees"
+    }
+  ],
+  "incomeTax": {
+    "label": "Inkomstenbelasting",
+    "allowance": 30000,
+    "allowanceNote": "belastingvrij bedrag per jaar",
+    "brackets": [
+      {
+        "upToChargeable": 34930,
+        "rate": 0.0
+      },
+      {
+        "upToChargeable": 63904,
+        "rate": 0.21
+      },
+      {
+        "upToChargeable": 135527,
+        "rate": 0.42
+      },
+      {
+        "rate": 0.52
+      }
+    ],
+    "verified": true,
+    "bracketText": "0% over de eerste Afl. 34.930 na het belastingvrije bedrag, 21% tot Afl. 63.904, 42% tot Afl. 135.527, daarna 52%"
+  },
+  "corporateTax": {
+    "label": "Winstbelasting",
+    "brackets": [
+      {
+        "rate": 0.22
+      }
+    ],
+    "verified": true
+  },
+  "salesLevies": [
+    {
+      "id": "bbo",
+      "label": "Omzetbelasting (BBO, BAZV en BAVP)",
+      "rate": 0.07,
+      "exemptFirst": 50000,
+      "verified": true
+    }
+  ],
+  "selfEmployed": {
+    "contributions": [
+      {
+        "id": "aov",
+        "label": "Ouderdoms- en weduwen-/wezenverzekering (AOV/AWW)",
+        "rate": 0.135,
+        "ceilingAnnual": 85000,
+        "plain": "Een pensioenverzekering. Zelfstandigen betalen 13,5% van hun inkomen, tot Afl. 85.000 per jaar. De Sociale Verzekeringsbank vertelt je ook welke ziektekostenpremie voor jou geldt.",
+        "verified": true
+      }
+    ],
+    "verified": true
+  },
+  "employee": [
+    {
+      "id": "aov",
+      "rate": 0.045,
+      "ceilingAnnual": 85000
+    }
+  ],
+  "employer": {
+    "items": [
+      {
+        "id": "aov",
+        "label": "Ouderdoms- en weduwen-/wezenverzekering (AOV/AWW)",
+        "rate": 0.105,
+        "ceilingAnnual": 85000
+      },
+      {
+        "id": "azv",
+        "label": "Algemene ziektekostenverzekering (AZV)",
+        "rate": 0.089,
+        "ceilingAnnual": 85000
+      }
+    ],
+    "verified": true
+  },
+  "vat": null,
+  "calendar": {
+    "quarterly": [],
+    "quarterlyList": "",
+    "quarterlyTextPersonal": "",
+    "quarterlyTextCorporate": "",
+    "monthlyLabel": "Elke maand",
+    "monthlyText": "Doe aangifte en betaal je omzetbelasting (BBO) over de vorige periode. De belastingdienst geeft je de aangiftedata bij je aanmelding.",
+    "annualLabel": "Elk jaar",
+    "annualTextPersonal": "Doe je aangifte inkomstenbelasting.",
+    "payrollDay": 15,
+    "payrollText": "Elke maand: betaal loonbelasting, AOV/AWW en AZV over de vorige maand."
+  },
+  "notes": [
+    "Aruba heeft geen btw. Bedrijven betalen omzetbelasting (BBO, BAZV en BAVP samen: 7%) over hun omzet. De eerste Afl. 50.000 omzet per jaar is vrijgesteld voor kleine ondernemers.",
+    "Je inkomstenbelasting wordt berekend na het belastingvrije bedrag van Afl. 30.000."
+  ],
+  "toVerify": [
+    "Vergunningsleges voor jouw activiteit",
+    "Ziektekostenpremie voor zelfstandigen"
+  ],
+  "sources": [
+    {
+      "label": "Regering van Aruba: kosten van zakendoen",
+      "url": "https://www.gobierno.aw/en/cost-of-doing-business"
+    },
+    {
+      "label": "Orbitax: inkomstenbelasting Aruba 2025",
+      "url": "https://orbitax.com/news/country/article/Aruba-Individual-Income-Tax-Br-58153"
+    },
+    {
+      "label": "BDO Aruba: belastinghervorming 2023",
+      "url": "https://aru-www.bdo.global/en-gb/insights/tax-reform-2023-–-the-highlights"
+    }
+  ]
+}
