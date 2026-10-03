@@ -29,15 +29,45 @@
       "id": "BZ",
       "name": "Belize",
       "file": "belize.json"
+    },
+    {
+      "id": "LC",
+      "name": "Saint Lucia",
+      "file": "saint-lucia.json",
+      "preview": true
+    },
+    {
+      "id": "DM",
+      "name": "Dominica",
+      "file": "dominica.json",
+      "preview": true
+    },
+    {
+      "id": "GD",
+      "name": "Grenada",
+      "file": "grenada.json",
+      "preview": true
+    },
+    {
+      "id": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "file": "saint-vincent-grenadines.json",
+      "preview": true
+    },
+    {
+      "id": "AG",
+      "name": "Antigua and Barbuda",
+      "file": "antigua-barbuda.json",
+      "preview": true
+    },
+    {
+      "id": "KN",
+      "name": "Saint Kitts and Nevis",
+      "file": "saint-kitts-nevis.json",
+      "preview": true
     }
   ],
   "comingSoon": [
-    "Antigua and Barbuda",
-    "Dominica",
-    "Grenada",
-    "Saint Kitts and Nevis",
-    "Saint Lucia",
-    "Saint Vincent and the Grenadines",
-    "Dominican Republic"
+    "Dominican Republic (in Spanish)"
   ]
 }

@@ -35,6 +35,7 @@
     (hint ? `<small>${hint}</small>` : '') + '</div>';
   const why = (title, body) => `<div class="why"><b class="k">${title}</b>${body}</div>`;
   const sym = () => D.currency.symbol;
+  const previewBox = () => (D.status === 'preview' ? `<div class="note alert" style="margin:0 0 14px"><b>Preview.</b> ${esc(D.previewNote || 'Some figures for this country are still being verified.')}</div>` : '');
   const ex = k => (D.examples && D.examples[k] != null ? 'e.g. ' + D.examples[k] : '');
   function bracketsText(br) {
     return br.map((b, i) => {
@@ -57,7 +58,7 @@
     const done = S.ready ? `<a class="path" href="#/report" style="margin-bottom:12px"><div class="n" style="background:var(--sun);color:var(--ink)">✓</div><div><div class="t">Your report is ready</div><div class="d">Open it again, or change your numbers in the test.</div></div></a>` : '';
     return `<section class="hero"><h1>Your business project, step by step.</h1>
       <p class="lead">Free, no sign-up. Every question and every figure is explained in plain words. Showing taxes and rules for <b>${esc(D.name)}</b>.</p></section>
-      ${done}
+      ${previewBox()}${done}
       <nav class="paths" aria-label="Choose a path">
         <a class="path primary" href="#/test"><div class="n">1</div><div><div class="t">Test your project</div><div class="d">Will it hold up? Get your answer in a few minutes.</div></div></a>
         <a class="path" href="#/vision"><div class="n">2</div><div><div class="t">Build your vision</div><div class="d">Get your ideas clear: who for, what, how.</div></div></a>
@@ -114,7 +115,7 @@
     const body = [stepProject, stepMoney, stepTeam, stepMotivation][s]();
     const last = s === 3;
     return `<div class="backrow"><a class="iconbtn" href="#/" aria-label="Back to home"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3L5 9l6 6"></path></svg></a><b style="color:var(--deep);font-size:14px">Test your project · ${esc(D.name)}</b></div>
-      <div class="progress" aria-hidden="true">${bars}</div><div class="crumb">Part ${s + 1} of 4 · ${STEP_NAMES[s]}</div>
+      <div class="progress" aria-hidden="true">${bars}</div><div class="crumb">Part ${s + 1} of 4 · ${STEP_NAMES[s]}</div>${s === 0 ? previewBox() : ''}
       ${errMsg ? `<p class="error" role="alert">${esc(errMsg)}</p>` : ''}${body}
       <div class="btnrow"><button class="btn" data-act="${last ? 'finish' : 'next'}">${last ? 'See my report' : 'Continue'}</button>${s > 0 ? '<button class="btn link" data-act="back">Back</button>' : ''}</div>${footer()}`;
   }
@@ -153,7 +154,7 @@
     (D.notes || []).forEach(n => notes.push(`<div class="note alert">${esc(n)}</div>`));
     const sw = (title, color, items) => `<section class="card swot"><h3><span class="dot" style="background:${color}"></span>${title}</h3>${li(items.map(esc))}</section>`;
     const recs = R.recs.map(r => `<li><div>${esc(r[1])}<br><a href="#/coach/${r[0]}">Ask the coach: ${esc(TOPIC[r[0]].label())}</a></div></li>`).join('');
-    return `<h1>Viability report</h1><div class="muted small" style="margin:4px 0 8px">${esc(D.name)} · ${esc(stat().label)}</div>
+    return `<h1>Viability report</h1><div class="muted small" style="margin:4px 0 8px">${esc(D.name)} · ${esc(stat().label)}</div>${previewBox()}
       <div class="verdict ${R.verdict}"><div class="k">Verdict</div><div class="v">${VERDICT[R.verdict][0]}</div><p>${VERDICT[R.verdict][1]}</p></div>
       <section class="card"><h3 style="margin-bottom:10px">How your year adds up</h3><table class="sum">${table}</table>${notes.join('')}${glossary(c)}</section>
       ${sw('Strengths', '#1F7A8C', R.strengths)}${sw('Weaknesses', '#E8A33D', R.weaknesses)}${sw('Opportunities', '#0B3C49', R.opportunities)}${sw('Risks', '#C2491D', R.risks)}
@@ -345,7 +346,7 @@
   /* ---------- country menu ---------- */
   function renderCountryMenu() {
     $('#cname').firstChild.nodeValue = D.name + ' ';
-    const list = COUNTRIES.countries.map(c => `<button class="copt" data-country="${c.id}" ${c.id === D.country ? 'aria-current="true"' : ''}>${esc(c.name)}${c.id === D.country ? ' ✓' : ''}</button>`).join('');
+    const list = COUNTRIES.countries.map(c => `<button class="copt" data-country="${c.id}" ${c.id === D.country ? 'aria-current="true"' : ''}>${esc(c.name)}${c.preview ? ' (preview)' : ''}${c.id === D.country ? ' ✓' : ''}</button>`).join('');
     const soon = (COUNTRIES.comingSoon || []).length ? `<p class="muted small" style="margin:10px 0 0">Coming next: ${esc(COUNTRIES.comingSoon.join(', '))}. Each country has its own taxes and rules.</p>` : '';
     $('#cpop').innerHTML = list + soon;
   }
