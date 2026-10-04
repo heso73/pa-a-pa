@@ -196,9 +196,9 @@
   "short": "VAT",
   "rate": 0.16,
   "threshold": 300000,
-  "registerNote": "Register once your taxable supplies pass this level. The IRD gives you the exact level when you register.",
+  "registerNote": "Register once your sales reach EC$300,000 in twelve months, the level published by the Inland Revenue Department (it was EC$120,000 before May 2017). The standard rate is 16% and 11% applies to accommodation.",
   "filingNote": "VAT returns are filed online through the IRD e-tax platform.",
-  "verified": false
+  "verified": true
  },
  "calendar": {
   "quarterly": [],
@@ -214,11 +214,10 @@
   "vatText": "If you are registered: file your return for each period, on the schedule you receive at registration."
  },
  "notes": [
-  "Some tax guides show a top income tax rate of 32.5%: keep a margin in your plan."
+  "The Inland Revenue Department gives 28% as the current top income tax rate. Older guides show 30% or 32.5%."
  ],
  "toVerify": [
-  "Income tax allowance: EC$25,000 reported from 2025 by one source, EC$18,000 to EC$20,000 in others; the 28% top rate since January 2023 is confirmed by an IRD notice reported by KPMG",
-  "VAT registration threshold: EC$300,000 in most sources, EC$120,000 in one",
+  "Income tax allowance: EC$25,000 reported from 2025 by one source, EC$18,000 to EC$20,000 in others",
   "Business registration fees"
  ],
  "sources": [
@@ -229,6 +228,10 @@
   {
    "label": "NIS Saint Vincent: contribution increase from 1 January 2026",
    "url": "https://onenewsstvincent.com/2025/12/30/all-employers-and-employees-reminded-of-nis-increase-from-jan-1-2026/"
+  },
+  {
+   "label": "IRD Saint Vincent and the Grenadines: FAQs",
+   "url": "https://ird.gov.vc/index.php/faqs"
   }
  ]
 }

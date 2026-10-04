@@ -209,7 +209,9 @@
   "payrollText": "Every month: pay social security (and income tax withheld, where it applies) for the previous month.",
   "vatText": "If you are registered: file your return for each period, on the schedule you receive at registration."
  },
- "notes": [],
+ "notes": [
+  "Some sources show 15% and 30% instead of 10% and 28% above the tax-free amount. This estimate uses 10% and 28%: keep a margin in your plan."
+ ],
  "toVerify": [
   "Top income tax rate: 28% above EC$60,000 in recent sources, 30% on an older Ministry of Finance page",
   "Filing and payment dates (income tax is payable within 90 days after the end of the financial year, according to the Ministry of Finance)",

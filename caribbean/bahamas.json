@@ -159,8 +159,8 @@
     "id": "nib",
     "label": "National Insurance (NIB)",
     "rate": 0.103,
-    "ceilingAnnual": 42120,
-    "plain": "National Insurance gives access to a pension and other benefits. Self-employed people pay 10.3% of their declared insurable income, up to B$810 a week.",
+    "ceilingAnnual": 43160,
+    "plain": "National Insurance gives access to a pension and other benefits. Self-employed people pay 10.3% of their declared insurable income, up to B$830 a week.",
     "verified": true
    }
   ],
@@ -170,7 +170,7 @@
   {
    "id": "nib",
    "rate": 0.0465,
-   "ceilingAnnual": 42120
+   "ceilingAnnual": 43160
   }
  ],
  "employer": {
@@ -179,7 +179,7 @@
     "id": "nib",
     "label": "National Insurance (NIB)",
     "rate": 0.0665,
-    "ceilingAnnual": 42120
+    "ceilingAnnual": 43160
    }
   ],
   "verified": true
@@ -212,7 +212,6 @@
  ],
  "toVerify": [
   "Business licence and incorporation fees (the initial filing fee is about B$100)",
-  "National Insurance weekly ceiling: B$810 on the NIB site, while one payroll site reports B$830 from 1 July 2026",
   "Date when self-employed National Insurance contributions are due"
  ],
  "sources": [

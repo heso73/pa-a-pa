@@ -216,7 +216,6 @@
   "Montserrat does not charge VAT or any similar sales tax, according to the government's investment agency. Import duty applies to goods you bring in, generally 5% to 30% depending on the goods."
  ],
  "toVerify": [
-  "Income tax table (the revenue service FAQ shows a EC$15,000 allowance with 5%, 15%, 25%, 30% and 40% bands, while the app uses a newer table)",
   "Business name registration fee"
  ],
  "sources": [
@@ -227,6 +226,10 @@
   {
    "label": "Montserrat Self-Employed Persons (Amendment) Regulations 2022",
    "url": "https://www.gov.ms/wp-content/uploads/2022/02/SRO-No.-6-of-2022-Self-Employed-Persons-Amendment-Regulations-.pdf"
+  },
+  {
+   "label": "Orbitax: Montserrat income tax allowance and brackets from 2024",
+   "url": "https://orbitax.com/news/country/article/Montserrat-Increases-Personal--56360"
   }
  ]
 }
