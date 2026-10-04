@@ -1,211 +1,212 @@
 {
-  "country": "SR",
-  "name": "Suriname",
-  "language": "nl",
-  "currency": {
-    "code": "SRD",
-    "symbol": "SRD "
+ "country": "SR",
+ "name": "Suriname",
+ "language": "nl",
+ "currency": {
+  "code": "SRD",
+  "symbol": "SRD "
+ },
+ "examples": {
+  "sales": 60000,
+  "direct": 22000,
+  "fixed": 12000,
+  "needs": 15000,
+  "pay": 10000,
+  "startup": 150000,
+  "savings": 250000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Belastingdienst Suriname"
   },
-  "examples": {
-    "sales": 60000,
-    "direct": 22000,
-    "fixed": 12000,
-    "needs": 15000,
-    "pay": 10000,
-    "startup": 150000,
-    "savings": 250000
+  "registry": {
+   "name": "Kamer van Koophandel en Fabrieken (KKF)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Belastingdienst Suriname"
-    },
-    "registry": {
-      "name": "Kamer van Koophandel en Fabrieken (KKF)"
-    },
-    "support": [
-      {
-        "name": "Kamer van Koophandel en Fabrieken (KKF)"
-      },
-      {
-        "name": "Belastingdienst Suriname"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Eenmanszaak",
-      "plain": "Je werkt op eigen naam. Dit is de eenvoudigste en goedkoopste manier om te beginnen.",
-      "registeredAt": "Kamer van Koophandel en Fabrieken",
-      "needs": [
-        "geldig identiteitsbewijs",
-        "bedrijfsadres"
-      ],
-      "feeLines": [],
-      "feeNote": "De Kamer van Koophandel en Fabrieken geeft het tarief voor inschrijving van een eenmanszaak.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Vennootschap (NV of BV)",
-      "plain": "Een vennootschap is een aparte entiteit naast jezelf. Ze is duurder om op te richten en vraagt meer administratie.",
-      "registeredAt": "Kamer van Koophandel en Fabrieken",
-      "needs": [
-        "naamreservering",
-        "oprichtingsakte via een notaris",
-        "bedrijfsadres"
-      ],
-      "feeLines": [],
-      "feeNote": "Een vennootschap wordt via een notaris opgericht en is duurder dan een eenmanszaak.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Kies de naam van je bedrijf en controleer of die vrij is",
-      "plain": "Zoek de naam eerst op bij de Kamer van Koophandel en Fabrieken.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Schrijf je in bij de Kamer van Koophandel en Fabrieken (KKF)",
-      "plain": "Elk bedrijf staat in het handelsregister. Een vennootschap wordt opgericht via een notaris.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "tax",
-      "label": "Meld je aan bij de Belastingdienst",
-      "plain": "Je krijgt je belastingnummer en schrijft je in voor btw (BTW). Doe aangifte, ook als je geen omzet hebt.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "licence",
-      "label": "Controleer welke vergunning je activiteit nodig heeft",
-      "plain": "Sommige activiteiten, zoals voeding, vervoer of gezondheid, hebben een vergunning nodig van het ministerie dat erop toeziet.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Open een aparte bankrekening voor het bedrijf",
-      "plain": "Zakelijk geld gescheiden houden van het geld van je huishouden maakt je cijfers duidelijker en je belastingen makkelijker te betalen.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Meld je medewerkers aan en bereid de maandelijkse betalingen voor",
-      "plain": "Met medewerkers houd je loonbelasting in en betaal je elke maand de sociale premies.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    }
-  ],
-  "incomeTax": {
-    "label": "Inkomstenbelasting",
-    "allowance": 0,
-    "allowanceNote": "geen belasting over de eerste SRD 3.000 per jaar",
-    "brackets": [
-      {
-        "upToChargeable": 3000,
-        "rate": 0.0
-      },
-      {
-        "upToChargeable": 14000,
-        "rate": 0.08
-      },
-      {
-        "upToChargeable": 24000,
-        "rate": 0.18
-      },
-      {
-        "upToChargeable": 38000,
-        "rate": 0.28
-      },
-      {
-        "rate": 0.38
-      }
-    ],
-    "verified": true,
-    "bracketText": "0% tot SRD 3.000, 8% tot SRD 14.000, 18% tot SRD 24.000, 28% tot SRD 38.000, daarna 38%"
-  },
-  "corporateTax": {
-    "label": "Winstbelasting",
-    "brackets": [
-      {
-        "rate": 0.36
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [],
-    "verified": true
-  },
-  "employee": [],
-  "employer": {
-    "items": [],
-    "verified": true
-  },
-  "vat": {
-    "label": "Belasting over de toegevoegde waarde",
-    "short": "BTW",
-    "rate": 0.1,
-    "threshold": 0,
-    "registerNote": "Meld je bij de Belastingdienst aan zodra je begint. Het algemene tarief is 10%, met 5% op water, elektriciteit en kookgas en 0% op export.",
-    "filingNote": "Je doet elke maand aangifte BTW.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Elke maand",
-    "monthlyText": "Doe aangifte en betaal je BTW over de vorige maand.",
-    "annualLabel": "Elk jaar",
-    "annualTextPersonal": "Doe je aangifte inkomstenbelasting bij de Belastingdienst.",
-    "payrollDay": 15,
-    "payrollText": "Elke maand: betaal loonbelasting en sociale premies over de vorige maand.",
-    "vatText": "Doe elke maand aangifte BTW, ook als je geen omzet hebt."
-  },
-  "notes": [
-    "Suriname heeft sinds januari 2023 een btw van 10% (BTW). Eenmanszaken betalen inkomstenbelasting over hun winst tegen 8% tot 38%, vennootschappen betalen 36%.",
-    "De Belastingdienst publiceert elk jaar de exacte grenzen van de inkomstenbelasting, omdat de Surinaamse dollar snel aan waarde verliest."
-  ],
-  "toVerify": [
-    "Vergunning voor jouw activiteit",
-    "Sociale premies voor zelfstandigen"
-  ],
-  "sources": [
-    {
-      "label": "Rootz Tax Lawyers: belastinggids Suriname 2026",
-      "url": "https://rootz.tax/wp-content/uploads/2026/03/Rootz-Tax-Lawyers-Suriname-tax-country-guide-2026.pdf"
-    },
-    {
-      "label": "TaxAtlas: belastingtarieven Suriname 2026",
-      "url": "https://taxatlas.io/country/suriname"
-    }
+  "support": [
+   {
+    "name": "Kamer van Koophandel en Fabrieken (KKF)"
+   },
+   {
+    "name": "Belastingdienst Suriname"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Eenmanszaak",
+   "plain": "Je werkt op eigen naam. Dit is de eenvoudigste en goedkoopste manier om te beginnen.",
+   "registeredAt": "Kamer van Koophandel en Fabrieken",
+   "needs": [
+    "geldig identiteitsbewijs",
+    "bedrijfsadres"
+   ],
+   "feeLines": [],
+   "feeNote": "De Kamer van Koophandel en Fabrieken geeft het tarief voor inschrijving van een eenmanszaak.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Vennootschap (NV of BV)",
+   "plain": "Een vennootschap is een aparte entiteit naast jezelf. Ze is duurder om op te richten en vraagt meer administratie.",
+   "registeredAt": "Kamer van Koophandel en Fabrieken",
+   "needs": [
+    "naamreservering",
+    "oprichtingsakte via een notaris",
+    "bedrijfsadres"
+   ],
+   "feeLines": [],
+   "feeNote": "Een vennootschap wordt via een notaris opgericht en is duurder dan een eenmanszaak.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Kies de naam van je bedrijf en controleer of die vrij is",
+   "plain": "Zoek de naam eerst op bij de Kamer van Koophandel en Fabrieken.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Schrijf je in bij de Kamer van Koophandel en Fabrieken (KKF)",
+   "plain": "Elk bedrijf staat in het handelsregister. Een vennootschap wordt opgericht via een notaris.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "tax",
+   "label": "Meld je aan bij de Belastingdienst",
+   "plain": "Je krijgt je belastingnummer en schrijft je in voor btw (BTW). Doe aangifte, ook als je geen omzet hebt.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "licence",
+   "label": "Controleer welke vergunning je activiteit nodig heeft",
+   "plain": "Sommige activiteiten, zoals voeding, vervoer of gezondheid, hebben een vergunning nodig van het ministerie dat erop toeziet.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Open een aparte bankrekening voor het bedrijf",
+   "plain": "Zakelijk geld gescheiden houden van het geld van je huishouden maakt je cijfers duidelijker en je belastingen makkelijker te betalen.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Meld je medewerkers aan en bereid de maandelijkse betalingen voor",
+   "plain": "Met medewerkers houd je loonbelasting in en betaal je elke maand de sociale premies.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  }
+ ],
+ "incomeTax": {
+  "label": "Inkomstenbelasting",
+  "allowance": 0,
+  "allowanceNote": "geen belasting over de eerste SRD 108.000 per jaar",
+  "brackets": [
+   {
+    "upToChargeable": 108000,
+    "rate": 0.0
+   },
+   {
+    "upToChargeable": 150000,
+    "rate": 0.08
+   },
+   {
+    "upToChargeable": 192000,
+    "rate": 0.18
+   },
+   {
+    "upToChargeable": 234000,
+    "rate": 0.28
+   },
+   {
+    "rate": 0.38
+   }
+  ],
+  "verified": true,
+  "bracketText": "0% tot SRD 108.000, 8% tot SRD 150.000, 18% tot SRD 192.000, 28% tot SRD 234.000, daarna 38%"
+ },
+ "corporateTax": {
+  "label": "Winstbelasting",
+  "brackets": [
+   {
+    "rate": 0.36
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [],
+  "verified": true
+ },
+ "employee": [],
+ "employer": {
+  "items": [],
+  "verified": true
+ },
+ "vat": {
+  "label": "Belasting over de toegevoegde waarde",
+  "short": "BTW",
+  "rate": 0.1,
+  "threshold": 0,
+  "registerNote": "Meld je bij de Belastingdienst aan zodra je begint. Het algemene tarief is 10%, met 5% op water, elektriciteit en kookgas en 0% op export.",
+  "filingNote": "Je doet elke maand aangifte BTW.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Elke maand",
+  "monthlyText": "Doe aangifte en betaal je BTW over de vorige maand.",
+  "annualLabel": "Elk jaar",
+  "annualTextPersonal": "Doe je aangifte inkomstenbelasting bij de Belastingdienst.",
+  "payrollDay": 15,
+  "payrollText": "Elke maand: betaal loonbelasting en sociale premies over de vorige maand.",
+  "vatText": "Doe elke maand aangifte BTW, ook als je geen omzet hebt."
+ },
+ "notes": [
+  "Suriname heeft sinds januari 2023 een btw van 10% (BTW). Eenmanszaken betalen inkomstenbelasting over hun winst tegen 8% tot 38%, vennootschappen betalen 36%.",
+  "Deze grenzen van de inkomstenbelasting gelden voor 2024 tot en met 2026. De Surinaamse dollar verliest snel aan waarde, dus de grenzen worden van tijd tot tijd verhoogd: controleer de nieuwe elk jaar in januari bij de Belastingdienst."
+ ],
+ "toVerify": [
+  "Grenzen voor 2027 (de tabel van 2024 tot en met 2026 wordt gebruikt)",
+  "Vergunning voor jouw activiteit",
+  "Sociale premies voor zelfstandigen"
+ ],
+ "sources": [
+  {
+   "label": "Rootz Tax Lawyers: belastinggids Suriname 2026",
+   "url": "https://rootz.tax/wp-content/uploads/2026/03/Rootz-Tax-Lawyers-Suriname-tax-country-guide-2026.pdf"
+  },
+  {
+   "label": "TaxAtlas: belastingtarieven Suriname 2026",
+   "url": "https://taxatlas.io/country/suriname"
+  }
+ ]
 }
