@@ -1,249 +1,250 @@
 {
-  "country": "AW",
-  "name": "Aruba",
-  "language": "en",
-  "currency": {
-    "code": "AWG",
-    "symbol": "Afl. "
+ "country": "AW",
+ "name": "Aruba",
+ "language": "en",
+ "currency": {
+  "code": "AWG",
+  "symbol": "Afl. "
+ },
+ "examples": {
+  "sales": 14000,
+  "direct": 5000,
+  "fixed": 2500,
+  "needs": 4000,
+  "pay": 2800,
+  "startup": 15000,
+  "savings": 25000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Tax Department (Departamento di Impuesto)"
   },
-  "examples": {
-    "sales": 14000,
-    "direct": 5000,
-    "fixed": 2500,
-    "needs": 4000,
-    "pay": 2800,
-    "startup": 15000,
-    "savings": 25000
+  "registry": {
+   "name": "Aruba Chamber of Commerce"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Tax Department (Departamento di Impuesto)"
-    },
-    "registry": {
-      "name": "Aruba Chamber of Commerce"
-    },
-    "support": [
-      {
-        "name": "DEACI: Department of Economic Affairs, Commerce and Industry",
-        "url": "https://www.deaci.aw"
-      },
-      {
-        "name": "Social Insurance Bank (SVb)"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Sole trader (registered business)",
-      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
-      "registeredAt": "Aruba Chamber of Commerce",
-      "needs": [
-        "valid ID",
-        "business address"
-      ],
-      "feeLines": [],
-      "feeNote": "The Chamber of Commerce quotes the registration fee. You also need a business licence for your activity.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "Aruba Chamber of Commerce",
-      "needs": [
-        "name reservation",
-        "articles of incorporation",
-        "registered office"
-      ],
-      "feeLines": [],
-      "feeNote": "A company (NV or VBA) costs more to set up than a sole proprietorship. The Chamber of Commerce quotes the current fees.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Choose your business name and check that it is free",
-      "plain": "Search the name at the Chamber of Commerce first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Register with the Chamber of Commerce",
-      "plain": "Every business registers in the commercial register. A company is incorporated through a notary.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "licence",
-      "label": "Apply for your business licence",
-      "plain": "Most activities need a licence. DEACI explains the steps and the documents.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://www.deaci.aw"
-    },
-    {
-      "id": "tax",
-      "label": "Register with the Tax Department",
-      "plain": "You get your tax number and your turnover tax (BBO) account. File your returns even in months without sales.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "svb",
-      "label": "Register with the Social Insurance Bank (SVb)",
-      "plain": "Self-employed people pay old age and widow/orphan insurance (AOV/AWW) on their own income.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Register your employees and prepare payroll payments",
-      "plain": "With employees you pay wage tax, AOV/AWW and AZV health insurance each month.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    }
-  ],
-  "incomeTax": {
-    "label": "Income tax",
-    "allowance": 30000,
-    "allowanceNote": "tax-free amount per year",
-    "brackets": [
-      {
-        "upToChargeable": 34930,
-        "rate": 0.0
-      },
-      {
-        "upToChargeable": 63904,
-        "rate": 0.21
-      },
-      {
-        "upToChargeable": 135527,
-        "rate": 0.42
-      },
-      {
-        "rate": 0.52
-      }
-    ],
-    "verified": true,
-    "bracketText": "0% on the first Afl. 34,930 after the tax-free amount, 21% up to Afl. 63,904, 42% up to Afl. 135,527, then 52%"
-  },
-  "corporateTax": {
-    "label": "Profit tax",
-    "brackets": [
-      {
-        "rate": 0.22
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [
-    {
-      "id": "bbo",
-      "label": "Turnover tax (BBO, BAZV and BAVP)",
-      "rate": 0.07,
-      "exemptFirst": 50000,
-      "verified": true
-    }
-  ],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "aov",
-        "label": "Old age and widow/orphan insurance (AOV/AWW)",
-        "rate": 0.135,
-        "ceilingAnnual": 85000,
-        "plain": "A pension insurance. Self-employed people pay 13.5% of their income, up to Afl. 85,000 a year. The Social Insurance Bank also tells you which health insurance premium applies to you.",
-        "verified": true
-      }
-    ],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "aov",
-      "rate": 0.045,
-      "ceilingAnnual": 85000
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "aov",
-        "label": "Old age and widow/orphan insurance (AOV/AWW)",
-        "rate": 0.105,
-        "ceilingAnnual": 85000
-      },
-      {
-        "id": "azv",
-        "label": "General health insurance (AZV)",
-        "rate": 0.089,
-        "ceilingAnnual": 85000
-      }
-    ],
-    "verified": true
-  },
-  "vat": null,
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Every month",
-    "monthlyText": "File and pay your turnover tax (BBO) for the previous period. The Tax Department gives you the filing dates when you register.",
-    "annualLabel": "Every year",
-    "annualTextPersonal": "File your income tax return.",
-    "payrollDay": 15,
-    "payrollText": "Every month: pay wage tax, AOV/AWW and AZV for the previous month."
-  },
-  "notes": [
-    "Aruba has no VAT. Businesses pay a turnover tax (BBO, BAZV and BAVP together: 7%) on their sales. The first Afl. 50,000 of yearly sales is exempt for small entrepreneurs.",
-    "Your yearly income tax is calculated after the Afl. 30,000 tax-free amount."
-  ],
-  "toVerify": [
-    "Business licence fee for your activity",
-    "Health insurance premium for the self-employed"
-  ],
-  "sources": [
-    {
-      "label": "Aruba Government: cost of doing business",
-      "url": "https://www.gobierno.aw/en/cost-of-doing-business"
-    },
-    {
-      "label": "Orbitax: Aruba income tax brackets 2025",
-      "url": "https://orbitax.com/news/country/article/Aruba-Individual-Income-Tax-Br-58153"
-    },
-    {
-      "label": "BDO Aruba: tax reform 2023",
-      "url": "https://aru-www.bdo.global/en-gb/insights/tax-reform-2023-–-the-highlights"
-    }
+  "support": [
+   {
+    "name": "DEACI: Department of Economic Affairs, Commerce and Industry",
+    "url": "https://www.deaci.aw"
+   },
+   {
+    "name": "Social Insurance Bank (SVb)"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Sole trader (registered business)",
+   "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+   "registeredAt": "Aruba Chamber of Commerce",
+   "needs": [
+    "valid ID",
+    "business address"
+   ],
+   "feeLines": [],
+   "feeNote": "The Chamber of Commerce quotes the registration fee. You also need a business licence for your activity.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "Aruba Chamber of Commerce",
+   "needs": [
+    "name reservation",
+    "articles of incorporation",
+    "registered office"
+   ],
+   "feeLines": [],
+   "feeNote": "A company (NV or VBA) costs more to set up than a sole proprietorship. The Chamber of Commerce quotes the current fees.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Choose your business name and check that it is free",
+   "plain": "Search the name at the Chamber of Commerce first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Register with the Chamber of Commerce",
+   "plain": "Every business registers in the commercial register. A company is incorporated through a notary.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "licence",
+   "label": "Apply for your business licence",
+   "plain": "Most activities need a licence. DEACI explains the steps and the documents.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://www.deaci.aw"
+  },
+  {
+   "id": "tax",
+   "label": "Register with the Tax Department",
+   "plain": "You get your tax number and your turnover tax (BBO) account. File your returns even in months without sales.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "svb",
+   "label": "Register with the Social Insurance Bank (SVb)",
+   "plain": "Self-employed people pay old age and widow/orphan insurance (AOV/AWW) on their own income.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Register your employees and prepare payroll payments",
+   "plain": "With employees you pay wage tax, AOV/AWW and AZV health insurance each month.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  }
+ ],
+ "incomeTax": {
+  "label": "Income tax",
+  "allowance": 30000,
+  "allowanceNote": "tax-free amount per year",
+  "brackets": [
+   {
+    "upToChargeable": 34930,
+    "rate": 0.0
+   },
+   {
+    "upToChargeable": 63904,
+    "rate": 0.21
+   },
+   {
+    "upToChargeable": 135527,
+    "rate": 0.42
+   },
+   {
+    "rate": 0.52
+   }
+  ],
+  "verified": true,
+  "bracketText": "0% on the first Afl. 34,930 after the tax-free amount, 21% up to Afl. 63,904, 42% up to Afl. 135,527, then 52%"
+ },
+ "corporateTax": {
+  "label": "Profit tax",
+  "brackets": [
+   {
+    "rate": 0.22
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [
+  {
+   "id": "bbo",
+   "label": "Turnover tax (BBO, BAZV and BAVP)",
+   "rate": 0.07,
+   "exemptFirst": 50000,
+   "verified": true
+  }
+ ],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "aov",
+    "label": "Old age and widow/orphan insurance (AOV/AWW)",
+    "rate": 0.135,
+    "ceilingAnnual": 85000,
+    "plain": "A pension insurance. Self-employed people pay 13.5% of their income, up to Afl. 85,000 a year. The Social Insurance Bank also tells you which health insurance premium applies to you.",
+    "verified": true
+   }
+  ],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "aov",
+   "rate": 0.045,
+   "ceilingAnnual": 85000
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "aov",
+    "label": "Old age and widow/orphan insurance (AOV/AWW)",
+    "rate": 0.105,
+    "ceilingAnnual": 85000
+   },
+   {
+    "id": "azv",
+    "label": "General health insurance (AZV)",
+    "rate": 0.089,
+    "ceilingAnnual": 85000
+   }
+  ],
+  "verified": true
+ },
+ "vat": null,
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Every month",
+  "monthlyText": "File and pay your turnover tax (BBO) for the previous period. The Tax Department gives you the filing dates when you register.",
+  "annualLabel": "Every year",
+  "annualTextPersonal": "File your income tax return.",
+  "payrollDay": 15,
+  "payrollText": "Every month: pay wage tax, AOV/AWW and AZV for the previous month."
+ },
+ "notes": [
+  "Aruba has no VAT. Businesses pay a turnover tax (BBO, BAZV and BAVP together: 7%) on their sales. The first Afl. 50,000 of yearly sales is exempt for small entrepreneurs.",
+  "Your yearly income tax is calculated after the Afl. 30,000 tax-free amount.",
+  "The government is studying a switch from the turnover tax to a VAT (talks with the IMF in March 2026). Nothing is decided: your estimate uses the current 7% turnover tax."
+ ],
+ "toVerify": [
+  "Business licence fee for your activity",
+  "Health insurance premium for the self-employed"
+ ],
+ "sources": [
+  {
+   "label": "Aruba Government: cost of doing business",
+   "url": "https://www.gobierno.aw/en/cost-of-doing-business"
+  },
+  {
+   "label": "Orbitax: Aruba income tax brackets 2025",
+   "url": "https://orbitax.com/news/country/article/Aruba-Individual-Income-Tax-Br-58153"
+  },
+  {
+   "label": "BDO Aruba: tax reform 2023",
+   "url": "https://aru-www.bdo.global/en-gb/insights/tax-reform-2023-–-the-highlights"
+  }
+ ]
 }

@@ -1,264 +1,264 @@
 {
-  "country": "CW",
-  "name": "Curaçao",
-  "language": "en",
-  "currency": {
-    "code": "XCG",
-    "symbol": "Cg "
+ "country": "CW",
+ "name": "Curaçao",
+ "language": "en",
+ "currency": {
+  "code": "XCG",
+  "symbol": "Cg "
+ },
+ "examples": {
+  "sales": 14000,
+  "direct": 5000,
+  "fixed": 2500,
+  "needs": 4000,
+  "pay": 2800,
+  "startup": 15000,
+  "savings": 25000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Tax Authority of Curaçao (Inspectie der Belastingen)"
   },
-  "examples": {
-    "sales": 14000,
-    "direct": 5000,
-    "fixed": 2500,
-    "needs": 4000,
-    "pay": 2800,
-    "startup": 15000,
-    "savings": 25000
+  "registry": {
+   "name": "Curaçao Chamber of Commerce"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Tax Authority of Curaçao (Inspectie der Belastingen)"
-    },
-    "registry": {
-      "name": "Curaçao Chamber of Commerce"
-    },
-    "support": [
-      {
-        "name": "Social Insurance Bank (SVB)"
-      },
-      {
-        "name": "Curaçao Chamber of Commerce"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Sole trader (registered business)",
-      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
-      "registeredAt": "Curaçao Chamber of Commerce",
-      "needs": [
-        "valid ID",
-        "business address"
-      ],
-      "feeLines": [],
-      "feeNote": "The Chamber of Commerce quotes the registration fee. You also need a business licence for your activity.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "Curaçao Chamber of Commerce",
-      "needs": [
-        "name reservation",
-        "articles of incorporation",
-        "registered office"
-      ],
-      "feeLines": [],
-      "feeNote": "A company (NV or BV) costs more to set up than a sole proprietorship. The Chamber of Commerce quotes the current fees.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Choose your business name and check that it is free",
-      "plain": "Search the name at the Chamber of Commerce first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Register with the Chamber of Commerce",
-      "plain": "Every business registers in the commercial register. A company is incorporated through a notary.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "licence",
-      "label": "Apply for your business licence",
-      "plain": "Most activities need a licence from the government.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "tax",
-      "label": "Register with the Tax Authority (CRIB number)",
-      "plain": "You get your CRIB number and your turnover tax (OB) account. You file returns even before you have sales.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "svb",
-      "label": "Register with the Social Insurance Bank (SVB)",
-      "plain": "Self-employed people pay old age insurance (AOV) and the general insurance for exceptional medical costs (AVBZ).",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Register your employees and prepare payroll payments",
-      "plain": "With employees you withhold wage tax and pay social insurance premiums every month.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    }
-  ],
-  "incomeTax": {
-    "label": "Income tax",
-    "allowance": 0,
-    "allowanceNote": "basic tax credit of Cg 2,850 a year",
-    "credit": 2850,
-    "brackets": [
-      {
-        "upToChargeable": 38225,
-        "rate": 0.0975
-      },
-      {
-        "upToChargeable": 50968,
-        "rate": 0.15
-      },
-      {
-        "upToChargeable": 76452,
-        "rate": 0.23
-      },
-      {
-        "upToChargeable": 108306,
-        "rate": 0.3
-      },
-      {
-        "upToChargeable": 159273,
-        "rate": 0.375
-      },
-      {
-        "rate": 0.465
-      }
-    ],
-    "verified": true,
-    "bracketText": "9.75% up to Cg 38,225, 15% up to Cg 50,968, 23% up to Cg 76,452, 30% up to Cg 108,306, 37.5% up to Cg 159,273, then 46.5%, minus a basic tax credit of Cg 2,850"
-  },
-  "corporateTax": {
-    "label": "Profit tax",
-    "brackets": [
-      {
-        "upToChargeable": 500000,
-        "rate": 0.15
-      },
-      {
-        "rate": 0.22
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "aov",
-        "label": "Old age insurance (AOV/AWW)",
-        "rate": 0.15,
-        "ceilingAnnual": 132824,
-        "plain": "A pension insurance. Self-employed people pay it on their own income, up to Cg 132,824 a year.",
-        "verified": true
-      },
-      {
-        "id": "avbz",
-        "label": "Exceptional medical costs (AVBZ)",
-        "rate": 0.02,
-        "ceilingAnnual": 606247,
-        "plain": "A general insurance for long-term care and exceptional medical costs. It is collected with your income tax return.",
-        "verified": true
-      }
-    ],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "aov",
-      "rate": 0.06,
-      "ceilingAnnual": 100000
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "aov",
-        "label": "Old age insurance (AOV)",
-        "rate": 0.09,
-        "ceilingAnnual": 100000
-      },
-      {
-        "id": "avbz",
-        "label": "Exceptional medical costs (AVBZ)",
-        "rate": 0.02,
-        "ceilingAnnual": 606247
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Turnover tax (OB)",
-    "short": "OB",
-    "rate": 0.06,
-    "threshold": 0,
-    "registerNote": "A small business scheme (RKO) can exempt very small sole proprietors from filing: ask the Tax Authority.",
-    "filingNote": "You file annually if your taxable turnover is below Cg 30,000, quarterly up to Cg 75,000, and monthly above that.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Every month",
-    "monthlyText": "File your turnover tax (OB): annually if your yearly turnover is below Cg 30,000, quarterly up to Cg 75,000 and monthly above that.",
-    "annualLabel": "Every year",
-    "annualTextPersonal": "File your income tax return, by April 30.",
-    "payrollDay": 15,
-    "payrollText": "Every month: pay wage tax and social insurance premiums for the previous month, by the 15th.",
-    "vatText": "File your turnover tax (OB) return for each period, even when you have no sales."
-  },
-  "notes": [
-    "Curaçao has a turnover tax (OB) of 6% on sales, similar to a VAT. Sole proprietors pay income tax on their profit, with a basic tax credit.",
-    "Companies pay profit tax at 15% on the first Cg 500,000 and 22% above."
-  ],
-  "toVerify": [
-    "Business licence fee for your activity"
-  ],
-  "sources": [
-    {
-      "label": "Curaçao Chronicle: Tax Authority guide for starting entrepreneurs",
-      "url": "https://www.curacaochronicle.com/post/unknown/curacao-tax-authority-launches-practical-guide-to-help-entrepreneurs-start-and-grow-their-businesses"
-    },
-    {
-      "label": "Orbitax: Curaçao income tax brackets 2025",
-      "url": "https://orbitax.com/news/country/article/Curacao-Sets-Individual-Income-57640"
-    }
+  "support": [
+   {
+    "name": "Social Insurance Bank (SVB)"
+   },
+   {
+    "name": "Curaçao Chamber of Commerce"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Sole trader (registered business)",
+   "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+   "registeredAt": "Curaçao Chamber of Commerce",
+   "needs": [
+    "valid ID",
+    "business address"
+   ],
+   "feeLines": [],
+   "feeNote": "The Chamber of Commerce quotes the registration fee. You also need a business licence for your activity.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "Curaçao Chamber of Commerce",
+   "needs": [
+    "name reservation",
+    "articles of incorporation",
+    "registered office"
+   ],
+   "feeLines": [],
+   "feeNote": "A company (NV or BV) costs more to set up than a sole proprietorship. The Chamber of Commerce quotes the current fees.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Choose your business name and check that it is free",
+   "plain": "Search the name at the Chamber of Commerce first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Register with the Chamber of Commerce",
+   "plain": "Every business registers in the commercial register. A company is incorporated through a notary.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "licence",
+   "label": "Apply for your business licence",
+   "plain": "Most activities need a licence from the government.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "tax",
+   "label": "Register with the Tax Authority (CRIB number)",
+   "plain": "You get your CRIB number and your turnover tax (OB) account. You file returns even before you have sales.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "svb",
+   "label": "Register with the Social Insurance Bank (SVB)",
+   "plain": "Self-employed people pay old age insurance (AOV) and the general insurance for exceptional medical costs (AVBZ).",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Register your employees and prepare payroll payments",
+   "plain": "With employees you withhold wage tax and pay social insurance premiums every month.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  }
+ ],
+ "incomeTax": {
+  "label": "Income tax",
+  "allowance": 0,
+  "allowanceNote": "basic tax credit of Cg 2,850 a year",
+  "credit": 2850,
+  "brackets": [
+   {
+    "upToChargeable": 38225,
+    "rate": 0.0975
+   },
+   {
+    "upToChargeable": 50968,
+    "rate": 0.15
+   },
+   {
+    "upToChargeable": 76452,
+    "rate": 0.23
+   },
+   {
+    "upToChargeable": 108306,
+    "rate": 0.3
+   },
+   {
+    "upToChargeable": 159273,
+    "rate": 0.375
+   },
+   {
+    "rate": 0.465
+   }
+  ],
+  "verified": true,
+  "bracketText": "9.75% up to Cg 38,225, 15% up to Cg 50,968, 23% up to Cg 76,452, 30% up to Cg 108,306, 37.5% up to Cg 159,273, then 46.5%, minus a basic tax credit of Cg 2,850"
+ },
+ "corporateTax": {
+  "label": "Profit tax",
+  "brackets": [
+   {
+    "upToChargeable": 500000,
+    "rate": 0.15
+   },
+   {
+    "rate": 0.22
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "aov",
+    "label": "Old age insurance (AOV/AWW)",
+    "rate": 0.15,
+    "ceilingAnnual": 132824,
+    "plain": "A pension insurance. Self-employed people pay it on their own income, up to Cg 132,824 a year.",
+    "verified": true
+   },
+   {
+    "id": "avbz",
+    "label": "Exceptional medical costs (AVBZ)",
+    "rate": 0.02,
+    "ceilingAnnual": 606247,
+    "plain": "A general insurance for long-term care and exceptional medical costs. It is collected with your income tax return.",
+    "verified": true
+   }
+  ],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "aov",
+   "rate": 0.06,
+   "ceilingAnnual": 100000
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "aov",
+    "label": "Old age insurance (AOV)",
+    "rate": 0.09,
+    "ceilingAnnual": 100000
+   },
+   {
+    "id": "avbz",
+    "label": "Exceptional medical costs (AVBZ)",
+    "rate": 0.02,
+    "ceilingAnnual": 606247
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Turnover tax (OB)",
+  "short": "OB",
+  "rate": 0.06,
+  "threshold": 0,
+  "registerNote": "A small business scheme (RKO) can exempt very small sole proprietors from filing: ask the Tax Authority. The general rate is 6%; 7% applies to insurance and short-stay lodging (up to 90 days) and 9% to certain goods and services. A sole proprietor whose turnover last year was Cg 30,000 or less can ask for an exemption from the filing duties.",
+  "filingNote": "You file annually if your taxable turnover is below Cg 30,000, quarterly up to Cg 75,000, and monthly above that.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Every month",
+  "monthlyText": "File your turnover tax (OB): annually if your yearly turnover is below Cg 30,000, quarterly up to Cg 75,000 and monthly above that.",
+  "annualLabel": "Every year",
+  "annualTextPersonal": "File your income tax return, by April 30.",
+  "payrollDay": 15,
+  "payrollText": "Every month: pay wage tax and social insurance premiums for the previous month, by the 15th.",
+  "vatText": "File your turnover tax (OB) return for each period, even when you have no sales."
+ },
+ "notes": [
+  "Curaçao has a turnover tax (OB) of 6% on sales, similar to a VAT. Sole proprietors pay income tax on their profit, with a basic tax credit.",
+  "Companies pay profit tax at 15% on the first Cg 500,000 and 22% above."
+ ],
+ "toVerify": [
+  "Business licence fee for your activity"
+ ],
+ "sources": [
+  {
+   "label": "Curaçao Chronicle: Tax Authority guide for starting entrepreneurs",
+   "url": "https://www.curacaochronicle.com/post/unknown/curacao-tax-authority-launches-practical-guide-to-help-entrepreneurs-start-and-grow-their-businesses"
+  },
+  {
+   "label": "Orbitax: Curaçao income tax brackets 2025",
+   "url": "https://orbitax.com/news/country/article/Curacao-Sets-Individual-Income-57640"
+  }
+ ]
 }
