@@ -177,7 +177,7 @@
  "employee": [
   {
    "id": "ss",
-   "rate": 0.07,
+   "rate": 0.0675,
    "ceilingAnnual": 84000
   }
  ],
@@ -186,7 +186,7 @@
    {
     "id": "ss",
     "label": "Social Security",
-    "rate": 0.0775,
+    "rate": 0.08,
     "ceilingAnnual": 84000
    }
   ],
@@ -214,7 +214,9 @@
   "payrollText": "Every month: pay social security (and income tax withheld, where it applies) for the previous month.",
   "vatText": "If you are registered: file your return for each period, on the schedule you receive at registration."
  },
- "notes": [],
+ "notes": [
+  "Social Security rates in Dominica go up by 0.25 point each January until 2031, so expect a slightly higher self-employed rate in January 2027. For 2026 the Social Security schedule gives 13.75% for the self-employed; one news article reports 14.75%, so keep a small margin."
+ ],
  "toVerify": [
   "Filing and payment dates (VAT returns are reported due by the 20th of the following month)",
   "Business registration fees (the figures found differ between sources)"
@@ -231,6 +233,10 @@
   {
    "label": "IRD Dominica: VAT threshold",
    "url": "https://ird.gov.dm/media-centre/vat-threshold-increase"
+  },
+  {
+   "label": "Dominica Social Security: contribution notices",
+   "url": "https://news.gov.dm/component/content/article/dominica-social-security-notice-changes-to-benefit-and-contribution-provisions?catid=29&Itemid=101"
   }
  ]
 }
