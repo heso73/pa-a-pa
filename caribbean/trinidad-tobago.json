@@ -261,11 +261,12 @@
  },
  "notes": [
   "Business levy: businesses with gross sales above TT$360,000 pay 0.6% of gross sales if that is more than their income tax. It is not payable in the first three years of a business, and it is not included in your estimate.",
-  "National Insurance: your estimate uses the 2026 combined rate of 16.2%. The rate is reported to rise to 19.2% from January 2027, so plan for a higher cost next year."
+  "National Insurance: your estimate uses the 2026 combined rate of 16.2%. The rate is reported to rise to 19.2% from January 2027, so plan for a higher cost next year.",
+  "National Insurance for the self-employed: the NIBTT's own FAQ says the scheme does not yet cover the self-employed, while some payroll sites say they pay the combined rate. This estimate includes National Insurance as a precaution, so your real cost may be lower. Ask the NIBTT before you count on it."
  ],
  "toVerify": [
   "Budget 2027 (due in October 2026): personal allowance, tax bands and levies may change",
-  "NIS: the exact amount depends on your earnings class, and the self-employed rate; reports say the combined rate rises from 16.2% to 19.2% in January 2027",
+  "NIS for the self-employed: the NIBTT FAQ says the scheme does not yet cover them (this estimate includes it as a precaution); employees pay by earnings class, at 16.2% combined in 2026, reported to rise to 19.2% in January 2027",
   "Health Surcharge amount for the self-employed",
   "Business registration and incorporation fees",
   "VAT registration threshold (TT$500,000 on the government portal, TT$600,000 in one tax summary) and the announced move from VAT to a sales tax, with no date found"
@@ -282,6 +283,10 @@
   {
    "label": "Ministry of Finance: registering for VAT",
    "url": "https://www.finance.gov.tt/services/income-tax/registering-for-vat/"
+  },
+  {
+   "label": "NIBTT: contributions FAQs",
+   "url": "https://www.nibtt.net/faq/cont_FAQs-rev.html"
   }
  ]
 }
