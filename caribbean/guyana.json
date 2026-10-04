@@ -1,269 +1,273 @@
 {
-  "country": "GY",
-  "name": "Guyana",
-  "language": "en",
-  "currency": {
-    "code": "GYD",
-    "symbol": "G$"
+ "country": "GY",
+ "name": "Guyana",
+ "language": "en",
+ "currency": {
+  "code": "GYD",
+  "symbol": "G$"
+ },
+ "examples": {
+  "sales": 800000,
+  "direct": 300000,
+  "fixed": 120000,
+  "needs": 200000,
+  "pay": 150000,
+  "startup": 500000,
+  "savings": 1000000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Guyana Revenue Authority (GRA)",
+   "url": "https://www.gra.gov.gy"
   },
-  "examples": {
-    "sales": 800000,
-    "direct": 300000,
-    "fixed": 120000,
-    "needs": 200000,
-    "pay": 150000,
-    "startup": 500000,
-    "savings": 1000000
+  "registry": {
+   "name": "Deeds and Commercial Registries Authority (DCRA)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Guyana Revenue Authority (GRA)",
-      "url": "https://www.gra.gov.gy"
-    },
-    "registry": {
-      "name": "Deeds and Commercial Registries Authority (DCRA)"
-    },
-    "support": [
-      {
-        "name": "National Insurance Scheme (NIS)",
-        "url": "https://contributions.nis.org.gy"
-      },
-      {
-        "name": "Small Business Bureau"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Registered business name",
-      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
-      "registeredAt": "DCRA",
-      "needs": [
-        "TIN",
-        "valid ID",
-        "business address in Guyana"
-      ],
-      "feeLines": [],
-      "feeNote": "The fee is about G$5,000.",
-      "verified": false
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "DCRA",
-      "needs": [
-        "name search and reservation",
-        "articles of incorporation",
-        "TIN for the company"
-      ],
-      "feeLines": [],
-      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
-      "verified": false
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "tin",
-      "label": "Get your TIN (Taxpayer Identification Number) from GRA",
-      "plain": "A number that identifies you to the tax office. You need it for almost every other step.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://www.gra.gov.gy"
-    },
-    {
-      "id": "name",
-      "label": "Choose your business name and check that it is free",
-      "plain": "If you trade under any name other than your own, you must register it under the Business Names (Registration) Act. Search the name at DCRA first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Register the business name, or incorporate the company, at DCRA",
-      "plain": "You file the form and pay the fee at the DCRA office. A company must also meet the Companies Act requirements.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "gra",
-      "label": "Register with GRA and plan your advance tax payments",
-      "plain": "Self-employed people pay income tax in advance, each quarter, and file a yearly return by April 30.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://www.gra.gov.gy"
-    },
-    {
-      "id": "nis",
-      "label": "Register with the National Insurance Scheme (NIS)",
-      "plain": "Self-employed people must register and contribute. It gives access to a pension and other benefits.",
-      "appliesTo": [
-        "business_name"
-      ],
-      "url": "https://contributions.nis.org.gy"
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Register as an employer and prepare monthly payments",
-      "plain": "With employees you pay income tax (PAYE) and NIS each month, by the 15th of the following month.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    },
-    {
-      "id": "vat",
-      "label": "Register for VAT",
-      "plain": "Required when your yearly sales reach G$15,000,000. Apply to the GRA VAT department.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "vat",
-      "url": "https://www.gra.gov.gy"
-    }
-  ],
-  "incomeTax": {
-    "label": "Income tax",
-    "allowance": 1680000,
-    "allowanceShare": 0.3333,
-    "allowanceNote": "G$1,680,000 a year, or one third of your profit if that is more",
-    "brackets": [
-      {
-        "upToChargeable": 3360000,
-        "rate": 0.25
-      },
-      {
-        "rate": 0.35
-      }
-    ],
-    "verified": true,
-    "bracketText": "25% on chargeable income up to G$3,360,000, then 35%"
-  },
-  "corporateTax": {
-    "label": "Corporation tax",
-    "brackets": [
-      {
-        "rate": 0.4
-      }
-    ],
-    "verified": false,
-    "note": "40% is the rate for commercial companies (trade, manufacturing). Other companies pay 25%."
-  },
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "nis",
-        "label": "NIS",
-        "rate": 0.125,
-        "ceilingAnnual": 3360000,
-        "plain": "National Insurance Scheme. It gives access to a pension and other benefits. Self-employed people pay 12.5% of their declared income, up to G$280,000 a month.",
-        "verified": false
-      }
-    ],
-    "verified": false
-  },
-  "employee": [
-    {
-      "id": "nis",
-      "rate": 0.056,
-      "ceilingAnnual": 3360000
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "nis",
-        "label": "NIS",
-        "rate": 0.084,
-        "ceilingAnnual": 3360000
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Value Added Tax",
-    "short": "VAT",
-    "rate": 0.14,
-    "threshold": 15000000,
-    "registerNote": "Apply to the GRA VAT department.",
-    "filingNote": "VAT returns are due within 21 days after each period.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [
-      {
-        "m": 3,
-        "d": 15
-      },
-      {
-        "m": 6,
-        "d": 15
-      },
-      {
-        "m": 9,
-        "d": 15
-      },
-      {
-        "m": 12,
-        "d": 15
-      }
-    ],
-    "quarterlyList": "March 15, June 15, September 15 and December 15",
-    "quarterlyTextPersonal": "Pay your advance income tax instalment.",
-    "quarterlyTextCorporate": "Pay your advance corporation tax instalment.",
-    "annualLabel": "By April 30",
-    "annualTextPersonal": "File your income tax return for the year before.",
-    "payrollDay": 15,
-    "payrollText": "Every month: pay income tax (PAYE) and NIS for the previous month.",
-    "vatText": "If registered for VAT: file your return within 21 days after each period."
-  },
-  "notes": [
-    "Optional deductions (for children, or for medical and life insurance premiums) are not included in your estimate. They would lower your tax."
-  ],
-  "toVerify": [
-    "NIS rate for the self-employed (12.5% on the NIS website, 14% in other sources)",
-    "Whether the self-employed can deduct NIS from taxable income",
-    "Corporation tax: 40% commercial or 25% non-commercial",
-    "Advance payment dates for the self-employed",
-    "Business registration and incorporation fees"
-  ],
-  "sources": [
-    {
-      "label": "GRA notice: revised personal allowance and deductions 2026",
-      "url": "https://www.gra.gov.gy/?p=16434"
-    },
-    {
-      "label": "NIS Guyana: information on contributions",
-      "url": "https://contributions.nis.org.gy/information_on_contributions"
-    },
-    {
-      "label": "GRA: VAT registration policy",
-      "url": "https://www.gra.gov.gy/?p=11846"
-    }
+  "support": [
+   {
+    "name": "National Insurance Scheme (NIS)",
+    "url": "https://contributions.nis.org.gy"
+   },
+   {
+    "name": "Small Business Bureau"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Registered business name",
+   "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+   "registeredAt": "DCRA",
+   "needs": [
+    "TIN",
+    "valid ID",
+    "business address in Guyana"
+   ],
+   "feeLines": [],
+   "feeNote": "The fee is about G$5,000.",
+   "verified": false
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "DCRA",
+   "needs": [
+    "name search and reservation",
+    "articles of incorporation",
+    "TIN for the company"
+   ],
+   "feeLines": [],
+   "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
+   "verified": false
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "tin",
+   "label": "Get your TIN (Taxpayer Identification Number) from GRA",
+   "plain": "A number that identifies you to the tax office. You need it for almost every other step.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://www.gra.gov.gy"
+  },
+  {
+   "id": "name",
+   "label": "Choose your business name and check that it is free",
+   "plain": "If you trade under any name other than your own, you must register it under the Business Names (Registration) Act. Search the name at DCRA first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Register the business name, or incorporate the company, at DCRA",
+   "plain": "You file the form and pay the fee at the DCRA office. A company must also meet the Companies Act requirements.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "gra",
+   "label": "Register with GRA and plan your advance tax payments",
+   "plain": "Self-employed people pay income tax in advance, each quarter, and file a yearly return by April 30.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://www.gra.gov.gy"
+  },
+  {
+   "id": "nis",
+   "label": "Register with the National Insurance Scheme (NIS)",
+   "plain": "Self-employed people must register and contribute. It gives access to a pension and other benefits.",
+   "appliesTo": [
+    "business_name"
+   ],
+   "url": "https://contributions.nis.org.gy"
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Register as an employer and prepare monthly payments",
+   "plain": "With employees you pay income tax (PAYE) and NIS each month, by the 15th of the following month.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  },
+  {
+   "id": "vat",
+   "label": "Register for VAT",
+   "plain": "Required when your yearly sales reach G$15,000,000. Apply to the GRA VAT department.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "vat",
+   "url": "https://www.gra.gov.gy"
+  }
+ ],
+ "incomeTax": {
+  "label": "Income tax",
+  "allowance": 1680000,
+  "allowanceShare": 0.3333,
+  "allowanceNote": "G$1,680,000 a year, or one third of your profit if that is more",
+  "brackets": [
+   {
+    "upToChargeable": 3360000,
+    "rate": 0.25
+   },
+   {
+    "rate": 0.35
+   }
+  ],
+  "verified": true,
+  "bracketText": "25% on chargeable income up to G$3,360,000, then 35%"
+ },
+ "corporateTax": {
+  "label": "Corporation tax",
+  "brackets": [
+   {
+    "rate": 0.4
+   }
+  ],
+  "verified": false,
+  "note": "40% is the rate for commercial companies (trade, manufacturing). Other companies pay 25%."
+ },
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "nis",
+    "label": "NIS",
+    "rate": 0.125,
+    "ceilingAnnual": 3360000,
+    "plain": "National Insurance Scheme. It gives access to a pension and other benefits. Self-employed people pay 12.5% of their declared income, up to G$280,000 a month.",
+    "verified": false
+   }
+  ],
+  "verified": false
+ },
+ "employee": [
+  {
+   "id": "nis",
+   "rate": 0.056,
+   "ceilingAnnual": 3360000
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "nis",
+    "label": "NIS",
+    "rate": 0.084,
+    "ceilingAnnual": 3360000
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Value Added Tax",
+  "short": "VAT",
+  "rate": 0.14,
+  "threshold": 15000000,
+  "registerNote": "Apply to the GRA VAT department.",
+  "filingNote": "VAT returns are due within 21 days after each period.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [
+   {
+    "m": 3,
+    "d": 15
+   },
+   {
+    "m": 6,
+    "d": 15
+   },
+   {
+    "m": 9,
+    "d": 15
+   },
+   {
+    "m": 12,
+    "d": 15
+   }
+  ],
+  "quarterlyList": "March 15, June 15, September 15 and December 15",
+  "quarterlyTextPersonal": "Pay your advance income tax instalment.",
+  "quarterlyTextCorporate": "Pay your advance corporation tax instalment.",
+  "annualLabel": "By April 30",
+  "annualTextPersonal": "File your income tax return for the year before.",
+  "payrollDay": 15,
+  "payrollText": "Every month: pay income tax (PAYE) and NIS for the previous month.",
+  "vatText": "If registered for VAT: file your return within 21 days after each period."
+ },
+ "notes": [
+  "Optional deductions (for children, or for medical and life insurance premiums) are not included in your estimate. They would lower your tax."
+ ],
+ "toVerify": [
+  "NIS monthly ceiling: G$280,000 in 2026 sources, while the NIS FAQ page still shows the older G$256,800",
+  "Whether the self-employed can deduct NIS from taxable income (one guide says yes, another says the GRA 2026 notice does not list it)",
+  "Corporation tax: 40% commercial or 25% non-commercial",
+  "Advance payment dates for the self-employed",
+  "Business registration and incorporation fees"
+ ],
+ "sources": [
+  {
+   "label": "GRA notice: revised personal allowance and deductions 2026",
+   "url": "https://www.gra.gov.gy/?p=16434"
+  },
+  {
+   "label": "NIS Guyana: information on contributions",
+   "url": "https://contributions.nis.org.gy/information_on_contributions"
+  },
+  {
+   "label": "GRA: VAT registration policy",
+   "url": "https://www.gra.gov.gy/?p=11846"
+  },
+  {
+   "label": "NIS Guyana: questions and answers",
+   "url": "https://www.nis.org.gy/faq"
+  }
+ ]
 }
