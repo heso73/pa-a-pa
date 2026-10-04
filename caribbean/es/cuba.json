@@ -1,186 +1,191 @@
 {
-  "country": "CU",
-  "name": "Cuba",
-  "language": "es",
-  "currency": {
-    "code": "CUP",
-    "symbol": "CUP "
+ "country": "CU",
+ "name": "Cuba",
+ "language": "es",
+ "currency": {
+  "code": "CUP",
+  "symbol": "CUP "
+ },
+ "examples": {
+  "sales": 400000,
+  "direct": 150000,
+  "fixed": 60000,
+  "needs": 100000,
+  "pay": 30000,
+  "startup": 500000,
+  "savings": 800000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Oficina Nacional de Administración Tributaria (ONAT)",
+   "url": "https://www.onat.gob.cu"
   },
-  "examples": {
-    "sales": 400000,
-    "direct": 150000,
-    "fixed": 60000,
-    "needs": 100000,
-    "pay": 30000,
-    "startup": 500000,
-    "savings": 800000
+  "registry": {
+   "name": "Ministerio de Economía y Planificación (MEP)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Oficina Nacional de Administración Tributaria (ONAT)",
-      "url": "https://www.onat.gob.cu"
-    },
-    "registry": {
-      "name": "Ministerio de Economía y Planificación (MEP)"
-    },
-    "support": [
-      {
-        "name": "Ministerio de Economía y Planificación (MEP)"
-      },
-      {
-        "name": "Oficina Nacional de Administración Tributaria (ONAT)",
-        "url": "https://www.onat.gob.cu"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "mipyme",
-      "taxModel": "corporate",
-      "label": "Mipyme (micro, pequeña o mediana empresa privada)",
-      "plain": "Es una empresa privada con personalidad jurídica propia, con un tamaño de hasta 100 trabajadores. Paga impuestos como empresa, no como persona.",
-      "registeredAt": "MEP y ONAT",
-      "needs": [
-        "proyecto de la empresa",
-        "identificación de los socios",
-        "local o dirección de la actividad"
-      ],
-      "feeLines": [],
-      "feeNote": "La autorización de la mipyme y su inscripción comercial se tramitan con el Ministerio de Economía y Planificación y la ONAT, que te dan los costos y los plazos actuales.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "idea",
-      "label": "Define la actividad y el proyecto de tu mipyme",
-      "plain": "El proyecto describe lo que harás, con quién y dónde. Tu actividad debe estar permitida: el MEP publica las actividades que no puede ejercer el sector privado.",
-      "appliesTo": [
-        "mipyme"
-      ]
-    },
-    {
-      "id": "auth",
-      "label": "Solicita la autorización y la inscripción comercial",
-      "plain": "Se tramita con el Ministerio de Economía y Planificación y el registro correspondiente, y da la personalidad jurídica a la mipyme.",
-      "appliesTo": [
-        "mipyme"
-      ]
-    },
-    {
-      "id": "onat",
-      "label": "Inscríbete en la ONAT",
-      "plain": "La ONAT es la oficina de impuestos. Las mipymes declaran sus impuestos de forma digital.",
-      "appliesTo": [
-        "mipyme"
-      ],
-      "url": "https://www.onat.gob.cu"
-    },
-    {
-      "id": "bank",
-      "label": "Abre una cuenta bancaria para la mipyme",
-      "plain": "Separar el dinero de la empresa del dinero del hogar aclara tus cifras y facilita pagar tus impuestos.",
-      "appliesTo": [
-        "mipyme"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Contrata y registra a tus trabajadores",
-      "plain": "Con trabajadores pagas la contribución a la seguridad social y el impuesto por la utilización de la fuerza de trabajo sobre sus salarios, cada mes.",
-      "appliesTo": [
-        "mipyme"
-      ],
-      "when": "employees"
-    }
-  ],
-  "incomeTax": null,
-  "corporateTax": {
-    "label": "Impuesto sobre utilidades",
-    "brackets": [
-      {
-        "rate": 0.35
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [
-    {
-      "id": "ventas",
-      "label": "Impuesto sobre las ventas o los servicios",
-      "rate": 0.1,
-      "verified": true
-    },
-    {
-      "id": "terr",
-      "label": "Contribución territorial para el desarrollo local",
-      "rate": 0.01,
-      "verified": true
-    }
-  ],
-  "selfEmployed": {
-    "contributions": [],
-    "verified": true
-  },
-  "employee": [],
-  "employer": {
-    "items": [
-      {
-        "id": "ss",
-        "label": "Contribución a la seguridad social",
-        "rate": 0.14
-      },
-      {
-        "id": "ft",
-        "label": "Impuesto por la utilización de la fuerza de trabajo",
-        "rate": 0.05
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Impuesto sobre las ventas o los servicios",
-    "short": "Impuesto sobre ventas",
-    "rate": 0.1,
-    "threshold": 0,
-    "registerNote": "Las mipymes lo pagan desde el primer peso vendido, sobre el total de los ingresos del mes.",
-    "filingNote": "Se declara y se paga cada mes ante la ONAT, de forma digital.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Cada mes",
-    "monthlyText": "Declara y paga el impuesto sobre ventas o servicios (10 % de los ingresos del mes), la contribución territorial (1 %), la seguridad social y el impuesto por la fuerza de trabajo. La ONAT te da las fechas al inscribirte.",
-    "annualLabel": "Cada año",
-    "annualTextPersonal": "Presenta la declaración jurada de utilidades ante la ONAT, de forma digital.",
-    "annualTextCorporate": "Presenta la declaración jurada de utilidades ante la ONAT, de forma digital.",
-    "payrollLabel": "Cada mes",
-    "payrollText": "Cada mes: paga la contribución a la seguridad social (14 % de los salarios) y el impuesto por la fuerza de trabajo (5 %).",
-    "vatText": "Declara el impuesto sobre ventas o servicios cada mes ante la ONAT."
-  },
-  "notes": [
-    "Esta estimación es para una mipyme. Si trabajas por cuenta propia, la ONAT calcula tu impuesto sobre ingresos personales con una escala progresiva: pregunta en tu oficina de la ONAT.",
-    "El impuesto sobre ventas se paga sobre el total de los ingresos, no sobre la ganancia: es lo que más pesa en un negocio con márgenes pequeños.",
-    "Las reglas del sector privado cambian con frecuencia: la ONAT publica los ajustes cada año."
-  ],
-  "toVerify": [
-    "Impuesto sobre ingresos personales de los socios y de los trabajadores",
-    "Fechas mensuales de declaración y pago",
-    "Tarifas de autorización e inscripción"
-  ],
-  "sources": [
-    {
-      "label": "Mipymes cubanas: impuestos (Directorio Cubano)",
-      "url": "https://www.directoriocubano.info/panorama/asi-seran-los-impuestos-para-las-mipymes-en-cuba/"
-    },
-    {
-      "label": "Gaceta Oficial: impuestos de 2026",
-      "url": "https://www.periodicocubano.com/gaceta-oficial-publica-los-17-impuestos-que-se-cobraran-en-cuba-durante-el-2026/"
-    }
+  "support": [
+   {
+    "name": "Ministerio de Economía y Planificación (MEP)"
+   },
+   {
+    "name": "Oficina Nacional de Administración Tributaria (ONAT)",
+    "url": "https://www.onat.gob.cu"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "mipyme",
+   "taxModel": "corporate",
+   "label": "Mipyme (micro, pequeña o mediana empresa privada)",
+   "plain": "Es una empresa privada con personalidad jurídica propia, con un tamaño de hasta 100 trabajadores. Paga impuestos como empresa, no como persona.",
+   "registeredAt": "MEP y ONAT",
+   "needs": [
+    "proyecto de la empresa",
+    "identificación de los socios",
+    "local o dirección de la actividad"
+   ],
+   "feeLines": [],
+   "feeNote": "La autorización de la mipyme y su inscripción comercial se tramitan con el Ministerio de Economía y Planificación y la ONAT, que te dan los costos y los plazos actuales.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "idea",
+   "label": "Define la actividad y el proyecto de tu mipyme",
+   "plain": "El proyecto describe lo que harás, con quién y dónde. Tu actividad debe estar permitida: el MEP publica las actividades que no puede ejercer el sector privado.",
+   "appliesTo": [
+    "mipyme"
+   ]
+  },
+  {
+   "id": "auth",
+   "label": "Solicita la autorización y la inscripción comercial",
+   "plain": "Se tramita con el Ministerio de Economía y Planificación y el registro correspondiente, y da la personalidad jurídica a la mipyme.",
+   "appliesTo": [
+    "mipyme"
+   ]
+  },
+  {
+   "id": "onat",
+   "label": "Inscríbete en la ONAT",
+   "plain": "La ONAT es la oficina de impuestos. Las mipymes declaran sus impuestos de forma digital.",
+   "appliesTo": [
+    "mipyme"
+   ],
+   "url": "https://www.onat.gob.cu"
+  },
+  {
+   "id": "bank",
+   "label": "Abre una cuenta bancaria para la mipyme",
+   "plain": "Separar el dinero de la empresa del dinero del hogar aclara tus cifras y facilita pagar tus impuestos.",
+   "appliesTo": [
+    "mipyme"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Contrata y registra a tus trabajadores",
+   "plain": "Con trabajadores pagas la contribución a la seguridad social y el impuesto por la utilización de la fuerza de trabajo sobre sus salarios, cada mes.",
+   "appliesTo": [
+    "mipyme"
+   ],
+   "when": "employees"
+  }
+ ],
+ "incomeTax": null,
+ "corporateTax": {
+  "label": "Impuesto sobre utilidades",
+  "brackets": [
+   {
+    "rate": 0.35
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [
+  {
+   "id": "ventas",
+   "label": "Impuesto sobre las ventas o los servicios",
+   "rate": 0.1,
+   "verified": true
+  },
+  {
+   "id": "terr",
+   "label": "Contribución territorial para el desarrollo local",
+   "rate": 0.01,
+   "verified": true
+  }
+ ],
+ "selfEmployed": {
+  "contributions": [],
+  "verified": true
+ },
+ "employee": [],
+ "employer": {
+  "items": [
+   {
+    "id": "ss",
+    "label": "Contribución a la seguridad social",
+    "rate": 0.14
+   },
+   {
+    "id": "ft",
+    "label": "Impuesto por la utilización de la fuerza de trabajo",
+    "rate": 0.05
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Impuesto sobre las ventas o los servicios",
+  "short": "Impuesto sobre ventas",
+  "rate": 0.1,
+  "threshold": 0,
+  "registerNote": "Las mipymes lo pagan desde el primer peso vendido, sobre el total de los ingresos del mes.",
+  "filingNote": "Se declara y se paga cada mes ante la ONAT, de forma digital.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Cada mes",
+  "monthlyText": "Declara y paga el impuesto sobre ventas o servicios (10 % de los ingresos del mes), la contribución territorial (1 %), la seguridad social y el impuesto por la fuerza de trabajo. La ONAT te da las fechas al inscribirte.",
+  "annualLabel": "Cada año",
+  "annualTextPersonal": "Presenta la declaración jurada de utilidades ante la ONAT, de forma digital.",
+  "annualTextCorporate": "Presenta la declaración jurada de utilidades ante la ONAT, de forma digital.",
+  "payrollLabel": "Cada mes",
+  "payrollText": "Cada mes: paga la contribución a la seguridad social (14 % de los salarios) y el impuesto por la fuerza de trabajo (5 %).",
+  "vatText": "Declara el impuesto sobre ventas o servicios cada mes ante la ONAT."
+ },
+ "notes": [
+  "Esta estimación es para una mipyme. Si trabajas por cuenta propia, la ONAT calcula tu impuesto sobre ingresos personales con una escala progresiva: pregunta en tu oficina de la ONAT.",
+  "El impuesto sobre ventas se paga sobre el total de los ingresos, no sobre la ganancia: es lo que más pesa en un negocio con márgenes pequeños.",
+  "Las reglas del sector privado cambian con frecuencia: la ONAT publica los ajustes cada año.",
+  "Las ganancias que se reparten a los socios pueden pagar además un impuesto sobre la distribución de utilidades (hasta el 20 % según una fuente). No está en tu estimación: la ONAT te confirma el tipo."
+ ],
+ "toVerify": [
+  "Impuesto sobre ingresos personales de los socios y de los trabajadores",
+  "Fechas mensuales de declaración y pago",
+  "Tarifas de autorización e inscripción"
+ ],
+ "sources": [
+  {
+   "label": "Mipymes cubanas: impuestos (Directorio Cubano)",
+   "url": "https://www.directoriocubano.info/panorama/asi-seran-los-impuestos-para-las-mipymes-en-cuba/"
+  },
+  {
+   "label": "Gaceta Oficial: impuestos de 2026",
+   "url": "https://www.periodicocubano.com/gaceta-oficial-publica-los-17-impuestos-que-se-cobraran-en-cuba-durante-el-2026/"
+  },
+  {
+   "label": "Ministerio de Finanzas y Precios: preguntas y respuestas sobre el régimen tributario de las mipymes",
+   "url": "https://www.mfp.gob.cu/ficheros/imgnoticias/pdf723.pdf"
+  }
+ ]
 }
