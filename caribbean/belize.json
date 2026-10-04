@@ -224,11 +224,11 @@
   "vatText": "If you are registered for GST: file your return for each period. Your period is set when you register."
  },
  "notes": [
-  "Business tax in Belize is charged on your total receipts (sales), not on your profit. No costs are deducted. It applies once your yearly sales pass BZ$75,000 (BZ$20,000 for professional services)."
+  "Business tax in Belize is charged on your total receipts (sales), not on your profit. No costs are deducted. It applies once your yearly sales pass BZ$75,000 (BZ$20,000 for professional services).",
+  "Other activities have other business tax rates: for example tour operators 6%, hotels and fuel stations are listed separately, commissions 5% to 15% and telecommunications 19%. Ask the Belize Tax Service which one applies to you."
  ],
  "toVerify": [
   "Social Security banded rates and weekly ceiling for employees and employers (the 7% rate and the BZ$55 to BZ$320 weekly range for the self-employed are confirmed by the Social Security Board)",
-  "Which business tax rate applies to your exact activity (other rates exist, for example for telecoms and fuel)",
   "Registration and trade licence fees",
   "Annual return date"
  ],
@@ -244,6 +244,14 @@
   {
    "label": "Social Security Board: self-employed contribution leaflet",
    "url": "https://www.socialsecurity.org.bz/wp-content/uploads/2022/08/Self-Employed-Voluntary.pdf"
+  },
+  {
+   "label": "Belize Tax Service: business tax guide",
+   "url": "https://bts.gov.bz/guide/business-tax-guide"
+  },
+  {
+   "label": "BELTRAIDE: taxes in Belize",
+   "url": "https://beltraide.bz/belize-invest/why-belize/taxes-in-belize/"
   }
  ]
 }
