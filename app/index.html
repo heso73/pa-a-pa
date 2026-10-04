@@ -296,7 +296,7 @@ nav.steps .sm{display:none}
           <option value="p2">Du 8e trimestre civil jusqu'à la fin de la 3e année civile d'activité</option>
           <option value="p3">À partir de la 4e année civile d'activité</option>
         </select>
-        <small>Outre-mer, les cotisations sont une fraction des taux de la métropole : un sixième au début, la moitié ensuite, puis les deux tiers à partir de la 4e année civile (règles de l'URSSAF pour les auto-entrepreneurs des DROM). L'ACRE ne se cumule pas avec ces taux. Les professions libérales relevant de la Cipav ont des taux à part : saisissez le vôtre ci-dessous.</small>
+        <small>Outre-mer (hors Mayotte), les cotisations sont une fraction des taux de la métropole : un sixième au début, la moitié ensuite, puis les deux tiers à partir de la 4e année civile, arrondies à la décimale supérieure (règles de l'URSSAF pour les auto-entrepreneurs des DROM). Les professions libérales relevant de la Cipav ont leurs propres taux. L'ACRE ne se cumule pas avec ces taux. À Mayotte, seul le taux de la vente de marchandises est intégré : pour les autres activités, saisissez le vôtre ci-dessous.</small>
         <label for="tauxDom" style="margin-top:12px">Mon taux exact, si je le connais (%)</label>
         <input type="number" id="tauxDom" min="0" max="40" step="0.1" placeholder="Laissez vide pour utiliser le calcul ci-dessus">
         <small>Relevez-le sur autoentrepreneur.urssaf.fr ou auprès de la CGSS de votre département : il remplace le calcul ci-dessus.</small>
@@ -736,7 +736,8 @@ nav.steps .sm{display:none}
       <select id="region">
         <option value="metro">France métropolitaine</option>
         <option value="drom1">Guadeloupe, Martinique ou La Réunion</option>
-        <option value="drom2">Guyane ou Mayotte</option>
+        <option value="drom2">Guyane</option>
+        <option value="mayotte">Mayotte</option>
       </select>
     </div>
     <p id="regionText" style="margin:6px 0 0;max-width:68ch"></p>
@@ -963,9 +964,16 @@ nav.steps .sm{display:none}
     const dom=(S.region||'metro')!=='metro', tDom=parseFloat($('tauxDom').value);
     $('domBox').style.display=dom?'':'none';
     const useDom=dom&&tDom>=0&&$('tauxDom').value!=='';
-    const ph=$('phaseDom')?$('phaseDom').value:'p1', frac={p1:1/6,p2:1/2,p3:2/3}[ph]||1/6;
-    const autoDom=dom&&!useDom&&$('act').value!=='cipav';
-    const tc=useDom?tDom:(autoDom?Math.round(r.c*frac*10)/10:r.c*(acre?0.75:1)), rate=(tc+r.cfp+(vl?r.vl:0))/100;
+    const ph=$('phaseDom')?$('phaseDom').value:'p1', ix={p1:0,p2:1,p3:2}[ph]||0, reg0=S.region||'metro', act0=$('act').value;
+    const ceil1=x=>Math.ceil(x*10-1e-6)/10;
+    let autoRate=null, autoWhy='';
+    if(dom&&!useDom){
+      if(reg0==='mayotte'){ if(act0==='vente'){ autoRate=[6.2,9.3,12.3][ix]; autoWhy='le taux de Mayotte pour la vente de marchandises'; } }
+      else if(act0==='cipav'){ autoRate=[7.8,11.6,15.5][ix]; autoWhy='le taux outre-mer des professions libérales relevant de la Cipav'; }
+      else { autoRate=ceil1(r.c*[1/6,1/2,2/3][ix]); autoWhy='un sixième, la moitié puis les deux tiers du taux de la métropole ('+r.c.toLocaleString('fr-FR')+' %)'; }
+    }
+    const autoDom=autoRate!==null;
+    const tc=useDom?tDom:(autoDom?autoRate:r.c*(acre?0.75:1)), rate=(tc+r.cfp+(vl?r.vl:0))/100;
     const cot=ca*tc/100, cfp=ca*r.cfp/100, imp=vl?ca*r.vl/100:0;
     const reste=ca-cot-cfp-imp-chg-finMonthly, ecart=reste-besoin; simLast={reste,ecart,cot:cot+cfp+imp,ca,chg,besoin,ep};
     lastPointMort=rate<1?(besoin+chg+finMonthly)/(1-rate):0;
@@ -987,8 +995,8 @@ nav.steps .sm{display:none}
     }
     notes+=`<div class="note info">Chiffre d'affaires minimum pour vivre de l'activité : <strong>${eur(lastPointMort)}</strong> par mois.</div>`;
     if(ca*12>r.plaf) notes+=`<div class="note warn">À ce rythme, vous dépasseriez le plafond annuel de la micro-entreprise (${eur(r.plaf)}). Une société ou l'entreprise individuelle au réel serait à étudier.</div>`;
-    if(dom&&autoDom) notes+=`<div class="note info">Taux outre-mer calculé : ${tc.toLocaleString('fr-FR',{maximumFractionDigits:2})} % du chiffre d'affaires, soit ${ph==='p1'?'un sixième':ph==='p2'?'la moitié':'les deux tiers'} du taux de la métropole (${r.c.toLocaleString('fr-FR')} %). Vérifiez votre taux exact sur autoentrepreneur.urssaf.fr ou auprès de la CGSS : s'il diffère, saisissez-le dans « Mon taux exact ».</div>`;
-    if(dom&&!useDom&&!autoDom) notes+=`<div class="note warn">Les professions libérales relevant de la Cipav ont des taux outre-mer à part. Saisissez votre taux ci-dessus : sinon ce calcul utilise le taux de la métropole et votre reste réel peut être plus élevé.</div>`;
+    if(dom&&autoDom) notes+=`<div class="note info">Taux outre-mer calculé : ${tc.toLocaleString('fr-FR',{maximumFractionDigits:2})} % du chiffre d'affaires (${autoWhy}). Vérifiez votre taux exact sur autoentrepreneur.urssaf.fr ou auprès de la CGSS : s'il diffère, saisissez-le dans « Mon taux exact ».</div>`;
+    if(dom&&!useDom&&!autoDom) notes+=`<div class="note warn">À Mayotte, seul le taux de la vente de marchandises est intégré à ce simulateur. Pour votre activité, saisissez votre taux dans « Mon taux exact » : sinon le calcul utilise le taux de la métropole et votre reste réel peut être plus élevé.</div>`;
     if(!vl) notes+=`<p class="qprog" style="margin-top:10px">L'impôt sur le revenu reste à prévoir en plus.</p>`;
     $('simNotes').innerHTML=notes;
     $('objHint').textContent=lastPointMort?'Suggestion issue du simulateur : '+eur(lastPointMort):'';
@@ -1150,7 +1158,8 @@ nav.steps .sm{display:none}
   const REG={
     metro:"Taux normal de TVA à 20 %. La région, le département et votre intercommunalité proposent souvent des aides locales à la création : renseignez-vous auprès de la CCI ou de la CMA de votre département.",
     drom1:"La TVA y est de 8,5 % (taux normal) et 2,1 % (taux réduit). L'octroi de mer s'applique aux marchandises importées et, au-delà d'un certain chiffre d'affaires, à certaines productions locales. Des dispositifs propres aux Outre-mer peuvent réduire vos charges : faites le point avec la CCI avant de choisir votre statut.",
-    drom2:"La TVA n'y est pas applicable. L'octroi de mer s'applique aux marchandises importées et, au-delà d'un certain chiffre d'affaires, à certaines productions locales. Des dispositifs propres aux Outre-mer peuvent réduire vos charges : faites le point avec la CCI avant de choisir votre statut."
+    drom2:"La TVA n'y est pas applicable. L'octroi de mer s'applique aux marchandises importées et, au-delà d'un certain chiffre d'affaires, à certaines productions locales. Des dispositifs propres aux Outre-mer peuvent réduire vos charges : faites le point avec la CCI avant de choisir votre statut.",
+    mayotte:"La TVA n'y est pas applicable. L'octroi de mer s'applique aux marchandises importées et, au-delà d'un certain chiffre d'affaires, à certaines productions locales. Des dispositifs propres aux Outre-mer peuvent réduire vos charges : faites le point avec la CCI avant de choisir votre statut."
   };
   if(S.region) $('region').value=S.region;
   function reg(){ S.region=$('region').value; save(); $('regionText').textContent=REG[S.region]; if(typeof sim==='function') sim(); }
@@ -1164,7 +1173,7 @@ nav.steps .sm{display:none}
   if(P.pxTva!==undefined) $('pxTva').checked=P.pxTva;
   if(P.pxRemun===undefined && S.sim.besoin) $('pxRemun').value=S.sim.besoin;
   document.querySelectorAll('[data-fx]').forEach(el=>{ if(P.fx[el.dataset.fx]) el.value=P.fx[el.dataset.fx]; });
-  const TVA={metro:20,drom1:8.5,drom2:0};
+  const TVA={metro:20,drom1:8.5,drom2:0,mayotte:0};
   function setMode(m){
     P.mode=m; save();
     document.querySelectorAll('[data-px]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.px===m));
