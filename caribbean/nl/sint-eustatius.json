@@ -1,234 +1,235 @@
 {
-  "country": "STA",
-  "name": "Sint Eustatius",
-  "language": "nl",
-  "currency": {
-    "code": "USD",
-    "symbol": "US$"
+ "country": "STA",
+ "name": "Sint Eustatius",
+ "language": "nl",
+ "currency": {
+  "code": "USD",
+  "symbol": "US$"
+ },
+ "examples": {
+  "sales": 9000,
+  "direct": 3500,
+  "fixed": 1800,
+  "needs": 3000,
+  "pay": 2200,
+  "startup": 8000,
+  "savings": 15000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Belastingdienst/Caribisch Nederland",
+   "url": "https://www.belastingdienst-cn.nl"
   },
-  "examples": {
-    "sales": 9000,
-    "direct": 3500,
-    "fixed": 1800,
-    "needs": 3000,
-    "pay": 2200,
-    "startup": 8000,
-    "savings": 15000
+  "registry": {
+   "name": "Kamer van Koophandel Sint Eustatius"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Belastingdienst/Caribisch Nederland",
-      "url": "https://www.belastingdienst-cn.nl"
-    },
-    "registry": {
-      "name": "Kamer van Koophandel Sint Eustatius"
-    },
-    "support": [
-      {
-        "name": "Rijksdienst Caribisch Nederland (RCN)"
-      },
-      {
-        "name": "Sociale Verzekeringsbank (SVB) Caribisch Nederland"
-      }
-    ]
-  },
-  "activities": [
-    {
-      "id": "services",
-      "label": "Een dienst aanbieden",
-      "plain": "Reparaties, vervoer, horeca, advies, kappers en dergelijke.",
-      "rate": 0.04,
-      "exemptBelow": 20000
-    },
-    {
-      "id": "production",
-      "label": "Zelf goederen maken en verkopen",
-      "plain": "Je produceert of bewerkt de goederen die je verkoopt: een bakkerij, een werkplaats, een voedselproducent.",
-      "rate": 0.06,
-      "exemptBelow": 20000
-    },
-    {
-      "id": "resale",
-      "label": "Ingevoerde goederen doorverkopen",
-      "plain": "Een winkel die ingevoerde goederen inkoopt. De algemene bestedingsbelasting (ABB) is al bij de invoer betaald, dus je rekent ze bij doorverkoop niet opnieuw door.",
-      "rate": 0.0
-    }
-  ],
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Eenmanszaak",
-      "plain": "Je werkt op eigen naam. Dit is de eenvoudigste en goedkoopste manier om te beginnen.",
-      "registeredAt": "Kamer van Koophandel Sint Eustatius",
-      "needs": [
-        "geldig identiteitsbewijs",
-        "bedrijfsadres"
-      ],
-      "feeLines": [],
-      "feeNote": "De Kamer van Koophandel geeft het inschrijftarief voor jouw eiland.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Vennootschap (B.V. of N.V.)",
-      "plain": "Een vennootschap is een aparte entiteit naast jezelf. Ze is duurder om op te richten en vraagt meer administratie.",
-      "registeredAt": "Kamer van Koophandel Sint Eustatius",
-      "needs": [
-        "naamcontrole",
-        "oprichtingsakte via een notaris",
-        "vestigingsadres"
-      ],
-      "feeLines": [],
-      "feeNote": "Een vennootschap wordt via een notaris opgericht en is duurder dan een eenmanszaak. De vennootschap zelf betaalt geen winstbelasting: de eigenaar-directeur betaalt belasting over een gebruikelijk loon en dividend wordt met 7,5% belast.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Kies de naam van je bedrijf en controleer of die vrij is",
-      "plain": "Zoek de naam eerst op bij de Kamer van Koophandel.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Schrijf je in bij de Kamer van Koophandel",
-      "plain": "Elk bedrijf staat in het handelsregister. Een vennootschap wordt eerst via een notaris opgericht.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "permit",
-      "label": "Controleer de bedrijfsvergunning voor jouw eiland",
-      "plain": "Het eilandbestuur (Openbaar Lichaam) kan een vergunning eisen voor jouw activiteit.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "tax",
-      "label": "Meld je aan bij de Belastingdienst/Caribisch Nederland",
-      "plain": "Je krijgt je belastingnummer en toegang tot het online portaal MijnCN, waar je aangifte doet.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://www.belastingdienst-cn.nl"
-    },
-    {
-      "id": "bank",
-      "label": "Open een aparte bankrekening voor het bedrijf",
-      "plain": "Zakelijk geld gescheiden houden van het geld van je huishouden maakt je cijfers duidelijker en je belastingen makkelijker te betalen.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Meld je aan als werkgever voor loonheffing",
-      "plain": "Met medewerkers houd je loonbelasting in en betaal je elke maand werkgeverspremies. De eigenaar van een vennootschap moet ook een gebruikelijk loon opnemen.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    }
-  ],
-  "incomeTax": {
-    "label": "Inkomstenbelasting en premies",
-    "allowance": 21956,
-    "allowanceNote": "belastingvrije som per jaar",
-    "brackets": [
-      {
-        "upToChargeable": 53198,
-        "rate": 0.294
-      },
-      {
-        "rate": 0.384
-      }
-    ],
-    "verified": true,
-    "bracketText": "29,4% tot US$ 53.198 na de belastingvrije som, daarna 38,4%. Het tarief omvat al de premies voor ouderdom (AOV), weduwen en wezen (AWW) en zorg"
-  },
-  "corporateTax": null,
-  "salesLevies": [
-    {
-      "id": "abb",
-      "label": "Algemene bestedingsbelasting (ABB)",
-      "rateByActivity": true,
-      "verified": true
-    }
-  ],
-  "selfEmployed": {
-    "contributions": [],
-    "verified": true
-  },
-  "employee": [],
-  "employer": {
-    "items": [
-      {
-        "id": "zv",
-        "label": "Premies ziekte, ongevallen en ontslag (ZV, OV, Cessantia)",
-        "rate": 0.01
-      },
-      {
-        "id": "zorg",
-        "label": "Zorgpremie (werkgeversdeel)",
-        "rate": 0.093
-      }
-    ],
-    "verified": true
-  },
-  "vat": null,
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Elke maand",
-    "monthlyText": "Betaal de loonheffingen over de vorige periode. De Belastingdienst geeft je aangiftedata bij je aanmelding.",
-    "annualLabel": "Elk jaar",
-    "annualTextPersonal": "Doe je aangifte inkomstenbelasting online in MijnCN. De aangifte opent in maart voor het voorgaande jaar.",
-    "payrollDay": 15,
-    "payrollText": "Elke maand: houd loonbelasting in en betaal de werkgeverspremies over de vorige periode."
-  },
-  "notes": [
-    "Sint Eustatius hoort als bijzondere gemeente bij Nederland en rekent in Amerikaanse dollars. Inkomstenbelasting, ouderdomsverzekering en zorgpremie zijn voor zelfstandigen één gecombineerde heffing: 29,4% tot US$ 53.198 na een belastingvrije som van US$ 21.956, daarna 38,4%.",
-    "De algemene bestedingsbelasting (ABB) is 4% op diensten en 6% op goederen die je zelf maakt. Ingevoerde goederen dragen de belasting bij de invoer.",
-    "Een vennootschap betaalt geen winstbelasting. De eigenaar-directeur neemt een gebruikelijk loon op van minstens US$ 43.912, belast als elk loon, plus 10,3% werkgeverspremies daarover. Dividend wordt met 7,5% dividendbelasting belast. Dit zit niet in je schatting."
-  ],
-  "toVerify": [
-    "Inschrijftarief van de Kamer van Koophandel voor jouw eiland",
-    "Vergunningsregels van jouw eilandbestuur",
-    "ABB-aangifteperiode en uiterste datum"
-  ],
-  "sources": [
-    {
-      "label": "Belastingdienst Caribisch Nederland: tarieven en belastingvrije bedragen inkomstenbelasting",
-      "url": "https://www.belastingdienst-cn.nl/onderwerpen/belastingzaken-particulieren/inkomstenbelasting/tarieven-en-belastingvrije-bedragen-inkomstenbelasting"
-    },
-    {
-      "label": "Belastingdienst Caribisch Nederland: tarieven algemene bestedingsbelasting",
-      "url": "https://www.belastingdienst-cn.nl/onderwerpen/algemene-bestedingsbelasting-bedrijven/tarieven-abb"
-    },
-    {
-      "label": "Belastingdienst Caribisch Nederland: rekenregels loonheffingen 2026",
-      "url": "https://www.belastingdienst-cn.nl/site/binaries/site-content/collections/documents/belastingdienst/lh/tabellen-en-rekenregels-2026/rekenregels-2026/rekenregels-tabellen-lb-en-premies-2026.pdf"
-    },
-    {
-      "label": "Belastingdienst Caribisch Nederland: gebruikelijk loon",
-      "url": "https://www.belastingdienst-cn.nl/onderwerpen/belastingzaken-bedrijven/loonheffing/gebruikelijk-loon"
-    }
+  "support": [
+   {
+    "name": "Rijksdienst Caribisch Nederland (RCN)"
+   },
+   {
+    "name": "Sociale Verzekeringsbank (SVB) Caribisch Nederland"
+   }
   ]
+ },
+ "activities": [
+  {
+   "id": "services",
+   "label": "Een dienst aanbieden",
+   "plain": "Reparaties, vervoer, horeca, advies, kappers en dergelijke.",
+   "rate": 0.04,
+   "exemptBelow": 20000
+  },
+  {
+   "id": "production",
+   "label": "Zelf goederen maken en verkopen",
+   "plain": "Je produceert of bewerkt de goederen die je verkoopt: een bakkerij, een werkplaats, een voedselproducent.",
+   "rate": 0.06,
+   "exemptBelow": 20000
+  },
+  {
+   "id": "resale",
+   "label": "Ingevoerde goederen doorverkopen",
+   "plain": "Een winkel die ingevoerde goederen inkoopt. De algemene bestedingsbelasting (ABB) is al bij de invoer betaald, dus je rekent ze bij doorverkoop niet opnieuw door.",
+   "rate": 0.0
+  }
+ ],
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Eenmanszaak",
+   "plain": "Je werkt op eigen naam. Dit is de eenvoudigste en goedkoopste manier om te beginnen.",
+   "registeredAt": "Kamer van Koophandel Sint Eustatius",
+   "needs": [
+    "geldig identiteitsbewijs",
+    "bedrijfsadres"
+   ],
+   "feeLines": [],
+   "feeNote": "De Kamer van Koophandel geeft het inschrijftarief voor jouw eiland.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Vennootschap (B.V. of N.V.)",
+   "plain": "Een vennootschap is een aparte entiteit naast jezelf. Ze is duurder om op te richten en vraagt meer administratie.",
+   "registeredAt": "Kamer van Koophandel Sint Eustatius",
+   "needs": [
+    "naamcontrole",
+    "oprichtingsakte via een notaris",
+    "vestigingsadres"
+   ],
+   "feeLines": [],
+   "feeNote": "Een vennootschap wordt via een notaris opgericht en is duurder dan een eenmanszaak. De vennootschap zelf betaalt geen winstbelasting: de eigenaar-directeur betaalt belasting over een gebruikelijk loon en dividend wordt met 7,5% belast.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Kies de naam van je bedrijf en controleer of die vrij is",
+   "plain": "Zoek de naam eerst op bij de Kamer van Koophandel.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Schrijf je in bij de Kamer van Koophandel",
+   "plain": "Elk bedrijf staat in het handelsregister. Een vennootschap wordt eerst via een notaris opgericht.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "permit",
+   "label": "Controleer de bedrijfsvergunning voor jouw eiland",
+   "plain": "Het eilandbestuur (Openbaar Lichaam) kan een vergunning eisen voor jouw activiteit.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "tax",
+   "label": "Meld je aan bij de Belastingdienst/Caribisch Nederland",
+   "plain": "Je krijgt je belastingnummer en toegang tot het online portaal MijnCN, waar je aangifte doet.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://www.belastingdienst-cn.nl"
+  },
+  {
+   "id": "bank",
+   "label": "Open een aparte bankrekening voor het bedrijf",
+   "plain": "Zakelijk geld gescheiden houden van het geld van je huishouden maakt je cijfers duidelijker en je belastingen makkelijker te betalen.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Meld je aan als werkgever voor loonheffing",
+   "plain": "Met medewerkers houd je loonbelasting in en betaal je elke maand werkgeverspremies. De eigenaar van een vennootschap moet ook een gebruikelijk loon opnemen.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  }
+ ],
+ "incomeTax": {
+  "label": "Inkomstenbelasting en premies",
+  "allowance": 21956,
+  "allowanceNote": "belastingvrije som per jaar",
+  "brackets": [
+   {
+    "upToChargeable": 53198,
+    "rate": 0.294
+   },
+   {
+    "rate": 0.384
+   }
+  ],
+  "verified": true,
+  "bracketText": "29,4% tot US$ 53.198 na de belastingvrije som, daarna 38,4%. Het tarief omvat al de premies voor ouderdom (AOV), weduwen en wezen (AWW) en zorg"
+ },
+ "corporateTax": null,
+ "salesLevies": [
+  {
+   "id": "abb",
+   "label": "Algemene bestedingsbelasting (ABB)",
+   "rateByActivity": true,
+   "verified": true
+  }
+ ],
+ "selfEmployed": {
+  "contributions": [],
+  "verified": true
+ },
+ "employee": [],
+ "employer": {
+  "items": [
+   {
+    "id": "zv",
+    "label": "Premies ziekte, ongevallen en ontslag (ZV, OV, Cessantia)",
+    "rate": 0.01
+   },
+   {
+    "id": "zorg",
+    "label": "Zorgpremie (werkgeversdeel)",
+    "rate": 0.093
+   }
+  ],
+  "verified": true
+ },
+ "vat": null,
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Elke maand",
+  "monthlyText": "Betaal de loonheffingen over de vorige periode. De Belastingdienst geeft je aangiftedata bij je aanmelding.",
+  "annualLabel": "Elk jaar",
+  "annualTextPersonal": "Doe je aangifte inkomstenbelasting online in MijnCN. De aangifte opent in maart voor het voorgaande jaar.",
+  "payrollDay": 15,
+  "payrollText": "Elke maand: houd loonbelasting in en betaal de werkgeverspremies over de vorige periode."
+ },
+ "notes": [
+  "Sint Eustatius hoort als bijzondere gemeente bij Nederland en rekent in Amerikaanse dollars. Inkomstenbelasting, ouderdomsverzekering en zorgpremie zijn voor zelfstandigen één gecombineerde heffing: 29,4% tot US$ 53.198 na een belastingvrije som van US$ 21.956, daarna 38,4%.",
+  "De algemene bestedingsbelasting (ABB) is 4% op diensten en 6% op goederen die je zelf maakt. Ingevoerde goederen dragen de belasting bij de invoer.",
+  "Een vennootschap betaalt geen winstbelasting. De eigenaar-directeur neemt een gebruikelijk loon op van minstens US$ 43.912, belast als elk loon, plus 10,3% werkgeverspremies daarover. Dividend wordt met 7,5% dividendbelasting belast. Dit zit niet in je schatting.",
+  "Ben je eenmanszaak of samenwerkingsverband van personen met een omzet onder US$ 30.000 per jaar (exclusief ABB), dan kun je bij de Belastingdienst ontheffing van de ABB aanvragen. De ABB geef je elk kwartaal aan en je kunt maandelijks vooruitbetalen."
+ ],
+ "toVerify": [
+  "Inschrijftarief van de Kamer van Koophandel voor jouw eiland (de gevonden bedragen gelden voor Europees Nederland, niet voor dit eiland)",
+  "Vergunningsregels van jouw eilandbestuur",
+  "Uiterste datum van de ABB-aangifte (kwartaalaangifte is bevestigd door de Belastingdienst)"
+ ],
+ "sources": [
+  {
+   "label": "Belastingdienst Caribisch Nederland: tarieven en belastingvrije bedragen inkomstenbelasting",
+   "url": "https://www.belastingdienst-cn.nl/onderwerpen/belastingzaken-particulieren/inkomstenbelasting/tarieven-en-belastingvrije-bedragen-inkomstenbelasting"
+  },
+  {
+   "label": "Belastingdienst Caribisch Nederland: tarieven algemene bestedingsbelasting",
+   "url": "https://www.belastingdienst-cn.nl/onderwerpen/algemene-bestedingsbelasting-bedrijven/tarieven-abb"
+  },
+  {
+   "label": "Belastingdienst Caribisch Nederland: rekenregels loonheffingen 2026",
+   "url": "https://www.belastingdienst-cn.nl/site/binaries/site-content/collections/documents/belastingdienst/lh/tabellen-en-rekenregels-2026/rekenregels-2026/rekenregels-tabellen-lb-en-premies-2026.pdf"
+  },
+  {
+   "label": "Belastingdienst Caribisch Nederland: gebruikelijk loon",
+   "url": "https://www.belastingdienst-cn.nl/onderwerpen/belastingzaken-bedrijven/loonheffing/gebruikelijk-loon"
+  }
+ ]
 }
