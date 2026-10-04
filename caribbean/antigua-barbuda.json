@@ -1,221 +1,225 @@
 {
-  "country": "AG",
-  "name": "Antigua and Barbuda",
-  "language": "en",
-  "currency": {
-    "code": "XCD",
-    "symbol": "EC$"
+ "country": "AG",
+ "name": "Antigua and Barbuda",
+ "language": "en",
+ "currency": {
+  "code": "XCD",
+  "symbol": "EC$"
+ },
+ "examples": {
+  "sales": 12000,
+  "direct": 4500,
+  "fixed": 2000,
+  "needs": 3000,
+  "pay": 2000,
+  "startup": 8000,
+  "savings": 15000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Inland Revenue Department (IRD)"
   },
-  "examples": {
-    "sales": 12000,
-    "direct": 4500,
-    "fixed": 2000,
-    "needs": 3000,
-    "pay": 2000,
-    "startup": 8000,
-    "savings": 15000
+  "registry": {
+   "name": "Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Inland Revenue Department (IRD)"
-    },
-    "registry": {
-      "name": "Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)"
-    },
-    "support": [
-      {
-        "name": "Antigua and Barbuda Social Security Board"
-      },
-      {
-        "name": "Antigua and Barbuda Investment Authority"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Registered business name",
-      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
-      "registeredAt": "Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)",
-      "needs": [
-        "valid ID",
-        "business address"
-      ],
-      "feeLines": [],
-      "feeNote": "The registry will quote you the current registration fee.",
-      "verified": false
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)",
-      "needs": [
-        "name reservation",
-        "articles of incorporation",
-        "registered office"
-      ],
-      "feeLines": [],
-      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
-      "verified": false
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "tin",
-      "label": "Register with the Inland Revenue and get your tax number (TIN)",
-      "plain": "A number that identifies you to the tax office. You need it for almost every other step.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "name",
-      "label": "Choose your business name and check that it is free",
-      "plain": "If you trade under any name other than your own, you must register it. Search the name at the ABIPCO first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Register the business name, or incorporate the company, with the Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)",
-      "plain": "A sole trader registers the business name. A company must be incorporated first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "ss",
-      "label": "Register with the Antigua and Barbuda Social Security Board",
-      "plain": "Self-employed people must register and contribute. It gives access to a pension and other benefits.",
-      "appliesTo": [
-        "business_name"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Register as an employer and prepare monthly payments",
-      "plain": "With employees you pay social security (and income tax withheld, where it applies) every month. The authorities give you your payment dates when you register as an employer.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    },
-    {
-      "id": "vat",
-      "label": "Register for ABST",
-      "plain": "Required once your yearly sales reach the ABST threshold (EC$300,000). Register with the Inland Revenue.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "vat"
-    }
-  ],
-  "incomeTax": null,
-  "corporateTax": {
-    "label": "Corporation tax",
-    "brackets": [
-      {
-        "rate": 0.25
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "ss",
-        "label": "Social Security",
-        "rate": 0.1,
-        "ceilingAnnual": 78000,
-        "plain": "Social security gives access to a pension and other benefits. Self-employed people pay 10% of their declared earnings, up to EC$6,500 a month.",
-        "verified": true
-      }
-    ],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "ss",
-      "rate": 0.065,
-      "ceilingAnnual": 78000
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "ss",
-        "label": "Social Security",
-        "rate": 0.085,
-        "ceilingAnnual": 78000
-      },
-      {
-        "id": "mbs",
-        "label": "Medical Benefits Scheme",
-        "rate": 0.035,
-        "ceilingAnnual": 78000
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Antigua and Barbuda Sales Tax",
-    "short": "ABST",
-    "rate": 0.17,
-    "threshold": 300000,
-    "registerNote": "The rate is 17%, in force since 2024. The IRD gives you the exact registration level when you register.",
-    "filingNote": "ABST returns are filed monthly.",
-    "verified": false
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "Pay your advance corporation tax instalment.",
-    "monthlyLabel": "Payment dates",
-    "monthlyText": "Your advance tax payments follow the schedule the Inland Revenue gives you when you register.",
-    "annualLabel": "Each year",
-    "annualTextPersonal": "File the annual returns that apply to your business. The Inland Revenue Department publishes the deadlines each year.",
-    "payrollDay": 14,
-    "payrollText": "Every month: pay social security (and income tax withheld, where it applies) for the previous month.",
-    "vatText": "If registered for ABST: file your return every month."
-  },
-  "notes": [
-    "Antigua and Barbuda has no personal income tax. The Education Levy on pay is not included in your estimate."
-  ],
-  "toVerify": [
-    "ABST registration threshold",
-    "Business registration fees",
-    "Education Levy on pay"
-  ],
-  "sources": [
-    {
-      "label": "HeadOffice: Antigua and Barbuda tax forms",
-      "url": "https://headoffice-marketing-site-production-a7kpwu.laravel.cloud/antigua-and-barbuda/blog/antigua-and-barbuda-tax-forms"
-    },
-    {
-      "label": "KPMG: Caribbean payroll changes 2023 (Antigua and Barbuda)",
-      "url": "https://assets.kpmg.com/content/dam/kpmg/bb/pdf/2023/01/Tax%20NewsFlash%20-%20Caribbean%20Payroll%20Withholding%20Changes%202023.pdf"
-    }
+  "support": [
+   {
+    "name": "Antigua and Barbuda Social Security Board"
+   },
+   {
+    "name": "Antigua and Barbuda Investment Authority"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Registered business name",
+   "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+   "registeredAt": "Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)",
+   "needs": [
+    "valid ID",
+    "business address"
+   ],
+   "feeLines": [],
+   "feeNote": "The registry will quote you the current registration fee.",
+   "verified": false
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)",
+   "needs": [
+    "name reservation",
+    "articles of incorporation",
+    "registered office"
+   ],
+   "feeLines": [],
+   "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
+   "verified": false
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "tin",
+   "label": "Register with the Inland Revenue and get your tax number (TIN)",
+   "plain": "A number that identifies you to the tax office. You need it for almost every other step.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "name",
+   "label": "Choose your business name and check that it is free",
+   "plain": "If you trade under any name other than your own, you must register it. Search the name at the ABIPCO first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Register the business name, or incorporate the company, with the Antigua and Barbuda Intellectual Property and Commerce Office (ABIPCO)",
+   "plain": "A sole trader registers the business name. A company must be incorporated first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "ss",
+   "label": "Register with the Antigua and Barbuda Social Security Board",
+   "plain": "Self-employed people must register and contribute. It gives access to a pension and other benefits.",
+   "appliesTo": [
+    "business_name"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Register as an employer and prepare monthly payments",
+   "plain": "With employees you pay social security (and income tax withheld, where it applies) every month. The authorities give you your payment dates when you register as an employer.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  },
+  {
+   "id": "vat",
+   "label": "Register for ABST",
+   "plain": "Required once your yearly sales reach the ABST threshold (EC$300,000). Register with the Inland Revenue.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "vat"
+  }
+ ],
+ "incomeTax": null,
+ "corporateTax": {
+  "label": "Corporation tax",
+  "brackets": [
+   {
+    "rate": 0.25
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "ss",
+    "label": "Social Security",
+    "rate": 0.1,
+    "ceilingAnnual": 78000,
+    "plain": "Social security gives access to a pension and other benefits. Self-employed people pay 10% of their declared earnings, up to EC$6,500 a month.",
+    "verified": true
+   }
+  ],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "ss",
+   "rate": 0.065,
+   "ceilingAnnual": 78000
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "ss",
+    "label": "Social Security",
+    "rate": 0.085,
+    "ceilingAnnual": 78000
+   },
+   {
+    "id": "mbs",
+    "label": "Medical Benefits Scheme",
+    "rate": 0.035,
+    "ceilingAnnual": 78000
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Antigua and Barbuda Sales Tax",
+  "short": "ABST",
+  "rate": 0.17,
+  "threshold": 300000,
+  "registerNote": "Register once your sales reach EC$300,000 in twelve months, or earlier if you pass EC$100,000 in your first four months and expect more than EC$200,000 in the next eight (Inland Revenue Department guide). There is no fee to register for ABST.",
+  "filingNote": "ABST returns are filed monthly.",
+  "verified": false
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "Pay your advance corporation tax instalment.",
+  "monthlyLabel": "Payment dates",
+  "monthlyText": "Your advance tax payments follow the schedule the Inland Revenue gives you when you register.",
+  "annualLabel": "Each year",
+  "annualTextPersonal": "File the annual returns that apply to your business. The Inland Revenue Department publishes the deadlines each year.",
+  "payrollDay": 14,
+  "payrollText": "Every month: pay social security (and income tax withheld, where it applies) for the previous month.",
+  "vatText": "If registered for ABST: file your return every month."
+ },
+ "notes": [
+  "Antigua and Barbuda has no personal income tax. The Education Levy on pay is not included in your estimate."
+ ],
+ "toVerify": [
+  "ABST standard rate: 17% in recent sources, 15% in older ones",
+  "Business registration fees",
+  "Education Levy on pay"
+ ],
+ "sources": [
+  {
+   "label": "HeadOffice: Antigua and Barbuda tax forms",
+   "url": "https://headoffice-marketing-site-production-a7kpwu.laravel.cloud/antigua-and-barbuda/blog/antigua-and-barbuda-tax-forms"
+  },
+  {
+   "label": "KPMG: Caribbean payroll changes 2023 (Antigua and Barbuda)",
+   "url": "https://assets.kpmg.com/content/dam/kpmg/bb/pdf/2023/01/Tax%20NewsFlash%20-%20Caribbean%20Payroll%20Withholding%20Changes%202023.pdf"
+  },
+  {
+   "label": "IRD Antigua and Barbuda: ABST frequently asked questions",
+   "url": "https://ird.gov.ag/wp-content/uploads/2020/06/Frequently_asked_questions_ABST.pdf"
+  }
+ ]
 }
