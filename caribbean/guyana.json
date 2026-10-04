@@ -170,8 +170,8 @@
     "rate": 0.4
    }
   ],
-  "verified": false,
-  "note": "40% is the rate for commercial companies (trade, manufacturing). Other companies pay 25%."
+  "verified": true,
+  "note": "40% is the rate for commercial companies (those trading goods they do not make). Other companies, such as manufacturers and service companies, pay 25%. A commercial company pays at least 2% of its turnover as minimum tax."
  },
  "salesLevies": [],
  "selfEmployed": {
@@ -243,12 +243,11 @@
   "vatText": "If registered for VAT: file your return within 21 days after each period."
  },
  "notes": [
-  "Optional deductions (for children, or for medical and life insurance premiums) are not included in your estimate. They would lower your tax."
+  "Optional deductions (for children, or for medical and life insurance premiums) are not included in your estimate. They would lower your tax.",
+  "The 2026 budget is reported to have removed corporation tax for agriculture and agro-processing, childcare and elderly care businesses (one source): ask the GRA if your activity qualifies."
  ],
  "toVerify": [
-  "NIS monthly ceiling: G$280,000 in 2026 sources, while the NIS FAQ page still shows the older G$256,800",
   "Whether the self-employed can deduct NIS from taxable income (one guide says yes, another says the GRA 2026 notice does not list it)",
-  "Corporation tax: 40% commercial or 25% non-commercial",
   "Advance payment dates for the self-employed",
   "Business registration and incorporation fees"
  ],

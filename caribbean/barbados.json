@@ -171,22 +171,11 @@
   "label": "Corporation tax",
   "brackets": [
    {
-    "upToChargeable": 1000000,
-    "rate": 0.055
-   },
-   {
-    "upToChargeable": 20000000,
-    "rate": 0.03
-   },
-   {
-    "upToChargeable": 30000000,
-    "rate": 0.025
-   },
-   {
-    "rate": 0.01
+    "rate": 0.09
    }
   ],
-  "verified": false
+  "verified": false,
+  "note": "Since 2024 the standard rate is 9%. A company registered as a small business under the Small Business Development Act, with gross income of BDS$2 million or less, pays 5.5%."
  },
  "salesLevies": [],
  "selfEmployed": {
@@ -244,10 +233,6 @@
  "calendar": {
   "quarterly": [
    {
-    "m": 3,
-    "d": 15
-   },
-   {
     "m": 6,
     "d": 15
    },
@@ -260,9 +245,9 @@
     "d": 15
    }
   ],
-  "quarterlyList": "March 15, June 15, September 15 and December 15",
-  "quarterlyTextPersonal": "Pay your advance income tax instalment. NIS for the self-employed follows its own schedule: ask the National Insurance Office.",
-  "quarterlyTextCorporate": "Pay your advance corporation tax instalment.",
+  "quarterlyList": "June 15, September 15 and December 15",
+  "quarterlyTextPersonal": "Pay your advance income tax instalment (prepayment), based on last year's tax. The balance is due by April 30. NIS for the self-employed follows its own schedule: ask the National Insurance Office.",
+  "quarterlyTextCorporate": "Companies prepay 50% of last year's tax in one or two instalments, depending on the year-end, then pay the balance with the return: the BRA gives you your dates.",
   "annualLabel": "By April 30",
   "annualTextPersonal": "File your income tax return for the year before.",
   "payrollDay": 15,
@@ -272,8 +257,7 @@
  "notes": [],
  "toVerify": [
   "VAT registration threshold: BDS$200,000, raised to BDS$350,000 from 1 October 2026 by the March 2026 budget according to two reports; no confirmation from the Barbados Revenue Authority found",
-  "Corporation tax tiers",
-  "Advance payment dates for the self-employed",
+  "Corporation tax: 9% since 2024 (5.5% for registered small businesses up to BDS$2 million) according to Parliament papers, while the BRA corporations page still shows the older sliding scale",
   "Business registration and incorporation fees"
  ],
  "sources": [
@@ -288,6 +272,10 @@
   {
    "label": "PwC Tax Summaries: Barbados other taxes",
    "url": "https://taxsummaries.pwc.com/Barbados/Corporate/Other-taxes"
+  },
+  {
+   "label": "BRA: guide to self-assessment",
+   "url": "https://bra.gov.bb/Popular-Topics/Self-Assessment-Self-Employment/Guide-to-Self-Assessment"
   }
  ]
 }
