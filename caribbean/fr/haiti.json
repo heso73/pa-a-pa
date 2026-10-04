@@ -1,239 +1,244 @@
 {
-  "country": "HT",
-  "name": "Haïti",
-  "language": "fr",
-  "currency": {
-    "code": "HTG",
-    "symbol": "G "
+ "country": "HT",
+ "name": "Haïti",
+ "language": "fr",
+ "currency": {
+  "code": "HTG",
+  "symbol": "G "
+ },
+ "examples": {
+  "sales": 150000,
+  "direct": 70000,
+  "fixed": 25000,
+  "needs": 35000,
+  "pay": 30000,
+  "startup": 300000,
+  "savings": 500000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Direction Générale des Impôts (DGI)",
+   "url": "https://dgi.gouv.ht"
   },
-  "examples": {
-    "sales": 150000,
-    "direct": 70000,
-    "fixed": 25000,
-    "needs": 35000,
-    "pay": 30000,
-    "startup": 300000,
-    "savings": 500000
+  "registry": {
+   "name": "Registre du Commerce"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Direction Générale des Impôts (DGI)",
-      "url": "https://dgi.gouv.ht"
-    },
-    "registry": {
-      "name": "Registre du Commerce"
-    },
-    "support": [
-      {
-        "name": "Office national d’assurance vieillesse (ONA)"
-      },
-      {
-        "name": "Office d’assurance accidents du travail, maladie et maternité (OFATMA)"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Entreprise individuelle",
-      "plain": "Vous exercez en votre nom propre. C’est la forme la plus simple et la moins chère pour commencer.",
-      "registeredAt": "Registre du Commerce",
-      "needs": [
-        "pièce d’identité valide",
-        "adresse professionnelle"
-      ],
-      "feeLines": [],
-      "feeNote": "Vous payez une patente chaque année : un droit fixe de 5 000, 2 500 ou 1 250 gourdes selon la commune, plus 0,4 % du chiffre d’affaires moins la masse salariale.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Société",
-      "plain": "Une société est une entité distincte de vous. Elle coûte plus cher à créer et demande plus de suivi.",
-      "registeredAt": "Registre du Commerce",
-      "needs": [
-        "réservation du nom",
-        "statuts",
-        "siège social"
-      ],
-      "feeLines": [],
-      "feeNote": "Une société se constitue devant notaire et coûte plus cher à créer qu’une entreprise individuelle.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Choisissez le nom de votre entreprise et vérifiez qu’il est libre",
-      "plain": "Cherchez le nom au Registre du Commerce d’abord.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Enregistrez-vous au Registre du Commerce",
-      "plain": "Les documents sont déposés en français ou en créole. Une société se constitue devant notaire.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "tax",
-      "label": "Obtenez votre numéro d’identification fiscale (NIF) auprès de la DGI",
-      "plain": "Vous vous inscrivez aussi à la taxe sur le chiffre d’affaires (TCA) si vous vendez des biens ou des services.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "patente",
-      "label": "Payez votre patente et obtenez votre carte professionnelle",
-      "plain": "La patente est une taxe locale annuelle avec une partie fixe et une partie liée aux ventes.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Ouvrez un compte bancaire séparé pour l’entreprise",
-      "plain": "Séparer l’argent de l’entreprise de celui du foyer rend vos chiffres plus clairs et vos impôts plus faciles à payer.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Inscrivez-vous à l’ONA et à l’OFATMA et préparez les paiements mensuels",
-      "plain": "Avec des employés, vous payez la taxe sur la masse salariale (2 %) avant le 15 de chaque mois, plus les cotisations de sécurité sociale à l’ONA.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    }
-  ],
-  "incomeTax": {
-    "label": "Impôt sur le revenu",
-    "allowance": 0,
-    "allowanceNote": "aucun impôt sur les premiers 60 000 gourdes par an",
-    "brackets": [
-      {
-        "upToChargeable": 60000,
-        "rate": 0.0
-      },
-      {
-        "upToChargeable": 240000,
-        "rate": 0.1
-      },
-      {
-        "upToChargeable": 480000,
-        "rate": 0.15
-      },
-      {
-        "upToChargeable": 1000000,
-        "rate": 0.25
-      },
-      {
-        "rate": 0.3
-      }
-    ],
-    "verified": true,
-    "bracketText": "0 % jusqu’à 60 000 G, 10 % jusqu’à 240 000 G, 15 % jusqu’à 480 000 G, 25 % jusqu’à 1 000 000 G, puis 30 %"
-  },
-  "corporateTax": {
-    "label": "Impôt sur les sociétés",
-    "brackets": [
-      {
-        "rate": 0.3
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [
-    {
-      "id": "patente",
-      "label": "Patente (partie proportionnelle)",
-      "rate": 0.004,
-      "verified": true
-    }
-  ],
-  "selfEmployed": {
-    "contributions": [],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "ona",
-      "rate": 0.06
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "tms",
-        "label": "Taxe sur la masse salariale (TMS)",
-        "rate": 0.02
-      },
-      {
-        "id": "ona",
-        "label": "Assurance vieillesse (ONA)",
-        "rate": 0.06
-      },
-      {
-        "id": "ofatma",
-        "label": "Accidents du travail et maladie (OFATMA)",
-        "rate": 0.02
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Taxe sur le chiffre d’affaires",
-    "short": "TCA",
-    "rate": 0.1,
-    "threshold": 0,
-    "registerNote": "Inscrivez-vous à la DGI dès que vous commencez à vendre des biens ou des services. Les produits alimentaires de base et les médicaments sont exonérés.",
-    "filingNote": "Vous déposez votre déclaration de TCA chaque mois.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Chaque mois",
-    "monthlyText": "Déposez et payez votre déclaration de TCA du mois précédent.",
-    "annualLabel": "Du 1er octobre au 31 janvier",
-    "annualTextPersonal": "Déposez votre déclaration définitive d’impôt sur le revenu pour l’année précédente.",
-    "payrollDay": 15,
-    "payrollText": "Chaque mois, du 1er au 15 : payez la taxe sur la masse salariale (2 %) et les cotisations à l’ONA du mois précédent.",
-    "vatText": "Déposez votre déclaration de TCA chaque mois."
-  },
-  "notes": [
-    "Haïti a une taxe sur le chiffre d’affaires (TCA) de 10 %. Les entreprises individuelles paient l’impôt sur le revenu de 10 % à 30 % au-delà de 60 000 gourdes, et les sociétés paient 30 %.",
-    "La patente est une taxe locale annuelle : un droit fixe (1 250 à 5 000 gourdes selon la commune) plus 0,4 % du chiffre d’affaires moins la masse salariale. Votre estimation inclut la part de 0,4 % sur les ventes."
-  ],
-  "toVerify": [
-    "Partie fixe de la patente pour votre commune"
-  ],
-  "sources": [
-    {
-      "label": "DGI Haïti : déclaration définitive d’impôt sur le revenu et barème",
-      "url": "https://dgi.gouv.ht/dgi_sev/declaration-definitive-impot-revenu/"
-    },
-    {
-      "label": "Micro-entreprise en Haïti : patente et obligations mensuelles",
-      "url": "https://genecohaiti.net/articles/micro-entreprise-en-haiti-le/"
-    }
+  "support": [
+   {
+    "name": "Office national d’assurance vieillesse (ONA)"
+   },
+   {
+    "name": "Office d’assurance accidents du travail, maladie et maternité (OFATMA)"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Entreprise individuelle",
+   "plain": "Vous exercez en votre nom propre. C’est la forme la plus simple et la moins chère pour commencer.",
+   "registeredAt": "Registre du Commerce",
+   "needs": [
+    "pièce d’identité valide",
+    "adresse professionnelle"
+   ],
+   "feeLines": [],
+   "feeNote": "Vous payez une patente chaque année : un droit fixe de 5 000, 2 500 ou 1 250 gourdes selon la commune, plus 0,4 % du chiffre d’affaires moins la masse salariale.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Société",
+   "plain": "Une société est une entité distincte de vous. Elle coûte plus cher à créer et demande plus de suivi.",
+   "registeredAt": "Registre du Commerce",
+   "needs": [
+    "réservation du nom",
+    "statuts",
+    "siège social"
+   ],
+   "feeLines": [],
+   "feeNote": "Une société se constitue devant notaire et coûte plus cher à créer qu’une entreprise individuelle.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Choisissez le nom de votre entreprise et vérifiez qu’il est libre",
+   "plain": "Cherchez le nom au Registre du Commerce d’abord.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Enregistrez-vous au Registre du Commerce",
+   "plain": "Les documents sont déposés en français ou en créole. Une société se constitue devant notaire.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "tax",
+   "label": "Obtenez votre numéro d’identification fiscale (NIF) auprès de la DGI",
+   "plain": "Vous vous inscrivez aussi à la taxe sur le chiffre d’affaires (TCA) si vous vendez des biens ou des services.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "patente",
+   "label": "Payez votre patente et obtenez votre carte professionnelle",
+   "plain": "La patente est une taxe locale annuelle avec une partie fixe et une partie liée aux ventes.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Ouvrez un compte bancaire séparé pour l’entreprise",
+   "plain": "Séparer l’argent de l’entreprise de celui du foyer rend vos chiffres plus clairs et vos impôts plus faciles à payer.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Inscrivez-vous à l’ONA et à l’OFATMA et préparez les paiements mensuels",
+   "plain": "Avec des employés, vous payez la taxe sur la masse salariale (2 %) avant le 15 de chaque mois, plus les cotisations de sécurité sociale à l’ONA.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  }
+ ],
+ "incomeTax": {
+  "label": "Impôt sur le revenu",
+  "allowance": 0,
+  "allowanceNote": "aucun impôt sur les premiers 60 000 gourdes par an",
+  "brackets": [
+   {
+    "upToChargeable": 60000,
+    "rate": 0.0
+   },
+   {
+    "upToChargeable": 240000,
+    "rate": 0.1
+   },
+   {
+    "upToChargeable": 480000,
+    "rate": 0.15
+   },
+   {
+    "upToChargeable": 1000000,
+    "rate": 0.25
+   },
+   {
+    "rate": 0.3
+   }
+  ],
+  "verified": true,
+  "bracketText": "0 % jusqu’à 60 000 G, 10 % jusqu’à 240 000 G, 15 % jusqu’à 480 000 G, 25 % jusqu’à 1 000 000 G, puis 30 %"
+ },
+ "corporateTax": {
+  "label": "Impôt sur les sociétés",
+  "brackets": [
+   {
+    "rate": 0.3
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [
+  {
+   "id": "patente",
+   "label": "Patente (partie proportionnelle)",
+   "rate": 0.004,
+   "verified": true
+  }
+ ],
+ "selfEmployed": {
+  "contributions": [],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "ona",
+   "rate": 0.06
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "tms",
+    "label": "Taxe sur la masse salariale (TMS)",
+    "rate": 0.02
+   },
+   {
+    "id": "ona",
+    "label": "Assurance vieillesse (ONA)",
+    "rate": 0.06
+   },
+   {
+    "id": "ofatma",
+    "label": "Accidents du travail et maladie (OFATMA)",
+    "rate": 0.02
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Taxe sur le chiffre d’affaires",
+  "short": "TCA",
+  "rate": 0.1,
+  "threshold": 0,
+  "registerNote": "Inscrivez-vous à la DGI dès que vous commencez à vendre des biens ou des services. Les produits alimentaires de base et les médicaments sont exonérés.",
+  "filingNote": "Vous déposez votre déclaration de TCA chaque mois.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Chaque mois",
+  "monthlyText": "Déposez et payez votre déclaration de TCA du mois précédent.",
+  "annualLabel": "Du 1er octobre au 31 janvier",
+  "annualTextPersonal": "Déposez votre déclaration définitive d’impôt sur le revenu pour l’année précédente.",
+  "payrollDay": 15,
+  "payrollText": "Chaque mois, du 1er au 15 : payez la taxe sur la masse salariale (2 %) et les cotisations à l’ONA du mois précédent.",
+  "vatText": "Déposez votre déclaration de TCA chaque mois."
+ },
+ "notes": [
+  "Haïti a une taxe sur le chiffre d’affaires (TCA) de 10 %. Les entreprises individuelles paient l’impôt sur le revenu de 10 % à 30 % au-delà de 60 000 gourdes, et les sociétés paient 30 %.",
+  "La patente est une taxe locale annuelle : un droit fixe (1 250 à 5 000 gourdes selon la commune) plus 0,4 % du chiffre d’affaires moins la masse salariale. Votre estimation inclut la part de 0,4 % sur les ventes.",
+  "Pour une entreprise qui démarre, la DGI limite la patente de la première période imposable au droit fixe de 5 000 gourdes, quelle que soit l’activité. Votre estimation peut donc être plus basse la première année."
+ ],
+ "toVerify": [
+  "Le groupe de communes auquel appartient votre ville (la patente fixe de 5 000, 2 500 ou 1 250 gourdes est confirmée par la DGI)"
+ ],
+ "sources": [
+  {
+   "label": "DGI Haïti : déclaration définitive d’impôt sur le revenu et barème",
+   "url": "https://dgi.gouv.ht/dgi_sev/declaration-definitive-impot-revenu/"
+  },
+  {
+   "label": "Micro-entreprise en Haïti : patente et obligations mensuelles",
+   "url": "https://genecohaiti.net/articles/micro-entreprise-en-haiti-le/"
+  },
+  {
+   "label": "DGI Haïti : la patente",
+   "url": "https://dgi.gouv.ht/dgi_sev/la-patente/"
+  }
+ ]
 }
