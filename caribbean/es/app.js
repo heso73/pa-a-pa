@@ -61,6 +61,7 @@
         <a class="path primary" href="#/test"><div class="n">1</div><div><div class="t">Prueba tu proyecto</div><div class="d">¿Se sostiene? Tu respuesta en unos minutos.</div></div></a>
         <a class="path" href="#/vision"><div class="n">2</div><div><div class="t">Construye tu visión</div><div class="d">Aclara tus ideas: para quién, qué y cómo.</div></div></a>
         <a class="path" href="#/next"><div class="n" style="background:var(--ink)">3</div><div><div class="t">Avanza hacia el éxito</div><div class="d">Tus próximos pasos, con un coach que te guía.</div></div></a>
+        <a class="path" href="#/success"><div class="n" style="background:var(--sun);color:var(--ink)">4</div><div><div class="t">Las reglas de la rentabilidad</div><div class="d">Por qué un negocio gana dinero y cómo mantenerlo así.</div></div></a>
       </nav>
       <p class="tagline">Probar · Lanzar · Durar</p>${footer()}`;
   }
@@ -350,12 +351,17 @@
     });
   }
 
+  function successView() {
+    const lbl = id => (TOPIC[id] ? TOPIC[id].label() : id);
+    return (window.PAPSuccess ? window.PAPSuccess.render({ R: report(), J, pct, esc, topicLabel: lbl }) : '') + footer();
+  }
+
   function route() {
     if (!D) return;
     window.PAP_COUNTRY = D.country;
     const parts = (location.hash || '#/').replace(/^#\/?/, '').split('/');
     const name = parts[0] || '', arg = parts[1];
-    const views = { '': home, test, report: reportView, vision: visionView, next: nextView, coach };
+    const views = { '': home, test, report: reportView, vision: visionView, next: nextView, success: successView, coach };
     const fn = views[name] || home;
     if (name !== 'test') errMsg = '';
     const view = $('#view');
