@@ -210,6 +210,7 @@ nav.steps .sm{display:none}
 .toolnav:empty{display:none}
 .fx .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.rule{border-top:1px solid var(--line);padding:10px 0}.rule:first-of-type{border-top:0}.rule summary{cursor:pointer;font-weight:600;line-height:1.4}.rule p{margin:8px 0 0}.rule .todo{margin-top:8px}.rules-list{margin:6px 0 0;padding-left:20px}.rules-list li{margin:4px 0}
 </style>
 </head>
 <body>
@@ -329,6 +330,12 @@ nav.steps .sm{display:none}
 <section class="panel" id="durer" role="tabpanel">
   <h2>Piloter mon activité</h2>
   <p class="lead">Une fois lancé, trois choses suffisent pour garder le cap : suivre son chiffre d'affaires, anticiper ses échéances et repérer tôt les signaux d'alerte.</p>
+
+  <div class="block" id="regles">
+    <h3>Les règles d'une entreprise rentable</h3>
+    <p class="qprog">Une entreprise n'est pas rentable parce qu'elle est occupée. Elle l'est quand il entre plus d'argent qu'il n'en sort, mois après mois, avec assez de reste pour vous payer, payer vos cotisations et vos impôts, et grandir. Voici les dix règles que les professeurs de finance et les chefs d'entreprise expérimentés répètent à tout débutant. Ouvrez chaque règle : elle s'appuie sur les chiffres de votre simulateur.</p>
+    <div id="reglesList"></div>
+  </div>
 
   <div class="block">
     <h3>Mon chiffre d'affaires mois par mois</h3>
@@ -911,6 +918,36 @@ nav.steps .sm{display:none}
   const simIds=['act','ca','chg','besoin','epargne','acre','vl','tauxDom'];
   simIds.forEach(id=>{ const v=S.sim[id]; if(v===undefined) return; const el=$(id); if(el.type==='checkbox') el.checked=v; else if(v!=='') el.value=v; });
   let lastPointMort=0; var finMonthly=0; var simLast={};
+  function renderRules(){
+    const box=$('reglesList'); if(!box) return;
+    const L=simLast||{}, ca=L.ca||0, besoin=L.besoin||0;
+    const perso=[];
+    perso[0]=ca>0?`Il vous reste environ ${eur(L.reste)} par mois pour ${eur(besoin)} de besoins : ${L.reste>=besoin?'couverts.':'pas encore couverts.'}`:'';
+    perso[1]=ca>0?`Sur 100 € de chiffre d'affaires, environ ${Math.round(L.chg/ca*100)} € partent en achats et frais, environ ${Math.round(L.cot/ca*100)} € en cotisations et impôt, et environ ${Math.max(0,Math.round(L.reste/ca*100))} € vous reviennent.`:'';
+    perso[2]=(ca>0&&lastPointMort>0)?`Votre point mort est d'environ ${eur(lastPointMort)} par mois. Votre simulation prévoit ${eur(ca)}.`:'';
+    perso[5]=(besoin>0&&L.ep>=0)?`Votre épargne représente environ ${(L.ep/besoin).toLocaleString('fr-FR',{maximumFractionDigits:1})} mois de besoins.`:'';
+    perso[6]=L.cot>0?`Mettez de côté environ ${eur(L.cot)} par mois pour les cotisations et l'impôt prélevé sur le chiffre d'affaires.`:'';
+    const RULES=[
+     ['Le bénéfice, c\'est ce qui reste, pas ce qui rentre','Les ventes, moins ce que vous dépensez pour livrer ce que vous vendez, moins les charges fixes, moins les cotisations et les impôts, égalent ce qui vous reste. Beaucoup de débutants fêtent leurs ventes et découvrent le bénéfice des mois plus tard.','Écrivez ces quatre lignes chaque mois et regardez d\'abord la dernière.'],
+     ['Ne vendez jamais sous votre prix plancher','Votre prix plancher, c\'est le coût d\'un produit ou d\'une prestation, plus sa part de charges fixes, plus les cotisations et impôts qui s\'y rattachent, plus une marge pour grandir. Copier les concurrents sans connaître votre propre plancher, c\'est perdre de l\'argent alors que les clients sont contents.','Calculez le plancher de votre produit principal avant d\'annoncer un prix (outil « Fixer mon prix », onglet Calculs).'],
+     ['Connaissez votre point mort et surveillez-le','Le point mort, ce sont les ventes mensuelles à partir desquelles vous ne perdez plus d\'argent et vos besoins sont couverts. En dessous, vous entamez vos économies. Au-dessus, chaque vente en plus construit du bénéfice.','À la fin de chaque mois, comparez votre chiffre d\'affaires réel à votre point mort (outil « Calculer mon seuil de rentabilité »).'],
+     ['Payez-vous une somme fixe, pas ce qu\'il y a dans la caisse','Une rémunération mensuelle fixe oblige l\'activité à la gagner. Se servir au hasard cache les pertes et vide la trésorerie dont vous avez besoin pour les fournisseurs, les cotisations et les impôts.','Choisissez un montant mensuel que vous pouvez vraiment vous payer et virez-le sur votre compte personnel le même jour chaque mois.'],
+     ['La trésorerie n\'est pas le bénéfice','Vous pouvez être rentable sur le papier et manquer d\'argent, parce que les clients paient tard alors que vous payez tout de suite fournisseurs, loyer et charges.','Demandez un acompte, facturez le jour même et appelez dès le premier jour de retard d\'une facture (outil « Mesurer mon besoin en fonds de roulement »).'],
+     ['Gardez un matelas de trois à six mois','Les premiers mois sont rarement tranquilles. Une réserve vous permet de décider calmement, au lieu d\'accepter n\'importe quel client à n\'importe quel prix.','Ne comptez pas sur l\'activité tant que votre épargne ne couvre pas le démarrage et au moins trois mois de dépenses de vie. Ou démarrez à temps partiel.'],
+     ['Mettez cotisations et impôts de côté chaque mois','Les cotisations et les impôts sont un coût, pas une surprise. L\'argent sur votre compte n\'est pas entièrement à vous.','Virez le montant sur un compte séparé chaque mois et notez les échéances dans votre agenda (voir « Mes échéances »).'],
+     ['Séparez l\'argent de l\'activité et le vôtre, et gardez tous les justificatifs','Un compte séparé et des écritures simples vous montrent les vrais chiffres, vous protègent face à l\'administration et à la banque, et facilitent l\'obtention d\'un prêt.','Ouvrez un compte dédié à l\'activité et gardez un dossier par mois pour les factures et les reçus.'],
+     ['Réinvestissez dans le bon ordre','N\'investissez que sur du bénéfice qui existe. D\'abord le matelas de sécurité. Ensuite ce qui augmente vos ventes ou baisse le coût de chaque vente : de meilleurs outils, un bon site web, une formation, un stock qui se vend vite. N\'embauchez que lorsque vous refusez du travail et que la nouvelle personne rapportera plus qu\'elle ne coûte.','Avant chaque achat, demandez-vous : combien cela rapportera-t-il, et en combien de temps ? Si vous ne pouvez pas répondre, attendez.'],
+     ['Mesurez chaque mois, corrigez une seule chose à la fois','Une entreprise s\'améliore quand vous suivez quelques chiffres et changez une chose à la fois : un prix, un coût ou le nombre de clients.','Chaque mois, saisissez votre chiffre d\'affaires et votre tableau de bord ci-dessous, puis refaites le simulateur avec vos chiffres réels.']
+    ];
+    const MISTAKES=['Vendre sous le coût pour attirer des clients.','Mélanger l\'argent personnel et celui de l\'activité.','Remettre les cotisations et les impôts à plus tard.','Grandir avant que les bases fonctionnent.','Faire crédit aux clients sans limite.','Ne tenir aucun registre.','Attendre d\'être parfait avant de vendre à un premier vrai client.'];
+    const MONTH=['Mettez à jour vos ventes et vos coûts.','Comparez vos ventes à votre point mort.','Virez les cotisations, les impôts et votre rémunération sur leurs comptes.','Listez les factures impayées et appelez les clients.','Choisissez une chose à améliorer le mois prochain.'];
+    const esc2=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const intro=ca>0?'':'<div class="note info" style="margin-top:0">Renseignez le simulateur de l\'onglet « Tester mon projet » pour voir ces règles avec vos propres chiffres.</div>';
+    box.innerHTML=intro+RULES.map((r,i)=>`<details class="rule"><summary>${i+1}. ${esc2(r[0])}</summary><p>${esc2(r[1])}</p><p class="todo"><b>Que faire :</b> ${esc2(r[2])}</p>${perso[i]?`<div class="note info" style="margin-top:10px"><b>Dans votre simulation :</b> ${esc2(perso[i])}</div>`:''}</details>`).join('')+
+      `<h4 style="margin:18px 0 4px">Sept erreurs qui font couler les petites entreprises</h4><ul class="rules-list">${MISTAKES.map(m=>`<li>${esc2(m)}</li>`).join('')}</ul>`+
+      `<h4 style="margin:18px 0 4px">Vos 30 minutes chaque mois</h4><ol class="rules-list">${MONTH.map(m=>`<li>${esc2(m)}</li>`).join('')}</ol>`+
+      `<p class="qprog" style="margin-top:16px">Ces règles guident vos décisions. Elles ne remplacent pas l'avis d'un expert-comptable ou d'un conseiller en création d'entreprise pour votre cas précis.</p>`;
+  }
   function sim(){
     simIds.forEach(id=>{ const el=$(id); S.sim[id]=el.type==='checkbox'?el.checked:el.value; }); save();
     const r=R[$('act').value], ca=Math.max(0,+$('ca').value||0), chg=Math.max(0,+$('chg').value||0),
@@ -921,7 +958,7 @@ nav.steps .sm{display:none}
     const useDom=dom&&tDom>=0&&$('tauxDom').value!=='';
     const tc=useDom?tDom:r.c*(acre?0.75:1), rate=(tc+r.cfp+(vl?r.vl:0))/100;
     const cot=ca*tc/100, cfp=ca*r.cfp/100, imp=vl?ca*r.vl/100:0;
-    const reste=ca-cot-cfp-imp-chg-finMonthly, ecart=reste-besoin; simLast={reste,ecart};
+    const reste=ca-cot-cfp-imp-chg-finMonthly, ecart=reste-besoin; simLast={reste,ecart,cot:cot+cfp+imp,ca,chg,besoin,ep};
     lastPointMort=rate<1?(besoin+chg+finMonthly)/(1-rate):0;
     $('simTable').innerHTML=`
       <tr><td>Chiffre d'affaires</td><td>${eur(ca)}</td></tr>
@@ -946,6 +983,7 @@ nav.steps .sm{display:none}
     $('simNotes').innerHTML=notes;
     $('objHint').textContent=lastPointMort?'Suggestion issue du simulateur : '+eur(lastPointMort):'';
     if(!S.objectif) $('objectif').placeholder=Math.round(lastPointMort);
+    if(typeof renderRules==='function') renderRules();
   }
   simIds.forEach(id=>$(id).addEventListener('input',sim));
   sim();
