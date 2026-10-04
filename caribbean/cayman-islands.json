@@ -1,170 +1,171 @@
 {
-  "country": "KY",
-  "name": "Cayman Islands",
-  "language": "en",
-  "currency": {
-    "code": "KYD",
-    "symbol": "CI$"
+ "country": "KY",
+ "name": "Cayman Islands",
+ "language": "en",
+ "currency": {
+  "code": "KYD",
+  "symbol": "CI$"
+ },
+ "examples": {
+  "sales": 9000,
+  "direct": 3500,
+  "fixed": 1500,
+  "needs": 3500,
+  "pay": 3000,
+  "startup": 12000,
+  "savings": 20000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Department of Commerce and Investment (DCI)"
   },
-  "examples": {
-    "sales": 9000,
-    "direct": 3500,
-    "fixed": 1500,
-    "needs": 3500,
-    "pay": 3000,
-    "startup": 12000,
-    "savings": 20000
+  "registry": {
+   "name": "Cayman Islands General Registry"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Department of Commerce and Investment (DCI)"
-    },
-    "registry": {
-      "name": "Cayman Islands General Registry"
-    },
-    "support": [
-      {
-        "name": "Department of Labour and Pensions (DLP)"
-      },
-      {
-        "name": "Department of Commerce and Investment (DCI)"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Sole trader (registered business)",
-      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
-      "registeredAt": "Cayman Islands General Registry",
-      "needs": [
-        "valid ID",
-        "business address"
-      ],
-      "feeLines": [],
-      "feeNote": "The Department of Commerce and Investment quotes the trade and business licence fee for your activity. Micro businesses (up to four employees and CI$250,000 in yearly revenue) pay reduced fees.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "Cayman Islands General Registry",
-      "needs": [
-        "name reservation",
-        "articles of incorporation",
-        "registered office"
-      ],
-      "feeLines": [],
-      "feeNote": "A company costs more to set up than a sole trader business. The General Registry quotes the current fees.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Choose your business name and check that it is free",
-      "plain": "Search the name at the General Registry first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Incorporate the company at the General Registry",
-      "plain": "Only needed for a limited company. A sole trader does not incorporate.",
-      "appliesTo": [
-        "limited_company"
-      ]
-    },
-    {
-      "id": "licence",
-      "label": "Apply for your trade and business licence",
-      "plain": "Every business needs one before it starts trading. You apply through the Department of Commerce and Investment, and renew it every year. Micro and small businesses get reduced fees.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Set up pension and health insurance for your employees",
-      "plain": "With employees you pay 5% pension contributions (matched by the employee) and at least half of each employee's health insurance premium. Non-Caymanian staff also need a work permit.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    }
-  ],
-  "incomeTax": null,
-  "corporateTax": null,
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "pension",
-      "rate": 0.05,
-      "ceilingAnnual": 87000
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "pension",
-        "label": "Pension (employer 5%)",
-        "rate": 0.05,
-        "ceilingAnnual": 87000
-      }
-    ],
-    "verified": true
-  },
-  "vat": null,
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Every month",
-    "monthlyText": "With employees: pay pension contributions to your registered pension plan by the 15th of the following month.",
-    "annualLabel": "Every year",
-    "annualTextPersonal": "Renew your trade and business licence.",
-    "payrollDay": 15,
-    "payrollText": "Every month: pay the pension contributions of the previous month, and keep each employee's health insurance premium paid."
-  },
-  "notes": [
-    "The Cayman Islands has no income tax, no corporate tax and no sales tax. Your main costs are the trade and business licence, import duty on goods you bring in and, with employees, pension and health insurance.",
-    "With employees you pay at least half of each premium for their health insurance: ask an insurer for a quote, because it is not included in your estimate."
-  ],
-  "toVerify": [
-    "Trade and business licence fee for your activity",
-    "Health insurance premium for your employees"
-  ],
-  "sources": [
-    {
-      "label": "Cayman Islands Department of Labour and Pensions: contribution rate and earnings cap",
-      "url": "https://otp.gov.ky/web/dlp/pensions-investigation-unit"
-    },
-    {
-      "label": "Cayman Compass: pension contributions and business licences",
-      "url": "https://www.caymancompass.com/2026/04/20/pension-offenders-could-face-business-license-crackdown/"
-    }
+  "support": [
+   {
+    "name": "Department of Labour and Pensions (DLP)"
+   },
+   {
+    "name": "Department of Commerce and Investment (DCI)"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Sole trader (registered business)",
+   "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+   "registeredAt": "Cayman Islands General Registry",
+   "needs": [
+    "valid ID",
+    "business address"
+   ],
+   "feeLines": [],
+   "feeNote": "The Department of Commerce and Investment quotes the trade and business licence fee for your activity. Micro businesses (up to four employees and CI$250,000 in yearly revenue) pay reduced fees.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "Cayman Islands General Registry",
+   "needs": [
+    "name reservation",
+    "articles of incorporation",
+    "registered office"
+   ],
+   "feeLines": [],
+   "feeNote": "A company costs more to set up than a sole trader business. The General Registry quotes the current fees.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Choose your business name and check that it is free",
+   "plain": "Search the name at the General Registry first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Incorporate the company at the General Registry",
+   "plain": "Only needed for a limited company. A sole trader does not incorporate.",
+   "appliesTo": [
+    "limited_company"
+   ]
+  },
+  {
+   "id": "licence",
+   "label": "Apply for your trade and business licence",
+   "plain": "Every business needs one before it starts trading. You apply through the Department of Commerce and Investment, and renew it every year. Micro and small businesses get reduced fees.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Set up pension and health insurance for your employees",
+   "plain": "With employees you pay 5% pension contributions (matched by the employee) and at least half of each employee's health insurance premium. Non-Caymanian staff also need a work permit.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  }
+ ],
+ "incomeTax": null,
+ "corporateTax": null,
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "pension",
+   "rate": 0.05,
+   "ceilingAnnual": 87000
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "pension",
+    "label": "Pension (employer 5%)",
+    "rate": 0.05,
+    "ceilingAnnual": 87000
+   }
+  ],
+  "verified": true
+ },
+ "vat": null,
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Every month",
+  "monthlyText": "With employees: pay pension contributions to your registered pension plan by the 15th of the following month.",
+  "annualLabel": "Every year",
+  "annualTextPersonal": "Renew your trade and business licence.",
+  "payrollDay": 15,
+  "payrollText": "Every month: pay the pension contributions of the previous month, and keep each employee's health insurance premium paid."
+ },
+ "notes": [
+  "The Cayman Islands has no income tax, no corporate tax and no sales tax. Your main costs are the trade and business licence, import duty on goods you bring in and, with employees, pension and health insurance.",
+  "With employees you pay at least half of each premium for their health insurance: ask an insurer for a quote, because it is not included in your estimate.",
+  "Under the Small Business Incentive Programme (2025 regulations), a Caymanian-owned micro business with revenue of CI$250,000 or less in the previous year pays no trade and business licence fee, and a small business with revenue up to CI$750,000 gets a 50% to 75% reduction depending on the district. The CI$75 application fee still applies."
+ ],
+ "toVerify": [
+  "Trade and business licence fee for your activity (the fee depends on the activity and the district; the Incentive Programme reduces it for eligible micro and small businesses)",
+  "Health insurance premium for your employees"
+ ],
+ "sources": [
+  {
+   "label": "Cayman Islands Department of Labour and Pensions: contribution rate and earnings cap",
+   "url": "https://otp.gov.ky/web/dlp/pensions-investigation-unit"
+  },
+  {
+   "label": "Cayman Compass: pension contributions and business licences",
+   "url": "https://www.caymancompass.com/2026/04/20/pension-offenders-could-face-business-license-crackdown/"
+  }
+ ]
 }

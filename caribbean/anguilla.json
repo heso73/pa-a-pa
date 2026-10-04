@@ -1,223 +1,227 @@
 {
-  "country": "AI",
-  "name": "Anguilla",
-  "language": "en",
-  "currency": {
-    "code": "XCD",
-    "symbol": "EC$"
+ "country": "AI",
+ "name": "Anguilla",
+ "language": "en",
+ "currency": {
+  "code": "XCD",
+  "symbol": "EC$"
+ },
+ "examples": {
+  "sales": 12000,
+  "direct": 4500,
+  "fixed": 2000,
+  "needs": 3500,
+  "pay": 2500,
+  "startup": 8000,
+  "savings": 15000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Inland Revenue Department (IRD)",
+   "url": "https://ird.gov.ai"
   },
-  "examples": {
-    "sales": 12000,
-    "direct": 4500,
-    "fixed": 2000,
-    "needs": 3500,
-    "pay": 2500,
-    "startup": 8000,
-    "savings": 15000
+  "registry": {
+   "name": "Anguilla Commercial Registry (ACORIS)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Inland Revenue Department (IRD)",
-      "url": "https://ird.gov.ai"
-    },
-    "registry": {
-      "name": "Anguilla Commercial Registry (ACORIS)"
-    },
-    "support": [
-      {
-        "name": "Social Security Board"
-      },
-      {
-        "name": "Ministry of Economic Development"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Sole trader (registered business)",
-      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
-      "registeredAt": "Anguilla Commercial Registry (ACORIS)",
-      "needs": [
-        "valid ID",
-        "business address"
-      ],
-      "feeLines": [],
-      "feeNote": "You apply for a business licence (Form A) to the Ministry of Economic Development, then register and pay at the Inland Revenue Department. The fee depends on your activity.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "Anguilla Commercial Registry (ACORIS)",
-      "needs": [
-        "name reservation",
-        "articles of incorporation",
-        "registered office"
-      ],
-      "feeLines": [],
-      "feeNote": "A company costs more to set up than a sole trader business. The Commercial Registry quotes the current fees.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Choose your business name and check that it is free",
-      "plain": "Search the name first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Incorporate the company at the Commercial Registry",
-      "plain": "Only needed for a limited company.",
-      "appliesTo": [
-        "limited_company"
-      ]
-    },
-    {
-      "id": "licence",
-      "label": "Apply for your business licence",
-      "plain": "Fill in Form A for the Ministry of Economic Development. When it is approved, register and pay at the Inland Revenue Department. The fee depends on the activity.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://ird.gov.ai/Home/Faqs"
-    },
-    {
-      "id": "ss",
-      "label": "Register with the Social Security Board",
-      "plain": "Self-employed people must register and contribute. The Interim Stabilisation Levy is filed with the Inland Revenue Department.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Register as an employer and prepare payroll payments",
-      "plain": "With employees you pay Social Security and the Interim Stabilisation Levy every month.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    },
-    {
-      "id": "vat",
-      "label": "Register for GST",
-      "plain": "Required when your taxable sales reach EC$300,000 in twelve months, or when you expect them to. Apply within 15 days.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "vat",
-      "url": "https://ird.gov.ai"
-    }
-  ],
-  "incomeTax": null,
-  "corporateTax": null,
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "ss",
-        "label": "Social Security",
-        "rate": 0.08,
-        "ceilingAnnual": 84000,
-        "plain": "Social Security gives access to a pension and other benefits. Self-employed people pay 8% of their income, up to EC$7,000 a month.",
-        "verified": true
-      },
-      {
-        "id": "isl",
-        "label": "Interim Stabilisation Levy",
-        "rate": 0.06,
-        "exemptAnnual": 24000,
-        "plain": "A levy on earnings: self-employed people pay 6% on the part of their earnings above EC$2,000 a month.",
-        "verified": true
-      }
-    ],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "ss",
-      "rate": 0.0575,
-      "ceilingAnnual": 84000
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "ss",
-        "label": "Social Security",
-        "rate": 0.0575,
-        "ceilingAnnual": 84000
-      },
-      {
-        "id": "isl",
-        "label": "Interim Stabilisation Levy",
-        "rate": 0.03,
-        "exemptAnnual": 24000,
-        "ceilingAnnual": 144000
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Goods and Services Tax",
-    "short": "GST",
-    "rate": 0.13,
-    "threshold": 300000,
-    "registerNote": "Register within 15 days of reaching the threshold, or if you expect to reach it within twelve months. Short-term accommodation, auctioneers and public entertainment providers register from their first day.",
-    "filingNote": "GST returns are filed every month, by the 20th of the following month.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Every month",
-    "monthlyText": "If registered for GST: file your return by the 20th of the following month. With employees: pay Social Security and the Interim Stabilisation Levy.",
-    "annualLabel": "Every year",
-    "annualTextPersonal": "Renew your business licence with the Inland Revenue Department.",
-    "payrollDay": 15,
-    "payrollText": "Every month: pay Social Security and the Interim Stabilisation Levy for the previous month.",
-    "vatText": "If you are registered for GST: file your return every month, by the 20th of the following month."
-  },
-  "notes": [
-    "Anguilla has no income tax and no corporate tax. Your main costs are Social Security, the Interim Stabilisation Levy and, above EC$300,000 in sales, the 13% GST."
-  ],
-  "toVerify": [
-    "Business licence fee for your activity"
-  ],
-  "sources": [
-    {
-      "label": "Deloitte: Anguilla Highlights 2026",
-      "url": "https://www.deloitte.com/content/dam/assets-shared/docs/services/tax/2026/dttl-tax-anguillahighlights-2026.pdf"
-    },
-    {
-      "label": "Anguilla Inland Revenue Department: FAQs",
-      "url": "https://ird.gov.ai/Home/Faqs"
-    }
+  "support": [
+   {
+    "name": "Social Security Board"
+   },
+   {
+    "name": "Ministry of Economic Development"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Sole trader (registered business)",
+   "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+   "registeredAt": "Anguilla Commercial Registry (ACORIS)",
+   "needs": [
+    "valid ID",
+    "business address"
+   ],
+   "feeLines": [],
+   "feeNote": "You apply for a business licence (Form A) to the Ministry of Economic Development, then register and pay at the Inland Revenue Department. The fee depends on your activity.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "Anguilla Commercial Registry (ACORIS)",
+   "needs": [
+    "name reservation",
+    "articles of incorporation",
+    "registered office"
+   ],
+   "feeLines": [],
+   "feeNote": "A company costs more to set up than a sole trader business. The Commercial Registry quotes the current fees.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Choose your business name and check that it is free",
+   "plain": "Search the name first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Incorporate the company at the Commercial Registry",
+   "plain": "Only needed for a limited company.",
+   "appliesTo": [
+    "limited_company"
+   ]
+  },
+  {
+   "id": "licence",
+   "label": "Apply for your business licence",
+   "plain": "Fill in Form A for the Ministry of Economic Development. When it is approved, register and pay at the Inland Revenue Department. The fee depends on the activity.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://ird.gov.ai/Home/Faqs"
+  },
+  {
+   "id": "ss",
+   "label": "Register with the Social Security Board",
+   "plain": "Self-employed people must register and contribute. The Interim Stabilisation Levy is filed with the Inland Revenue Department.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Register as an employer and prepare payroll payments",
+   "plain": "With employees you pay Social Security and the Interim Stabilisation Levy every month.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  },
+  {
+   "id": "vat",
+   "label": "Register for GST",
+   "plain": "Required when your taxable sales reach EC$300,000 in twelve months, or when you expect them to. Apply within 15 days.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "vat",
+   "url": "https://ird.gov.ai"
+  }
+ ],
+ "incomeTax": null,
+ "corporateTax": null,
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "ss",
+    "label": "Social Security",
+    "rate": 0.08,
+    "ceilingAnnual": 84000,
+    "plain": "Social Security gives access to a pension and other benefits. Self-employed people pay 8% of their income, up to EC$7,000 a month.",
+    "verified": true
+   },
+   {
+    "id": "isl",
+    "label": "Interim Stabilisation Levy",
+    "rate": 0.06,
+    "exemptAnnual": 24000,
+    "plain": "A levy on earnings: self-employed people pay 6% on the part of their earnings above EC$2,000 a month.",
+    "verified": true
+   }
+  ],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "ss",
+   "rate": 0.0575,
+   "ceilingAnnual": 84000
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "ss",
+    "label": "Social Security",
+    "rate": 0.0575,
+    "ceilingAnnual": 84000
+   },
+   {
+    "id": "isl",
+    "label": "Interim Stabilisation Levy",
+    "rate": 0.03,
+    "exemptAnnual": 24000,
+    "ceilingAnnual": 144000
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Goods and Services Tax",
+  "short": "GST",
+  "rate": 0.13,
+  "threshold": 300000,
+  "registerNote": "Register within 15 days of reaching the threshold, or if you expect to reach it within twelve months. Short-term accommodation, auctioneers and public entertainment providers register from their first day.",
+  "filingNote": "GST returns are filed every month, by the 20th of the following month.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Every month",
+  "monthlyText": "If registered for GST: file your return by the 20th of the following month. With employees: pay Social Security and the Interim Stabilisation Levy.",
+  "annualLabel": "Every year",
+  "annualTextPersonal": "Renew your business licence with the Inland Revenue Department.",
+  "payrollDay": 15,
+  "payrollText": "Every month: pay Social Security and the Interim Stabilisation Levy for the previous month.",
+  "vatText": "If you are registered for GST: file your return every month, by the 20th of the following month."
+ },
+ "notes": [
+  "Anguilla has no income tax and no corporate tax. Your main costs are Social Security, the Interim Stabilisation Levy and, above EC$300,000 in sales, the 13% GST."
+ ],
+ "toVerify": [
+  "Business licence fee for your activity"
+ ],
+ "sources": [
+  {
+   "label": "Deloitte: Anguilla Highlights 2026",
+   "url": "https://www.deloitte.com/content/dam/assets-shared/docs/services/tax/2026/dttl-tax-anguillahighlights-2026.pdf"
+  },
+  {
+   "label": "Anguilla Inland Revenue Department: FAQs",
+   "url": "https://ird.gov.ai/Home/Faqs"
+  },
+  {
+   "label": "IRD Anguilla: Interim Stabilisation Levy brochure",
+   "url": "https://ird.gov.ai/Content/documents/ISL%20Tax%20Brochure%20202010020112.pdf"
+  }
+ ]
 }

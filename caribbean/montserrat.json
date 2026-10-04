@@ -1,248 +1,242 @@
 {
-  "country": "MS",
-  "name": "Montserrat",
-  "language": "en",
-  "currency": {
-    "code": "XCD",
-    "symbol": "EC$"
+ "country": "MS",
+ "name": "Montserrat",
+ "language": "en",
+ "currency": {
+  "code": "XCD",
+  "symbol": "EC$"
+ },
+ "examples": {
+  "sales": 12000,
+  "direct": 4500,
+  "fixed": 2000,
+  "needs": 3500,
+  "pay": 2500,
+  "startup": 8000,
+  "savings": 15000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Montserrat Customs and Revenue Service (Inland Revenue)"
   },
-  "examples": {
-    "sales": 12000,
-    "direct": 4500,
-    "fixed": 2000,
-    "needs": 3500,
-    "pay": 2500,
-    "startup": 8000,
-    "savings": 15000
+  "registry": {
+   "name": "Financial Services Commission (business names registry)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Montserrat Customs and Revenue Service (Inland Revenue)"
-    },
-    "registry": {
-      "name": "Financial Services Commission (business names registry)"
-    },
-    "support": [
-      {
-        "name": "Social Security Fund"
-      },
-      {
-        "name": "Ministry of Finance"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Sole trader (registered business)",
-      "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
-      "registeredAt": "Financial Services Commission (business names registry)",
-      "needs": [
-        "valid ID",
-        "business address"
-      ],
-      "feeLines": [],
-      "feeNote": "The Financial Services Commission registers the business name and quotes the current fee. Businesses registered under the Micro and Small Business Act can get up to five years of income-tax exemption.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "Financial Services Commission (business names registry)",
-      "needs": [
-        "name reservation",
-        "articles of incorporation",
-        "registered office"
-      ],
-      "feeLines": [],
-      "feeNote": "A company costs more to set up than a sole trader business. The Financial Services Commission quotes the current fees.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Choose your business name and check that it is free",
-      "plain": "Search the name at the Financial Services Commission first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Register the business name, or incorporate the company, with the Financial Services Commission",
-      "plain": "A sole trader registers the business name. A company is incorporated.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "tax",
-      "label": "Register with the Inland Revenue and get your tax code",
-      "plain": "Self-employed people pay provisional income tax in three equal instalments.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "ss",
-      "label": "Register with the Social Security Fund",
-      "plain": "Self-employed people choose a weekly income band and pay a percentage of it.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "msb",
-      "label": "Ask about the Micro and Small Business incentives",
-      "plain": "A qualifying micro or small business can get up to five years of income-tax exemption and stamp-duty relief.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Register as an employer and prepare monthly payments",
-      "plain": "With employees you deduct income tax (PAYE) and Social Security and pay them by the 14th of the following month.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    },
-    {
-      "id": "vat",
-      "label": "Register for VAT",
-      "plain": "Required when your taxable sales pass EC$300,000 a year.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "vat"
-    }
-  ],
-  "incomeTax": {
-    "label": "Income tax",
-    "allowance": 18000,
-    "allowanceNote": "tax-free amount per year",
-    "brackets": [
-      {
-        "upToChargeable": 7000,
-        "rate": 0.05
-      },
-      {
-        "upToChargeable": 17000,
-        "rate": 0.2
-      },
-      {
-        "upToChargeable": 27000,
-        "rate": 0.25
-      },
-      {
-        "upToChargeable": 132000,
-        "rate": 0.3
-      },
-      {
-        "rate": 0.4
-      }
-    ],
-    "verified": true,
-    "bracketText": "5% from EC$18,000 to EC$25,000; 20% to EC$35,000; 25% to EC$45,000; 30% to EC$150,000; 40% above"
-  },
-  "corporateTax": {
-    "label": "Corporation tax",
-    "brackets": [
-      {
-        "rate": 0.3
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "ss",
-        "label": "Social Security",
-        "rate": 0.12,
-        "deductible": true,
-        "plain": "Social Security gives access to a pension and other benefits. Since January 2026 self-employed people pay 12% of their declared income. It lowers your taxable income.",
-        "verified": true
-      }
-    ],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "ss",
-      "rate": 0.05
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "ss",
-        "label": "Social Security",
-        "rate": 0.06
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Value Added Tax",
-    "short": "VAT",
-    "rate": 0.15,
-    "threshold": 300000,
-    "registerNote": "Register once your taxable sales pass this level in a year.",
-    "filingNote": "Your filing period is set when you register.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Every month",
-    "monthlyText": "Self-employed people pay provisional income tax in three equal instalments: the Inland Revenue gives you the dates when you register.",
-    "annualLabel": "Every year",
-    "annualTextPersonal": "File your annual income tax return.",
-    "payrollDay": 15,
-    "payrollText": "Every month: pay income tax (PAYE) and Social Security for the previous month, by the 14th.",
-    "vatText": "If you are registered for VAT: file your return for each period."
-  },
-  "notes": [
-    "A micro or small business registered under the Micro and Small Business Act can get up to five years of income-tax exemption and stamp-duty relief: ask when you register."
-  ],
-  "toVerify": [
-    "Business name registration fee"
-  ],
-  "sources": [
-    {
-      "label": "Montserrat Income and Corporation Tax (Amendment) Act 2024",
-      "url": "https://parliament.ms/wp-content/uploads/2026/05/Act-No.-20-of-2024-Income-and-Corporation-Tax-Amendment-Act-2024-For-Assent-23.07.2024-2.pdf"
-    },
-    {
-      "label": "Montserrat Self-Employed Persons (Amendment) Regulations 2022",
-      "url": "https://www.gov.ms/wp-content/uploads/2022/02/SRO-No.-6-of-2022-Self-Employed-Persons-Amendment-Regulations-.pdf"
-    }
+  "support": [
+   {
+    "name": "Social Security Fund"
+   },
+   {
+    "name": "Ministry of Finance"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Sole trader (registered business)",
+   "plain": "You run the business as an individual under your own name or a business name. You and the business are the same person for tax. Usually the simplest way to start.",
+   "registeredAt": "Financial Services Commission (business names registry)",
+   "needs": [
+    "valid ID",
+    "business address"
+   ],
+   "feeLines": [],
+   "feeNote": "The Financial Services Commission registers the business name and quotes the current fee. Businesses registered under the Micro and Small Business Act can get up to five years of income-tax exemption.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "Financial Services Commission (business names registry)",
+   "needs": [
+    "name reservation",
+    "articles of incorporation",
+    "registered office"
+   ],
+   "feeLines": [],
+   "feeNote": "A company costs more to set up than a sole trader business. The Financial Services Commission quotes the current fees.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Choose your business name and check that it is free",
+   "plain": "Search the name at the Financial Services Commission first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Register the business name, or incorporate the company, with the Financial Services Commission",
+   "plain": "A sole trader registers the business name. A company is incorporated.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "tax",
+   "label": "Register with the Inland Revenue and get your tax code",
+   "plain": "Self-employed people pay provisional income tax in three equal instalments.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "ss",
+   "label": "Register with the Social Security Fund",
+   "plain": "Self-employed people choose a weekly income band and pay a percentage of it.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "msb",
+   "label": "Ask about the Micro and Small Business incentives",
+   "plain": "A qualifying micro or small business can get up to five years of income-tax exemption and stamp-duty relief.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Register as an employer and prepare monthly payments",
+   "plain": "With employees you deduct income tax (PAYE) and Social Security and pay them by the 14th of the following month.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  },
+  {
+   "id": "vat",
+   "label": "Register for VAT",
+   "plain": "Required when your taxable sales pass EC$300,000 a year.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "vat"
+  }
+ ],
+ "incomeTax": {
+  "label": "Income tax",
+  "allowance": 18000,
+  "allowanceNote": "tax-free amount per year",
+  "brackets": [
+   {
+    "upToChargeable": 7000,
+    "rate": 0.05
+   },
+   {
+    "upToChargeable": 17000,
+    "rate": 0.2
+   },
+   {
+    "upToChargeable": 27000,
+    "rate": 0.25
+   },
+   {
+    "upToChargeable": 132000,
+    "rate": 0.3
+   },
+   {
+    "rate": 0.4
+   }
+  ],
+  "verified": true,
+  "bracketText": "5% from EC$18,000 to EC$25,000; 20% to EC$35,000; 25% to EC$45,000; 30% to EC$150,000; 40% above"
+ },
+ "corporateTax": {
+  "label": "Corporation tax",
+  "brackets": [
+   {
+    "rate": 0.3
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "ss",
+    "label": "Social Security",
+    "rate": 0.12,
+    "deductible": true,
+    "plain": "Social Security gives access to a pension and other benefits. Since January 2026 self-employed people pay 12% of their declared income. It lowers your taxable income.",
+    "verified": true
+   }
+  ],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "ss",
+   "rate": 0.05
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "ss",
+    "label": "Social Security",
+    "rate": 0.06
+   }
+  ],
+  "verified": true
+ },
+ "vat": null,
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Every month",
+  "monthlyText": "Self-employed people pay provisional income tax in three equal instalments: the Inland Revenue gives you the dates when you register.",
+  "annualLabel": "Every year",
+  "annualTextPersonal": "File your annual income tax return.",
+  "payrollDay": 15,
+  "payrollText": "Every month: pay income tax (PAYE) and Social Security for the previous month, by the 14th.",
+  "vatText": "If you are registered for VAT: file your return for each period."
+ },
+ "notes": [
+  "A micro or small business registered under the Micro and Small Business Act can get up to five years of income-tax exemption and stamp-duty relief: ask when you register.",
+  "Montserrat does not charge VAT or any similar sales tax, according to the government's investment agency. Import duty applies to goods you bring in, generally 5% to 30% depending on the goods."
+ ],
+ "toVerify": [
+  "Income tax table (the revenue service FAQ shows a EC$15,000 allowance with 5%, 15%, 25%, 30% and 40% bands, while the app uses a newer table)",
+  "Business name registration fee"
+ ],
+ "sources": [
+  {
+   "label": "Montserrat Income and Corporation Tax (Amendment) Act 2024",
+   "url": "https://parliament.ms/wp-content/uploads/2026/05/Act-No.-20-of-2024-Income-and-Corporation-Tax-Amendment-Act-2024-For-Assent-23.07.2024-2.pdf"
+  },
+  {
+   "label": "Montserrat Self-Employed Persons (Amendment) Regulations 2022",
+   "url": "https://www.gov.ms/wp-content/uploads/2022/02/SRO-No.-6-of-2022-Self-Employed-Persons-Amendment-Regulations-.pdf"
+  }
+ ]
 }
