@@ -128,16 +128,6 @@
     "limited_company"
    ],
    "when": "employees"
-  },
-  {
-   "id": "vat",
-   "label": "Register for VAT",
-   "plain": "Required when your taxable sales pass EC$300,000 a year.",
-   "appliesTo": [
-    "business_name",
-    "limited_company"
-   ],
-   "when": "vat"
   }
  ],
  "incomeTax": {
