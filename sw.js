@@ -1,6 +1,6 @@
 // Pa a Pa : fonctionnement hors connexion.
 // Pour publier une mise à jour, changez simplement le numéro de version ci-dessous.
-const VERSION = 'pa-a-pa-v28';
+const VERSION = 'pa-a-pa-v29';
 const APP = ['./', './index.html', './app/', './app/index.html', './confidentialite.html', './prix-de-revient-prix-de-vente.html', './seuil-de-rentabilite.html', './calcul-bfr.html', './manifest.webmanifest', './stats.js',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png'];
 
