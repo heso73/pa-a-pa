@@ -1,13 +1,62 @@
 [
- {"date":"2026-10-03","title":"Share tools and partner kit","text":"Share buttons, social images, QR codes, printable flyers and a four-language partner kit for organisations."},
- {"date":"2026-10-03","title":"US Virgin Islands","text":"The US Virgin Islands were added. The French West Indies link to the French version of Pa a Pa."},
- {"date":"2026-10-03","title":"Sint Maarten, Bonaire, Sint Eustatius and Saba","text":"Four Dutch-language territories were added in English and Dutch. Sint Maarten uses the 2025 income tax table until the 2026 table is confirmed."},
- {"date":"2026-10-03","title":"Dutch interface","text":"A Dutch interface was added for Aruba, Curaçao and Suriname."},
- {"date":"2026-10-03","title":"French interface and Haiti","text":"A French interface was added with Haiti."},
- {"date":"2026-10-03","title":"Aruba, Curaçao, Suriname and Haiti","text":"Four countries were added in English."},
- {"date":"2026-10-03","title":"British territories","text":"The Cayman Islands, British Virgin Islands, Turks and Caicos, Anguilla and Montserrat were added."},
- {"date":"2026-10-03","title":"Eastern Caribbean social security rates","text":"Social security rates for Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda and Saint Kitts and Nevis were updated from official sources."},
- {"date":"2026-10-03","title":"Guides for search engines and AI assistants","text":"Each country has a static guide page, with a sitemap and an llms.txt file."},
- {"date":"2026-10-03","title":"Spanish interface","text":"A Spanish interface was added for the Dominican Republic, Puerto Rico and Cuba."},
- {"date":"2026-10-02","title":"English version","text":"The English version launched with Jamaica, then Trinidad and Tobago, Guyana, Barbados, The Bahamas and Belize."}
+ {
+  "date": "2026-10-04",
+  "title": "Trinidad and Tobago and Barbados checked",
+  "text": "Trinidad and Tobago: the TT$90,000 personal allowance and the 16.2% National Insurance rate for 2026 were confirmed; the rate is reported to rise to 19.2% in January 2027. Barbados: the VAT threshold rise to BDS$350,000 from 1 October 2026 is reported by two sources, not yet confirmed by the tax authority."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "Share tools and partner kit",
+  "text": "Share buttons, social images, QR codes, printable flyers and a four-language partner kit for organisations."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "US Virgin Islands",
+  "text": "The US Virgin Islands were added. The French West Indies link to the French version of Pa a Pa."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "Sint Maarten, Bonaire, Sint Eustatius and Saba",
+  "text": "Four Dutch-language territories were added in English and Dutch. Sint Maarten uses the 2025 income tax table until the 2026 table is confirmed."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "Dutch interface",
+  "text": "A Dutch interface was added for Aruba, Curaçao and Suriname."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "French interface and Haiti",
+  "text": "A French interface was added with Haiti."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "Aruba, Curaçao, Suriname and Haiti",
+  "text": "Four countries were added in English."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "British territories",
+  "text": "The Cayman Islands, British Virgin Islands, Turks and Caicos, Anguilla and Montserrat were added."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "Eastern Caribbean social security rates",
+  "text": "Social security rates for Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda and Saint Kitts and Nevis were updated from official sources."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "Guides for search engines and AI assistants",
+  "text": "Each country has a static guide page, with a sitemap and an llms.txt file."
+ },
+ {
+  "date": "2026-10-03",
+  "title": "Spanish interface",
+  "text": "A Spanish interface was added for the Dominican Republic, Puerto Rico and Cuba."
+ },
+ {
+  "date": "2026-10-02",
+  "title": "English version",
+  "text": "The English version launched with Jamaica, then Trinidad and Tobago, Guyana, Barbados, The Bahamas and Belize."
+ }
 ]

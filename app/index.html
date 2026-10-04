@@ -890,7 +890,7 @@ nav.steps .sm{display:none}
       : '<li class="good">Aucun pilier fragile. Prochaine étape : affiner vos chiffres avec le simulateur, puis passer à l\'onglet « Me lancer ».</li>');
     if(ACT_SIM[S.tri.nat]){ sb.style.display=''; $('simSetBtn').textContent='Régler le simulateur sur mon activité'; }
     box.classList.add('on');
-    if(silent!==true){ if(window.track) track('bilan-termine'); box.scrollIntoView({behavior:"smooth",block:"start"}); }
+    if(silent!==true){ if(window.track){ track('bilan-demarre'); track('bilan-termine'); } box.scrollIntoView({behavior:"smooth",block:"start"}); }
   }
   $("showResult").addEventListener("click",()=>showResult());
   $('resetQuiz').addEventListener('click',()=>{ S.quiz={}; S.tri={}; save(); applyProfile(); renderTri(); renderQ(); $('result').classList.remove('on'); updProg(); form.closest('.block').scrollIntoView({behavior:'smooth',block:'start'}); });
