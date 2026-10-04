@@ -94,7 +94,7 @@
   },
   {
    "id": "tax",
-   "label": "Meld je aan bij de Belastingdienst (CRIB-nummer)",
+   "label": "Meld je aan bij de Belastingdienst (je krijgt een CRIB-nummer, je belastingregistratienummer)",
    "plain": "Je krijgt je CRIB-nummer en je rekening voor omzetbelasting (OB). Je doet aangifte, ook voordat je omzet hebt.",
    "appliesTo": [
     "business_name",
@@ -104,7 +104,7 @@
   {
    "id": "svb",
    "label": "Meld je aan bij de Sociale Verzekeringsbank (SVB)",
-   "plain": "Zelfstandigen betalen ouderdomsverzekering (AOV) en de algemene verzekering voor bijzondere ziektekosten (AVBZ).",
+   "plain": "Zelfstandigen betalen ouderdomsverzekering (AOV, met dekking voor weduwen en wezen) en de algemene verzekering voor bijzondere ziektekosten (AVBZ).",
    "appliesTo": [
     "business_name",
     "limited_company"
@@ -181,7 +181,7 @@
   "contributions": [
    {
     "id": "aov",
-    "label": "Ouderdomsverzekering (AOV/AWW)",
+    "label": "Ouderdoms- en weduwen- en wezenverzekering (AOV/AWW)",
     "rate": 0.15,
     "ceilingAnnual": 132824,
     "plain": "Een pensioenverzekering. Zelfstandigen betalen die over hun eigen inkomen, tot Cg 132.824 per jaar.",

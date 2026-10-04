@@ -46,11 +46,11 @@
    "plain": "Operas el negocio a tu nombre o con un nombre comercial. Tú y el negocio son la misma persona para los impuestos. Suele ser la forma más sencilla de empezar.",
    "registeredAt": "Hacienda (SURI)",
    "needs": [
-    "número de seguro social o EIN",
+    "número de seguro social o EIN (número patronal federal)",
     "dirección del negocio"
    ],
    "feeLines": [],
-   "feeNote": "El Registro de Comerciante se hace en SURI, el sistema en línea de Hacienda. Ahí te dan el certificado para cobrar el IVU.",
+   "feeNote": "El Registro de Comerciante se hace en SURI, el sistema en línea de Hacienda. Ahí te dan el certificado para cobrar el IVU (el impuesto sobre ventas).",
    "verified": true
   },
   {
@@ -91,7 +91,7 @@
   {
    "id": "ein",
    "label": "Obtén tu EIN (número de identificación patronal)",
-   "plain": "Lo pides al IRS en línea y sin costo. Lo necesitas para abrir cuentas, contratar y declarar.",
+   "plain": "Lo pides al IRS (el servicio federal de impuestos) en línea y sin costo. Lo necesitas para abrir cuentas, contratar y declarar.",
    "appliesTo": [
     "business_name",
     "limited_company"

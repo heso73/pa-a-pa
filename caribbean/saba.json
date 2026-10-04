@@ -179,7 +179,7 @@
   "items": [
    {
     "id": "zv",
-    "label": "Sickness, accident and severance premiums (ZV, OV, Cessantia)",
+    "label": "Sickness (ZV), accident (OV) and severance (Cessantia) premiums",
     "rate": 0.01
    },
    {

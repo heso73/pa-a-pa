@@ -51,7 +51,7 @@
     "dirección del negocio"
    ],
    "feeLines": [],
-   "feeNote": "El RNC se solicita en la DGII. La Cámara de Comercio y ONAPI te dan las tarifas vigentes del registro mercantil y del nombre comercial.",
+   "feeNote": "El RNC (tu número de contribuyente) se solicita en la DGII. La Cámara de Comercio y ONAPI (la oficina de propiedad industrial) te dan las tarifas vigentes del registro mercantil y del nombre comercial.",
    "verified": false
   },
   {
@@ -114,7 +114,7 @@
   {
    "id": "rst",
    "label": "Evalúa el Régimen Simplificado de Tributación (RST)",
-   "plain": "Si tus ingresos no pasan de RD$12,068,181 al año, puedes acogerte a un régimen simplificado de ISR e ITBIS. Pregunta a la DGII si te conviene.",
+   "plain": "Si tus ingresos no pasan de RD$12,068,181 al año, puedes acogerte a un régimen simplificado de ISR (impuesto sobre la renta) e ITBIS (impuesto sobre ventas). Pregunta a la DGII si te conviene.",
    "appliesTo": [
     "business_name",
     "limited_company"

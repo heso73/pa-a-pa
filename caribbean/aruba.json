@@ -61,7 +61,7 @@
     "registered office"
    ],
    "feeLines": [],
-   "feeNote": "A company (NV or VBA) costs more to set up than a sole proprietorship. The Chamber of Commerce quotes the current fees.",
+   "feeNote": "A company (an NV or a VBA, the two company forms) costs more to set up than a sole proprietorship. The Chamber of Commerce quotes the current fees.",
    "verified": true
   }
  ],
@@ -106,7 +106,7 @@
   {
    "id": "svb",
    "label": "Register with the Social Insurance Bank (SVb)",
-   "plain": "Self-employed people pay old age and widow/orphan insurance (AOV/AWW) on their own income.",
+   "plain": "Self-employed people pay old age and widow/orphan insurance (AOV and AWW, the two pension insurances) on their own income.",
    "appliesTo": [
     "business_name",
     "limited_company"
@@ -168,7 +168,7 @@
  "salesLevies": [
   {
    "id": "bbo",
-   "label": "Turnover tax (BBO, BAZV and BAVP)",
+   "label": "Turnover tax (BBO, plus BAZV and BAVP, two earmarked levies collected with it)",
    "rate": 0.07,
    "exemptFirst": 50000,
    "verified": true
@@ -227,7 +227,7 @@
  "notes": [
   "Aruba has no VAT. Businesses pay a turnover tax (BBO, BAZV and BAVP together: 7%) on their sales. The first Afl. 50,000 of yearly sales is exempt for small entrepreneurs.",
   "Your yearly income tax is calculated after the Afl. 30,000 tax-free amount.",
-  "The government is studying a switch from the turnover tax to a VAT (talks with the IMF in March 2026). Nothing is decided: your estimate uses the current 7% turnover tax."
+  "The government is studying a switch from the turnover tax to a VAT (talks with the International Monetary Fund (IMF) in March 2026). Nothing is decided: your estimate uses the current 7% turnover tax."
  ],
  "toVerify": [
   "Business licence fee for your activity",

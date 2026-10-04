@@ -48,7 +48,7 @@
     "inschrijving bevolkingsregister",
     "geldig paspoort of identiteitsbewijs",
     "bedrijfsadres",
-    "CRIB-verklaring"
+    "CRIB-verklaring (je belastingregistratienummer)"
    ],
    "feeLines": [],
    "feeNote": "Bedrijfsvergunning NAf 312,50 voor een eenmanszaak, na NAf 150 behandelingskosten bij indiening. Inschrijving bij de Kamer van Koophandel Fls 315,00 (US$ 175).",
@@ -132,7 +132,7 @@
   {
    "id": "employer",
    "label": "Meld je aan als werkgever bij SZV en de Belastingdienst",
-   "plain": "Met medewerkers houd je loonbelasting in en betaal je elke maand de premies AOV, AWW, ZV en OV.",
+   "plain": "Met medewerkers houd je loonbelasting in en betaal je elke maand de premies voor ouderdom (AOV), weduwen en wezen (AWW), ziekte (ZV) en ongevallen (OV).",
    "appliesTo": [
     "business_name",
     "limited_company"

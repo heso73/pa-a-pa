@@ -89,7 +89,7 @@
   },
   {
    "id": "bir",
-   "label": "Register with the Inland Revenue Division (BIR file number)",
+   "label": "Register with the Inland Revenue Division (you get a BIR file number, your tax file)",
    "plain": "This is how you file income tax. Self-employed people also pay their tax in advance, each quarter.",
    "appliesTo": [
     "business_name",
@@ -125,7 +125,7 @@
   {
    "id": "employer",
    "label": "Register as an employer and prepare monthly payments",
-   "plain": "With employees you pay deductions (income tax, NIS, Health Surcharge) each month. The IRD and NIBTT give you the deadlines when you register.",
+   "plain": "With employees you pay deductions (income tax, National Insurance (NIS), Health Surcharge) each month. The IRD and NIBTT give you the deadlines when you register.",
    "appliesTo": [
     "business_name",
     "limited_company"

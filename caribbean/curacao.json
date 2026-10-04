@@ -94,7 +94,7 @@
   },
   {
    "id": "tax",
-   "label": "Register with the Tax Authority (CRIB number)",
+   "label": "Register with the Tax Authority (you get a CRIB number, your tax registration number)",
    "plain": "You get your CRIB number and your turnover tax (OB) account. You file returns even before you have sales.",
    "appliesTo": [
     "business_name",
@@ -104,7 +104,7 @@
   {
    "id": "svb",
    "label": "Register with the Social Insurance Bank (SVB)",
-   "plain": "Self-employed people pay old age insurance (AOV) and the general insurance for exceptional medical costs (AVBZ).",
+   "plain": "Self-employed people pay old age insurance (AOV, with widows and orphans cover) and the general insurance for exceptional medical costs (AVBZ).",
    "appliesTo": [
     "business_name",
     "limited_company"
@@ -181,7 +181,7 @@
   "contributions": [
    {
     "id": "aov",
-    "label": "Old age insurance (AOV/AWW)",
+    "label": "Old age and widows and orphans insurance (AOV/AWW)",
     "rate": 0.15,
     "ceilingAnnual": 132824,
     "plain": "A pension insurance. Self-employed people pay it on their own income, up to Cg 132,824 a year.",

@@ -106,7 +106,7 @@
   {
    "id": "svb",
    "label": "Meld je aan bij de Sociale Verzekeringsbank (SVb)",
-   "plain": "Zelfstandigen betalen ouderdoms- en weduwen-/wezenverzekering (AOV/AWW) over hun eigen inkomen.",
+   "plain": "Zelfstandigen betalen ouderdoms- en weduwen-/wezenverzekering (AOV en AWW, de twee pensioenverzekeringen) over hun eigen inkomen.",
    "appliesTo": [
     "business_name",
     "limited_company"
@@ -168,7 +168,7 @@
  "salesLevies": [
   {
    "id": "bbo",
-   "label": "Omzetbelasting (BBO, BAZV en BAVP)",
+   "label": "Omzetbelasting (BBO, plus BAZV en BAVP, twee bestemmingsheffingen die ermee worden geïnd)",
    "rate": 0.07,
    "exemptFirst": 50000,
    "verified": true

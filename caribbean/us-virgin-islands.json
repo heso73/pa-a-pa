@@ -90,7 +90,7 @@
   {
    "id": "tin",
    "label": "Get your tax identification number",
-   "plain": "You need an EIN or taxpayer number for the Bureau of Internal Revenue.",
+   "plain": "You need an EIN (a federal employer number) or a taxpayer number for the Bureau of Internal Revenue.",
    "appliesTo": [
     "business_name",
     "limited_company"
@@ -261,7 +261,7 @@
  },
  "notes": [
   "The US Virgin Islands has no sales tax. Businesses pay a 5% gross receipts tax on everything they sell once their receipts reach US$225,000 a year, with no deduction for what they buy.",
-  "Income tax follows the US federal tax code and rates but is paid to the Virgin Islands Bureau of Internal Revenue, not the IRS. Self-employment tax is on top. Businesses approved by the Economic Development Commission can get large tax reductions: ask the Commission.",
+  "Income tax follows the US federal tax code and rates but is paid to the Virgin Islands Bureau of Internal Revenue, not the IRS (the US federal tax agency). Self-employment tax is on top. Businesses approved by the Economic Development Commission can get large tax reductions: ask the Commission.",
   "A corporation pays the federal rate of 21% plus a 10% territorial surtax (23.1% in total). The owner's own pay is not in the estimate."
  ],
  "toVerify": [

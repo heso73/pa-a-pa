@@ -48,7 +48,7 @@
     "census registration",
     "valid passport or ID",
     "business address",
-    "CRIB number declaration"
+    "CRIB number declaration (your tax registration number)"
    ],
    "feeLines": [],
    "feeNote": "Business licence NAf 312.50 for a sole proprietorship, after an NAf 150 processing fee on submission. Chamber of Commerce registration Fls 315.00 (US$175).",
@@ -132,7 +132,7 @@
   {
    "id": "employer",
    "label": "Register as an employer with SZV and the Tax Administration",
-   "plain": "With employees you withhold wage tax and pay the AOV, AWW, ZV and OV premiums every month.",
+   "plain": "With employees you withhold wage tax and pay the old-age (AOV), widows and orphans (AWW), sickness (ZV) and accident (OV) premiums every month.",
    "appliesTo": [
     "business_name",
     "limited_company"
