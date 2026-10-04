@@ -353,6 +353,7 @@
 
   function route() {
     if (!D) return;
+    window.PAP_COUNTRY = D.country;
     const parts = (location.hash || '#/').replace(/^#\/?/, '').split('/');
     const name = parts[0] || '', arg = parts[1];
     const views = { '': home, test, report: reportView, vision: visionView, next: nextView, coach };
