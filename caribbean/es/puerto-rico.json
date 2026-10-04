@@ -1,312 +1,312 @@
 {
-  "country": "PR",
-  "name": "Puerto Rico",
-  "language": "es",
-  "currency": {
-    "code": "USD",
-    "symbol": "US$"
+ "country": "PR",
+ "name": "Puerto Rico",
+ "language": "es",
+ "currency": {
+  "code": "USD",
+  "symbol": "US$"
+ },
+ "examples": {
+  "sales": 8000,
+  "direct": 3000,
+  "fixed": 1500,
+  "needs": 2500,
+  "pay": 2000,
+  "startup": 8000,
+  "savings": 15000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Departamento de Hacienda",
+   "url": "https://hacienda.pr.gov"
   },
-  "examples": {
-    "sales": 8000,
-    "direct": 3000,
-    "fixed": 1500,
-    "needs": 2500,
-    "pay": 2000,
-    "startup": 8000,
-    "savings": 15000
+  "registry": {
+   "name": "Departamento de Estado (Registro de Corporaciones y Entidades)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Departamento de Hacienda",
-      "url": "https://hacienda.pr.gov"
-    },
-    "registry": {
-      "name": "Departamento de Estado (Registro de Corporaciones y Entidades)"
-    },
-    "support": [
-      {
-        "name": "Departamento de Desarrollo Económico y Comercio (DDEC)"
-      },
-      {
-        "name": "Centro de Desarrollo de Pequeños Negocios (SBDC)"
-      },
-      {
-        "name": "Sistema Unificado de Rentas Internas (SURI)",
-        "url": "https://suri.hacienda.pr.gov"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Negocio propio (persona natural)",
-      "plain": "Operas el negocio a tu nombre o con un nombre comercial. Tú y el negocio son la misma persona para los impuestos. Suele ser la forma más sencilla de empezar.",
-      "registeredAt": "Hacienda (SURI)",
-      "needs": [
-        "número de seguro social o EIN",
-        "dirección del negocio"
-      ],
-      "feeLines": [],
-      "feeNote": "El Registro de Comerciante se hace en SURI, el sistema en línea de Hacienda. Ahí te dan el certificado para cobrar el IVU.",
-      "verified": true
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Corporación o LLC",
-      "plain": "La empresa es una persona jurídica distinta de ti. Cuesta más crearla y tiene más papeleo, pero puede limitar tu riesgo personal.",
-      "registeredAt": "Departamento de Estado y Hacienda",
-      "needs": [
-        "nombre disponible",
-        "certificado de incorporación",
-        "agente residente",
-        "EIN"
-      ],
-      "feeLines": [],
-      "feeNote": "Crear una corporación o LLC cuesta más que operar a tu nombre. El Departamento de Estado te da las tarifas vigentes. La entidad paga un informe anual de unos US$150.",
-      "verified": true
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Elige el nombre del negocio y verifica que esté libre",
-      "plain": "Si operas con un nombre distinto al tuyo, regístralo. Una corporación o LLC necesita un nombre disponible en el Departamento de Estado.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Registra la entidad en el Departamento de Estado",
-      "plain": "Solo hace falta para una corporación o LLC. Un negocio a tu nombre no se incorpora.",
-      "appliesTo": [
-        "limited_company"
-      ]
-    },
-    {
-      "id": "ein",
-      "label": "Obtén tu EIN (número de identificación patronal)",
-      "plain": "Lo pides al IRS en línea y sin costo. Lo necesitas para abrir cuentas, contratar y declarar.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "suri",
-      "label": "Regístrate en SURI y obtén el Registro de Comerciante",
-      "plain": "SURI es el sistema de Hacienda. El Registro de Comerciante te permite cobrar el IVU y te da el certificado que debes exhibir en el negocio.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://suri.hacienda.pr.gov"
-    },
-    {
-      "id": "patente",
-      "label": "Solicita la patente municipal en tu municipio",
-      "plain": "Es una contribución municipal sobre las ventas, de hasta 0.5 % para servicios no financieros. Cada municipio fija su tasa.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "bank",
-      "label": "Abre una cuenta bancaria aparte para el negocio",
-      "plain": "Separar el dinero del negocio del dinero del hogar aclara tus cifras y facilita pagar tus impuestos.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Prepara tu nómina: retenciones, Seguro Social, Medicare y seguros del Departamento del Trabajo",
-      "plain": "Con empleados retienes contribuciones, pagas el Seguro Social y Medicare del empleador, y el seguro por desempleo y por incapacidad no ocupacional (SINOT).",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees"
-    },
-    {
-      "id": "vat",
-      "label": "Cobra y declara el IVU",
-      "plain": "En Puerto Rico no hay un mínimo de ventas: cobras IVU (11.5 %) en tus ventas gravadas y lo declaras cada mes en SURI.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "vat",
-      "url": "https://suri.hacienda.pr.gov"
-    }
-  ],
-  "incomeTax": {
-    "label": "Contribución sobre ingresos",
-    "allowance": 9000,
-    "allowanceNote": "los primeros US$9,000 de ingreso neto no se gravan",
-    "brackets": [
-      {
-        "upToChargeable": 16000,
-        "rate": 0.07
-      },
-      {
-        "upToChargeable": 32500,
-        "rate": 0.14
-      },
-      {
-        "upToChargeable": 52500,
-        "rate": 0.25
-      },
-      {
-        "rate": 0.33
-      }
-    ],
-    "verified": true,
-    "bracketText": "7 % de US$9,001 a US$25,000; 14 % hasta US$41,500; 25 % hasta US$61,500; 33 % por encima"
-  },
-  "corporateTax": {
-    "label": "Contribución sobre ingresos de corporaciones",
-    "brackets": [
-      {
-        "upToChargeable": 25000,
-        "rate": 0.185
-      },
-      {
-        "upToChargeable": 100000,
-        "rate": 0.235
-      },
-      {
-        "upToChargeable": 150000,
-        "rate": 0.335
-      },
-      {
-        "upToChargeable": 200000,
-        "rate": 0.345
-      },
-      {
-        "upToChargeable": 250000,
-        "rate": 0.355
-      },
-      {
-        "upToChargeable": 300000,
-        "rate": 0.365
-      },
-      {
-        "rate": 0.375
-      }
-    ],
-    "verified": true,
-    "note": "Es la contribución normal de 18.5 % más una sobretasa progresiva de 5 % a 19 %."
-  },
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "seca",
-        "label": "Seguro Social y Medicare (trabajo por cuenta propia)",
-        "rate": 0.1413,
-        "ceilingAnnual": 184500,
-        "deductibleShare": 0.5,
-        "plain": "Quien trabaja por cuenta propia paga el Seguro Social y Medicare federales: 15.3 % sobre el 92.35 % de la ganancia (se calcula aquí como 14.13 %), hasta el tope de ingresos del año. La mitad se deduce de tu contribución sobre ingresos.",
-        "verified": true
-      }
-    ],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "ss",
-      "rate": 0.062,
-      "ceilingAnnual": 184500
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "ss",
-        "label": "Seguro Social (empleador)",
-        "rate": 0.062,
-        "ceilingAnnual": 184500
-      },
-      {
-        "id": "med",
-        "label": "Medicare (empleador)",
-        "rate": 0.0145
-      },
-      {
-        "id": "sui",
-        "label": "Seguro por desempleo y SINOT",
-        "rate": 0.035,
-        "ceilingAnnual": 9000
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Impuesto sobre Ventas y Uso",
-    "short": "IVU",
-    "rate": 0.115,
-    "threshold": 0,
-    "registerNote": "No existe un mínimo de ventas: aplica desde la primera venta gravada. Son 10.5 % del Estado y 1 % del municipio.",
-    "filingNote": "La declaración es mensual, a más tardar el día 20 del mes siguiente, en SURI.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [
-      {
-        "m": 4,
-        "d": 15
-      },
-      {
-        "m": 6,
-        "d": 15
-      },
-      {
-        "m": 9,
-        "d": 15
-      },
-      {
-        "m": 12,
-        "d": 15
-      }
-    ],
-    "quarterlyList": "15 de abril, 15 de junio, 15 de septiembre y 15 de diciembre",
-    "quarterlyTextPersonal": "Paga tu contribución estimada sobre ingresos y el Seguro Social de trabajo por cuenta propia.",
-    "quarterlyTextCorporate": "Paga la contribución estimada de la corporación.",
-    "monthlyLabel": "Cada mes",
-    "monthlyText": "Declara y paga el IVU del mes anterior en SURI, a más tardar el día 20.",
-    "annualLabel": "Hasta el 15 de abril",
-    "annualTextPersonal": "Radica tu planilla de contribución sobre ingresos del año anterior en SURI.",
-    "annualTextCorporate": "Radica la planilla de la corporación del año anterior en SURI.",
-    "payrollLabel": "Cada trimestre",
-    "payrollText": "Con empleados: deposita las retenciones y las aportaciones de Seguro Social y Medicare, y paga los seguros por desempleo y SINOT. Hacienda y el Departamento del Trabajo te dan las fechas al registrarte como patrono.",
-    "vatText": "Declara el IVU cada mes en SURI, a más tardar el día 20 del mes siguiente."
-  },
-  "notes": [
-    "Hacienda está revisando la tabla de la contribución sobre ingresos de individuos (se habla de bajar tasas para ingresos medios). Esta estimación usa la tabla vigente de 7 %, 14 %, 25 % y 33 %: si baja, pagarás menos.",
-    "Puerto Rico tiene su propio sistema de contribuciones sobre ingresos, pero quien trabaja por cuenta propia paga también el Seguro Social federal.",
-    "La patente municipal (hasta 0.5 % de las ventas, según el municipio) no está incluida en tu estimación."
-  ],
-  "toVerify": [
-    "Tabla vigente de la contribución sobre ingresos del año contributivo (Hacienda publica los cambios)",
-    "Tasa de la patente municipal de tu municipio",
-    "Tasas del seguro por desempleo y SINOT según tu patronal"
-  ],
-  "sources": [
-    {
-      "label": "PwC Tax Summaries: Puerto Rico, impuestos corporativos",
-      "url": "https://taxsummaries.pwc.com/Puerto-Rico/Corporate/Taxes-on-corporate-income"
-    },
-    {
-      "label": "Hacienda: propuestas de alivio contributivo",
-      "url": "https://hacienda.pr.gov/node/5196"
-    }
+  "support": [
+   {
+    "name": "Departamento de Desarrollo Económico y Comercio (DDEC)"
+   },
+   {
+    "name": "Centro de Desarrollo de Pequeños Negocios (SBDC)"
+   },
+   {
+    "name": "Sistema Unificado de Rentas Internas (SURI)",
+    "url": "https://suri.hacienda.pr.gov"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Negocio propio (persona natural)",
+   "plain": "Operas el negocio a tu nombre o con un nombre comercial. Tú y el negocio son la misma persona para los impuestos. Suele ser la forma más sencilla de empezar.",
+   "registeredAt": "Hacienda (SURI)",
+   "needs": [
+    "número de seguro social o EIN",
+    "dirección del negocio"
+   ],
+   "feeLines": [],
+   "feeNote": "El Registro de Comerciante se hace en SURI, el sistema en línea de Hacienda. Ahí te dan el certificado para cobrar el IVU.",
+   "verified": true
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Corporación o LLC",
+   "plain": "La empresa es una persona jurídica distinta de ti. Cuesta más crearla y tiene más papeleo, pero puede limitar tu riesgo personal.",
+   "registeredAt": "Departamento de Estado y Hacienda",
+   "needs": [
+    "nombre disponible",
+    "certificado de incorporación",
+    "agente residente",
+    "EIN"
+   ],
+   "feeLines": [],
+   "feeNote": "Crear una corporación o LLC cuesta más que operar a tu nombre. El Departamento de Estado te da las tarifas vigentes. La entidad paga un informe anual de unos US$150.",
+   "verified": true
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Elige el nombre del negocio y verifica que esté libre",
+   "plain": "Si operas con un nombre distinto al tuyo, regístralo. Una corporación o LLC necesita un nombre disponible en el Departamento de Estado.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Registra la entidad en el Departamento de Estado",
+   "plain": "Solo hace falta para una corporación o LLC. Un negocio a tu nombre no se incorpora.",
+   "appliesTo": [
+    "limited_company"
+   ]
+  },
+  {
+   "id": "ein",
+   "label": "Obtén tu EIN (número de identificación patronal)",
+   "plain": "Lo pides al IRS en línea y sin costo. Lo necesitas para abrir cuentas, contratar y declarar.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "suri",
+   "label": "Regístrate en SURI y obtén el Registro de Comerciante",
+   "plain": "SURI es el sistema de Hacienda. El Registro de Comerciante te permite cobrar el IVU y te da el certificado que debes exhibir en el negocio.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://suri.hacienda.pr.gov"
+  },
+  {
+   "id": "patente",
+   "label": "Solicita la patente municipal en tu municipio",
+   "plain": "Es una contribución municipal sobre las ventas, de hasta 0.5 % para servicios no financieros. Cada municipio fija su tasa.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "bank",
+   "label": "Abre una cuenta bancaria aparte para el negocio",
+   "plain": "Separar el dinero del negocio del dinero del hogar aclara tus cifras y facilita pagar tus impuestos.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Prepara tu nómina: retenciones, Seguro Social, Medicare y seguros del Departamento del Trabajo",
+   "plain": "Con empleados retienes contribuciones, pagas el Seguro Social y Medicare del empleador, y el seguro por desempleo y por incapacidad no ocupacional (SINOT).",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees"
+  },
+  {
+   "id": "vat",
+   "label": "Cobra y declara el IVU",
+   "plain": "En Puerto Rico no hay un mínimo de ventas: cobras IVU (11.5 %) en tus ventas gravadas y lo declaras cada mes en SURI.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "vat",
+   "url": "https://suri.hacienda.pr.gov"
+  }
+ ],
+ "incomeTax": {
+  "label": "Contribución sobre ingresos",
+  "allowance": 9000,
+  "allowanceNote": "los primeros US$9,000 de ingreso neto no se gravan",
+  "brackets": [
+   {
+    "upToChargeable": 16000,
+    "rate": 0.07
+   },
+   {
+    "upToChargeable": 32500,
+    "rate": 0.14
+   },
+   {
+    "upToChargeable": 52500,
+    "rate": 0.25
+   },
+   {
+    "rate": 0.33
+   }
+  ],
+  "verified": true,
+  "bracketText": "7 % de US$9,001 a US$25,000; 14 % hasta US$41,500; 25 % hasta US$61,500; 33 % por encima"
+ },
+ "corporateTax": {
+  "label": "Contribución sobre ingresos de corporaciones",
+  "brackets": [
+   {
+    "upToChargeable": 25000,
+    "rate": 0.185
+   },
+   {
+    "upToChargeable": 100000,
+    "rate": 0.235
+   },
+   {
+    "upToChargeable": 150000,
+    "rate": 0.335
+   },
+   {
+    "upToChargeable": 200000,
+    "rate": 0.345
+   },
+   {
+    "upToChargeable": 250000,
+    "rate": 0.355
+   },
+   {
+    "upToChargeable": 300000,
+    "rate": 0.365
+   },
+   {
+    "rate": 0.375
+   }
+  ],
+  "verified": true,
+  "note": "Es la contribución normal de 18.5 % más una sobretasa progresiva de 5 % a 19 %."
+ },
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "seca",
+    "label": "Seguro Social y Medicare (trabajo por cuenta propia)",
+    "rate": 0.1413,
+    "ceilingAnnual": 184500,
+    "deductibleShare": 0.5,
+    "plain": "Quien trabaja por cuenta propia paga el Seguro Social y Medicare federales: 15.3 % sobre el 92.35 % de la ganancia (se calcula aquí como 14.13 %), hasta el tope de ingresos del año. La mitad se deduce de tu contribución sobre ingresos.",
+    "verified": true
+   }
+  ],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "ss",
+   "rate": 0.062,
+   "ceilingAnnual": 184500
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "ss",
+    "label": "Seguro Social (empleador)",
+    "rate": 0.062,
+    "ceilingAnnual": 184500
+   },
+   {
+    "id": "med",
+    "label": "Medicare (empleador)",
+    "rate": 0.0145
+   },
+   {
+    "id": "sui",
+    "label": "Seguro por desempleo y SINOT",
+    "rate": 0.035,
+    "ceilingAnnual": 9000
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Impuesto sobre Ventas y Uso",
+  "short": "IVU",
+  "rate": 0.115,
+  "threshold": 0,
+  "registerNote": "No existe un mínimo de ventas: aplica desde la primera venta gravada. Son 10.5 % del Estado y 1 % del municipio.",
+  "filingNote": "La declaración es mensual, a más tardar el día 20 del mes siguiente, en SURI.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [
+   {
+    "m": 4,
+    "d": 15
+   },
+   {
+    "m": 6,
+    "d": 15
+   },
+   {
+    "m": 9,
+    "d": 15
+   },
+   {
+    "m": 12,
+    "d": 15
+   }
+  ],
+  "quarterlyList": "15 de abril, 15 de junio, 15 de septiembre y 15 de diciembre",
+  "quarterlyTextPersonal": "Paga tu contribución estimada sobre ingresos y el Seguro Social de trabajo por cuenta propia.",
+  "quarterlyTextCorporate": "Paga la contribución estimada de la corporación.",
+  "monthlyLabel": "Cada mes",
+  "monthlyText": "Declara y paga el IVU del mes anterior en SURI, a más tardar el día 20.",
+  "annualLabel": "Hasta el 15 de abril",
+  "annualTextPersonal": "Radica tu planilla de contribución sobre ingresos del año anterior en SURI.",
+  "annualTextCorporate": "Radica la planilla de la corporación del año anterior en SURI.",
+  "payrollLabel": "Cada trimestre",
+  "payrollText": "Con empleados: deposita las retenciones y las aportaciones de Seguro Social y Medicare, y paga los seguros por desempleo y SINOT. Hacienda y el Departamento del Trabajo te dan las fechas al registrarte como patrono.",
+  "vatText": "Declara el IVU cada mes en SURI, a más tardar el día 20 del mes siguiente."
+ },
+ "notes": [
+  "En enero de 2026 la gobernadora presentó el Proyecto del Senado 912, que propone 0 % hasta US$12,500, 6 %, 12 %, 24 %, 29 % y 33 % solo por encima de US$150,000. La Junta de Supervisión Fiscal objetó su costo y no encontré que sea ley. Esta estimación usa la tabla vigente de 7 %, 14 %, 25 % y 33 %: si la reforma se aprueba, pagarás menos.",
+  "Puerto Rico tiene su propio sistema de contribuciones sobre ingresos, pero quien trabaja por cuenta propia paga también el Seguro Social federal.",
+  "La patente municipal (hasta 0.5 % de las ventas, según el municipio) no está incluida en tu estimación."
+ ],
+ "toVerify": [
+  "Estado de la reforma contributiva de individuos (Proyecto del Senado 912): no aprobada en las fuentes encontradas",
+  "Tasa de la patente municipal de tu municipio",
+  "Tasas del seguro por desempleo y SINOT según tu patronal"
+ ],
+ "sources": [
+  {
+   "label": "PwC Tax Summaries: Puerto Rico, impuestos corporativos",
+   "url": "https://taxsummaries.pwc.com/Puerto-Rico/Corporate/Taxes-on-corporate-income"
+  },
+  {
+   "label": "Hacienda: propuestas de alivio contributivo",
+   "url": "https://hacienda.pr.gov/node/5196"
+  }
+ ]
 }

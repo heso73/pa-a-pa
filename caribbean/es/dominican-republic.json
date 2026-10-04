@@ -1,287 +1,287 @@
 {
-  "country": "DO",
-  "name": "República Dominicana",
-  "language": "es",
-  "currency": {
-    "code": "DOP",
-    "symbol": "RD$"
+ "country": "DO",
+ "name": "República Dominicana",
+ "language": "es",
+ "currency": {
+  "code": "DOP",
+  "symbol": "RD$"
+ },
+ "examples": {
+  "sales": 150000,
+  "direct": 60000,
+  "fixed": 20000,
+  "needs": 50000,
+  "pay": 25000,
+  "startup": 200000,
+  "savings": 300000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Dirección General de Impuestos Internos (DGII)",
+   "url": "https://dgii.gov.do"
   },
-  "examples": {
-    "sales": 150000,
-    "direct": 60000,
-    "fixed": 20000,
-    "needs": 50000,
-    "pay": 25000,
-    "startup": 200000,
-    "savings": 300000
+  "registry": {
+   "name": "Cámara de Comercio y Producción (Registro Mercantil)"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Dirección General de Impuestos Internos (DGII)",
-      "url": "https://dgii.gov.do"
-    },
-    "registry": {
-      "name": "Cámara de Comercio y Producción (Registro Mercantil)"
-    },
-    "support": [
-      {
-        "name": "Formalízate (Gobierno de la República Dominicana)",
-        "url": "https://formalizate.gob.do"
-      },
-      {
-        "name": "Tesorería de la Seguridad Social (TSS)",
-        "url": "https://www.tss.gob.do"
-      },
-      {
-        "name": "Ministerio de Industria, Comercio y Mipymes (MICM)"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Persona física (negocio a tu nombre)",
-      "plain": "Operas el negocio a tu nombre o con un nombre comercial. Tú y el negocio son la misma persona para los impuestos. Suele ser la forma más sencilla de empezar.",
-      "registeredAt": "DGII y Cámara de Comercio",
-      "needs": [
-        "cédula",
-        "dirección del negocio"
-      ],
-      "feeLines": [],
-      "feeNote": "El RNC se solicita en la DGII. La Cámara de Comercio y ONAPI te dan las tarifas vigentes del registro mercantil y del nombre comercial.",
-      "verified": false
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Sociedad de responsabilidad limitada (SRL)",
-      "plain": "La sociedad es una persona jurídica distinta de ti. Cuesta más crearla y tiene más papeleo, pero puede limitar tu riesgo personal.",
-      "registeredAt": "Cámara de Comercio y DGII",
-      "needs": [
-        "nombre aprobado",
-        "estatutos sociales",
-        "domicilio social",
-        "cédula de los socios"
-      ],
-      "feeLines": [],
-      "feeNote": "Crear una sociedad cuesta más que operar como persona física. La Cámara de Comercio te da las tarifas vigentes.",
-      "verified": false
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "name",
-      "label": "Elige el nombre del negocio y verifica que esté libre",
-      "plain": "Si operas con un nombre distinto al tuyo, regístralo como nombre comercial en ONAPI. Una sociedad necesita un nombre aprobado.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "register",
-      "label": "Haz el registro mercantil en la Cámara de Comercio",
-      "plain": "Es el registro formal de tu negocio o de tu sociedad. Una sociedad también se constituye ante la Cámara de Comercio.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://formalizate.gob.do"
-    },
-    {
-      "id": "rnc",
-      "label": "Solicita tu RNC en la DGII",
-      "plain": "El Registro Nacional de Contribuyentes te identifica ante el fisco. Lo necesitas para emitir comprobantes fiscales y declarar impuestos.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://dgii.gov.do"
-    },
-    {
-      "id": "ncf",
-      "label": "Solicita tus comprobantes fiscales (NCF)",
-      "plain": "Son las facturas autorizadas por la DGII. Tus clientes empresariales te las pedirán.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://dgii.gov.do"
-    },
-    {
-      "id": "rst",
-      "label": "Evalúa el Régimen Simplificado de Tributación (RST)",
-      "plain": "Si tus ingresos no pasan de RD$12,068,181 al año, puedes acogerte a un régimen simplificado de ISR e ITBIS. Pregunta a la DGII si te conviene.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://dgii.gov.do"
-    },
-    {
-      "id": "bank",
-      "label": "Abre una cuenta bancaria aparte para el negocio",
-      "plain": "Separar el dinero del negocio del dinero del hogar aclara tus cifras y facilita pagar tus impuestos.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Inscribe tu empresa como empleador en la TSS y prepara los pagos mensuales",
-      "plain": "Con empleados pagas cada mes la seguridad social (SFS, pensiones, riesgos laborales) y el INFOTEP, y retienes el ISR cuando corresponde.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees",
-      "url": "https://www.tss.gob.do"
-    },
-    {
-      "id": "vat",
-      "label": "Cobra y declara el ITBIS",
-      "plain": "En la República Dominicana no hay un mínimo de ventas: debes cobrar ITBIS en tus ventas de bienes y servicios gravados y declararlo cada mes.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "vat",
-      "url": "https://dgii.gov.do"
-    }
-  ],
-  "incomeTax": {
-    "label": "Impuesto sobre la renta (ISR)",
-    "allowance": 416220,
-    "allowanceNote": "renta anual exenta en 2026",
-    "brackets": [
-      {
-        "upToChargeable": 208109,
-        "rate": 0.15
-      },
-      {
-        "upToChargeable": 450903,
-        "rate": 0.2
-      },
-      {
-        "rate": 0.25
-      }
-    ],
-    "verified": true,
-    "bracketText": "15 % de RD$416,220 a RD$624,329; 20 % hasta RD$867,123; 25 % por encima"
-  },
-  "corporateTax": {
-    "label": "Impuesto sobre la renta de sociedades",
-    "brackets": [
-      {
-        "rate": 0.27
-      }
-    ],
-    "verified": true
-  },
-  "salesLevies": [],
-  "selfEmployed": {
-    "contributions": [],
-    "verified": false
-  },
-  "employee": [
-    {
-      "id": "sfs",
-      "rate": 0.0304,
-      "ceilingAnnual": 2786760
-    },
-    {
-      "id": "afp",
-      "rate": 0.0287,
-      "ceilingAnnual": 5573520
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "sfs",
-        "label": "Seguro de salud (SFS)",
-        "rate": 0.0709,
-        "ceilingAnnual": 2786760
-      },
-      {
-        "id": "afp",
-        "label": "Pensiones (AFP)",
-        "rate": 0.071,
-        "ceilingAnnual": 5573520
-      },
-      {
-        "id": "srl",
-        "label": "Riesgos laborales (SRL)",
-        "rate": 0.012,
-        "ceilingAnnual": 1114704,
-        "verified": false
-      },
-      {
-        "id": "fss",
-        "label": "Fondo de Solidaridad Social",
-        "rate": 0.004,
-        "ceilingAnnual": 2786760,
-        "verified": false
-      },
-      {
-        "id": "infotep",
-        "label": "INFOTEP (formación técnica)",
-        "rate": 0.01
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Impuesto sobre transferencias de bienes industrializados y servicios",
-    "short": "ITBIS",
-    "rate": 0.18,
-    "threshold": 0,
-    "registerNote": "No existe un mínimo de ventas: aplica desde la primera venta gravada.",
-    "filingNote": "La declaración es mensual, a más tardar el día 20 del mes siguiente.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Cada mes",
-    "monthlyText": "Declara y paga el ITBIS del mes anterior, a más tardar el día 20.",
-    "annualLabel": "Cada año",
-    "annualTextPersonal": "Presenta tu declaración jurada del ISR (formulario IR-1). La DGII publica la fecha límite cada año.",
-    "annualTextCorporate": "Presenta la declaración jurada de la sociedad (formulario IR-2). La DGII publica la fecha límite cada año.",
-    "payrollLabel": "Cada mes",
-    "payrollText": "Cada mes: paga la seguridad social y el INFOTEP del mes anterior a través del sistema de la TSS, y entrega el ISR retenido a la DGII.",
-    "vatText": "Declara el ITBIS cada mes, a más tardar el día 20 del mes siguiente."
-  },
-  "notes": [
-    "Desde 2027, la Ley 30-26 sube a RD$480,000 la renta anual exenta.",
-    "Esta estimación usa el régimen general. Si tus ingresos no pasan de RD$12,068,181 al año, el Régimen Simplificado (RST) puede reducir el papeleo.",
-    "La estimación no incluye cotizaciones de seguridad social del propietario: la TSS te dice si puedes afiliarte como trabajador independiente."
-  ],
-  "toVerify": [
-    "Cotización de seguridad social del propietario (trabajador independiente)",
-    "Tasa del seguro de riesgos laborales (entre 1.1 % y 1.3 % según la actividad)",
-    "Tarifas de registro mercantil, nombre comercial y constitución de sociedad",
-    "Fechas límite de declaración del ISR y del ITBIS",
-    "Cambios de la Ley 30-26 desde 2027"
-  ],
-  "sources": [
-    {
-      "label": "DGII: guía del ISR de personas físicas",
-      "url": "https://dgii.gov.do/publicacionesOficiales/bibliotecaVirtual/contribuyentes/isr/ISR%20Persona%20Fsica/1-Guia%209%20-%20ISR%20PF.pdf"
-    },
-    {
-      "label": "DGII: guía del Régimen Simplificado de Tributación",
-      "url": "https://dgii.gov.do/publicacionesOficiales/bibliotecaVirtual/contribuyentes/rst/Documents/Guia%20de%20Regimen%20Simplificado%20de%20Tributacion%20(RST).pdf"
-    },
-    {
-      "label": "Topes de cotización de la seguridad social 2026",
-      "url": "https://siemprealdia.co/republica-dominicana/derecho-laboral/topes-cotizables-para-seguridad-social/"
-    }
+  "support": [
+   {
+    "name": "Formalízate (Gobierno de la República Dominicana)",
+    "url": "https://formalizate.gob.do"
+   },
+   {
+    "name": "Tesorería de la Seguridad Social (TSS)",
+    "url": "https://www.tss.gob.do"
+   },
+   {
+    "name": "Ministerio de Industria, Comercio y Mipymes (MICM)"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Persona física (negocio a tu nombre)",
+   "plain": "Operas el negocio a tu nombre o con un nombre comercial. Tú y el negocio son la misma persona para los impuestos. Suele ser la forma más sencilla de empezar.",
+   "registeredAt": "DGII y Cámara de Comercio",
+   "needs": [
+    "cédula",
+    "dirección del negocio"
+   ],
+   "feeLines": [],
+   "feeNote": "El RNC se solicita en la DGII. La Cámara de Comercio y ONAPI te dan las tarifas vigentes del registro mercantil y del nombre comercial.",
+   "verified": false
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Sociedad de responsabilidad limitada (SRL)",
+   "plain": "La sociedad es una persona jurídica distinta de ti. Cuesta más crearla y tiene más papeleo, pero puede limitar tu riesgo personal.",
+   "registeredAt": "Cámara de Comercio y DGII",
+   "needs": [
+    "nombre aprobado",
+    "estatutos sociales",
+    "domicilio social",
+    "cédula de los socios"
+   ],
+   "feeLines": [],
+   "feeNote": "Crear una sociedad cuesta más que operar como persona física. La Cámara de Comercio te da las tarifas vigentes.",
+   "verified": false
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "name",
+   "label": "Elige el nombre del negocio y verifica que esté libre",
+   "plain": "Si operas con un nombre distinto al tuyo, regístralo como nombre comercial en ONAPI. Una sociedad necesita un nombre aprobado.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "register",
+   "label": "Haz el registro mercantil en la Cámara de Comercio",
+   "plain": "Es el registro formal de tu negocio o de tu sociedad. Una sociedad también se constituye ante la Cámara de Comercio.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://formalizate.gob.do"
+  },
+  {
+   "id": "rnc",
+   "label": "Solicita tu RNC en la DGII",
+   "plain": "El Registro Nacional de Contribuyentes te identifica ante el fisco. Lo necesitas para emitir comprobantes fiscales y declarar impuestos.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://dgii.gov.do"
+  },
+  {
+   "id": "ncf",
+   "label": "Solicita tus comprobantes fiscales (NCF)",
+   "plain": "Son las facturas autorizadas por la DGII. Tus clientes empresariales te las pedirán.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://dgii.gov.do"
+  },
+  {
+   "id": "rst",
+   "label": "Evalúa el Régimen Simplificado de Tributación (RST)",
+   "plain": "Si tus ingresos no pasan de RD$12,068,181 al año, puedes acogerte a un régimen simplificado de ISR e ITBIS. Pregunta a la DGII si te conviene.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://dgii.gov.do"
+  },
+  {
+   "id": "bank",
+   "label": "Abre una cuenta bancaria aparte para el negocio",
+   "plain": "Separar el dinero del negocio del dinero del hogar aclara tus cifras y facilita pagar tus impuestos.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Inscribe tu empresa como empleador en la TSS y prepara los pagos mensuales",
+   "plain": "Con empleados pagas cada mes la seguridad social (SFS, pensiones, riesgos laborales) y el INFOTEP, y retienes el ISR cuando corresponde.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees",
+   "url": "https://www.tss.gob.do"
+  },
+  {
+   "id": "vat",
+   "label": "Cobra y declara el ITBIS",
+   "plain": "En la República Dominicana no hay un mínimo de ventas: debes cobrar ITBIS en tus ventas de bienes y servicios gravados y declararlo cada mes.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "vat",
+   "url": "https://dgii.gov.do"
+  }
+ ],
+ "incomeTax": {
+  "label": "Impuesto sobre la renta (ISR)",
+  "allowance": 416220,
+  "allowanceNote": "renta anual exenta en 2026",
+  "brackets": [
+   {
+    "upToChargeable": 208109,
+    "rate": 0.15
+   },
+   {
+    "upToChargeable": 450903,
+    "rate": 0.2
+   },
+   {
+    "rate": 0.25
+   }
+  ],
+  "verified": true,
+  "bracketText": "15 % de RD$416,220 a RD$624,329; 20 % hasta RD$867,123; 25 % por encima"
+ },
+ "corporateTax": {
+  "label": "Impuesto sobre la renta de sociedades",
+  "brackets": [
+   {
+    "rate": 0.27
+   }
+  ],
+  "verified": true
+ },
+ "salesLevies": [],
+ "selfEmployed": {
+  "contributions": [],
+  "verified": false
+ },
+ "employee": [
+  {
+   "id": "sfs",
+   "rate": 0.0304,
+   "ceilingAnnual": 2786760
+  },
+  {
+   "id": "afp",
+   "rate": 0.0287,
+   "ceilingAnnual": 5573520
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "sfs",
+    "label": "Seguro de salud (SFS)",
+    "rate": 0.0709,
+    "ceilingAnnual": 2786760
+   },
+   {
+    "id": "afp",
+    "label": "Pensiones (AFP)",
+    "rate": 0.071,
+    "ceilingAnnual": 5573520
+   },
+   {
+    "id": "srl",
+    "label": "Riesgos laborales (SRL)",
+    "rate": 0.012,
+    "ceilingAnnual": 1114704,
+    "verified": false
+   },
+   {
+    "id": "fss",
+    "label": "Fondo de Solidaridad Social",
+    "rate": 0.004,
+    "ceilingAnnual": 2786760,
+    "verified": false
+   },
+   {
+    "id": "infotep",
+    "label": "INFOTEP (formación técnica)",
+    "rate": 0.01
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Impuesto sobre transferencias de bienes industrializados y servicios",
+  "short": "ITBIS",
+  "rate": 0.18,
+  "threshold": 0,
+  "registerNote": "No existe un mínimo de ventas: aplica desde la primera venta gravada.",
+  "filingNote": "La declaración es mensual, a más tardar el día 20 del mes siguiente.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Cada mes",
+  "monthlyText": "Declara y paga el ITBIS del mes anterior, a más tardar el día 20.",
+  "annualLabel": "Cada año",
+  "annualTextPersonal": "Presenta tu declaración jurada del ISR (formulario IR-1). La DGII publica la fecha límite cada año.",
+  "annualTextCorporate": "Presenta la declaración jurada de la sociedad (formulario IR-2). La DGII publica la fecha límite cada año.",
+  "payrollLabel": "Cada mes",
+  "payrollText": "Cada mes: paga la seguridad social y el INFOTEP del mes anterior a través del sistema de la TSS, y entrega el ISR retenido a la DGII.",
+  "vatText": "Declara el ITBIS cada mes, a más tardar el día 20 del mes siguiente."
+ },
+ "notes": [
+  "La escala de 2026 (exento hasta RD$416,220; 15 %, 20 % y 25 %) sigue vigente todo el año. Desde 2027, la Ley 30-26 sube la renta anual exenta a RD$480,000 y cambia los tramos: 15 % hasta RD$685,000, 20 % hasta RD$910,000, 25 % hasta RD$4.8 millones y 27 % por encima. Tu pago de impuesto bajará a partir de ese año.",
+  "Esta estimación usa el régimen general. Si tus ingresos no pasan de RD$12,068,181 al año, el Régimen Simplificado (RST) puede reducir el papeleo.",
+  "La estimación no incluye cotizaciones de seguridad social del propietario: la TSS te dice si puedes afiliarte como trabajador independiente."
+ ],
+ "toVerify": [
+  "Cotización de seguridad social del propietario (trabajador independiente)",
+  "Tasa del seguro de riesgos laborales (entre 1.1 % y 1.3 % según la actividad)",
+  "Tarifas de registro mercantil, nombre comercial y constitución de sociedad",
+  "Fecha límite de la declaración anual del ISR de personas físicas (31 de marzo en unas fuentes, 120 días tras el cierre en otras)",
+  "Reglamento del nuevo Régimen Simplificado de la Ley 30-26 (aún sin publicar en las fuentes encontradas)"
+ ],
+ "sources": [
+  {
+   "label": "DGII: guía del ISR de personas físicas",
+   "url": "https://dgii.gov.do/publicacionesOficiales/bibliotecaVirtual/contribuyentes/isr/ISR%20Persona%20Fsica/1-Guia%209%20-%20ISR%20PF.pdf"
+  },
+  {
+   "label": "DGII: guía del Régimen Simplificado de Tributación",
+   "url": "https://dgii.gov.do/publicacionesOficiales/bibliotecaVirtual/contribuyentes/rst/Documents/Guia%20de%20Regimen%20Simplificado%20de%20Tributacion%20(RST).pdf"
+  },
+  {
+   "label": "Topes de cotización de la seguridad social 2026",
+   "url": "https://siemprealdia.co/republica-dominicana/derecho-laboral/topes-cotizables-para-seguridad-social/"
+  }
+ ]
 }
