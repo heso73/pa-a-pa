@@ -1,231 +1,240 @@
 {
-  "country": "BS",
-  "name": "The Bahamas",
-  "language": "en",
-  "currency": {
-    "code": "BSD",
-    "symbol": "B$"
+ "country": "BS",
+ "name": "The Bahamas",
+ "language": "en",
+ "currency": {
+  "code": "BSD",
+  "symbol": "B$"
+ },
+ "examples": {
+  "sales": 6000,
+  "direct": 2000,
+  "fixed": 800,
+  "needs": 2500,
+  "pay": 1800,
+  "startup": 8000,
+  "savings": 15000
+ },
+ "dataVerifiedOn": "2026-10-04",
+ "status": "published",
+ "authorities": {
+  "tax": {
+   "name": "Department of Inland Revenue",
+   "url": "https://inlandrevenue.finance.gov.bs"
   },
-  "examples": {
-    "sales": 6000,
-    "direct": 2000,
-    "fixed": 800,
-    "needs": 2500,
-    "pay": 1800,
-    "startup": 8000,
-    "savings": 15000
+  "registry": {
+   "name": "Registrar General's Department"
   },
-  "dataVerifiedOn": "2026-10-03",
-  "status": "published",
-  "authorities": {
-    "tax": {
-      "name": "Department of Inland Revenue",
-      "url": "https://inlandrevenue.finance.gov.bs"
-    },
-    "registry": {
-      "name": "Registrar General's Department"
-    },
-    "support": [
-      {
-        "name": "National Insurance Board (NIB)",
-        "url": "https://www.nib-bahamas.com"
-      },
-      {
-        "name": "Bahamas Development Bank"
-      }
-    ]
-  },
-  "legalStatuses": [
-    {
-      "id": "business_name",
-      "taxModel": "personal",
-      "label": "Sole proprietor",
-      "plain": "You run the business as an individual, under your own name or a business name. You and the business are the same person. Usually the simplest way to start.",
-      "registeredAt": "Department of Inland Revenue",
-      "needs": [
-        "valid ID",
-        "business address in The Bahamas"
-      ],
-      "feeLines": [],
-      "feeNote": "You need a business licence from the Department of Inland Revenue. The initial filing fee is about B$100.",
-      "verified": false
-    },
-    {
-      "id": "limited_company",
-      "taxModel": "corporate",
-      "label": "Limited company",
-      "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
-      "registeredAt": "Registrar General's Department",
-      "needs": [
-        "name reservation",
-        "memorandum and articles",
-        "registered office in The Bahamas"
-      ],
-      "feeLines": [],
-      "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
-      "verified": false
-    }
-  ],
-  "launchSteps": [
-    {
-      "id": "register",
-      "label": "Choose your business name and register it (a company is incorporated at the Registrar General's Department)",
-      "plain": "A sole proprietor does not need to incorporate, but must hold a business licence. A company must be incorporated first.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "licence",
-      "label": "Get your business licence from the Department of Inland Revenue",
-      "plain": "Anyone carrying on business in The Bahamas needs one, even when sales are too low to pay any licence tax. You renew it every year.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "url": "https://inlandrevenue.finance.gov.bs"
-    },
-    {
-      "id": "nib",
-      "label": "Register with the National Insurance Board (NIB)",
-      "plain": "Self-employed people should register within 10 working days of starting, and decide at the start of each year the income their contributions are based on.",
-      "appliesTo": [
-        "business_name"
-      ],
-      "url": "https://www.nib-bahamas.com"
-    },
-    {
-      "id": "bank",
-      "label": "Open a separate bank account for the business",
-      "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ]
-    },
-    {
-      "id": "employer",
-      "label": "Register as an employer with NIB (form R.1) and prepare monthly payments",
-      "plain": "With employees you pay National Insurance each month (form C-10), by the 15th of the following month.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "employees",
-      "url": "https://www.nib-bahamas.com"
-    },
-    {
-      "id": "vat",
-      "label": "Register for VAT",
-      "plain": "Required when your taxable sales reach B$100,000 in twelve months.",
-      "appliesTo": [
-        "business_name",
-        "limited_company"
-      ],
-      "when": "vat",
-      "url": "https://inlandrevenue.finance.gov.bs/value-added-tax/faqs/"
-    }
-  ],
-  "incomeTax": null,
-  "corporateTax": null,
-  "salesLevies": [
-    {
-      "id": "licence",
-      "label": "Business licence tax",
-      "bands": [
-        {
-          "upTo": 100000,
-          "rate": 0
-        },
-        {
-          "upTo": 500000,
-          "rate": 0.005
-        },
-        {
-          "upTo": 5000000,
-          "rate": 0.0075
-        },
-        {
-          "rate": 0.0125
-        }
-      ],
-      "verified": false
-    }
-  ],
-  "selfEmployed": {
-    "contributions": [
-      {
-        "id": "nib",
-        "label": "National Insurance (NIB)",
-        "rate": 0.103,
-        "ceilingAnnual": 42120,
-        "plain": "National Insurance gives access to a pension and other benefits. Self-employed people pay 10.3% of their declared insurable income, up to B$810 a week.",
-        "verified": true
-      }
-    ],
-    "verified": true
-  },
-  "employee": [
-    {
-      "id": "nib",
-      "rate": 0.0465,
-      "ceilingAnnual": 42120
-    }
-  ],
-  "employer": {
-    "items": [
-      {
-        "id": "nib",
-        "label": "National Insurance (NIB)",
-        "rate": 0.0665,
-        "ceilingAnnual": 42120
-      }
-    ],
-    "verified": true
-  },
-  "vat": {
-    "label": "Value Added Tax",
-    "short": "VAT",
-    "rate": 0.1,
-    "threshold": 100000,
-    "registerNote": "Some activities must register whatever their sales.",
-    "filingNote": "Returns and payment are due within 21 days after each period.",
-    "verified": true
-  },
-  "calendar": {
-    "quarterly": [],
-    "quarterlyList": "",
-    "quarterlyTextPersonal": "",
-    "quarterlyTextCorporate": "",
-    "monthlyLabel": "Every month",
-    "monthlyText": "Self-employed: pay your National Insurance contribution. Ask NIB for your payment schedule.",
-    "annualLabel": "By January 31",
-    "annualTextPersonal": "Renew your business licence and file your turnover return for the year before.",
-    "payrollDay": 15,
-    "payrollText": "Every month: pay National Insurance for the previous month (form C-10).",
-    "vatText": "If registered for VAT: file your return and pay within 21 days after each period."
-  },
-  "notes": [
-    "The Bahamas has no income tax on profit. The main costs are National Insurance, VAT (above B$100,000 in sales) and the business licence tax."
-  ],
-  "toVerify": [
-    "Business licence tax: the band rate is applied to all of your sales (0.5% from B$100,000, 0.75% from B$500,000, 1.25% from B$5 million)",
-    "Business licence and incorporation fees",
-    "Date when self-employed National Insurance contributions are due"
-  ],
-  "sources": [
-    {
-      "label": "Business Licence Bill 2023: rates by turnover (Mondaq)",
-      "url": "https://mondaq.com/financial-services/1494228/business-licence-bill-2023-implications-for-financial-services-entities"
-    },
-    {
-      "label": "National Insurance Board: contributions",
-      "url": "https://www.nib-bahamas.com/Contributions"
-    },
-    {
-      "label": "Deloitte Bahamas Highlights 2026",
-      "url": "https://www.deloitte.com/content/dam/assets-shared/docs/services/tax/2026/dttl-tax-bahamashighlights-2026.pdf"
-    }
+  "support": [
+   {
+    "name": "National Insurance Board (NIB)",
+    "url": "https://www.nib-bahamas.com"
+   },
+   {
+    "name": "Bahamas Development Bank"
+   }
   ]
+ },
+ "legalStatuses": [
+  {
+   "id": "business_name",
+   "taxModel": "personal",
+   "label": "Sole proprietor",
+   "plain": "You run the business as an individual, under your own name or a business name. You and the business are the same person. Usually the simplest way to start.",
+   "registeredAt": "Department of Inland Revenue",
+   "needs": [
+    "valid ID",
+    "business address in The Bahamas"
+   ],
+   "feeLines": [],
+   "feeNote": "You need a business licence from the Department of Inland Revenue. The initial filing fee is about B$100.",
+   "verified": false
+  },
+  {
+   "id": "limited_company",
+   "taxModel": "corporate",
+   "label": "Limited company",
+   "plain": "The company is its own legal person, separate from you. It costs more to set up and has more paperwork, but it can limit your personal risk.",
+   "registeredAt": "Registrar General's Department",
+   "needs": [
+    "name reservation",
+    "memorandum and articles",
+    "registered office in The Bahamas"
+   ],
+   "feeLines": [],
+   "feeNote": "A company costs more to set up than a business name. The registry will quote you the current fees.",
+   "verified": false
+  }
+ ],
+ "launchSteps": [
+  {
+   "id": "register",
+   "label": "Choose your business name and register it (a company is incorporated at the Registrar General's Department)",
+   "plain": "A sole proprietor does not need to incorporate, but must hold a business licence. A company must be incorporated first.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "licence",
+   "label": "Get your business licence from the Department of Inland Revenue",
+   "plain": "Anyone carrying on business in The Bahamas needs one, even when sales are too low to pay any licence tax. You renew it every year.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "url": "https://inlandrevenue.finance.gov.bs"
+  },
+  {
+   "id": "nib",
+   "label": "Register with the National Insurance Board (NIB)",
+   "plain": "Self-employed people should register within 10 working days of starting, and decide at the start of each year the income their contributions are based on.",
+   "appliesTo": [
+    "business_name"
+   ],
+   "url": "https://www.nib-bahamas.com"
+  },
+  {
+   "id": "bank",
+   "label": "Open a separate bank account for the business",
+   "plain": "Keeping business money apart from household money makes your numbers clearer and your taxes easier to pay.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ]
+  },
+  {
+   "id": "employer",
+   "label": "Register as an employer with NIB (form R.1) and prepare monthly payments",
+   "plain": "With employees you pay National Insurance each month (form C-10), by the 15th of the following month.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "employees",
+   "url": "https://www.nib-bahamas.com"
+  },
+  {
+   "id": "vat",
+   "label": "Register for VAT",
+   "plain": "Required when your taxable sales reach B$100,000 in twelve months.",
+   "appliesTo": [
+    "business_name",
+    "limited_company"
+   ],
+   "when": "vat",
+   "url": "https://inlandrevenue.finance.gov.bs/value-added-tax/faqs/"
+  }
+ ],
+ "incomeTax": null,
+ "corporateTax": null,
+ "salesLevies": [
+  {
+   "id": "licence",
+   "label": "Business licence tax",
+   "bands": [
+    {
+     "upTo": 100000,
+     "rate": 0
+    },
+    {
+     "upTo": 500000,
+     "rate": 0.005
+    },
+    {
+     "upTo": 5000000,
+     "rate": 0.0075
+    },
+    {
+     "rate": 0.0125
+    }
+   ],
+   "verified": true
+  }
+ ],
+ "selfEmployed": {
+  "contributions": [
+   {
+    "id": "nib",
+    "label": "National Insurance (NIB)",
+    "rate": 0.103,
+    "ceilingAnnual": 42120,
+    "plain": "National Insurance gives access to a pension and other benefits. Self-employed people pay 10.3% of their declared insurable income, up to B$810 a week.",
+    "verified": true
+   }
+  ],
+  "verified": true
+ },
+ "employee": [
+  {
+   "id": "nib",
+   "rate": 0.0465,
+   "ceilingAnnual": 42120
+  }
+ ],
+ "employer": {
+  "items": [
+   {
+    "id": "nib",
+    "label": "National Insurance (NIB)",
+    "rate": 0.0665,
+    "ceilingAnnual": 42120
+   }
+  ],
+  "verified": true
+ },
+ "vat": {
+  "label": "Value Added Tax",
+  "short": "VAT",
+  "rate": 0.1,
+  "threshold": 100000,
+  "registerNote": "Some activities must register whatever their sales.",
+  "filingNote": "Returns and payment are due within 21 days after each period.",
+  "verified": true
+ },
+ "calendar": {
+  "quarterly": [],
+  "quarterlyList": "",
+  "quarterlyTextPersonal": "",
+  "quarterlyTextCorporate": "",
+  "monthlyLabel": "Every month",
+  "monthlyText": "Self-employed: pay your National Insurance contribution. Ask NIB for your payment schedule.",
+  "annualLabel": "By January 31",
+  "annualTextPersonal": "Renew your business licence and file your turnover return for the year before.",
+  "payrollDay": 15,
+  "payrollText": "Every month: pay National Insurance for the previous month (form C-10).",
+  "vatText": "If registered for VAT: file your return and pay within 21 days after each period."
+ },
+ "notes": [
+  "The Bahamas has no income tax on profit. The main costs are National Insurance, VAT (above B$100,000 in sales) and the business licence tax.",
+  "The business licence tax is charged on your total yearly sales, not on your profit. Under the 2023 Business Licence Act, sales up to B$100,000 are not taxed in this estimate, then the rate for your band applies to all your sales: 0.5% up to B$500,000, 0.75% up to B$5 million and 1.25% above. An older rule charged a flat B$100 for the smallest businesses, so confirm with the Department of Inland Revenue what you owe in your first years."
+ ],
+ "toVerify": [
+  "Business licence and incorporation fees (the initial filing fee is about B$100)",
+  "National Insurance weekly ceiling: B$810 on the NIB site, while one payroll site reports B$830 from 1 July 2026",
+  "Date when self-employed National Insurance contributions are due"
+ ],
+ "sources": [
+  {
+   "label": "Business Licence Bill 2023: rates by turnover (Mondaq)",
+   "url": "https://mondaq.com/financial-services/1494228/business-licence-bill-2023-implications-for-financial-services-entities"
+  },
+  {
+   "label": "National Insurance Board: contributions",
+   "url": "https://www.nib-bahamas.com/Contributions"
+  },
+  {
+   "label": "Deloitte Bahamas Highlights 2026",
+   "url": "https://www.deloitte.com/content/dam/assets-shared/docs/services/tax/2026/dttl-tax-bahamashighlights-2026.pdf"
+  },
+  {
+   "label": "National Insurance Board of The Bahamas: contributions",
+   "url": "https://www.nib-bahamas.com/Contributions"
+  },
+  {
+   "label": "Inland Revenue Bahamas: business licence FAQ",
+   "url": "https://inlandrevenue.finance.gov.bs/business-licence/faqs-bl/"
+  }
+ ]
 }
