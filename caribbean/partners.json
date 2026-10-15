@@ -1,18 +1,26 @@
 {
-  "_help": "Pa a Pa Caribbean: partner links and PDF checkout. Nothing is shown until an entry has \"active\": true AND an https \"url\" (your own affiliate link from the partner's program). To add a partner, copy the example entry below into \"partners\", fill it in, and set active to true. \"countries\" holds country codes (JM, TT, DO...) or \"*\" for all. The \"text\" and \"cta\" objects hold one line per language (en, es, fr, nl); a missing language falls back to English. For the PDF, paste your Stripe or PayPal payment link in pdf.checkout_url and set the link's success page to https://heso73.github.io/pa-a-pa/caribbean/?pdf=1#/report (add /es/, /fr/ or /nl/ for those languages if you want).",
-  "pdf": {
-    "checkout_url": "",
-    "price": ""
-  },
+  "_help": "Pa a Pa Caribbean: partner links. Nothing is shown until an entry has \"active\": true AND an https \"url\" (your own affiliate link from the partner's program). To add a partner, copy the example entry below into \"partners\", fill it in, and set active to true. \"countries\" holds country codes (JM, TT, DO...) or \"*\" for all. The \"text\" and \"cta\" objects hold one line per language (en, es, fr, nl); a missing language falls back to English.",
   "partners": [
     {
       "id": "example",
       "active": false,
       "name": "Partner name",
       "url": "",
-      "countries": ["*"],
-      "text": { "en": "One short line on what the service does.", "es": "", "fr": "", "nl": "" },
-      "cta": { "en": "Learn more", "es": "Ver más", "fr": "En savoir plus", "nl": "Meer info" }
+      "countries": [
+        "*"
+      ],
+      "text": {
+        "en": "One short line on what the service does.",
+        "es": "",
+        "fr": "",
+        "nl": ""
+      },
+      "cta": {
+        "en": "Learn more",
+        "es": "Ver más",
+        "fr": "En savoir plus",
+        "nl": "Meer info"
+      }
     }
   ]
 }
