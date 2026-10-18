@@ -9,15 +9,9 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Requêtes API (pa-a-pa et cms-certification)
+      - name: Requête API (cms-certification)
         run: |
           set -u
-          ok=0
-          ping() {
-            code=$(curl -sS -m 30 -o /dev/null -w "%{http_code}" "$1/rest/v1/" -H "apikey: $2")
-            echo "$1 -> HTTP $code"
-            case "$code" in 2*|401|403) ;; *) ok=1 ;; esac
-          }
-          ping "https://oneuajfduoeqkxxcwzai.supabase.co" "sb_publishable_X47C1kAI0N2VNJgEWgfLaQ_ZigQU7Re"
-          ping "https://vtbaqvjxfgseykjcinpu.supabase.co" "sb_publishable_cZc3a7kaK3M7ZcHRsoTI8w_NQz4Xy0z"
-          exit $ok
+          code=$(curl -sS -m 30 -o /dev/null -w "%{http_code}" "https://vtbaqvjxfgseykjcinpu.supabase.co/rest/v1/" -H "apikey: sb_publishable_cZc3a7kaK3M7ZcHRsoTI8w_NQz4Xy0z")
+          echo "cms-certification -> HTTP $code"
+          case "$code" in 2*|401|403) exit 0 ;; *) exit 1 ;; esac

@@ -1,6 +1,6 @@
 // Pa a Pa Caribbean: partner links and PDF export on the report page.
 // Partner links stay hidden until partners.json has an active partner with an https link.
-// Clicks on partner links are logged by leads.js through the data-partner attribute.
+// Clicks on partner links are counted by leads.js (GoatCounter) through the data-partner attribute.
 // The PDF export is free: it prints the report with a "Made with Pa a Pa" footer and the site address.
 (function () {
   var LANG = (document.documentElement.lang || 'en').slice(0, 2);
