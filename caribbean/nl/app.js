@@ -278,10 +278,16 @@
       if (r) m.push(`<p>Voordat je leent: je plan laat ongeveer <b>${J(r.c.netMonthly)}</b> per maand over na belasting. De maandlast van een lening moet binnen dat bedrag passen, niet erboven.</p>`);
       m.push(`<p>${D.authorities.support.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)).join('<br>')}</p>`);
       return m; } };
+    TOPIC.mistakes = { label: L('Veelgemaakte fouten'), msgs: () => {
+      const r = R(), m = ['<p>Een klein bedrijf gaat zelden ten onder door één grote fout. Deze zeven komen steeds terug:</p>'];
+      m.push(li(['<b>Verkopen onder de echte kostprijs.</b> Je eigen tijd, verpakking, vervoer of kosten vergeten.', '<b>Je break-even niet kennen.</b> Je hebt een maandomzet nodig die al je kosten, belastingen en levensonderhoud dekt.', '<b>Zonder geld komen te zitten.</b> Geen buffer, of klanten die laat betalen terwijl jij je rekeningen al betaald hebt.', '<b>Beginnen zonder klanten.</b> Eerst bouwen en later vragen. Noem vijf mensen die zouden betalen.', '<b>Belastingen en premies vergeten.</b> Het geld op je rekening is niet helemaal van jou.', '<b>Privégeld en bedrijfsgeld door elkaar halen.</b> Het verbergt de echte cijfers. Gebruik een aparte rekening.', '<b>Te snel groeien.</b> Mensen aannemen of investeren voordat de omzet stabiel is.']));
+      if (r && (!r.be || r.be > r.c.sales * 1.02)) m.push('<p>In jouw plan ligt je omzet <b>onder het break-evenpunt</b>. Begin hiermee.</p>');
+      else if (r && r.c.left < 0) m.push('<p>In jouw plan zijn je spaargelden <b>te laag voor de opstartkosten</b>. Begin hiermee.</p>');
+      return m; } };
   }
-  const ORDER_ALL = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
   const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
-  const KEYWORDS = [['cost', /kost|prijs|marge|rekenen|hoeveel (moet|vraag)/], ['breakeven', /break.?even|rendabel|hoeveel.*verkopen/], ['cash', /laat|factuur|werkkapitaal|krediet|achterstand/], ['savings', /spaar|reserve|buffer/], ['tax', /belasting|premie|aov|azv|bbo|ob\b|fiscaal/], ['vat', /btw|omzetbelasting/], ['team', /medewerker|personeel|aannemen|loon|werknemer/], ['customers', /klant|markt|koper|verkopen aan/], ['motivation', /motivat|angst|stress|twijfel|opgeven/], ['funding', /lening|financier|bank|steun|subsidie/]];
+  const KEYWORDS = [['mistakes', /fout|faillis|mislukk|risico|advies|tips?\b|waarom.*(bedrijf|onderneming)/], ['cost', /kost|prijs|marge|rekenen|hoeveel (moet|vraag)/], ['breakeven', /break.?even|rendabel|hoeveel.*verkopen/], ['cash', /laat|factuur|werkkapitaal|krediet|achterstand/], ['savings', /spaar|reserve|buffer/], ['tax', /belasting|premie|aov|azv|bbo|ob\b|fiscaal/], ['vat', /btw|omzetbelasting/], ['team', /medewerker|personeel|aannemen|loon|werknemer/], ['customers', /klant|markt|koper|verkopen aan/], ['motivation', /motivat|angst|stress|twijfel|opgeven/], ['funding', /lening|financier|bank|steun|subsidie/]];
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
@@ -408,7 +414,7 @@
       inp.value = '';
       const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
       if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Ik kan de onderwerpen hieronder uitleggen. Kies er een of formuleer je vraag opnieuw met een woord als prijs, belasting, klanten of sparen.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
+      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Daar heb ik nog geen antwoord op. Begin met de veelgemaakte fouten of kies een ander onderwerp. Je kunt ook een woord gebruiken als prijs, belasting, klanten of sparen.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
       const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);

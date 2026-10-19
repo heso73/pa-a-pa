@@ -277,10 +277,16 @@
       if (r) m.push(`<p>Antes de pedir prestado: tu plan deja unos <b>${J(r.c.netMonthly)}</b> al mes después de impuestos. La cuota de un préstamo debe caber dentro de ese monto, no encima.</p>`);
       m.push(`<p>${D.authorities.support.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)).join('<br>')}</p>`);
       return m; } };
+    TOPIC.mistakes = { label: L('Errores frecuentes'), msgs: () => {
+      const r = R(), m = ['<p>Un negocio pequeño rara vez fracasa por un solo error grande. Estos siete se repiten una y otra vez:</p>'];
+      m.push(li(['<b>Vender por debajo del costo real.</b> Olvidar tu propio tiempo, el empaque, el transporte o las comisiones.', '<b>No conocer tu punto de equilibrio.</b> Necesitas una cifra de ventas mensual que cubra todos tus costos, impuestos y gastos de vida.', '<b>Quedarte sin efectivo.</b> Sin colchón de ahorro, o con clientes que pagan tarde cuando tú ya pagaste tus cuentas.', '<b>Empezar sin clientes.</b> Construir primero y preguntar después. Nombra cinco personas que pagarían.', '<b>Olvidar los impuestos y aportes.</b> El dinero de tu cuenta no es todo tuyo.', '<b>Mezclar el dinero personal con el del negocio.</b> Esconde las cifras reales. Usa una cuenta aparte.', '<b>Crecer demasiado rápido.</b> Contratar o invertir antes de que las ventas sean estables.']));
+      if (r && (!r.be || r.be > r.c.sales * 1.02)) m.push('<p>En tu plan, tus ventas están <b>por debajo del punto de equilibrio</b>. Empieza por este.</p>');
+      else if (r && r.c.left < 0) m.push('<p>En tu plan, tus ahorros son <b>menores que los costos de arranque</b>. Empieza por este.</p>');
+      return m; } };
   }
-  const ORDER_ALL = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
   const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
-  const KEYWORDS = [['cost', /costo|precio|margen|cobrar|cu[aá]nto (debo|cobro)/], ['breakeven', /equilibrio|cu[aá]nto (debo|necesito) vender/], ['cash', /tarde|factura|moroso|capital de trabajo|cr[eé]dito/], ['savings', /ahorro|reserva|colch[oó]n/], ['tax', /impuesto|isr|dgii|rnc|aporte|tss|cotizaci/], ['vat', /itbis|iva|ventas gravadas/], ['team', /empleado|personal|contratar|n[oó]mina|trabajador/], ['customers', /cliente|mercado|comprador|vender a/], ['motivation', /motiva|miedo|estr[eé]s|dudas|renunciar/], ['funding', /pr[eé]stamo|financ|banco|apoyo|subsidio/]];
+  const KEYWORDS = [['mistakes', /error|fracas|quiebra|riesgo|consejo|por qu[eé].*(negocio|empresa)/], ['cost', /costo|precio|margen|cobrar|cu[aá]nto (debo|cobro)/], ['breakeven', /equilibrio|cu[aá]nto (debo|necesito) vender/], ['cash', /tarde|factura|moroso|capital de trabajo|cr[eé]dito/], ['savings', /ahorro|reserva|colch[oó]n/], ['tax', /impuesto|isr|dgii|rnc|aporte|tss|cotizaci/], ['vat', /itbis|iva|ventas gravadas/], ['team', /empleado|personal|contratar|n[oó]mina|trabajador/], ['customers', /cliente|mercado|comprador|vender a/], ['motivation', /motiva|miedo|estr[eé]s|dudas|renunciar/], ['funding', /pr[eé]stamo|financ|banco|apoyo|subsidio/]];
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
@@ -407,7 +413,7 @@
       inp.value = '';
       const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
       if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Puedo explicar los temas de abajo. Elige uno o reformula tu pregunta con una palabra como precio, impuesto, clientes o ahorros.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
+      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Todavía no tengo respuesta para eso. Empieza por los errores frecuentes o elige otro tema. También puedes usar una palabra como precio, impuesto, clientes o ahorros.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
       const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);

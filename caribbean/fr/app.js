@@ -277,10 +277,16 @@
       if (r) m.push(`<p>Avant d’emprunter : votre plan laisse environ <b>${J(r.c.netMonthly)}</b> par mois après impôts. La mensualité d’un prêt doit tenir dans ce montant, pas au-dessus.</p>`);
       m.push(`<p>${D.authorities.support.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)).join('<br>')}</p>`);
       return m; } };
+    TOPIC.mistakes = { label: L('Erreurs fréquentes'), msgs: () => {
+      const r = R(), m = ['<p>Une petite entreprise échoue rarement à cause d’une seule grosse erreur. Ces sept-là reviennent sans cesse :</p>'];
+      m.push(li(['<b>Vendre sous le coût réel.</b> Oublier son propre temps, l’emballage, le transport ou les frais.', '<b>Ne pas connaître son seuil de rentabilité.</b> Il faut un chiffre d’affaires mensuel qui couvre tous les coûts, les impôts et vos besoins pour vivre.', '<b>Manquer de trésorerie.</b> Pas de matelas de sécurité, ou des clients qui paient en retard alors que vous avez déjà payé vos factures.', '<b>Démarrer sans clients.</b> Construire d’abord, demander ensuite. Nommez cinq personnes qui paieraient.', '<b>Oublier les impôts et les cotisations.</b> L’argent sur votre compte n’est pas tout à vous.', '<b>Mélanger argent personnel et argent de l’entreprise.</b> Cela cache les vrais chiffres. Ouvrez un compte séparé.', '<b>Grandir trop vite.</b> Embaucher ou investir avant que les ventes soient régulières.']));
+      if (r && (!r.be || r.be > r.c.sales * 1.02)) m.push('<p>Dans votre plan, vos ventes sont <b>sous le seuil de rentabilité</b>. Commencez par celle-ci.</p>');
+      else if (r && r.c.left < 0) m.push('<p>Dans votre plan, vos économies sont <b>inférieures aux frais de démarrage</b>. Commencez par celle-ci.</p>');
+      return m; } };
   }
-  const ORDER_ALL = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
   const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
-  const KEYWORDS = [['cost', /co[uû]t|prix|marge|facturer|combien (dois|je)/], ['breakeven', /rentabilit|seuil|combien (dois|faut).*vendre/], ['cash', /retard|facture|impay|fonds de roulement|cr[eé]dit/], ['savings', /[eé]conomie|r[eé]serve|matelas/], ['tax', /imp[oô]t|dgi|nif|cotisation|ona|ofatma|patente/], ['vat', /tca|tva|taxe sur/], ['team', /employ|personnel|embauch|salari|paie/], ['customers', /client|march[eé]|acheteur|vendre [aà]/], ['motivation', /motiv|peur|stress|doute|abandon/], ['funding', /pr[eê]t|financ|banque|soutien|subvention/]];
+  const KEYWORDS = [['mistakes', /erreur|[eé]chec|[eé]chou|faillite|pi[eè]ge|conseil|risque|pourquoi.*(entreprise|commerce)/], ['cost', /co[uû]t|prix|marge|facturer|combien (dois|je)/], ['breakeven', /rentabilit|seuil|combien (dois|faut).*vendre/], ['cash', /retard|facture|impay|fonds de roulement|cr[eé]dit/], ['savings', /[eé]conomie|r[eé]serve|matelas/], ['tax', /imp[oô]t|dgi|nif|cotisation|ona|ofatma|patente/], ['vat', /tca|tva|taxe sur/], ['team', /employ|personnel|embauch|salari|paie/], ['customers', /client|march[eé]|acheteur|vendre [aà]/], ['motivation', /motiv|peur|stress|doute|abandon/], ['funding', /pr[eê]t|financ|banque|soutien|subvention/]];
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
@@ -407,7 +413,7 @@
       inp.value = '';
       const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
       if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Je peux expliquer les sujets ci-dessous. Choisissez-en un ou reformulez votre question avec un mot comme prix, impôt, clients ou économies.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
+      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Je n’ai pas encore de réponse à cela. Commencez par les erreurs fréquentes ou choisissez un autre sujet. Vous pouvez aussi utiliser un mot comme prix, impôt, clients ou économies.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
       const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);

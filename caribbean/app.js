@@ -290,10 +290,16 @@
       if (r) m.push(`<p>Before you borrow: your plan leaves about <b>${J(r.c.netMonthly)}</b> a month after tax. A loan payment must fit inside that amount, not on top of it.</p>`);
       m.push(`<p>${D.authorities.support.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)).join('<br>')}</p>`);
       return m; } };
+    TOPIC.mistakes = { label: L('Common mistakes'), msgs: () => {
+      const r = R(), m = ['<p>Most small businesses do not fail because of one big mistake. These seven come up again and again:</p>'];
+      m.push(li(['<b>Selling below the real cost.</b> Forgetting your own time, packaging, transport or fees.', '<b>Not knowing your break-even.</b> You need a monthly sales figure that covers all your costs, taxes and living needs.', '<b>Running out of cash.</b> No safety net, or customers who pay late while you have already paid your bills.', '<b>Starting without customers.</b> Building first and asking later. Name five people who would pay.', '<b>Forgetting taxes and contributions.</b> The money in your account is not all yours.', '<b>Mixing personal and business money.</b> It hides the real numbers. Use a separate account.', '<b>Growing too fast.</b> Hiring or investing before sales are steady.']));
+      if (r && (!r.be || r.be > r.c.sales * 1.02)) m.push('<p>In your plan, your sales are <b>below break-even</b>. Start with this one.</p>');
+      else if (r && r.c.left < 0) m.push('<p>In your plan, your savings are <b>short of the start-up costs</b>. Start with this one.</p>');
+      return m; } };
   }
-  const ORDER_ALL = ['cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
   const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
-  const KEYWORDS = [['cost', /cost price|price|pricing|margin|charge|how much (should|do) i sell/], ['breakeven', /break.?even|how much (do i )?need to sell/], ['cash', /late|invoice|unpaid|working capital|cash ?flow|bfr|credit/], ['savings', /saving|reserve|runway|safety/], ['tax', /tax|nis|nht|contribution|income tax|trn|tin|levy|surcharge/], ['vat', /gct|vat|sales tax/], ['team', /employ|staff|hire|payroll|worker/], ['customers', /customer|client|market|buyer|sell to/], ['motivation', /motivat|afraid|scared|stress|quit|doubt|fear/], ['funding', /loan|fund|grant|borrow|bank|support/]];
+  const KEYWORDS = [['mistakes', /mistake|fail|go(es)? wrong|bankrupt|pitfall|risk|advice|tips?\b|why do (small )?(businesses|companies)/], ['cost', /cost price|price|pricing|margin|charge|how much (should|do) i sell/], ['breakeven', /break.?even|how much (do i )?need to sell/], ['cash', /late|invoice|unpaid|working capital|cash ?flow|bfr|credit/], ['savings', /saving|reserve|runway|safety/], ['tax', /tax|nis|nht|contribution|income tax|trn|tin|levy|surcharge/], ['vat', /gct|vat|sales tax/], ['team', /employ|staff|hire|payroll|worker/], ['customers', /customer|client|market|buyer|sell to/], ['motivation', /motivat|afraid|scared|stress|quit|doubt|fear/], ['funding', /loan|fund|grant|borrow|bank|support/]];
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
@@ -423,7 +429,7 @@
       inp.value = '';
       const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
       if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>I can explain the topics below. Pick one, or rephrase your question with a word like price, tax, customers or savings.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
+      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>I do not have an answer to that yet. Start with the most common mistakes, or pick another topic. You can also use a word like price, tax, customers or savings.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
     });
     view.addEventListener('click', e => {
       const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);
