@@ -296,10 +296,155 @@
       if (r && (!r.be || r.be > r.c.sales * 1.02)) m.push('<p>In your plan, your sales are <b>below break-even</b>. Start with this one.</p>');
       else if (r && r.c.left < 0) m.push('<p>In your plan, your savings are <b>short of the start-up costs</b>. Start with this one.</p>');
       return m; } };
+    TOPIC.start = { label: L("Where do I start?"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Start small and in this order, before you spend money:</p>");
+      m.push(li(["<b>Check the need.</b> Talk to five people who might buy. Ask what they pay for this today.", "<b>Run your numbers.</b> <a href=\"#/test\">Take the test</a> to see your costs, taxes and break-even.", "<b>Make a first sale.</b> Sell to one real customer, even by hand, before you build anything big.", "<b>Then register and set up.</b> Follow the steps in <a href=\"#/next\">my next steps</a>."]));
+      return m; } };
+    TOPIC.legal = { label: L("Business structure"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>The usual choice is between two options:</p>");
+      m.push(li(["<b>Registered business name (you, trading under a name).</b> Cheap and simple. You and the business are legally the same person, so you answer for debts with your own assets.", "<b>Limited company.</b> A separate legal entity, which can limit your personal risk. More paperwork, yearly filings and often higher costs."]));
+      m.push("<p>Taxes differ between the two. <a href=\"#/test\">The test</a> and <a href=\"#/report\">the report</a> use the one you choose. Ask the company registry or an accountant before you decide.</p>");
+      return m; } };
+    TOPIC.register = { label: L("Registering my business"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Registering usually means a few separate steps, in this order:</p>");
+      m.push(li(["Register the business name or company with the official registry.", "Get a tax number from the tax office.", "Register for social contributions if you work for yourself or hire people.", "Ask the local council or ministry whether your activity needs a licence or permit (food, transport and health often do).", "Register for sales tax if your sales reach the threshold."]));
+      m.push("<p>The exact offices and forms for your country are in <a href=\"#/next\">my next steps</a>. Do not start selling in a regulated activity before you have asked.</p>");
+      return m; } };
+    TOPIC.bank = { label: L("A business bank account"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Use a separate account for the business from day one, even a simple one.</p>");
+      m.push(li(["Every sale and every cost goes through it. Your numbers stay true.", "It makes tax time and any loan request much easier.", "Move a fixed amount to yourself each month, like a salary.", "Keep a second small account for taxes. Put the share you must pay aside as soon as you are paid."]));
+      m.push("<p>Ask two or three banks about monthly fees before you choose.</p>");
+      return m; } };
+    TOPIC.records = { label: L("Keeping records"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>You do not need software at the start. You need a habit.</p>");
+      m.push(li(["Keep every receipt and invoice, paper or photo, in one folder.", "Write each sale and each cost the same day, with date, amount and what it was for.", "Once a month, add up sales, costs and what is left. Compare with your plan.", "Keep your records for as many years as your tax office asks."]));
+      m.push("<p>An accountant can set this up for you in an hour or two, and it often pays for itself. I do not replace one.</p>");
+      return m; } };
+    TOPIC.insurance = { label: L("Insurance"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Insurance is a cost that protects you from a loss you could not pay yourself.</p>");
+      m.push(li(["<b>Property and stock:</b> fire, theft, storm and flood. Important in hurricane areas.", "<b>Liability:</b> if a customer or another person is harmed or loses money because of you.", "<b>Vehicle:</b> required by law if you drive for the business.", "<b>Health and income cover for you:</b> if you cannot work, the business stops."]));
+      m.push("<p>Ask two insurers for quotes and add the yearly cost to your fixed costs in <a href=\"#/test\">the test</a>.</p>");
+      return m; } };
+    TOPIC.marketing = { label: L("Finding customers"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Start with the cheapest ways, and measure what works.</p>");
+      m.push(li(["<b>Word of mouth.</b> Ask your first customers to tell two people, and thank them.", "<b>One social page</b> or a WhatsApp Business number where people can see what you sell and your prices.", "<b>Be where your customers already are:</b> a market, a Facebook group, a notice board, a partner business.", "<b>Offer a small first-time deal</b> and ask how they heard about you."]));
+      m.push("<p>Spend money on adverts only after you know which message already works for free. Advertising is a cost in your plan.</p>");
+      return m; } };
+    TOPIC.online = { label: L("Selling online"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>You can start online with very little money, but the same rules apply: costs, taxes and customers.</p>");
+      m.push(li(["Add the platform fee, the payment fee, packaging and delivery to your cost price before you set your price.", "Sales to other countries can bring customs, shipping and tax questions. Check before you promise a delivery.", "Clear photos and descriptions sell more than a fancy site.", "Test with one social page or a marketplace before you pay for a website."]));
+      m.push("<p>Online sales are still sales: they count for tax and for your records.</p>");
+      return m; } };
+    TOPIC.profit = { label: L("Profit, sales and cash"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Three different numbers, which beginners often mix up:</p>");
+      m.push(li(["<b>Sales (turnover):</b> everything customers pay you.", "<b>Profit:</b> sales minus all costs and taxes. This is what the business really earns.", "<b>Cash:</b> the money in your account today. It can be high when profit is low (a large advance payment) and low when profit is high (customers who have not paid yet)."]));
+      m.push("<p>A business can make a profit and still run out of cash. Watch both. <a href=\"#/test\">The test</a> shows your break-even and what is left after tax.</p>");
+      return m; } };
+    TOPIC.pay = { label: L("Paying myself"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Decide a fixed monthly amount for yourself and treat it like a salary, not like what is left over.</p>");
+      m.push(li(["Start from your real living costs, from the test.", "Pay yourself only after costs and taxes are covered.", "If sales are low, cut your own pay before you stop paying suppliers or taxes.", "Review the amount every three months."]));
+      if (r) m.push(`<p>In your plan, about <b>${J(r.c.netMonthly)}</b> a month is left after tax.</p>`);
+      return m; } };
+    TOPIC.costs = { label: L("Fixed and variable costs"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Costs come in two kinds:</p>");
+      m.push(li(["<b>Fixed costs</b> do not change with sales: rent, insurance, subscriptions, your own pay.", "<b>Variable costs</b> rise with each sale: materials, packaging, delivery, commissions."]));
+      m.push("<p>Break-even is the number of sales it takes to cover the fixed costs once the variable costs are paid. Cutting a fixed cost helps every month; cutting a variable cost helps every sale. <a href=\"#/test\">Enter both in the test.</a></p>");
+      return m; } };
+    TOPIC.suppliers = { label: L("Suppliers"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Your suppliers decide your cost price, so choose them with care.</p>");
+      m.push(li(["Get at least three quotes for the same quantity and quality.", "Ask the price per unit at different quantities, but do not buy more than you can sell.", "Ask for payment terms, for example 30 days, to ease your cash.", "Test a small first order before any big one.", "Keep a second supplier for your main item."]));
+      return m; } };
+    TOPIC.stock = { label: L("Managing stock"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Stock is money sitting on a shelf.</p>");
+      m.push(li(["Buy small amounts of what you know sells, and re-order often.", "Count your stock each month and note what sold fastest.", "Mark down slow items early, before they go out of date or fashion.", "Do not tie your savings up in stock before the first sales prove demand."]));
+      return m; } };
+    TOPIC.premises = { label: L("Where to work"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Fixed rent is the cost that sinks many small businesses. Start with the cheapest place that works.</p>");
+      m.push(li(["<b>From home:</b> check local rules and your lease or landlord first; some activities (food, noise, customers visiting) need permission.", "<b>Market stall or shared space:</b> low cost, a way to test, and you meet customers.", "<b>Your own premises:</b> only when sales are steady and can pay the rent.", "Always read the lease and ask what happens if you leave early."]));
+      return m; } };
+    TOPIC.partners = { label: L("Business partners"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>A partner can bring skills and money, and can also end a business.</p>");
+      m.push(li(["Write down who puts in what: money, work and time.", "Agree how profit is shared and how each of you is paid.", "Agree what happens if one partner leaves, falls ill or wants to sell.", "Put it in writing and have a lawyer check it."]));
+      m.push("<p>Do this while you still get along. A handshake between friends is a common cause of arguments later.</p>");
+      return m; } };
+    TOPIC.parttime = { label: L("Keeping my job"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>You can test the business while keeping your income. It is often the safest way to start.</p>");
+      m.push(li(["Check your work contract: some employers ban side businesses or competing work.", "Start in the evenings and at weekends until sales cover your living costs.", "Set the level at which you will quit, for example three months of living costs saved and steady sales. <a href=\"#/test\">The test</a> shows your safety net.", "Tell your household what the plan and the review date are."]));
+      return m; } };
+    TOPIC.competition = { label: L("Competitors"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Competitors are good news: they prove people pay for this.</p>");
+      m.push(li(["List the three nearest competitors, with their prices and what customers like or dislike.", "Do not just be cheaper. Choose one way to be better: speed, quality, trust, convenience or location.", "Ask your first customers why they chose you.", "Write it down in <a href=\"#/vision\">my vision</a>."]));
+      return m; } };
+    TOPIC.growth = { label: L("Growing the business"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Grow when the numbers are steady, not when you are excited.</p>");
+      m.push(li(["Wait for three or more months of sales above break-even.", "Add one thing at a time: a product, a worker, a place.", "Before you spend, estimate the extra sales it must bring to pay for itself.", "Keep your safety net intact."]));
+      return m; } };
+    TOPIC.seasonality = { label: L("Slow months"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Many Caribbean businesses sell much more in some months than in others, with tourism, holidays and the hurricane season.</p>");
+      m.push(li(["Look at last year or ask other sellers: which months are busy and which are quiet?", "Put money aside in busy months to cover the quiet ones.", "Plan fixed costs you can cut or pause in the low season.", "Offer something for slow months: a discount, a different product, or a service for local people."]));
+      return m; } };
+    TOPIC.invoice = { label: L("Invoices and quotes"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>A clear invoice gets you paid faster. Include:</p>");
+      m.push(li(["Your business name, address and tax number if you have one.", "A unique invoice number and the date.", "What you sold, the quantity, the price and any sales tax.", "The total, the due date and how to pay (account details).", "Send it the same day and keep a copy."]));
+      m.push("<p>For a quote, add how long the price is valid and what is not included.</p>");
+      return m; } };
+    TOPIC.contracts = { label: L("Agreements with customers"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Written terms prevent most disputes.</p>");
+      m.push(li(["For any job above a small amount, write down what you will do, the price, the timing and the deposit.", "State your refund or return rule in plain words, and display it.", "Keep messages and photos as proof.", "If a customer complains, answer quickly and calmly, and offer a fix before they ask."]));
+      return m; } };
   }
-  const ORDER_ALL = ['mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['start', 'mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding', 'legal', 'register', 'bank', 'records', 'insurance', 'marketing', 'online', 'profit', 'pay', 'costs', 'suppliers', 'stock', 'premises', 'partners', 'parttime', 'competition', 'growth', 'seasonality', 'invoice', 'contracts'];
   const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
-  const KEYWORDS = [['mistakes', /mistake|fail|go(es)? wrong|bankrupt|pitfall|risk|advice|tips?\b|why do (small )?(businesses|companies)/], ['cost', /cost price|price|pricing|margin|charge|how much (should|do) i sell/], ['breakeven', /break.?even|how much (do i )?need to sell/], ['cash', /late|invoice|unpaid|working capital|cash ?flow|bfr|credit/], ['savings', /saving|reserve|runway|safety/], ['tax', /tax|nis|nht|contribution|income tax|trn|tin|levy|surcharge/], ['vat', /gct|vat|sales tax/], ['team', /employ|staff|hire|payroll|worker/], ['customers', /customer|client|market|buyer|sell to/], ['motivation', /motivat|afraid|scared|stress|quit|doubt|fear/], ['funding', /loan|fund|grant|borrow|bank|support/]];
+  const KEYWORDS = [['mistakes', /mistake|fail|go(es)? wrong|bankrupt|pitfall|risk|why do (small )?(businesses|companies)/], ['cost', /cost price|price|pricing|margin|charge|how much (should|do) i sell/], ['breakeven', /break.?even|how much (do i )?need to sell/], ['cash', /\blate\b|invoice|unpaid|working capital|cash ?flow|bfr|credit/], ['savings', /saving|reserve|runway|safety/], ['tax', /tax|\bnis\b|\bnht\b|contribution|income tax|\btrn\b|\btin\b|levy|surcharge/], ['vat', /gct|\bvat\b|sales tax/], ['team', /employ|staff|hire|payroll|worker/], ['customers', /customer|client|market|buyer|sell to/], ['motivation', /motivat|afraid|scared|stress|quit|doubt|fear/], ['funding', /loan|fund|grant|borrow|bank|support/]];
+
+  const EXTRA = {"cost": ["pricing", "selling price", "price", "cost price", "margin"], "breakeven": ["break even", "breakeven", "break-even"], "tax": ["taxes", "taxation", "contribution", "contributions"], "customers": ["customer", "customers", "buyers", "clients"], "savings": ["savings", "safety net", "reserve"], "cash": ["working capital", "cash flow", "paid late", "unpaid", "pay late"], "team": ["employee", "employees", "staff", "payroll", "worker"], "motivation": ["motivation", "stressed", "afraid", "scared"], "funding": ["loan", "grant", "borrow", "funding", "financing"], "vat": ["sales tax"], "mistakes": ["mistake", "mistakes", "failure", "pitfall", "go wrong"], "start": ["where do i start", "how to start", "how do i start", "start a business", "starting a business", "get started", "begin", "first step", "new business", "business idea", "my idea", "good idea", "launch", "any advice", "some advice", "your advice", "tips for beginners", "beginner", "newbie", "new to business"], "legal": ["legal form", "sole trader", "sole proprietor", "limited company", "ltd", "llc", "incorporate", "registered business name", "partnership", "business structure", "legal structure"], "register": ["register my business", "register a business", "register the business", "register my company", "business registration", "licence", "license", "permit", "paperwork", "legal requirements"], "bank": ["bank account", "business account", "separate account", "mobile money", "mix money", "mixing money", "personal money", "mix personal"], "records": ["bookkeeping", "accounting", "records", "receipts", "record keeping", "accountant", "spreadsheet", "book keeping"], "insurance": ["insurance", "insure", "insured", "liability", "protect my business", "theft", "fire"], "marketing": ["marketing", "advertis", "promote", "promotion", "social media", "facebook", "instagram", "whatsapp", "tiktok", "get customers", "find customers", "more customers", "flyer", "word of mouth", "brand", "logo", "website", "visibility"], "online": ["online", "e-commerce", "ecommerce", "etsy", "amazon", "shopify", "shipping", "delivery", "dropship", "online store"], "profit": ["profit", "turnover", "revenue", "earn", "make money", "how much money", "income"], "pay": ["pay myself", "my salary", "my wage", "how much should i take", "drawings", "dividend", "owner pay", "take home", "take out of the business"], "costs": ["fixed cost", "variable cost", "overhead", "running costs", "monthly costs", "expenses"], "suppliers": ["supplier", "wholesale", "wholesaler", "negotiate", "bulk", "vendor", "where to buy", "buy stock"], "stock": ["stock", "inventory", "unsold", "how much to buy", "reorder", "spoil", "expire"], "premises": ["premises", "shop", "store front", "storefront", "location", "office", "home based", "work from home", "kitchen", "workshop", "stall", "market stall", "rent"], "partners": ["partner", "co-found", "cofound", "business partner", "with a friend", "with my brother", "with my sister", "family business"], "parttime": ["keep my job", "quit my job", "resign", "side business", "side hustle", "my job", "leave my job", "part-time job", "part time job", "my employer"], "competition": ["competitor", "competition", "compete", "rival", "different from", "stand out", "unique", "others sell"], "growth": ["growing", "growth", "expand", "scale up", "second branch", "new product", "bigger", "when to grow", "grow", "grows"], "seasonality": ["season", "slow month", "slow period", "low season", "hurricane", "tourist", "off season", "quiet month"], "invoice": ["write an invoice", "make an invoice", "create an invoice", "send an invoice", "invoice template", "quote", "quotation", "receipt"], "contracts": ["contract", "agreement", "terms and conditions", "in writing", "deposit", "refund", "guarantee", "warranty", "complaint", "dispute", "return policy"]};
+  const GREET = /^(hi|hello|hey|help|good (morning|afternoon|evening))\b/i;
+  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  Object.keys(EXTRA).forEach(k => { EXTRA[k] = EXTRA[k].map(norm); });
+  /* true si les deux mots ne different que d'une lettre (faute de frappe) */
+  const near = (a, b) => {
+    if (a === b) return true;
+    const la = a.length, lb = b.length; if (Math.abs(la - lb) > 1) return false;
+    let i = 0; while (i < la && i < lb && a[i] === b[i]) i++;
+    if (la === lb) return a.slice(i + 1) === b.slice(i + 1) || (a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2));
+    return la > lb ? a.slice(i + 1) === b.slice(i) : a.slice(i) === b.slice(i + 1);
+  };
+  /* Choisit le sujet dont le mot reconnu est le plus long (le plus precis). */
+  function matchTopic(q) {
+    const low = q.toLowerCase(), qn = norm(q), words = qn.split(/[^a-z0-9]+/).filter(Boolean), score = {};
+    const up = (id, n) => { if (!(score[id] >= n)) score[id] = n; };
+    KEYWORDS.forEach(k => { const m = low.match(k[1]); if (m) up(k[0], m[0].length); });
+    Object.keys(EXTRA).forEach(id => EXTRA[id].forEach(s => {
+      if (s.length < 5) { if (words.indexOf(s) >= 0) up(id, s.length); return; }
+      if (qn.indexOf(s) >= 0) { up(id, s.length); return; }
+      if (s.indexOf(' ') < 0 && words.some(w => w.length >= s.length - 1 && (near(w.slice(0, s.length), s) || near(w.slice(0, s.length - 1), s)))) up(id, s.length - 1);
+    }));
+    let best = null, top = 0;
+    orderList().forEach(id => { if (score[id] > top) { top = score[id]; best = id; } });
+    return best;
+  }
+  const allChip = () => '<button class="chip soft" data-act="all">' + esc("All topics") + '</button>';
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
@@ -427,15 +572,17 @@
       e.preventDefault();
       const inp = $('#ask'), q = inp.value.trim(); if (!q) return;
       inp.value = '';
-      const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
-      if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>I do not have an answer to that yet. Start with the most common mistakes, or pick another topic. You can also use a word like price, tax, customers or savings.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
+      const id = matchTopic(q);
+      if (id) { track('caribbean-coach-hit'); coachAsk(id, q); }
+      else if (GREET.test(q)) coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: "<p>Hello! Pick a topic below, or type your question.</p>" }, { raw: true, html: chips(orderList(), true) }]);
+      else { track('caribbean-coach-miss'); coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>I do not have an answer to that yet. Start with the most common mistakes, or pick another topic. You can also use a word like price, tax, customers or savings.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) + allChip() }]); }
     });
     view.addEventListener('click', e => {
       const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);
       const b = e.target.closest('[data-act]'); if (!b) return;
       const act = b.dataset.act;
-      if (act === 'ask') coachAsk(b.dataset.topic);
+      if (act === 'all') coachPush([{ from: 'me', html: esc("All topics") }, { raw: true, html: chips(orderList(), true) }]);
+      else if (act === 'ask') coachAsk(b.dataset.topic);
       else if (act === 'back') { S.step = Math.max(0, S.step - 1); errMsg = ''; save(); rerender(); window.scrollTo(0, 0); }
       else if (act === 'next') { errMsg = validate(S.step); if (!errMsg) { if (S.step === 0) track('caribbean-test-started-' + D.country.toLowerCase()); S.step += 1; save(); } rerender(); window.scrollTo(0, 0); }
       else if (act === 'finish') { errMsg = validate(3); if (errMsg) { rerender(); window.scrollTo(0, 0); return; } S.ready = true; S.step = 0; chat = []; visited = {}; save(); track('caribbean-report-done-' + D.country.toLowerCase()); location.hash = '#/report'; }

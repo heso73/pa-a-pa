@@ -284,10 +284,155 @@
       if (r && (!r.be || r.be > r.c.sales * 1.02)) m.push('<p>In jouw plan ligt je omzet <b>onder het break-evenpunt</b>. Begin hiermee.</p>');
       else if (r && r.c.left < 0) m.push('<p>In jouw plan zijn je spaargelden <b>te laag voor de opstartkosten</b>. Begin hiermee.</p>');
       return m; } };
+    TOPIC.start = { label: L("Waar begin ik?"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Begin klein en in deze volgorde, voordat je geld uitgeeft:</p>");
+      m.push(li(["<b>Check de behoefte.</b> Praat met vijf mensen die zouden kunnen kopen. Vraag wat ze er nu voor betalen.", "<b>Reken het door.</b> <a href=\"#/test\">Doe de test</a> om je kosten, belastingen en break-even te zien.", "<b>Maak een eerste verkoop.</b> Verkoop aan één echte klant, desnoods met de hand, voordat je iets groots bouwt.", "<b>Registreer en richt daarna alles in.</b> Volg de stappen bij <a href=\"#/next\">mijn volgende stappen</a>."]));
+      return m; } };
+    TOPIC.legal = { label: L("Rechtsvorm"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>De gebruikelijke keuze is tussen twee opties:</p>");
+      m.push(li(["<b>Eenmanszaak (jij, onder een handelsnaam).</b> Goedkoop en eenvoudig. Jij en het bedrijf zijn juridisch dezelfde persoon, dus je bent met je eigen bezittingen aansprakelijk voor schulden.", "<b>Besloten vennootschap (bv of vergelijkbaar).</b> Een aparte rechtspersoon, die je persoonlijke risico kan beperken. Meer papierwerk, jaarlijkse aangifte en vaak hogere kosten."]));
+      m.push("<p>Belastingen verschillen per vorm. <a href=\"#/test\">De test</a> en <a href=\"#/report\">het rapport</a> gebruiken de vorm die je kiest. Vraag het handelsregister of een boekhouder voordat je beslist.</p>");
+      return m; } };
+    TOPIC.register = { label: L("Mijn bedrijf inschrijven"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Inschrijven gaat meestal in een aantal aparte stappen, in deze volgorde:</p>");
+      m.push(li(["Schrijf de handelsnaam of vennootschap in bij het officiële register.", "Vraag een belastingnummer aan bij de belastingdienst.", "Meld je aan voor sociale premies als je voor jezelf werkt of mensen in dienst neemt.", "Vraag bij de gemeente of het ministerie of je activiteit een vergunning nodig heeft (eten, vervoer en zorg meestal wel).", "Registreer je voor omzetbelasting als je omzet de drempel bereikt."]));
+      m.push("<p>De precieze loketten en formulieren voor jouw land staan bij <a href=\"#/next\">mijn volgende stappen</a>. Begin niet met verkopen in een gereguleerde activiteit zonder het eerst te vragen.</p>");
+      return m; } };
+    TOPIC.bank = { label: L("Zakelijke bankrekening"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Gebruik vanaf dag één een aparte rekening voor het bedrijf, ook al is die eenvoudig.</p>");
+      m.push(li(["Elke verkoop en elke kost loopt erover. Je cijfers blijven kloppen.", "Het maakt belastingtijd en elke leningaanvraag veel makkelijker.", "Maak elke maand een vast bedrag aan jezelf over, als een salaris.", "Houd een tweede kleine rekening voor belastingen. Zet het deel dat je moet betalen opzij zodra je betaald wordt."]));
+      m.push("<p>Vraag bij twee of drie banken naar de maandelijkse kosten voordat je kiest.</p>");
+      return m; } };
+    TOPIC.records = { label: L("Mijn boekhouding bijhouden"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>In het begin heb je geen programma nodig. Je hebt een gewoonte nodig.</p>");
+      m.push(li(["Bewaar elke bon en factuur, op papier of als foto, in één map.", "Schrijf elke verkoop en elke kost dezelfde dag op, met datum, bedrag en waarvoor.", "Tel eens per maand verkopen, kosten en wat overblijft op. Vergelijk met je plan.", "Bewaar je administratie zo veel jaar als de belastingdienst vraagt."]));
+      m.push("<p>Een boekhouder kan dit in een uur of twee opzetten en verdient zich vaak terug. Ik vervang hem of haar niet.</p>");
+      return m; } };
+    TOPIC.insurance = { label: L("Verzekeringen"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Een verzekering is een kost die je beschermt tegen verlies dat je zelf niet kunt dragen.</p>");
+      m.push(li(["<b>Pand en voorraad:</b> brand, diefstal, storm en overstroming. Belangrijk in orkaangebieden.", "<b>Aansprakelijkheid:</b> als een klant of derde schade lijdt of geld verliest door jou.", "<b>Voertuig:</b> verplicht als je voor het bedrijf rijdt.", "<b>Gezondheid en inkomen voor jezelf:</b> als je niet kunt werken, stopt het bedrijf."]));
+      m.push("<p>Vraag offertes bij twee verzekeraars en tel de jaarkosten bij je vaste kosten in <a href=\"#/test\">de test</a>.</p>");
+      return m; } };
+    TOPIC.marketing = { label: L("Klanten vinden"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Begin met de goedkoopste manieren en meet wat werkt.</p>");
+      m.push(li(["<b>Mond-tot-mondreclame.</b> Vraag je eerste klanten het aan twee mensen te vertellen, en bedank ze.", "<b>Eén pagina op sociale media</b> of een WhatsApp Business-nummer waar mensen zien wat je verkoopt en je prijzen.", "<b>Wees waar je klanten al zijn:</b> een markt, een Facebookgroep, een prikbord, een partnerbedrijf.", "<b>Bied een kleine kennismakingsactie aan</b> en vraag hoe ze je gevonden hebben."]));
+      m.push("<p>Betaal pas voor advertenties als je weet welke boodschap al gratis werkt. Reclame is een kostenpost in je plan.</p>");
+      return m; } };
+    TOPIC.online = { label: L("Online verkopen"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Je kunt online met weinig geld beginnen, maar dezelfde regels gelden: kosten, belastingen en klanten.</p>");
+      m.push(li(["Tel de platformkosten, betaalkosten, verpakking en verzending bij je kostprijs op voordat je je prijs bepaalt.", "Verkoop naar het buitenland kan vragen over douane, verzending en belasting oproepen. Zoek het uit voordat je een levering belooft.", "Foto’s en duidelijke beschrijvingen verkopen meer dan een mooie site.", "Test met een socialemediapagina of marktplaats voordat je voor een website betaalt."]));
+      m.push("<p>Online verkopen blijven verkopen: ze tellen mee voor belasting en voor je administratie.</p>");
+      return m; } };
+    TOPIC.profit = { label: L("Winst, omzet en geld op de rekening"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Drie verschillende getallen die beginners vaak door elkaar halen:</p>");
+      m.push(li(["<b>Omzet:</b> alles wat klanten je betalen.", "<b>Winst:</b> omzet min alle kosten en belastingen. Dit verdient het bedrijf echt.", "<b>Liquide middelen:</b> het geld op je rekening vandaag. Dat kan hoog zijn als de winst laag is (een grote vooruitbetaling) en laag als de winst hoog is (klanten die nog niet betaald hebben)."]));
+      m.push("<p>Een bedrijf kan winst maken en toch zonder geld komen te zitten. Let op beide. <a href=\"#/test\">De test</a> toont je break-even en wat er na belasting overblijft.</p>");
+      return m; } };
+    TOPIC.pay = { label: L("Mezelf betalen"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Bepaal een vast maandbedrag voor jezelf en behandel het als een salaris, niet als wat er overblijft.</p>");
+      m.push(li(["Begin bij je echte leefkosten, uit de test.", "Betaal jezelf pas nadat kosten en belastingen gedekt zijn.", "Als de omzet laag is, verlaag dan je eigen betaling voordat je stopt met leveranciers of belastingen te betalen.", "Bekijk het bedrag elke drie maanden opnieuw."]));
+      if (r) m.push(`<p>In jouw plan blijft na belasting ongeveer <b>${J(r.c.netMonthly)}</b> per maand over.</p>`);
+      return m; } };
+    TOPIC.costs = { label: L("Vaste en variabele kosten"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Kosten zijn er in twee soorten:</p>");
+      m.push(li(["<b>Vaste kosten</b> veranderen niet met de omzet: huur, verzekering, abonnementen, je eigen betaling.", "<b>Variabele kosten</b> stijgen met elke verkoop: materiaal, verpakking, verzending, commissies."]));
+      m.push("<p>Het break-evenpunt is het aantal verkopen dat nodig is om de vaste kosten te dekken nadat de variabele kosten betaald zijn. Een vaste kost verlagen helpt elke maand; een variabele kost verlagen helpt bij elke verkoop. <a href=\"#/test\">Vul beide in bij de test.</a></p>");
+      return m; } };
+    TOPIC.suppliers = { label: L("Leveranciers"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Je leveranciers bepalen je kostprijs, dus kies ze zorgvuldig.</p>");
+      m.push(li(["Vraag minstens drie offertes voor dezelfde hoeveelheid en kwaliteit.", "Vraag de prijs per stuk bij verschillende hoeveelheden, maar koop niet meer dan je kunt verkopen.", "Vraag om een betaaltermijn, bijvoorbeeld 30 dagen, om je kas te ontlasten.", "Test met een kleine eerste bestelling vóór een grote.", "Houd een tweede leverancier voor je hoofdproduct."]));
+      return m; } };
+    TOPIC.stock = { label: L("Mijn voorraad beheren"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Voorraad is geld dat op een plank ligt.</p>");
+      m.push(li(["Koop kleine hoeveelheden van wat je weet te verkopen, en bestel vaak bij.", "Tel je voorraad elke maand en noteer wat het snelst verkocht werd.", "Verlaag traag lopende artikelen vroeg in prijs, voordat ze over datum of uit de mode raken.", "Zet je spaargeld niet vast in voorraad voordat de eerste verkopen de vraag bewijzen."]));
+      return m; } };
+    TOPIC.premises = { label: L("Waar werk ik?"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Vaste huur is de kost die veel kleine bedrijven laat zinken. Begin op de goedkoopste plek die werkt.</p>");
+      m.push(li(["<b>Vanuit huis:</b> check eerst de lokale regels en je huurcontract of verhuurder; sommige activiteiten (eten, lawaai, klanten aan huis) vragen toestemming.", "<b>Marktkraam of gedeelde ruimte:</b> lage kosten, goed om te testen en je ontmoet klanten.", "<b>Eigen pand:</b> pas als de omzet stabiel is en de huur ervan betaald kan worden.", "Lees altijd het huurcontract en vraag wat er gebeurt als je eerder vertrekt."]));
+      return m; } };
+    TOPIC.partners = { label: L("Partners"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Een partner kan vaardigheden en geld inbrengen, en kan het bedrijf ook beëindigen.</p>");
+      m.push(li(["Schrijf op wie wat inbrengt: geld, werk en tijd.", "Spreek af hoe de winst wordt verdeeld en hoe jullie allebei betaald worden.", "Spreek af wat er gebeurt als een partner vertrekt, ziek wordt of wil verkopen.", "Leg het schriftelijk vast en laat het door een jurist nakijken."]));
+      m.push("<p>Doe dit zolang jullie het goed met elkaar kunnen vinden. Een handdruk tussen vrienden is een veelvoorkomende oorzaak van latere ruzie.</p>");
+      return m; } };
+    TOPIC.parttime = { label: L("Mijn baan houden"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Je kunt het bedrijf testen met behoud van je inkomen. Dat is vaak de veiligste manier om te beginnen.</p>");
+      m.push(li(["Check je arbeidscontract: sommige werkgevers verbieden een nevenactiviteit of concurrerend werk.", "Begin in de avonden en weekenden tot de omzet je leefkosten dekt.", "Bepaal bij welk niveau je stopt, bijvoorbeeld drie maanden leefkosten gespaard en stabiele omzet. <a href=\"#/test\">De test</a> toont je buffer.", "Vertel je huishouden wat het plan en de evaluatiedatum zijn."]));
+      return m; } };
+    TOPIC.competition = { label: L("Concurrenten"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Concurrenten zijn goed nieuws: ze bewijzen dat mensen hiervoor betalen.</p>");
+      m.push(li(["Maak een lijst van de drie dichtstbijzijnde concurrenten, met hun prijzen en wat klanten leuk of niet leuk vinden.", "Wees niet alleen goedkoper. Kies één manier om beter te zijn: snelheid, kwaliteit, vertrouwen, gemak of locatie.", "Vraag je eerste klanten waarom ze voor jou kozen.", "Schrijf het op bij <a href=\"#/vision\">mijn visie</a>."]));
+      return m; } };
+    TOPIC.growth = { label: L("Het bedrijf laten groeien"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Groei als de cijfers stabiel zijn, niet als je enthousiast bent.</p>");
+      m.push(li(["Wacht op drie maanden of meer met omzet boven break-even.", "Voeg één ding tegelijk toe: een product, een medewerker, een plek.", "Schat voordat je uitgeeft de extra omzet die het moet opleveren om zichzelf terug te verdienen.", "Houd je buffer intact."]));
+      return m; } };
+    TOPIC.seasonality = { label: L("Rustige maanden"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Veel bedrijven in het Caribisch gebied verkopen in sommige maanden veel meer dan in andere, door toerisme, feestdagen en het orkaanseizoen.</p>");
+      m.push(li(["Kijk naar vorig jaar of vraag andere verkopers: welke maanden zijn druk en welke rustig?", "Zet in drukke maanden geld opzij om de rustige te dekken.", "Plan vaste kosten die je in het laagseizoen kunt verlagen of pauzeren.", "Bied iets aan voor rustige maanden: een korting, een ander product of een dienst voor de buurt."]));
+      return m; } };
+    TOPIC.invoice = { label: L("Facturen en offertes"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Een duidelijke factuur zorgt dat je sneller betaald wordt. Zet erop:</p>");
+      m.push(li(["Je bedrijfsnaam, adres en belastingnummer als je er een hebt.", "Een uniek factuurnummer en de datum.", "Wat je verkocht hebt, de hoeveelheid, de prijs en eventuele omzetbelasting.", "Het totaal, de uiterste betaaldatum en hoe te betalen (rekeninggegevens).", "Verstuur hem dezelfde dag en bewaar een kopie."]));
+      m.push("<p>Voeg bij een offerte toe hoe lang de prijs geldig is en wat er niet bij zit.</p>");
+      return m; } };
+    TOPIC.contracts = { label: L("Afspraken met klanten"), msgs: () => {
+      const r = R(), m = [];
+      m.push("<p>Schriftelijke voorwaarden voorkomen de meeste geschillen.</p>");
+      m.push(li(["Schrijf bij elke klus boven een klein bedrag op wat je doet, de prijs, de timing en de aanbetaling.", "Beschrijf je terugbetalings- of retourregel in gewone woorden en toon die.", "Bewaar berichten en foto’s als bewijs.", "Als een klant klaagt, reageer snel en rustig en bied een oplossing aan voordat hij erom vraagt."]));
+      return m; } };
   }
-  const ORDER_ALL = ['mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding'];
+  const ORDER_ALL = ['start', 'mistakes', 'cost', 'breakeven', 'tax', 'customers', 'savings', 'cash', 'vat', 'team', 'motivation', 'funding', 'legal', 'register', 'bank', 'records', 'insurance', 'marketing', 'online', 'profit', 'pay', 'costs', 'suppliers', 'stock', 'premises', 'partners', 'parttime', 'competition', 'growth', 'seasonality', 'invoice', 'contracts'];
   const orderList = () => ORDER_ALL.filter(id => id !== 'vat' || D.vat);
-  const KEYWORDS = [['mistakes', /fout|faillis|mislukk|risico|advies|tips?\b|waarom.*(bedrijf|onderneming)/], ['cost', /kost|prijs|marge|rekenen|hoeveel (moet|vraag)/], ['breakeven', /break.?even|rendabel|hoeveel.*verkopen/], ['cash', /laat|factuur|werkkapitaal|krediet|achterstand/], ['savings', /spaar|reserve|buffer/], ['tax', /belasting|premie|aov|azv|bbo|ob\b|fiscaal/], ['vat', /btw|omzetbelasting/], ['team', /medewerker|personeel|aannemen|loon|werknemer/], ['customers', /klant|markt|koper|verkopen aan/], ['motivation', /motivat|angst|stress|twijfel|opgeven/], ['funding', /lening|financier|bank|steun|subsidie/]];
+  const KEYWORDS = [['mistakes', /fout|faillis|mislukk|risico|waarom.*(bedrijf|onderneming)/], ['cost', /kost|prijs|marge|rekenen|hoeveel (moet|vraag)/], ['breakeven', /break.?even|rendabel|hoeveel.*verkopen/], ['cash', /\blaat\b|factuur|werkkapitaal|krediet|achterstand/], ['savings', /spaar|reserve|buffer/], ['tax', /belasting|premie|\baov\b|\bazv\b|\bbbo\b|\bob\b|fiscaal/], ['vat', /btw|omzetbelasting/], ['team', /medewerker|personeel|aannemen|loon|werknemer/], ['customers', /klant|markt|koper|verkopen aan/], ['motivation', /motivat|angst|stress|twijfel|opgeven/], ['funding', /lening|financier|bank|steun|subsidie/]];
+
+  const EXTRA = {"cost": ["prijs", "kostprijs", "verkoopprijs", "marge"], "breakeven": ["break-even", "break even", "rendabel"], "tax": ["belasting", "belastingen", "premie"], "customers": ["klant", "klanten", "koper"], "savings": ["sparen", "spaargeld", "buffer", "reserve"], "cash": ["werkkapitaal", "laat betalen", "achterstand"], "team": ["medewerker", "personeel", "werknemer", "aannemen"], "motivation": ["motivatie", "stress"], "funding": ["lening", "subsidie", "financiering", "lenen"], "vat": ["btw", "omzetbelasting"], "mistakes": ["fout", "fouten", "faillissement", "mislukken", "risico"], "start": ["waar begin", "hoe begin", "beginnen", "starten", "opstarten", "bedrijf starten", "bedrijf beginnen", "eerste stap", "mijn idee", "bedrijfsidee", "goed idee", "lanceren", "tips voor beginners", "beginner", "ik ben nieuw"], "legal": ["rechtsvorm", "eenmanszaak", "zzp", "zelfstandige", "vennootschap", "bv", "nv", "rechtspersoon", "handelsnaam", "onderneming oprichten", "oprichten"], "register": ["bedrijf registreren", "bedrijf inschrijven", "inschrijven bij", "inschrijving", "vergunning", "licentie", "toestemming", "papierwerk", "formaliteiten", "belastingnummer", "wettelijke eisen"], "bank": ["bankrekening", "zakelijke rekening", "aparte rekening", "privégeld", "privé en zakelijk", "geld door elkaar"], "records": ["boekhouding", "boekhouden", "administratie", "boekhouder", "bonnen", "kasboek", "spreadsheet", "excel"], "insurance": ["verzekering", "verzekeren", "verzekeraar", "aansprakelijkheid", "brand", "diefstal", "schade", "polis"], "marketing": ["marketing", "reclame", "adverteren", "promotie", "sociale media", "facebook", "instagram", "whatsapp", "tiktok", "klanten vinden", "klanten krijgen", "meer klanten", "mond-tot-mond", "logo", "website", "zichtbaarheid"], "online": ["online", "webshop", "e-commerce", "ecommerce", "etsy", "amazon", "shopify", "verzending", "verzenden", "levering", "dropshipping", "internet"], "profit": ["winst", "omzet", "verdienen", "hoeveel ga ik verdienen", "liquide", "geld op de rekening", "kasstroom", "cashflow"], "pay": ["mezelf betalen", "mijn salaris", "mijn loon", "hoeveel betalen", "opnemen", "dividend", "eigenaarsloon", "leefkosten", "van leven"], "costs": ["vaste kosten", "variabele kosten", "vaste last", "overhead", "uitgaven", "maandelijkse kosten"], "suppliers": ["leverancier", "groothandel", "onderhandelen", "in bulk", "waar koop ik", "inkoop", "inkopen"], "stock": ["voorraad", "inventaris", "onverkocht", "bijbestellen", "hoeveel inkopen", "houdbaar"], "premises": ["bedrijfspand", "winkelpand", "winkel", "kantoor", "huur", "locatie", "vanuit huis", "thuis", "keuken", "werkplaats", "marktkraam", "kraam"], "partners": ["partner", "compagnon", "medeoprichter", "met een vriend", "met mijn broer", "met mijn zus", "met familie", "samen beginnen", "met een partner"], "parttime": ["mijn baan", "baan houden", "ontslag nemen", "opzeggen", "bijbaan", "naast mijn werk", "werkgever", "neventak"], "competition": ["concurrent", "concurrentie", "rivaal", "onderscheiden", "anders dan", "uniek"], "growth": ["groeien", "groei", "uitbreiden", "opschalen", "tweede vestiging", "nieuw product"], "seasonality": ["seizoen", "rustige maand", "laagseizoen", "hoogseizoen", "orkaan", "toerist", "toerisme", "seizoensgebonden"], "invoice": ["factuur maken", "factuur opstellen", "factuur schrijven", "factuur sjabloon", "offerte", "kwitantie"], "contracts": ["contract", "overeenkomst", "schriftelijk", "algemene voorwaarden", "aanbetaling", "terugbetaling", "garantie", "klacht", "geschil", "retourbeleid", "ontevreden klant"]};
+  const GREET = /^(hallo|hoi|hey|help|hulp|goedendag|goedemorgen)/i;
+  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  Object.keys(EXTRA).forEach(k => { EXTRA[k] = EXTRA[k].map(norm); });
+  /* true si les deux mots ne different que d'une lettre (faute de frappe) */
+  const near = (a, b) => {
+    if (a === b) return true;
+    const la = a.length, lb = b.length; if (Math.abs(la - lb) > 1) return false;
+    let i = 0; while (i < la && i < lb && a[i] === b[i]) i++;
+    if (la === lb) return a.slice(i + 1) === b.slice(i + 1) || (a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2));
+    return la > lb ? a.slice(i + 1) === b.slice(i) : a.slice(i) === b.slice(i + 1);
+  };
+  /* Choisit le sujet dont le mot reconnu est le plus long (le plus precis). */
+  function matchTopic(q) {
+    const low = q.toLowerCase(), qn = norm(q), words = qn.split(/[^a-z0-9]+/).filter(Boolean), score = {};
+    const up = (id, n) => { if (!(score[id] >= n)) score[id] = n; };
+    KEYWORDS.forEach(k => { const m = low.match(k[1]); if (m) up(k[0], m[0].length); });
+    Object.keys(EXTRA).forEach(id => EXTRA[id].forEach(s => {
+      if (s.length < 5) { if (words.indexOf(s) >= 0) up(id, s.length); return; }
+      if (qn.indexOf(s) >= 0) { up(id, s.length); return; }
+      if (s.indexOf(' ') < 0 && words.some(w => w.length >= s.length - 1 && (near(w.slice(0, s.length), s) || near(w.slice(0, s.length - 1), s)))) up(id, s.length - 1);
+    }));
+    let best = null, top = 0;
+    orderList().forEach(id => { if (score[id] > top) { top = score[id]; best = id; } });
+    return best;
+  }
+  const allChip = () => '<button class="chip soft" data-act="all">' + esc("Alle onderwerpen") + '</button>';
 
   const chips = (ids, soft) => `<div class="chips">${ids.map(id => `<button class="chip${soft ? ' soft' : ''}" data-act="ask" data-topic="${id}">${esc(TOPIC[id].label())}</button>`).join('')}</div>`;
   function moreChips(current) {
@@ -412,15 +557,17 @@
       e.preventDefault();
       const inp = $('#ask'), q = inp.value.trim(); if (!q) return;
       inp.value = '';
-      const hit = KEYWORDS.find(k => k[1].test(q.toLowerCase()));
-      if (hit) coachAsk(hit[0], q);
-      else coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Daar heb ik nog geen antwoord op. Begin met de veelgemaakte fouten of kies een ander onderwerp. Je kunt ook een woord gebruiken als prijs, belasting, klanten of sparen.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) }]);
+      const id = matchTopic(q);
+      if (id) { track('caribbean-coach-hit'); coachAsk(id, q); }
+      else if (GREET.test(q)) coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: "<p>Hallo! Kies hieronder een onderwerp of typ je vraag.</p>" }, { raw: true, html: chips(orderList(), true) }]);
+      else { track('caribbean-coach-miss'); coachPush([{ from: 'me', html: esc(q) }, { from: 'coach', html: '<p>Daar heb ik nog geen antwoord op. Begin met de veelgemaakte fouten of kies een ander onderwerp. Je kunt ook een woord gebruiken als prijs, belasting, klanten of sparen.</p>' }, { raw: true, html: chips(orderList().slice(0, 6), true) + allChip() }]); }
     });
     view.addEventListener('click', e => {
       const sh = e.target.closest('[data-share]'); if (sh) track('caribbean-share-' + sh.dataset.share);
       const b = e.target.closest('[data-act]'); if (!b) return;
       const act = b.dataset.act;
-      if (act === 'ask') coachAsk(b.dataset.topic);
+      if (act === 'all') coachPush([{ from: 'me', html: esc("Alle onderwerpen") }, { raw: true, html: chips(orderList(), true) }]);
+      else if (act === 'ask') coachAsk(b.dataset.topic);
       else if (act === 'back') { S.step = Math.max(0, S.step - 1); errMsg = ''; save(); rerender(); window.scrollTo(0, 0); }
       else if (act === 'next') { errMsg = validate(S.step); if (!errMsg) { if (S.step === 0) track('caribbean-test-started-' + D.country.toLowerCase()); S.step += 1; save(); } rerender(); window.scrollTo(0, 0); }
       else if (act === 'finish') { errMsg = validate(3); if (errMsg) { rerender(); window.scrollTo(0, 0); return; } S.ready = true; S.step = 0; chat = []; visited = {}; save(); track('caribbean-report-done-' + D.country.toLowerCase()); location.hash = '#/report'; }
