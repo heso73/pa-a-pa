@@ -122,7 +122,7 @@ details.more dd{margin:0 0 4px;font-size:14px;color:var(--muted)}
 .bubble{max-width:92%;padding:14px 16px;border-radius:18px;font-size:15px;line-height:1.5}
 .bubble p:last-child{margin-bottom:0}
 .bubble.coach{align-self:flex-start;background:var(--white);border:1px solid var(--line);border-bottom-left-radius:6px}
-.bubble.me{align-self:flex-end;background:var(--deep);color:#fff;border-bottom-right-radius:6px}
+.bubble.me{scroll-margin-top:76px;align-self:flex-end;background:var(--deep);color:#fff;border-bottom-right-radius:6px}
 .bubble.tool{align-self:stretch;max-width:100%}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0}
 .chip{min-height:44px;padding:0 16px;border-radius:22px;border:2px solid var(--deep);background:var(--white);color:var(--deep);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}

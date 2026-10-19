@@ -309,7 +309,11 @@
   function coachPush(items) {
     chat = chat.concat(items);
     const log = $('#chatlog'); if (log) log.innerHTML = chatHTML();
-    const c = $('#composer'); if (c && c.scrollIntoView) c.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    if (log) {
+      const mine = log.querySelectorAll('.bubble.me');
+      const last = mine[mine.length - 1];
+      if (last && last.scrollIntoView) requestAnimationFrame(() => last.scrollIntoView({ block: 'start', behavior: 'smooth' }));
+    }
   }
   function coachAsk(id, label) {
     if (!TOPIC[id]) return;
