@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Chiffre d&#x27;affaires, bénéfice et trésorerie : la différence et un exemple</title>
+<meta name="description" content="Chiffre d&#x27;affaires, bénéfice, trésorerie : trois notions que les créateurs confondent. Un exemple chiffré montre comment une entreprise rentable peut manquer d&#x27;argent, et comment l&#x27;éviter.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/tresorerie-benefice-chiffre-affaires.html">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Pa a Pa">
+<meta property="og:title" content="Chiffre d&#x27;affaires, bénéfice et trésorerie : la différence et un exemple">
+<meta property="og:description" content="Chiffre d&#x27;affaires, bénéfice, trésorerie : trois notions que les créateurs confondent. Un exemple chiffré montre comment une entreprise rentable peut manquer d&#x27;argent, et comment l&#x27;éviter.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/tresorerie-benefice-chiffre-affaires.html">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/icons/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/tresorerie-benefice-chiffre-affaires.html#article", "headline": "Chiffre d'affaires, bénéfice et trésorerie : ne plus les confondre", "description": "Chiffre d'affaires, bénéfice, trésorerie : trois notions que les créateurs confondent. Un exemple chiffré montre comment une entreprise rentable peut manquer d'argent, et comment l'éviter.", "inLanguage": "fr", "datePublished": "2026-10-19", "dateModified": "2026-10-19", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/tresorerie-benefice-chiffre-affaires.html", "author": {"@type": "Organization", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/"}, "image": "https://heso73.github.io/pa-a-pa/icons/og-fr.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa", "item": "https://heso73.github.io/pa-a-pa/"}, {"@type": "ListItem", "position": 2, "name": "Chiffre d'affaires, bénéfice et trésorerie : ne plus les confondre", "item": "https://heso73.github.io/pa-a-pa/tresorerie-benefice-chiffre-affaires.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Une entreprise rentable peut-elle faire faillite ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, si elle ne peut plus payer ses dettes à temps faute de trésorerie. C'est pourquoi on suit le bénéfice et la trésorerie ensemble."}}, {"@type": "Question", "name": "Comment calculer la trésorerie d'une entreprise ?", "acceptedAnswer": {"@type": "Answer", "text": "Mois par mois : trésorerie de début de mois + encaissements − décaissements = trésorerie de fin de mois. Il faut compter les dates de paiement réelles, pas celles des ventes."}}, {"@type": "Question", "name": "Quelle réserve prévoir quand on se lance ?", "acceptedAnswer": {"@type": "Answer", "text": "Une règle courante est de viser plusieurs mois de charges fixes et de frais de vie. Le bon niveau dépend de votre activité et de vos délais de paiement : le bilan de faisabilité vous aide à l'estimer."}}]}]}</script>
+<script src="stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="./">Pa a Pa</a>
+<a class="btn small" href="app/">Ouvrir l'application</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="./">Pa a Pa</a> › Chiffre d&#x27;affaires, bénéfice et trésorerie : ne plus les confondre</p>
+<h1>Chiffre d&#x27;affaires, bénéfice et trésorerie : ne plus les confondre</h1>
+<p class="lead">Ce sont trois chiffres différents, et les confondre explique beaucoup de difficultés de créateurs. Une entreprise peut afficher un bénéfice et ne plus pouvoir payer ses factures.</p>
+<div class="box">
+<strong>En bref</strong>
+<ul>
+<li>Chiffre d'affaires : tout ce que les clients paient. Bénéfice : ce qui reste après tous les coûts. Trésorerie : l'argent disponible aujourd'hui sur le compte.</li>
+<li>Un délai de paiement ou un stock à acheter suffit à créer un trou de trésorerie, même avec un bénéfice.</li>
+<li>Le plan de trésorerie mois par mois permet de voir le trou avant qu'il arrive.</li>
+</ul>
+</div>
+<h2>Trois notions, trois questions</h2>
+<ul>
+<li><strong>Chiffre d'affaires :</strong> combien ai-je vendu ?</li>
+<li><strong>Bénéfice :</strong> après tous les coûts et les impôts, ai-je gagné de l'argent ?</li>
+<li><strong>Trésorerie :</strong> combien ai-je sur mon compte, maintenant, pour payer ce qui arrive ?</li>
+</ul>
+<h2>Un exemple : bénéfice sur le papier, compte vide</h2>
+<p>Un artisan achète 3 000 € de matières, règle 800 € de loyer et vend pour 5 000 € de travaux, payables à 30 jours.</p>
+<div class="scrollx"><table><tr><td>Vente du mois</td><td>5 000 €</td></tr><tr><td>Matières</td><td>− 3 000 €</td></tr><tr><td>Loyer</td><td>− 800 €</td></tr><tr class="total"><td>Bénéfice du mois</td><td>1 200 €</td></tr></table></div>
+<p>Mais le client ne paie que le mois suivant. En fin de mois, l'artisan a encaissé 0 € et décaissé 3 800 € : sa trésorerie est de <strong>− 3 800 €</strong>. S'il n'a pas de réserve, il ne peut pas payer son fournisseur, alors que son activité est rentable.</p>
+<h2>Ce qui creuse un trou de trésorerie</h2>
+<ul>
+<li>Des clients qui paient à 30 ou 60 jours alors que vous payez fournisseurs et loyer tout de suite.</li>
+<li>Un stock à acheter avant de vendre.</li>
+<li>Des cotisations et impôts qui tombent plusieurs mois après les ventes.</li>
+<li>Des mois creux : activité saisonnière, vacances, intempéries.</li>
+</ul>
+<p>Le guide du <a href="calcul-bfr.html">besoin en fonds de roulement</a> montre comment chiffrer cet écart.</p>
+<h2>Comment l&#x27;éviter</h2>
+<ul>
+<li>Demander un acompte avant de commencer.</li>
+<li>Facturer le jour même, avec une date d'échéance claire.</li>
+<li>Proposer des délais courts, et relancer dès le premier retard.</li>
+<li>Négocier des délais de paiement avec les fournisseurs.</li>
+<li>Garder une réserve équivalente à plusieurs mois de charges fixes.</li>
+<li>Dresser un plan de trésorerie mois par mois, au moins sur douze mois.</li>
+</ul>
+<div class="cta">
+<p><strong>Testez votre projet en quelques minutes</strong><br>Gratuit, sans inscription. Vos réponses restent sur votre appareil.</p>
+<a class="btn" href="app/">Faire le bilan de faisabilité</a>
+</div>
+<h2>Questions fréquentes</h2>
+<details><summary>Une entreprise rentable peut-elle faire faillite ?</summary>
+<p>Oui, si elle ne peut plus payer ses dettes à temps faute de trésorerie. C'est pourquoi on suit le bénéfice et la trésorerie ensemble.</p></details>
+<details><summary>Comment calculer la trésorerie d&#x27;une entreprise ?</summary>
+<p>Mois par mois : trésorerie de début de mois + encaissements − décaissements = trésorerie de fin de mois. Il faut compter les dates de paiement réelles, pas celles des ventes.</p></details>
+<details><summary>Quelle réserve prévoir quand on se lance ?</summary>
+<p>Une règle courante est de viser plusieurs mois de charges fixes et de frais de vie. Le bon niveau dépend de votre activité et de vos délais de paiement : le bilan de faisabilité vous aide à l'estimer.</p></details>
+<div class="related"><strong>À lire aussi</strong>
+<ul>
+<li><a href="calcul-bfr.html">Besoin en fonds de roulement</a> : pourquoi une entreprise rentable peut manquer d'argent</li>
+<li><a href="previsionnel-financier-simple.html">Faire un prévisionnel financier simple</a> : plan de financement, résultat et trésorerie</li>
+<li><a href="erreurs-creation-entreprise.html">Les 7 erreurs qui font échouer une entreprise</a> : ce qu'il faut vérifier avant de se lancer</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa : outil gratuit pour tester un projet d'entreprise, sans inscription. Les montants sont des estimations d'orientation, pas un conseil comptable, fiscal ou juridique.</p>
+<p><a href="./">Pa a Pa</a> · <a href="confidentialite.html">Confidentialité</a></p>
+</div>
+</footer>
+</body>
+</html>

@@ -71,5 +71,20 @@
 
 - Figures are 2026 planning estimates, not tax or legal advice; the tax authority of each country gives the exact amounts at registration.
 
+## Guides (français)
+- https://heso73.github.io/pa-a-pa/erreurs-creation-entreprise.html
+- https://heso73.github.io/pa-a-pa/comment-creer-son-entreprise-etapes.html
+- https://heso73.github.io/pa-a-pa/se-payer-quand-on-cree-son-entreprise.html
+- https://heso73.github.io/pa-a-pa/charges-fixes-charges-variables.html
+- https://heso73.github.io/pa-a-pa/tresorerie-benefice-chiffre-affaires.html
+- https://heso73.github.io/pa-a-pa/premiers-clients-sans-budget.html
+- https://heso73.github.io/pa-a-pa/assurance-professionnelle-creation.html
+- https://heso73.github.io/pa-a-pa/previsionnel-financier-simple.html
+
+## Guides (English)
+- https://heso73.github.io/pa-a-pa/caribbean/guides/why-small-businesses-fail/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-start-a-business-in-the-caribbean/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/fixed-costs-vs-variable-costs/
+
 ## Limites
 - Outil d'orientation : les montants sont des estimations et ne remplacent pas un expert-comptable ni un conseiller en création.

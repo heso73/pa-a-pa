@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Faire un prévisionnel financier simple pour créer son entreprise</title>
+<meta name="description" content="Comment faire un prévisionnel financier simple : plan de financement, compte de résultat prévisionnel et plan de trésorerie, avec un exemple chiffré et les erreurs à éviter.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/previsionnel-financier-simple.html">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Pa a Pa">
+<meta property="og:title" content="Faire un prévisionnel financier simple pour créer son entreprise">
+<meta property="og:description" content="Comment faire un prévisionnel financier simple : plan de financement, compte de résultat prévisionnel et plan de trésorerie, avec un exemple chiffré et les erreurs à éviter.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/previsionnel-financier-simple.html">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/icons/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/previsionnel-financier-simple.html#article", "headline": "Faire un prévisionnel financier simple pour créer son entreprise", "description": "Comment faire un prévisionnel financier simple : plan de financement, compte de résultat prévisionnel et plan de trésorerie, avec un exemple chiffré et les erreurs à éviter.", "inLanguage": "fr", "datePublished": "2026-10-19", "dateModified": "2026-10-19", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/previsionnel-financier-simple.html", "author": {"@type": "Organization", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa", "url": "https://heso73.github.io/pa-a-pa/"}, "image": "https://heso73.github.io/pa-a-pa/icons/og-fr.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa", "item": "https://heso73.github.io/pa-a-pa/"}, {"@type": "ListItem", "position": 2, "name": "Faire un prévisionnel financier simple pour créer son entreprise", "item": "https://heso73.github.io/pa-a-pa/previsionnel-financier-simple.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Un prévisionnel est-il obligatoire pour créer une entreprise ?", "acceptedAnswer": {"@type": "Answer", "text": "Il n'est pas toujours exigé, mais il l'est pour demander un financement et il reste le meilleur moyen de vérifier son projet. Une version simple est un bon début."}}, {"@type": "Question", "name": "Sur combien d'années faire un prévisionnel ?", "acceptedAnswer": {"@type": "Answer", "text": "Souvent trois ans pour un financement, avec le détail mois par mois la première année. Pa a Pa propose un prévisionnel sur trois ans."}}, {"@type": "Question", "name": "Faut-il un expert-comptable pour faire un prévisionnel ?", "acceptedAnswer": {"@type": "Answer", "text": "Pas obligatoirement pour une première version, mais il est utile pour le valider, surtout avant de présenter le projet à une banque."}}]}]}</script>
+<script src="stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="./">Pa a Pa</a>
+<a class="btn small" href="app/">Ouvrir l'application</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="./">Pa a Pa</a> › Faire un prévisionnel financier simple pour créer son entreprise</p>
+<h1>Faire un prévisionnel financier simple pour créer son entreprise</h1>
+<p class="lead">Un prévisionnel n'est pas un exercice pour banquier : c'est la façon de vérifier sur le papier que le projet tient avant de dépenser. Trois tableaux suffisent pour commencer.</p>
+<div class="box">
+<strong>En bref</strong>
+<ul>
+<li>Plan de financement : de quoi j'ai besoin pour démarrer, et d'où vient l'argent.</li>
+<li>Compte de résultat prévisionnel : combien je vends, combien je dépense, combien il reste.</li>
+<li>Plan de trésorerie : mois par mois, combien j'ai sur mon compte.</li>
+</ul>
+</div>
+<h2>1. Le plan de financement</h2>
+<p>Il met face à face les besoins du démarrage et les ressources. Les deux colonnes doivent s'équilibrer.</p>
+<div class="scrollx"><table><tr><th>Besoins</th><th>Montant</th></tr><tr><td>Matériel</td><td>2 000 €</td></tr><tr><td>Stock de départ</td><td>1 500 €</td></tr><tr><td>Trésorerie de départ</td><td>1 000 €</td></tr><tr class="total"><td>Total des besoins</td><td>4 500 €</td></tr></table></div>
+<div class="scrollx"><table><tr><th>Ressources</th><th>Montant</th></tr><tr><td>Apport personnel</td><td>3 000 €</td></tr><tr><td>Emprunt</td><td>1 500 €</td></tr><tr class="total"><td>Total des ressources</td><td>4 500 €</td></tr></table></div>
+<h2>2. Le compte de résultat prévisionnel</h2>
+<p>Pour chaque mois ou chaque année : chiffre d'affaires prévu, moins les coûts variables, moins les charges fixes, moins les cotisations et impôts : le résultat. Partez de ventes prudentes et justifiez-les : nombre de clients, panier moyen, saisonnalité. Voir <a href="charges-fixes-charges-variables.html">charges fixes et variables</a> et <a href="seuil-de-rentabilite.html">seuil de rentabilité</a>.</p>
+<h2>3. Le plan de trésorerie</h2>
+<p>Mois par mois : trésorerie de début de mois, plus les encaissements (à la date où les clients paient vraiment), moins les décaissements (à la date où vous payez vraiment). C'est lui qui montre les trous. Voir <a href="tresorerie-benefice-chiffre-affaires.html">chiffre d'affaires, bénéfice et trésorerie</a>.</p>
+<h2>Testez plusieurs scénarios</h2>
+<p>Refaites le calcul avec des ventes inférieures de 20 %, puis avec un client important qui paie en retard. Si l'entreprise ne résiste pas à un scénario raisonnable, il faut revoir les coûts, les prix ou le démarrage.</p>
+<h2>Les erreurs à éviter</h2>
+<ul>
+<li>Des ventes trop optimistes, sans raison précise.</li>
+<li>Oublier votre propre rémunération.</li>
+<li>Ignorer les délais de paiement dans la trésorerie.</li>
+<li>Oublier cotisations, impôts, assurance, comptable.</li>
+<li>Ne jamais le mettre à jour : un prévisionnel se compare chaque mois à la réalité.</li>
+</ul>
+<div class="cta">
+<p><strong>Construisez votre prévisionnel</strong><br>Gratuit, sans inscription. Vos chiffres restent sur votre appareil.</p>
+<a class="btn" href="app/">Ouvrir l'application</a>
+</div>
+<h2>Questions fréquentes</h2>
+<details><summary>Un prévisionnel est-il obligatoire pour créer une entreprise ?</summary>
+<p>Il n'est pas toujours exigé, mais il l'est pour demander un financement et il reste le meilleur moyen de vérifier son projet. Une version simple est un bon début.</p></details>
+<details><summary>Sur combien d&#x27;années faire un prévisionnel ?</summary>
+<p>Souvent trois ans pour un financement, avec le détail mois par mois la première année. Pa a Pa propose un prévisionnel sur trois ans.</p></details>
+<details><summary>Faut-il un expert-comptable pour faire un prévisionnel ?</summary>
+<p>Pas obligatoirement pour une première version, mais il est utile pour le valider, surtout avant de présenter le projet à une banque.</p></details>
+<div class="related"><strong>À lire aussi</strong>
+<ul>
+<li><a href="comment-creer-son-entreprise-etapes.html">Créer son entreprise : les étapes dans l&#x27;ordre</a> : de l'idée au premier client</li>
+<li><a href="tresorerie-benefice-chiffre-affaires.html">Chiffre d&#x27;affaires, bénéfice et trésorerie</a> : ne plus les confondre</li>
+<li><a href="calcul-bfr.html">Besoin en fonds de roulement</a> : pourquoi une entreprise rentable peut manquer d'argent</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa : outil gratuit pour tester un projet d'entreprise, sans inscription. Les montants sont des estimations d'orientation, pas un conseil comptable, fiscal ou juridique.</p>
+<p><a href="./">Pa a Pa</a> · <a href="confidentialite.html">Confidentialité</a></p>
+</div>
+</footer>
+</body>
+</html>
