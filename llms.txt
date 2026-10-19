@@ -1,6 +1,6 @@
 # Pa a Pa
 
-> Application web gratuite, installable sur mobile et ordinateur, qui aide les futurs créateurs d'entreprise à vérifier que leur projet tient la route avant de se lancer : bilan de faisabilité, calculs guidés et parcours de création pas à pas. Sans inscription ; les données restent sur l'appareil de l'utilisateur. Pensée pour la France métropolitaine et l'outre-mer (Guadeloupe, Martinique, La Réunion, Guyane, Mayotte).
+> Nom : « pa a pa » signifie « pas à pas » en créole antillais et haïtien ; c'est aussi le nom de cet outil. Application web gratuite, installable sur mobile et ordinateur, qui aide les futurs créateurs d'entreprise à vérifier que leur projet tient la route avant de se lancer : bilan de faisabilité, calculs guidés et parcours de création pas à pas. Sans inscription ; les données restent sur l'appareil de l'utilisateur. Pensée pour la France métropolitaine et l'outre-mer (Guadeloupe, Martinique, La Réunion, Guyane, Mayotte).
 
 ## Présentation
 - [Accueil](https://heso73.github.io/pa-a-pa/): ce que fait Pa a Pa, les six outils de calcul, questions fréquentes
@@ -14,7 +14,7 @@
 - [Ouvrir l'application](https://heso73.github.io/pa-a-pa/app/): bilan de faisabilité, parcours de création, pilotage de l'activité et outils de calcul (interface interactive, non indexée)
 
 ## Pa a Pa Caribbean (English) and Pa a Pa Caribe (español)
-> Free web app and country guides for first-time entrepreneurs in 29 Caribbean countries and territories (Jamaica, Trinidad and Tobago, Guyana, Barbados, The Bahamas, Belize, Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda, Saint Kitts and Nevis, Cayman Islands, British Virgin Islands, Turks and Caicos Islands, Anguilla, Montserrat, Aruba, Curaçao, Suriname, Haiti, Bonaire, Sint Eustatius, Saba, Sint Maarten, US Virgin Islands, República Dominicana, Puerto Rico, Cuba, Haïti). It tests whether a business idea can pay the owner's bills: estimated income tax, social contributions and sales tax, take-home income, a strengths and risks report, launch steps, a tax calendar and a step-by-step coach. Free, no sign-up, answers stay on the user's device. Published by Caribbean Metadata.
+> Free web app and country guides for first-time entrepreneurs in 29 Caribbean countries and territories (Jamaica, Trinidad and Tobago, Guyana, Barbados, The Bahamas, Belize, Saint Lucia, Dominica, Grenada, Saint Vincent and the Grenadines, Antigua and Barbuda, Saint Kitts and Nevis, Cayman Islands, British Virgin Islands, Turks and Caicos Islands, Anguilla, Montserrat, Aruba, Curaçao, Suriname, Haiti, Bonaire, Sint Eustatius, Saba, Sint Maarten, US Virgin Islands, República Dominicana, Puerto Rico, Cuba, Haïti). It tests whether a business idea can pay the owner's bills: estimated income tax, social contributions and sales tax, take-home income, a strengths and risks report, launch steps, a tax calendar and a step-by-step coach. Free, no sign-up, answers stay on the user's device.
 
 - [Pa a Pa Caribbean, the app (English)](https://heso73.github.io/pa-a-pa/caribbean/): interactive business idea test for the Caribbean
 - [Pa a Pa Caribe, la app (español)](https://heso73.github.io/pa-a-pa/caribbean/es/): prueba de ideas de negocio para la República Dominicana, Puerto Rico y Cuba
