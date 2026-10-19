@@ -915,7 +915,7 @@ nav.steps .sm{display:none}
     else{v='Prenez le temps de faire mûrir le projet';t='Ce n\'est pas un non : c\'est une invitation à préparer le terrain. Chaque action ci-dessous augmente réellement vos chances.';}
     $('verdict').textContent=v+' ('+glob+' / 100)';
     $('verdictText').textContent=t;
-    $('bars').innerHTML=Object.keys(DIMS).map(d=>`<div class="bar"><div class="top"><span>${DIMS[d].label}</span><span>${sc[d]} / 100</span></div><div class="track"><div class="fill" style="width:0;background:${DIMS[d].color}" data-w="${sc[d]}"></div></div></div>`).join('');
+    $('bars').innerHTML=Object.keys(DIMS).map(d=>`<div class="bar"><div class="top"><span>${DIMS[d].label}</span><span>${sc[d]} / 100</span></div><div class="track"><div class="fill" style="width:0;background:${sc[d]>=70?'var(--leaf)':sc[d]>=45?'#E6A21F':'var(--coral)'}" data-w="${sc[d]}"></div></div></div>`).join('');
     requestAnimationFrame(()=>document.querySelectorAll('#bars .fill').forEach(f=>f.style.width=Math.max(f.dataset.w,3)+'%'));
     const weak=Object.keys(DIMS).filter(d=>sc[d]<65).sort((a,b)=>sc[a]-sc[b]);
     const nt=NAT_TIP[S.tri.nat], ntxt=typeof nt==='function'?nt():nt, natLi=ntxt?`<li><strong>Votre activité.</strong> ${ntxt}</li>`:'';
