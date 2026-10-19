@@ -331,6 +331,15 @@ nav.steps .sm{display:none}
     <div class="progress"><div id="progBar"></div></div>
   </div>
   <div id="phases"></div>
+
+  <div class="block" id="etMaintenant">
+    <h3>Et maintenant ?</h3>
+    <p style="margin:0 0 12px;max-width:68ch">Une fois votre statut choisi, il faut créer la structure puis tenir ses comptes et ses factures. Indy accompagne la création d'entreprise, la comptabilité en ligne et la facturation électronique. Pour les lecteurs de Pa a Pa : <strong>1er mois offert, sans engagement</strong>.</p>
+    <div class="row">
+      <a class="btn" style="text-decoration:none;display:inline-block" id="indyLink" href="https://www.indy.fr/?ae=2085" target="_blank" rel="sponsored noopener">Découvrir Indy</a>
+    </div>
+    <p class="qprog" style="margin:12px 0 0">Lien partenaire : si vous vous inscrivez via ce lien, Pa a Pa perçoit une commission, sans coût supplémentaire pour vous. Comparez toujours plusieurs offres avant de choisir.</p>
+  </div>
 </section>
 
 <!-- ===== 3. DURER ===== -->
@@ -907,6 +916,7 @@ nav.steps .sm{display:none}
     box.classList.add('on');
     if(silent!==true){ if(window.track){ track('bilan-demarre'); track('bilan-termine'); } box.scrollIntoView({behavior:"smooth",block:"start"}); }
   }
+  (function(){ const il=document.getElementById('indyLink'); if(il) il.addEventListener('click',()=>{ if(window.track) track('clic-indy'); }); })();
   $("showResult").addEventListener("click",()=>showResult());
   $('resetQuiz').addEventListener('click',()=>{ S.quiz={}; S.tri={}; save(); applyProfile(); renderTri(); renderQ(); $('result').classList.remove('on'); updProg(); form.closest('.block').scrollIntoView({behavior:'smooth',block:'start'}); });
   $('simSetBtn').addEventListener('click',()=>{
