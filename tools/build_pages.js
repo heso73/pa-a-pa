@@ -135,7 +135,7 @@ function build(ui, D) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0B3C49">
+<meta name="theme-color" content="#061440">
 <title>${esc(t.title(name))}</title>
 <meta name="description" content="${esc(t.desc(name, vs, D.currency.code))}">
 <link rel="canonical" href="${url}">
@@ -151,13 +151,13 @@ function build(ui, D) {
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="192x192" href="../${ui !== 'en' ? '../' : ''}icons/icon-192.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../${ui !== 'en' ? '../' : ''}styles.css">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head>
 <body>
 <div class="wrap">
-  <header class="topbar"><a class="brand" href="../" aria-label="${t.home}"><svg width="32" height="32" viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="30" width="10" height="14" rx="3" fill="#1F7A8C"></rect><rect x="19" y="19" width="10" height="25" rx="3" fill="#0B3C49"></rect><rect x="34" y="6" width="10" height="38" rx="3" fill="#E8A33D"></rect></svg><span>Pa a Pa <small>${lang === 'es' ? 'Caribe' : 'Caribbean'}</small></span></a></header>
+  <header class="topbar"><a class="brand" href="../" aria-label="${t.home}"><svg width="32" height="32" viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="30" width="10" height="14" rx="3" fill="#5CD3E6"></rect><rect x="19" y="19" width="10" height="25" rx="3" fill="#fff"></rect><rect x="34" y="6" width="10" height="38" rx="3" fill="#F5B83D"></rect></svg><span>Pa a Pa <small>${lang === 'es' ? 'Caribe' : 'Caribbean'}</small></span></a></header>
   <main class="page">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="../">${t.site}</a> › ${esc(name)}</nav>
     <h1>${esc(t.h1(name))}</h1>

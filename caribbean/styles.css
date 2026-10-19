@@ -1,8 +1,8 @@
 :root{
-  --sand:#F7F3EA; --ink:#12262B; --deep:#0B3C49; --lagoon:#1F7A8C; --sun:#E8A33D; --sun-soft:#FBEBCB;
-  --line:#E3DCCB; --line-strong:#D9D1BD; --muted:#4A5C61; --white:#fff; --coral:#C2491D; --coral-soft:#F8E1D8;
-  --ok:#1F6B45; --ok-soft:#DDF1E6; --warn-ink:#6B4A0F;
-  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"Plus Jakarta Sans","Segoe UI",system-ui,Arial,sans-serif;
+  --sand:#F4F7FC; --ink:#0B1B3A; --deep:#0A2A6B; --lagoon:#0B4FA0; --sun:#F5B83D; --sun-soft:#FFF3D6;
+  --line:#D6E0EE; --line-strong:#C3D2E8; --muted:#51628A; --white:#fff; --coral:#C2491D; --coral-soft:#FBE4DC;
+  --ok:#1F7A52; --ok-soft:#DDF0E4; --warn-ink:#6B4A0F;
+  --head:"DM Sans","Segoe UI",system-ui,sans-serif; --body:"DM Sans","Segoe UI",system-ui,Arial,sans-serif; --display:"DM Serif Display",Georgia,"Times New Roman",serif;
   --nav-h:64px;
 }
 *{box-sizing:border-box}
@@ -12,18 +12,20 @@ a{color:var(--deep)}
 button{font-family:inherit}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .wrap{max-width:640px;margin:0 auto;padding:0 20px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(16px + env(safe-area-inset-top,0px)) 0 8px;min-height:64px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font:700 20px var(--head);letter-spacing:-.01em}
-.brand small{font:600 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--lagoon);margin-left:2px}
+.topbar{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(16px + env(safe-area-inset-top,0px)) 0 8px;min-height:64px}
+.topbar::before{content:"";position:absolute;z-index:-1;left:50%;width:100vw;margin-left:-50vw;top:0;bottom:0;background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font:400 24px var(--display);letter-spacing:-.01em}
+.brand small{font:600 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:#22B8CF;margin-left:2px}
 details.country{position:relative}
-details.country summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:22px;border:1px solid var(--line-strong);background:var(--white);font-size:14px;font-weight:500;cursor:pointer}
+details.country summary{list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:22px;border:1px solid rgba(226,236,255,.4);background:rgba(255,255,255,.12);color:#fff;font-size:14px;font-weight:500;cursor:pointer}
 details.country summary::-webkit-details-marker{display:none}
 details.country .pop{position:absolute;right:0;top:50px;z-index:5;width:240px;background:var(--white);border:1px solid var(--line-strong);border-radius:14px;padding:14px;font-size:14px;box-shadow:0 8px 24px rgba(18,38,43,.12)}
 main{padding:12px 0 calc(var(--nav-h) + 40px + env(safe-area-inset-bottom,0px))}
 main:focus{outline:none}
 h1,h2,h3{font-family:var(--head);color:var(--deep);letter-spacing:-.015em;margin:0}
-h1{font-size:clamp(30px,8vw,40px);line-height:1.1;font-weight:700}
-h2{font-size:22px;line-height:1.2;font-weight:700}
+h1,h2{font-family:var(--display);font-weight:400}
+h1{font-size:clamp(32px,8.5vw,46px);line-height:1.06;font-weight:400}
+h2{font-size:26px;line-height:1.15;font-weight:400}
 h3{font-size:18px;line-height:1.25;font-weight:700}
 p{margin:0 0 12px}
 .lead{color:var(--muted);font-size:16px}
@@ -39,9 +41,9 @@ p{margin:0 0 12px}
 .path .t{font:700 19px var(--head);color:var(--deep)}
 .path.primary .t{color:#fff}
 .path .d{font-size:14px;line-height:1.4;color:var(--muted)}
-.path.primary .d{color:#D5E6E9}
+.path.primary .d{color:#CFE0F7}
 .tagline{text-align:center;font-size:13px;font-weight:600;color:var(--deep);margin-top:22px}
-.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:18px 20px;box-shadow:0 1px 2px rgba(10,40,100,.04),0 8px 24px rgba(10,40,100,.06)}
 .card + .card{margin-top:14px}
 .progress{display:flex;gap:6px;margin:6px 0 8px}
 .progress i{flex:1;height:6px;border-radius:3px;background:var(--line)}

@@ -159,7 +159,7 @@
     return `<h1>Viability report</h1><div class="muted small" style="margin:4px 0 8px">${esc(D.name)} · ${esc(stat().label)}</div>
       <div class="verdict ${R.verdict}"><div class="k">Verdict</div><div class="v">${VERDICT[R.verdict][0]}</div><p>${VERDICT[R.verdict][1]}</p></div>${planNote()}
       <section class="card"><h3 style="margin-bottom:10px">How your year adds up</h3><table class="sum">${table}</table>${notes.join('')}${glossary(c)}</section>
-      ${sw('Strengths', '#1F7A8C', R.strengths)}${sw('Weaknesses', '#E8A33D', R.weaknesses)}${sw('Opportunities', '#0B3C49', R.opportunities)}${sw('Risks', '#C2491D', R.risks)}
+      ${sw('Strengths', '#0B4FA0', R.strengths)}${sw('Weaknesses', '#F5B83D', R.weaknesses)}${sw('Opportunities', '#0A2A6B', R.opportunities)}${sw('Risks', '#C2491D', R.risks)}
       <section class="card"><h3 style="margin-bottom:12px">What to do first</h3><ol class="recs">${recs}</ol></section>
       <div class="btnrow" style="margin-top:18px"><a class="btn" href="#/coach">Talk to my coach</a><a class="btn link" href="#/test">Change my numbers</a></div>${footer()}`;
   }

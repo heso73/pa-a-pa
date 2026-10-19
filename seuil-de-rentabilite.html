@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1C7466">
+<meta name="theme-color" content="#061440">
 <title>Seuil de rentabilité : formule, exemple et calcul gratuit</title>
 <meta name="description" content="Calculez votre seuil de rentabilité : la formule, deux exemples chiffrés (services et boutique) et un simulateur gratuit pour savoir combien vendre pour ne pas perdre d&#x27;argent.">
 <link rel="canonical" href="https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html">
@@ -20,28 +20,29 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F2F6F3; --surface:#FFFFFF; --ink:#12302A; --muted:#4B635D; --line:#CFDCD6;
-  --lagon:#1C7466; --lagon-soft:#DCEEEA; --madras:#E3A11A; --coral:#C8453A; --leaf:#3F8F4E; --amber-soft:#FBF0D6;
-  --serif:"Young Serif", Georgia, "Times New Roman", serif;
-  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{ --bg:#0E1C19; --surface:#152824; --ink:#E6F0EC; --muted:#A3BAB3; --line:#2A423C; --lagon:#4DB3A2; --lagon-soft:#173A34; --madras:#EDB43A; --coral:#E77267; --leaf:#6CC07B; --amber-soft:#3A2F14; }
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px}
-.top{border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
-.brand{font-family:var(--serif);font-size:1.25rem;color:var(--ink);text-decoration:none}
-.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 20px;border-radius:12px}
-.btn.small{padding:8px 14px;font-size:.95rem}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
 .btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
-@media (prefers-color-scheme:dark){.btn{color:#0E1C19}}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
 h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
 p{margin:0 0 14px}
@@ -56,7 +57,7 @@ th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font
 td:last-child,th:last-child{text-align:right;white-space:nowrap}
 tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
 .scrollx{overflow-x:auto}
-.cta{background:var(--amber-soft);border:1px solid var(--line);border-radius:16px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
 .cta p{margin:0 0 14px}
 details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
 summary{font-weight:600;cursor:pointer}
