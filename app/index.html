@@ -112,6 +112,7 @@ h3{font-size:1.1rem;margin:0 0 6px}
 .field label{font-weight:600;font-size:.95rem}
 .field small{color:var(--muted);font-size:.85rem}
 input[type=number],select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.adv{margin:4px 0 12px}.adv>summary{cursor:pointer;font-weight:600;font-size:.92rem;color:var(--lagon);padding:6px 0}.adv[open]>summary{margin-bottom:6px}
 .check{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.95rem}
 .check input{margin-top:5px;accent-color:var(--lagon)}
 .btn{font:600 1rem var(--sans);border:0;border-radius:999px;padding:12px 22px;cursor:pointer;background:var(--lagon);color:#fff}
@@ -306,13 +307,15 @@ nav.steps .sm{display:none}
           <option value="p2">Du 8e trimestre civil jusqu'à la fin de la 3e année civile d'activité</option>
           <option value="p3">À partir de la 4e année civile d'activité</option>
         </select>
-        <small>Outre-mer (hors Mayotte), les cotisations sont une fraction des taux de la métropole : un sixième au début, la moitié ensuite, puis les deux tiers à partir de la 4e année civile, arrondies à la décimale supérieure (règles de l'URSSAF pour les auto-entrepreneurs des DROM). Les professions libérales relevant de la Cipav ont leurs propres taux. L'ACRE ne se cumule pas avec ces taux. À Mayotte, seul le taux de la vente de marchandises est intégré : pour les autres activités, saisissez le vôtre ci-dessous.</small>
+        <details class="adv"><summary>Comment sont calculées les cotisations outre-mer ?</summary><small>Outre-mer (hors Mayotte), les cotisations sont une fraction des taux de la métropole : un sixième au début, la moitié ensuite, puis les deux tiers à partir de la 4e année civile, arrondies à la décimale supérieure (règles de l'URSSAF pour les auto-entrepreneurs des DROM). Les professions libérales relevant de la Cipav ont leurs propres taux. L'ACRE ne se cumule pas avec ces taux. À Mayotte, seul le taux de la vente de marchandises est intégré : pour les autres activités, saisissez le vôtre ci-dessous.</small></details>
         <label for="tauxDom" style="margin-top:12px">Mon taux exact, si je le connais (%)</label>
         <input type="number" id="tauxDom" min="0" max="40" step="0.1" placeholder="Laissez vide pour utiliser le calcul ci-dessus">
         <small>Relevez-le sur autoentrepreneur.urssaf.fr ou auprès de la CGSS de votre département : il remplace le calcul ci-dessus.</small>
       </div>
-      <label class="check"><input type="checkbox" id="acre" checked> Je bénéficie de l'ACRE (cotisations à 75 % du taux normal pendant la première période)</label>
+      <label class="check"><input type="checkbox" id="acre" checked> Je bénéficie de l'ACRE (cotisations réduites la première année)</label>
+      <details class="adv"><summary>Options avancées</summary>
       <label class="check"><input type="checkbox" id="vl"> J'opte pour le versement libératoire de l'impôt (l'impôt sur le revenu est payé avec vos cotisations, à un pourcentage fixe du chiffre d'affaires ; sous conditions de revenus)</label>
+      </details>
       <button class="btn ghost" type="button" id="goPrix" style="margin-top:6px">Fixer mon prix</button>
     </div>
 
