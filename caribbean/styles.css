@@ -168,3 +168,5 @@ main.page{padding:8px 0 56px}
 .share{margin:22px 0 4px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .share b{margin-right:4px}
 .page .share a{text-decoration:none}
+
+.nlblock{margin:18px 0;padding:16px;border:1px solid rgba(127,127,127,.3);border-radius:16px}.nlblock h3{margin:0 0 6px;font-size:1.05rem}.nlblock p{margin:0 0 10px}.nlbox iframe{display:block;width:100%;max-width:540px;height:440px;border:0;margin:12px auto 0}
