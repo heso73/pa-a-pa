@@ -768,6 +768,26 @@ nav.steps .sm{display:none}
 </main>
 
 <footer class="wrap">
+  <div class="block" id="astuces" style="margin-bottom:18px">
+    <h3>Recevoir des astuces de créateur</h3>
+    <p style="margin:0 0 10px;max-width:68ch">Facultatif : laissez votre adresse e-mail pour recevoir des conseils pour créer et faire durer votre entreprise. Rien n'est envoyé tant que vous ne remplissez pas le formulaire, et vous pouvez vous désinscrire à tout moment. <a href="../confidentialite.html#astuces">En savoir plus</a></p>
+    <button class="btn ghost" type="button" id="nlOpen" style="padding:8px 14px;font-size:.9rem">Je veux recevoir des astuces</button>
+    <div id="nlBox"></div>
+  </div>
+  <script>
+  (function(){
+    var b=document.getElementById('nlOpen'), z=document.getElementById('nlBox');
+    if(!b||!z) return;
+    b.addEventListener('click', function(){
+      var f=document.createElement('iframe');
+      f.src="https://f7ed8c94.sibforms.com/v2/serve/MUIFANsYM668a0FfnLYwkaRnPG4GQ1t4b2obqUJ5Mo_OQBC_0Rf_2mPk3X_KYxcX4HHt-csWWqjoyoD6exCMMWXNoWsAn7hnoy-HXk7ON5tL3elU1w8MAF6Cb1jXjXNSlsTupiVTHgWiTMYuH__JeN_AJrn_KnnVFaQP9LIkZO3nhuEwySFal9Mpb3Lb8-DXBx68svi3nCYXTndL8w==";
+      f.title="Inscription aux astuces de créateur Pa a Pa";
+      f.style.cssText="display:block;width:100%;max-width:540px;height:440px;border:0;margin:12px auto 0";
+      z.appendChild(f); b.hidden=true;
+      try{ if(window.track) window.track('astuces-ouvert'); }catch(e){}
+    });
+  })();
+  </script>
   <p style="margin:0 0 6px">Pa a Pa est un outil d'orientation. Les montants sont des estimations et ne remplacent pas l'avis d'un expert-comptable ou d'un conseiller en création.</p>
   <p style="margin:0 0 10px"><a href="../">Accueil et guides</a> · <a href="../confidentialite.html">Confidentialité</a></p>
   <div class="row" style="flex-wrap:wrap;align-items:center"><button class="btn" type="button" id="install" hidden style="padding:8px 14px;font-size:.9rem">Installer l'app</button><button class="btn ghost" type="button" id="wipe" style="padding:8px 14px;font-size:.9rem">Effacer mes données</button></div><p class="qprog" id="iosInstall" hidden style="margin:10px 0 0">Pour installer Pa a Pa : dans Safari, appuyez sur <strong>Partager</strong> <span aria-hidden="true">⬆️</span>, puis sur <strong>Sur l'écran d'accueil</strong>.</p>
