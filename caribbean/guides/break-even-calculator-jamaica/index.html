@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Break-even calculator for a small business in Jamaica</title>
+<meta name="description" content="Free break-even calculator in Jamaican dollars: enter your fixed costs, selling price and cost per item to see how many items you must sell each month to stop losing money.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/break-even-calculator-jamaica/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="Break-even calculator for a small business in Jamaica">
+<meta property="og:description" content="Free break-even calculator in Jamaican dollars: enter your fixed costs, selling price and cost per item to see how many items you must sell each month to stop losing money.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/break-even-calculator-jamaica/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/break-even-calculator-jamaica/#article", "headline": "Break-even calculator for a small business in Jamaica", "description": "Free break-even calculator in Jamaican dollars: enter your fixed costs, selling price and cost per item to see how many items you must sell each month to stop losing money.", "inLanguage": "en", "datePublished": "2026-11-10", "dateModified": "2026-11-10", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/break-even-calculator-jamaica/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "Break-even calculator for a small business in Jamaica", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/break-even-calculator-jamaica/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a break-even point?", "acceptedAnswer": {"@type": "Answer", "text": "The sales level at which your income exactly covers your costs. Below it you lose money, above it you make a profit."}}, {"@type": "Question", "name": "How do I calculate break-even?", "acceptedAnswer": {"@type": "Answer", "text": "Divide your monthly fixed costs by the margin on each item, which is the selling price minus the cost of the item."}}, {"@type": "Question", "name": "Does break-even include tax?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is before income tax and contributions on your own profit."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › Break-even calculator for a small business in Jamaica</p>
+<h1>Break-even calculator for a small business in Jamaica</h1>
+<p class="lead">Your break-even point is the number of items you must sell each month before you stop losing money. Enter your fixed costs, your price and what each item costs you, and the calculator does the rest.</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>Break-even = fixed costs per month divided by the margin per item.</li>
+<li>Margin per item = selling price minus what the item costs you.</li>
+<li>Put your own pay in the fixed costs, or you will break even but still not eat.</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-be"><strong>Calculator: how much must you sell?</strong>
+<label for="b-fix">Fixed costs per month (rent, internet, loan, your own pay) (J$)</label><input id="b-fix" type="number" inputmode="numeric" min="0" step="1000" value="150000">
+<label for="b-price">Selling price per item (J$)</label><input id="b-price" type="number" inputmode="numeric" min="0" step="10" value="2500">
+<label for="b-var">Cost per item you sell (materials, packaging, delivery) (J$)</label><input id="b-var" type="number" inputmode="numeric" min="0" step="10" value="1500">
+<table><tr><td>Margin per item</td><td id="b-m"></td></tr><tr class="sum"><td>Items to sell per month to break even</td><td id="b-n"></td></tr><tr class="sum"><td>Sales per month at break-even</td><td id="b-s"></td></tr></table>
+<p class="note">Break-even is before income tax and contributions on your own profit. Put your own pay in the fixed costs.</p></div>
+<script>(function(){function jm(n){return 'J$'+Math.round(n).toLocaleString('en-US')}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var f=num('b-fix'),p=num('b-price'),v=num('b-var'),m=p-v;document.getElementById('b-m').textContent=jm(m);
+if(m<=0){document.getElementById('b-n').textContent='Price must be above cost';document.getElementById('b-s').textContent='';return}
+var n=Math.ceil(f/m);document.getElementById('b-n').textContent=n.toLocaleString('en-US');document.getElementById('b-s').textContent=jm(n*p)}
+['b-fix','b-price','b-var'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>Read the result</h2>
+<p>If the number of items looks impossible for your market, change something now: raise the price, cut a cost, or aim for a smaller fixed cost. Then add tax: the <a href="../self-employed-tax-calculator-jamaica/">self-employed tax calculator</a> shows what is left once taxes are paid.</p>
+<h2>Learn the idea</h2>
+<p>Read <a href="../fixed-costs-vs-variable-costs/">fixed costs vs variable costs</a> to be sure which of your costs go in which box. Figures last checked on 10 November 2026 against the official sources (TAJ, NHT) and the PwC Worldwide Tax Summaries. Confirm the current amount with the authority before you pay.</p>
+<div class="cta">
+<p><strong>Test your project with Jamaican rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=JM#/test">Test my project in Jamaica</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>What is a break-even point?</summary>
+<p>The sales level at which your income exactly covers your costs. Below it you lose money, above it you make a profit.</p></details>
+<details><summary>How do I calculate break-even?</summary>
+<p>Divide your monthly fixed costs by the margin on each item, which is the selling price minus the cost of the item.</p></details>
+<details><summary>Does break-even include tax?</summary>
+<p>No. It is before income tax and contributions on your own profit.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../self-employed-tax-calculator-jamaica/">Self-employed tax calculator for Jamaica</a> : enter your profit, see what you keep</li>
+<li><a href="../how-much-do-i-keep-self-employed-jamaica/">How much do you keep after tax in Jamaica?</a> : take-home pay at different profit levels</li>
+<li><a href="../jamaica-self-employed-taxes/">Self-employed taxes in Jamaica</a> : income tax, NIS, NHT and Education Tax</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>

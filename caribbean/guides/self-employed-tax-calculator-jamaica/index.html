@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Self-employed tax calculator for Jamaica (2026): income tax, NIS, NHT, Education Tax</title>
+<meta name="description" content="Free calculator: enter your yearly profit and see what a self-employed person keeps in Jamaica after income tax, NIS (6%), NHT (3%) and Education Tax (2.25%). Tax years 2026 and 2027.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/self-employed-tax-calculator-jamaica/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="Self-employed tax calculator for Jamaica (2026): income tax, NIS, NHT, Education Tax">
+<meta property="og:description" content="Free calculator: enter your yearly profit and see what a self-employed person keeps in Jamaica after income tax, NIS (6%), NHT (3%) and Education Tax (2.25%). Tax years 2026 and 2027.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/self-employed-tax-calculator-jamaica/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/self-employed-tax-calculator-jamaica/#article", "headline": "Self-employed tax calculator for Jamaica", "description": "Free calculator: enter your yearly profit and see what a self-employed person keeps in Jamaica after income tax, NIS (6%), NHT (3%) and Education Tax (2.25%). Tax years 2026 and 2027.", "inLanguage": "en", "datePublished": "2026-11-10", "dateModified": "2026-11-10", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/self-employed-tax-calculator-jamaica/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "Self-employed tax calculator for Jamaica", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/self-employed-tax-calculator-jamaica/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much tax does a self-employed person pay in Jamaica?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on profit. On J$3,000,000 of profit, about J$569,296 goes to income tax, NIS, NHT and Education Tax together in 2026. Use the calculator above for your own figure."}}, {"@type": "Question", "name": "Which tax-free amount applies in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "The yearly amount rose to J$1,902,360 on 1 April 2026. Because the rise starts in April, the effective amount for the whole of 2026 is J$1,876,614, according to TAJ."}}, {"@type": "Question", "name": "Is this calculator tax advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an estimate for planning. Confirm the exact amounts with TAJ."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › Self-employed tax calculator for Jamaica</p>
+<h1>Self-employed tax calculator for Jamaica</h1>
+<p class="lead">Enter your yearly profit and see the four things that come out of it: NIS, NHT, Education Tax and income tax. It uses the 2026 or 2027 tax-free amount from Tax Administration Jamaica (TAJ).</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>NIS 6% up to J$5,000,000, NHT 3%, Education Tax 2.25% after NIS.</li>
+<li>Income tax: 25% above the tax-free amount, then 30% above J$6,000,000.</li>
+<li>The tax-free amount for the whole of 2026 is J$1,876,614 (the rise to J$1,902,360 starts in April).</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-se"><strong>Calculator: what do you keep after tax?</strong>
+<label for="se-profit">Yearly profit before tax (J$)</label><input id="se-profit" type="number" inputmode="numeric" min="0" step="10000" value="3000000">
+<label for="se-year">Tax year</label><select id="se-year"><option value="1876614">2026 (tax-free amount J$1,876,614)</option><option value="1978212">2027 (tax-free amount J$1,978,212)</option></select>
+<table><tr><td>NIS (6%, up to J$5,000,000)</td><td id="se-nis"></td></tr><tr><td>NHT (3%)</td><td id="se-nht"></td></tr><tr><td>Education Tax (2.25% after NIS)</td><td id="se-edu"></td></tr><tr><td>Income tax</td><td id="se-inc"></td></tr><tr class="sum"><td>Left for you, per year</td><td id="se-net"></td></tr><tr class="sum"><td>Left for you, per month</td><td id="se-mon"></td></tr></table>
+<p class="note">Estimate for a self-employed person with no other income. Not tax advice: confirm with Tax Administration Jamaica (TAJ).</p></div>
+<script>(function(){function jm(n){return 'J$'+Math.round(n).toLocaleString('en-US')}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var p=num('se-profit'),t=parseFloat(document.getElementById('se-year').value);var nis=Math.min(p,5000000)*0.06,nht=p*0.03,edu=Math.max(p-nis,0)*0.0225,x=Math.max(p-nis,0);var inc=0.25*Math.max(Math.min(x,6000000)-t,0)+0.30*Math.max(x-6000000,0);var net=p-nis-nht-edu-inc;
+document.getElementById('se-nis').textContent=jm(nis);document.getElementById('se-nht').textContent=jm(nht);document.getElementById('se-edu').textContent=jm(edu);document.getElementById('se-inc').textContent=jm(inc);document.getElementById('se-net').textContent=jm(net);document.getElementById('se-mon').textContent=jm(net/12)}
+['se-profit','se-year'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>How the result is worked out</h2>
+<p>Start from your profit: sales minus your costs. NIS is 6% of profit up to J$5,000,000 and is taken off before income tax. Education Tax is 2.25% of profit after NIS. NHT is 3% of profit. Income tax is 25% of what remains above the tax-free amount, up to J$6,000,000, and 30% above that.</p>
+<p>See the full explanation with an example in <a href="../jamaica-self-employed-taxes/">Self-employed taxes in Jamaica</a>. Figures last checked on 10 November 2026 against the official sources (TAJ, NHT) and the PwC Worldwide Tax Summaries. Confirm the current amount with the authority before you pay.</p>
+<div class="cta">
+<p><strong>Test your project with Jamaican rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=JM#/test">Test my project in Jamaica</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>How much tax does a self-employed person pay in Jamaica?</summary>
+<p>It depends on profit. On J$3,000,000 of profit, about J$569,296 goes to income tax, NIS, NHT and Education Tax together in 2026. Use the calculator above for your own figure.</p></details>
+<details><summary>Which tax-free amount applies in 2026?</summary>
+<p>The yearly amount rose to J$1,902,360 on 1 April 2026. Because the rise starts in April, the effective amount for the whole of 2026 is J$1,876,614, according to TAJ.</p></details>
+<details><summary>Is this calculator tax advice?</summary>
+<p>No. It is an estimate for planning. Confirm the exact amounts with TAJ.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../jamaica-self-employed-taxes/">Self-employed taxes in Jamaica</a> : income tax, NIS, NHT and Education Tax</li>
+<li><a href="../income-tax-threshold-jamaica/">Income tax threshold in Jamaica</a> : the tax-free amount 2025 to 2027</li>
+<li><a href="../how-much-do-i-keep-self-employed-jamaica/">How much do you keep after tax in Jamaica?</a> : take-home pay at different profit levels</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>
