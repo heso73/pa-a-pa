@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Jamaica salary calculator (2026): take-home pay after PAYE, NIS, NHT and Education Tax</title>
+<meta name="description" content="Free Jamaica salary calculator: enter your gross monthly pay and see PAYE, NIS (3%), NHT (2%) and Education Tax (2.25%) and your take-home pay. Tax-free amount J$158,530 a month from April 2026.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/jamaica-salary-after-tax-calculator/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="Jamaica salary calculator (2026): take-home pay after PAYE, NIS, NHT and Education Tax">
+<meta property="og:description" content="Free Jamaica salary calculator: enter your gross monthly pay and see PAYE, NIS (3%), NHT (2%) and Education Tax (2.25%) and your take-home pay. Tax-free amount J$158,530 a month from April 2026.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/jamaica-salary-after-tax-calculator/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/jamaica-salary-after-tax-calculator/#article", "headline": "Jamaica salary calculator: your take-home pay", "description": "Free Jamaica salary calculator: enter your gross monthly pay and see PAYE, NIS (3%), NHT (2%) and Education Tax (2.25%) and your take-home pay. Tax-free amount J$158,530 a month from April 2026.", "inLanguage": "en", "datePublished": "2026-11-11", "dateModified": "2026-11-11", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/jamaica-salary-after-tax-calculator/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "Jamaica salary calculator: your take-home pay", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/jamaica-salary-after-tax-calculator/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much tax do I pay on a J$150,000 monthly salary in Jamaica?", "acceptedAnswer": {"@type": "Answer", "text": "Your pay is below the monthly tax-free amount of J$158,530, so you pay no income tax. You still pay NIS (3%), NHT (2%) and Education Tax (2.25%), about J$10,774 in total, and keep about J$139,226."}}, {"@type": "Question", "name": "What is the NHT rate for an employee in Jamaica?", "acceptedAnswer": {"@type": "Answer", "text": "2% of gross pay. The employer pays 3% on top. The employee share is refundable after seven years, according to ActivPayroll and PwC."}}, {"@type": "Question", "name": "Is Education Tax charged on gross pay?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is 2.25% of statutory income, which is your pay after NIS and approved pension contributions."}}, {"@type": "Question", "name": "Is this calculator tax advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an estimate for planning. Confirm the exact amounts with TAJ or your payroll provider."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › Jamaica salary calculator: your take-home pay</p>
+<h1>Jamaica salary calculator: your take-home pay</h1>
+<p class="lead">Enter your gross monthly salary and see what is taken off for income tax (PAYE), NIS, NHT and Education Tax, and what reaches your bank account. It uses the monthly tax-free amount from Tax Administration Jamaica (TAJ).</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>Employee deductions: NIS 3% (up to J$5,000,000 a year), NHT 2%, Education Tax 2.25% after NIS.</li>
+<li>PAYE: 25% on pay above the monthly tax-free amount (J$158,530 from April 2026), then 30% above J$500,000 a month.</li>
+<li>On J$200,000 a month, about J$23,233 is deducted and about J$176,768 reaches you.</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-emp"><strong>Calculator: what is your take-home pay?</strong>
+<label for="e-sal">Gross monthly salary (J$)</label><input id="e-sal" type="number" inputmode="numeric" min="0" step="1000" value="200000">
+<label for="e-year">Pay period</label><select id="e-year"><option value="158530">April 2026 to March 2027 (tax-free J$158,530 a month)</option><option value="166958">From April 2027 (tax-free J$166,958 a month)</option></select>
+<label for="e-pen">Approved pension contribution per month (J$, optional)</label><input id="e-pen" type="number" inputmode="numeric" min="0" step="500" value="0">
+<table><tr><td>NIS (3%)</td><td id="e-nis"></td></tr><tr><td>NHT (2%)</td><td id="e-nht"></td></tr><tr><td>Education Tax (2.25% after NIS)</td><td id="e-edu"></td></tr><tr><td>Income tax (PAYE)</td><td id="e-paye"></td></tr><tr class="sum"><td>Total deductions</td><td id="e-ded"></td></tr><tr class="sum"><td>Take-home pay per month</td><td id="e-net"></td></tr><tr class="sum"><td>Take-home pay per year</td><td id="e-yr"></td></tr></table>
+<p class="note">Estimate for one employer and no other income. Not payroll or tax advice: confirm with TAJ or your payroll provider.</p></div>
+<script>(function(){function jm(n){return 'J$'+Math.round(n).toLocaleString('en-US')}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var g=num('e-sal'),t=parseFloat(document.getElementById('e-year').value),pen=num('e-pen');var nis=Math.min(g,5000000/12)*0.03,nht=g*0.02,stat=Math.max(g-nis-pen,0),edu=stat*0.0225;var paye=0.25*Math.max(Math.min(stat,500000)-t,0)+0.30*Math.max(stat-500000,0);var ded=nis+nht+edu+paye,net=g-ded-pen;
+document.getElementById('e-nis').textContent=jm(nis);document.getElementById('e-nht').textContent=jm(nht);document.getElementById('e-edu').textContent=jm(edu);document.getElementById('e-paye').textContent=jm(paye);document.getElementById('e-ded').textContent=jm(ded);document.getElementById('e-net').textContent=jm(net);document.getElementById('e-yr').textContent=jm(net*12)}
+['e-sal','e-year','e-pen'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>Take-home pay at different salaries</h2>
+<div class="scrollx"><table><tr><th>Gross per month</th><th>Total deductions</th><th>Take-home per month</th><th>Take-home per year</th></tr><tr><td>J$100,000</td><td>J$7,182</td><td>J$92,818</td><td>J$1,113,810</td></tr><tr><td>J$150,000</td><td>J$10,774</td><td>J$139,226</td><td>J$1,670,715</td></tr><tr><td>J$200,000</td><td>J$23,232</td><td>J$176,768</td><td>J$2,121,210</td></tr><tr><td>J$250,000</td><td>J$38,949</td><td>J$211,051</td><td>J$2,532,615</td></tr><tr><td>J$300,000</td><td>J$54,665</td><td>J$245,335</td><td>J$2,944,020</td></tr><tr><td>J$400,000</td><td>J$86,098</td><td>J$313,902</td><td>J$3,766,830</td></tr><tr><td>J$500,000</td><td>J$115,711</td><td>J$384,289</td><td>J$4,611,465</td></tr><tr><td>J$700,000</td><td>J$183,586</td><td>J$516,414</td><td>J$6,196,965</td></tr></table></div>
+<p>Rules for April 2026 to March 2027, no pension contribution, one employer and no other income.</p>
+<h2>How the deductions are worked out</h2>
+<strong>NIS</strong> is 3% of your pay, up to a yearly ceiling of J$5,000,000. <strong>NHT</strong> is 2% of gross pay. <strong>Education Tax</strong> is 2.25% of your pay after NIS (and after any approved pension contribution). <strong>PAYE</strong> is 25% of what is left above the tax-free amount, and 30% on the part above J$6,000,000 a year.
+<p>Your employer also pays its own share on top of your salary: see <a href="../cost-of-hiring-employee-jamaica/">the cost of hiring an employee in Jamaica</a>. Figures last checked on 11 November 2026 against the PwC Worldwide Tax Summaries, ActivPayroll and the TAJ threshold schedule. Confirm the current amount with Tax Administration Jamaica (TAJ) or your payroll provider.</p>
+<div class="cta">
+<p><strong>Test your project with Jamaican rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=JM#/test">Test my project in Jamaica</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>How much tax do I pay on a J$150,000 monthly salary in Jamaica?</summary>
+<p>Your pay is below the monthly tax-free amount of J$158,530, so you pay no income tax. You still pay NIS (3%), NHT (2%) and Education Tax (2.25%), about J$10,774 in total, and keep about J$139,226.</p></details>
+<details><summary>What is the NHT rate for an employee in Jamaica?</summary>
+<p>2% of gross pay. The employer pays 3% on top. The employee share is refundable after seven years, according to ActivPayroll and PwC.</p></details>
+<details><summary>Is Education Tax charged on gross pay?</summary>
+<p>No. It is 2.25% of statutory income, which is your pay after NIS and approved pension contributions.</p></details>
+<details><summary>Is this calculator tax advice?</summary>
+<p>No. It is an estimate for planning. Confirm the exact amounts with TAJ or your payroll provider.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../cost-of-hiring-employee-jamaica/">Cost of hiring an employee in Jamaica</a> : employer contributions on top of salary</li>
+<li><a href="../income-tax-threshold-jamaica/">Income tax threshold in Jamaica</a> : the tax-free amount 2025 to 2027</li>
+<li><a href="../nis-contributions-jamaica/">NIS contributions in Jamaica</a> : rates and the yearly ceiling</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>

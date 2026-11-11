@@ -215,8 +215,56 @@ P('break-even-calculator-jamaica',
        ('Does break-even include tax?', 'No. It is before income tax and contributions on your own profit.')],
   related=[R_CALC, R_KEEP, R_TAX], cta=CTA)
 
+
+# ---- 11 nov 2026 : salaire net d'un salarié (PAYE, NIS 3%, NHT 2%, Education Tax 2.25%) ----
+CHK2 = 'Figures last checked on 11 November 2026 against the PwC Worldwide Tax Summaries, ActivPayroll and the TAJ threshold schedule. Confirm the current amount with Tax Administration Jamaica (TAJ) or your payroll provider.'
+THR_M = {'2026': 158530, '2027': 166958}   # seuil mensuel exonéré (1er avril 2026 / 1er avril 2027)
+
+def emp_tax(g, thr=158530):
+    """Retenues mensuelles d'un salarié : NIS 3% (plafond 5 M/an), NHT 2%, Education Tax 2,25% après NIS, PAYE 25% / 30%."""
+    nis = min(g, 5000000 / 12) * 0.03
+    nht = g * 0.02
+    stat = max(g - nis, 0)
+    edu = stat * 0.0225
+    paye = 0.25 * max(min(stat, 500000) - thr, 0) + 0.30 * max(stat - 500000, 0)
+    return nis, nht, edu, paye, g - nis - nht - edu - paye
+
+CALC_EMP = CALC_CSS + '''<div class="calc" id="calc-emp"><strong>Calculator: what is your take-home pay?</strong>
+<label for="e-sal">Gross monthly salary (J$)</label><input id="e-sal" type="number" inputmode="numeric" min="0" step="1000" value="200000">
+<label for="e-year">Pay period</label><select id="e-year"><option value="158530">April 2026 to March 2027 (tax-free J$158,530 a month)</option><option value="166958">From April 2027 (tax-free J$166,958 a month)</option></select>
+<label for="e-pen">Approved pension contribution per month (J$, optional)</label><input id="e-pen" type="number" inputmode="numeric" min="0" step="500" value="0">
+<table><tr><td>NIS (3%)</td><td id="e-nis"></td></tr><tr><td>NHT (2%)</td><td id="e-nht"></td></tr><tr><td>Education Tax (2.25% after NIS)</td><td id="e-edu"></td></tr><tr><td>Income tax (PAYE)</td><td id="e-paye"></td></tr><tr class="sum"><td>Total deductions</td><td id="e-ded"></td></tr><tr class="sum"><td>Take-home pay per month</td><td id="e-net"></td></tr><tr class="sum"><td>Take-home pay per year</td><td id="e-yr"></td></tr></table>
+<p class="note">Estimate for one employer and no other income. Not payroll or tax advice: confirm with TAJ or your payroll provider.</p></div>
+<script>(function(){''' + FMT + '''function run(){var g=num('e-sal'),t=parseFloat(document.getElementById('e-year').value),pen=num('e-pen');var nis=Math.min(g,5000000/12)*0.03,nht=g*0.02,stat=Math.max(g-nis-pen,0),edu=stat*0.0225;var paye=0.25*Math.max(Math.min(stat,500000)-t,0)+0.30*Math.max(stat-500000,0);var ded=nis+nht+edu+paye,net=g-ded-pen;
+document.getElementById('e-nis').textContent=jm(nis);document.getElementById('e-nht').textContent=jm(nht);document.getElementById('e-edu').textContent=jm(edu);document.getElementById('e-paye').textContent=jm(paye);document.getElementById('e-ded').textContent=jm(ded);document.getElementById('e-net').textContent=jm(net);document.getElementById('e-yr').textContent=jm(net*12)}
+['e-sal','e-year','e-pen'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>'''
+
+rows = ''
+for G_ in [100000, 150000, 200000, 250000, 300000, 400000, 500000, 700000]:
+    nis, nht, edu, paye, net = emp_tax(G_)
+    rows += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>' % (jm(G_), jm(nis + nht + edu + paye), jm(net), jm(net * 12))
+EMP_TABLE = '<div class="scrollx"><table><tr><th>Gross per month</th><th>Total deductions</th><th>Take-home per month</th><th>Take-home per year</th></tr>%s</table></div>' % rows
+_n = emp_tax(200000)
+_n150 = emp_tax(150000)
+
+P('jamaica-salary-after-tax-calculator',
+  title='Jamaica salary calculator (2026): take-home pay after PAYE, NIS, NHT and Education Tax',
+  desc='Free Jamaica salary calculator: enter your gross monthly pay and see PAYE, NIS (3%), NHT (2%) and Education Tax (2.25%) and your take-home pay. Tax-free amount J$158,530 a month from April 2026.',
+  h1='Jamaica salary calculator: your take-home pay',
+  lead='Enter your gross monthly salary and see what is taken off for income tax (PAYE), NIS, NHT and Education Tax, and what reaches your bank account. It uses the monthly tax-free amount from Tax Administration Jamaica (TAJ).',
+  bullets=['Employee deductions: NIS 3% (up to J$5,000,000 a year), NHT 2%, Education Tax 2.25% after NIS.', 'PAYE: 25% on pay above the monthly tax-free amount (J$158,530 from April 2026), then 30% above J$500,000 a month.', 'On J$200,000 a month, about J$%s is deducted and about J$%s reaches you.' % (format(int(sum(_n[:4]) + 0.5), ','), format(int(_n[4] + 0.5), ','))],
+  sections=[('The calculator', [CALC_EMP]),
+            ('Take-home pay at different salaries', [EMP_TABLE, 'Rules for April 2026 to March 2027, no pension contribution, one employer and no other income.']),
+            ('How the deductions are worked out', ['<strong>NIS</strong> is 3% of your pay, up to a yearly ceiling of J$5,000,000. <strong>NHT</strong> is 2% of gross pay. <strong>Education Tax</strong> is 2.25% of your pay after NIS (and after any approved pension contribution). <strong>PAYE</strong> is 25% of what is left above the tax-free amount, and 30% on the part above J$6,000,000 a year.', 'Your employer also pays its own share on top of your salary: see <a href="../cost-of-hiring-employee-jamaica/">the cost of hiring an employee in Jamaica</a>. ' + CHK2])],
+  faq=[('How much tax do I pay on a J$150,000 monthly salary in Jamaica?', 'Your pay is below the monthly tax-free amount of J$158,530, so you pay no income tax. You still pay NIS (3%%), NHT (2%%) and Education Tax (2.25%%), about J$%s in total, and keep about J$%s.' % (format(int(sum(_n150[:4]) + 0.5), ','), format(int(_n150[4] + 0.5), ','))),
+       ('What is the NHT rate for an employee in Jamaica?', '2% of gross pay. The employer pays 3% on top. The employee share is refundable after seven years, according to ActivPayroll and PwC.'),
+       ('Is Education Tax charged on gross pay?', 'No. It is 2.25% of statutory income, which is your pay after NIS and approved pension contributions.'),
+       ('Is this calculator tax advice?', 'No. It is an estimate for planning. Confirm the exact amounts with TAJ or your payroll provider.')],
+  related=[R_HIRE, R_THR, R_NIS], cta=CTA)
+
 urls = []
 for slug, k in PAGES:
+    B.DATE = '2026-11-11' if slug == 'jamaica-salary-after-tax-calculator' else '2026-11-10'
     urls.append(B.build('en', slug, **k))
 
 # --- liens depuis les pages existantes, sitemap, llms.txt (idempotent) ---
@@ -226,12 +274,14 @@ def edit(path, fn):
 
 new_links = ''.join('<li><a href="../guides/%s/">%s</a></li>' % (s, re.sub(r'<.*?>', '', k['h1'])) for s, k in PAGES)
 def jm_page(s):
-    if PAGES[0][0] in s: return s
-    return s.replace('<li><a href="../guides/form-s04-jamaica/">Form S04 and quarterly payments</a></li></ul>', '<li><a href="../guides/form-s04-jamaica/">Form S04 and quarterly payments</a></li>' + new_links + '</ul>', 1)
+    for sl, k in PAGES:
+        if '/guides/%s/' % sl not in s:
+            s = s.replace('</ul>', '<li><a href="../guides/%s/">%s</a></li></ul>' % (sl, re.sub(r'<.*?>', '', k['h1'])), 1) if False else s.replace('<li><a href="../guides/break-even-calculator-jamaica/">', '<li><a href="../guides/%s/">%s</a></li><li><a href="../guides/break-even-calculator-jamaica/">' % (sl, re.sub(r'<.*?>', '', k['h1'])), 1)
+    return s
 edit('caribbean/jamaica/index.html', jm_page)
 
 def add_sitemap(s):
-    add = ''.join('  <url><loc>%s</loc><lastmod>2026-11-10</lastmod></url>\n' % u for u in urls if u not in s)
+    add = ''.join('  <url><loc>%s</loc><lastmod>%s</lastmod></url>\n' % (u, '2026-11-11' if 'salary-after-tax' in u else '2026-11-10') for u in urls if u not in s)
     return s.replace('</urlset>', add + '</urlset>') if add else s
 edit('sitemap.xml', add_sitemap)
 def add_llms(s):
