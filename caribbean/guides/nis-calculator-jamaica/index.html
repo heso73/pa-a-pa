@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>NIS calculator for Jamaica (2026): employee 3%, employer 3%, self-employed 6%</title>
+<meta name="description" content="Free NIS calculator for Jamaica: employee and employer 3%, self-employed 6%, on pay up to the J$5,000,000 yearly ceiling. Monthly and yearly National Insurance Scheme contributions.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-jamaica/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="NIS calculator for Jamaica (2026): employee 3%, employer 3%, self-employed 6%">
+<meta property="og:description" content="Free NIS calculator for Jamaica: employee and employer 3%, self-employed 6%, on pay up to the J$5,000,000 yearly ceiling. Monthly and yearly National Insurance Scheme contributions.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-jamaica/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-jamaica/#article", "headline": "NIS calculator for Jamaica", "description": "Free NIS calculator for Jamaica: employee and employer 3%, self-employed 6%, on pay up to the J$5,000,000 yearly ceiling. Monthly and yearly National Insurance Scheme contributions.", "inLanguage": "en", "datePublished": "2026-11-11", "dateModified": "2026-11-11", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-jamaica/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "NIS calculator for Jamaica", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-jamaica/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the NIS rate in Jamaica?", "acceptedAnswer": {"@type": "Answer", "text": "Employees and employers each pay 3% of pay, up to J$5,000,000 a year. Self-employed people pay 6% of profit up to the same ceiling."}}, {"@type": "Question", "name": "What is the NIS ceiling in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "J$5,000,000 of pay a year, which is about J$416,667 a month."}}, {"@type": "Question", "name": "Is NIS deducted before income tax?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. NIS is taken off before income tax and Education Tax are worked out."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › NIS calculator for Jamaica</p>
+<h1>NIS calculator for Jamaica</h1>
+<p class="lead">The National Insurance Scheme (NIS) takes a share of your pay and gives you access to a pension and other benefits. Enter your monthly pay and see the contribution for an employee, an employer or a self-employed person.</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>Employee 3%, employer 3%, self-employed 6%.</li>
+<li>Contributions stop at a yearly ceiling of J$5,000,000 of pay (about J$416,667 a month).</li>
+<li>NIS is taken off before income tax and Education Tax are worked out.</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-nis"><strong>Calculator: how much NIS?</strong>
+<label for="n-pay">Monthly pay or profit (J$)</label><input id="n-pay" type="number" inputmode="numeric" min="0" step="1000" value="200000">
+<label for="n-who">You are</label><select id="n-who"><option value="0.03">An employee (3%)</option><option value="0.03e">An employer, for one employee (3%)</option><option value="0.06">Self-employed (6%)</option></select>
+<table><tr><td>Rate</td><td id="n-r"></td></tr><tr><td>NIS per month</td><td id="n-m"></td></tr><tr class="sum"><td>NIS per year</td><td id="n-y"></td></tr><tr><td>Yearly ceiling reached?</td><td id="n-c"></td></tr></table>
+<p class="note">NIS applies up to J$5,000,000 of pay a year (about J$416,667 a month). Estimate, not payroll advice.</p></div>
+<script>(function(){function jm(n){return 'J$'+Math.round(n).toLocaleString('en-US')}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var p=num('n-pay'),w=document.getElementById('n-who').value,r=parseFloat(w);var y=Math.min(p*12,5000000)*r;
+document.getElementById('n-r').textContent=(r*100)+'%';document.getElementById('n-m').textContent=jm(y/12);document.getElementById('n-y').textContent=jm(y);document.getElementById('n-c').textContent=p*12>5000000?'Yes: pay above J$5,000,000 a year is not charged':'No'}
+['n-pay','n-who'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>The rates</h2>
+<div class="scrollx"><table><tr><th>Who</th><th>Rate</th><th>On what</th></tr><tr><td>Employee</td><td>3%</td><td>Pay up to J$5,000,000 a year</td></tr><tr><td>Employer, for each employee</td><td>3%</td><td>Pay up to J$5,000,000 a year</td></tr><tr><td>Self-employed</td><td>6%</td><td>Profit up to J$5,000,000 a year</td></tr></table></div>
+<p>More on the self-employed rate in <a href="../nis-contributions-jamaica/">NIS contributions in Jamaica</a>. Figures last checked on 11 November 2026 against the PwC Worldwide Tax Summaries, ActivPayroll and the TAJ threshold schedule. Confirm the current amount with Tax Administration Jamaica (TAJ) or your payroll provider.</p>
+<div class="cta">
+<p><strong>Test your project with Jamaican rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=JM#/test">Test my project in Jamaica</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>What is the NIS rate in Jamaica?</summary>
+<p>Employees and employers each pay 3% of pay, up to J$5,000,000 a year. Self-employed people pay 6% of profit up to the same ceiling.</p></details>
+<details><summary>What is the NIS ceiling in 2026?</summary>
+<p>J$5,000,000 of pay a year, which is about J$416,667 a month.</p></details>
+<details><summary>Is NIS deducted before income tax?</summary>
+<p>Yes. NIS is taken off before income tax and Education Tax are worked out.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../nis-contributions-jamaica/">NIS contributions in Jamaica</a> : rates and the yearly ceiling</li>
+<li><a href="../jamaica-salary-after-tax-calculator/">Jamaica salary calculator</a> : take-home pay after PAYE, NIS, NHT and Education Tax</li>
+<li><a href="../jamaica-self-employed-taxes/">Self-employed taxes in Jamaica</a> : income tax, NIS, NHT and Education Tax</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>

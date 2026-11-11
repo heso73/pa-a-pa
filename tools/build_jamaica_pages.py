@@ -262,9 +262,132 @@ P('jamaica-salary-after-tax-calculator',
        ('Is this calculator tax advice?', 'No. It is an estimate for planning. Confirm the exact amounts with TAJ or your payroll provider.')],
   related=[R_HIRE, R_THR, R_NIS], cta=CTA)
 
+
+# ---- 11 nov 2026 (lot 2) : salaire minimum, calculateur GCT, calculateur NIS, calculateur PAYE par période ----
+NEW11 = {'jamaica-salary-after-tax-calculator', 'jamaica-minimum-wage-2026', 'gct-calculator-jamaica', 'nis-calculator-jamaica', 'paye-calculator-jamaica'}
+R_EMPC = R('Jamaica salary calculator', 'jamaica-salary-after-tax-calculator', 'take-home pay after PAYE, NIS, NHT and Education Tax')
+R_MW = R('Minimum wage in Jamaica 2026', 'jamaica-minimum-wage-2026', 'J$17,000 a week and what it means per month')
+R_GCTC = R('GCT calculator for Jamaica', 'gct-calculator-jamaica', 'add or remove 15% GCT from a price')
+R_NISC = R('NIS calculator for Jamaica', 'nis-calculator-jamaica', 'employee, employer and self-employed')
+R_PAYEC = R('PAYE calculator for Jamaica', 'paye-calculator-jamaica', 'weekly, fortnightly or monthly pay')
+CHK3 = 'Figures last checked on 11 November 2026 against the Jamaica Information Service (JIS) and the TAJ schedule. Confirm the current amount with the authority before you pay.'
+def j0(n): return format(int(n + 0.5), ',')
+
+# salaire minimum : 17 000 J$ par semaine de 40 h depuis le 1er juillet 2026
+_mw_m = 17000 * 52 / 12
+_mw = emp_tax(_mw_m)
+MW_TABLE = ('<div class="scrollx"><table><tr><th>Item</th><th>From 1 July 2026</th></tr>'
+            '<tr><td>Per 40-hour week</td><td>J$17,000</td></tr><tr><td>Standard hourly rate</td><td>J$425</td></tr>'
+            '<tr><td>Overtime (time and a half) per hour</td><td>J$637.50</td></tr><tr><td>Double time per hour</td><td>J$850</td></tr>'
+            '<tr><td>Per month (52 weeks / 12)</td><td>J$%s</td></tr><tr><td>Per year (52 weeks)</td><td>J$884,000</td></tr></table></div>' % j0(_mw_m))
+MW_HIST = ('<div class="scrollx"><table><tr><th>In force from</th><th>Per 40-hour week</th></tr>'
+           '<tr><td>1 June 2024</td><td>J$15,000</td></tr><tr><td>1 June 2025</td><td>J$16,000</td></tr><tr><td>1 July 2026</td><td>J$17,000</td></tr></table></div>')
+
+CALC_MW = CALC_CSS + '''<div class="calc" id="calc-mw"><strong>Calculator: pay at the minimum wage</strong>
+<label for="m-reg">Regular hours in the week (up to 40)</label><input id="m-reg" type="number" inputmode="numeric" min="0" max="40" step="1" value="40">
+<label for="m-ot">Overtime hours in the week (beyond 40)</label><input id="m-ot" type="number" inputmode="numeric" min="0" step="1" value="0">
+<label for="m-dt">Double-time hours (rest days and public holidays)</label><input id="m-dt" type="number" inputmode="numeric" min="0" step="1" value="0">
+<table><tr><td>Regular pay (J$425 an hour)</td><td id="m-a"></td></tr><tr><td>Overtime pay (J$637.50 an hour)</td><td id="m-b"></td></tr><tr><td>Double-time pay (J$850 an hour)</td><td id="m-c"></td></tr><tr class="sum"><td>Gross pay for the week</td><td id="m-t"></td></tr></table>
+<p class="note">Minimum rates for the national minimum wage from 1 July 2026. Industrial security guards have their own order. Estimate, not payroll advice.</p></div>
+<script>(function(){''' + FMT + '''function run(){var r=Math.min(num('m-reg'),40),o=num('m-ot'),d=num('m-dt');var a=r*425,b=o*637.5,c=d*850;
+document.getElementById('m-a').textContent=jm(a);document.getElementById('m-b').textContent=jm(b);document.getElementById('m-c').textContent=jm(c);document.getElementById('m-t').textContent=jm(a+b+c)}
+['m-reg','m-ot','m-dt'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>'''
+
+CALC_GCT = CALC_CSS + '''<div class="calc" id="calc-gct"><strong>Calculator: add or remove GCT (15%)</strong>
+<label for="g-amt">Amount (J$)</label><input id="g-amt" type="number" inputmode="numeric" min="0" step="100" value="10000">
+<label for="g-mode">This amount is</label><select id="g-mode"><option value="ex">Before GCT (add 15%)</option><option value="in">With GCT included (take 15% out)</option></select>
+<table><tr><td>Price before GCT</td><td id="g-ex"></td></tr><tr><td>GCT (15%)</td><td id="g-tax"></td></tr><tr class="sum"><td>Price with GCT</td><td id="g-in"></td></tr></table>
+<p class="note">Standard rate of 15%. Some goods and services are zero-rated or exempt: check with Tax Administration Jamaica (TAJ). Estimate, not tax advice.</p></div>
+<script>(function(){''' + FMT + '''function run(){var a=num('g-amt'),m=document.getElementById('g-mode').value;var ex=m==='ex'?a:a/1.15,inc=m==='ex'?a*1.15:a;
+document.getElementById('g-ex').textContent=jm(ex);document.getElementById('g-tax').textContent=jm(inc-ex);document.getElementById('g-in').textContent=jm(inc)}
+['g-amt','g-mode'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>'''
+
+CALC_NIS = CALC_CSS + '''<div class="calc" id="calc-nis"><strong>Calculator: how much NIS?</strong>
+<label for="n-pay">Monthly pay or profit (J$)</label><input id="n-pay" type="number" inputmode="numeric" min="0" step="1000" value="200000">
+<label for="n-who">You are</label><select id="n-who"><option value="0.03">An employee (3%)</option><option value="0.03e">An employer, for one employee (3%)</option><option value="0.06">Self-employed (6%)</option></select>
+<table><tr><td>Rate</td><td id="n-r"></td></tr><tr><td>NIS per month</td><td id="n-m"></td></tr><tr class="sum"><td>NIS per year</td><td id="n-y"></td></tr><tr><td>Yearly ceiling reached?</td><td id="n-c"></td></tr></table>
+<p class="note">NIS applies up to J$5,000,000 of pay a year (about J$416,667 a month). Estimate, not payroll advice.</p></div>
+<script>(function(){''' + FMT + '''function run(){var p=num('n-pay'),w=document.getElementById('n-who').value,r=parseFloat(w);var y=Math.min(p*12,5000000)*r;
+document.getElementById('n-r').textContent=(r*100)+'%';document.getElementById('n-m').textContent=jm(y/12);document.getElementById('n-y').textContent=jm(y);document.getElementById('n-c').textContent=p*12>5000000?'Yes: pay above J$5,000,000 a year is not charged':'No'}
+['n-pay','n-who'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>'''
+
+CALC_PAYE = CALC_CSS + '''<div class="calc" id="calc-paye"><strong>Calculator: PAYE for your pay period</strong>
+<label for="p-gross">Gross pay for one pay period (J$)</label><input id="p-gross" type="number" inputmode="numeric" min="0" step="500" value="100000">
+<label for="p-freq">Paid</label><select id="p-freq"><option value="52">Weekly</option><option value="26">Fortnightly</option><option value="12" selected>Monthly</option></select>
+<label for="p-year">Tax year (yearly tax-free amount)</label><select id="p-year"><option value="1902360">April 2026 to March 2027 (J$1,902,360)</option><option value="2003496">From April 2027 (J$2,003,496)</option></select>
+<table><tr><td>Tax-free amount for this pay period</td><td id="p-thr"></td></tr><tr><td>NIS (3%)</td><td id="p-nis"></td></tr><tr><td>NHT (2%)</td><td id="p-nht"></td></tr><tr><td>Education Tax (2.25% after NIS)</td><td id="p-edu"></td></tr><tr><td>Income tax (PAYE)</td><td id="p-paye"></td></tr><tr class="sum"><td>Take-home pay for the period</td><td id="p-net"></td></tr></table>
+<p class="note">Estimate for one employer and no pension contribution. Not payroll or tax advice: confirm with TAJ or your payroll provider.</p></div>
+<script>(function(){''' + FMT + '''function run(){var g=num('p-gross'),f=parseFloat(document.getElementById('p-freq').value),a=parseFloat(document.getElementById('p-year').value),t=a/f;var nis=Math.min(g,5000000/f)*0.03,nht=g*0.02,st=Math.max(g-nis,0),edu=st*0.0225,cap=6000000/f;var pa=0.25*Math.max(Math.min(st,cap)-t,0)+0.30*Math.max(st-cap,0);
+document.getElementById('p-thr').textContent=jm(t);document.getElementById('p-nis').textContent=jm(nis);document.getElementById('p-nht').textContent=jm(nht);document.getElementById('p-edu').textContent=jm(edu);document.getElementById('p-paye').textContent=jm(pa);document.getElementById('p-net').textContent=jm(g-nis-nht-edu-pa)}
+['p-gross','p-freq','p-year'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>'''
+
+PER_TABLE = ('<div class="scrollx"><table><tr><th>Pay period</th><th>From April 2026</th><th>From April 2027</th></tr>'
+             '<tr><td>Yearly</td><td>J$1,902,360</td><td>J$2,003,496</td></tr>'
+             '<tr><td>Monthly</td><td>J$%s</td><td>J$%s</td></tr>'
+             '<tr><td>Fortnightly</td><td>J$%s</td><td>J$%s</td></tr>'
+             '<tr><td>Weekly</td><td>J$%s</td><td>J$%s</td></tr></table></div>') % (
+             j0(1902360 / 12), j0(2003496 / 12), j0(1902360 / 26), j0(2003496 / 26), j0(1902360 / 52), j0(2003496 / 52))
+
+P('jamaica-minimum-wage-2026',
+  title='Minimum wage in Jamaica 2026: J$17,000 a week, hourly rate and monthly pay',
+  desc='The Jamaican national minimum wage from 1 July 2026: J$17,000 per 40-hour week, J$425 an hour, J$637.50 overtime and J$850 double time. Monthly equivalent and take-home pay.',
+  h1='Minimum wage in Jamaica in 2026',
+  lead='Since 1 July 2026 the national minimum wage in Jamaica is J$17,000 for a 40-hour week. Here is the hourly rate, the overtime rates, what it comes to per month, and what a minimum-wage worker takes home.',
+  bullets=['J$17,000 per 40-hour week, up from J$16,000, from 1 July 2026.', 'J$425 an hour; overtime J$637.50 an hour; double time J$850 an hour.', 'About J$%s a month before deductions, and about J$%s after NIS, NHT and Education Tax.' % (j0(_mw_m), j0(_mw[4]))],
+  sections=[('The rates from 1 July 2026', [MW_TABLE, 'The Government set these rates in the National Minimum Wage (Amendment) Order, 2026, approved by the House of Representatives on 23 June 2026, according to the JIS. Industrial security guards have their own minimum wage order, also J$17,000 a week.']),
+            ('Calculate a week of pay', [CALC_MW]),
+            ('How it changed', [MW_HIST]),
+            ('What a minimum-wage worker takes home', ['A worker paid J$17,000 a week earns about J$%s a month. That is below the monthly income tax threshold, so no PAYE is due, but NIS (3%%), NHT (2%%) and Education Tax (2.25%%) are still deducted: about J$%s in total. The worker keeps about J$%s a month.' % (j0(_mw_m), j0(sum(_mw[:4])), j0(_mw[4])), 'For your own figure, use the <a href="../jamaica-salary-after-tax-calculator/">Jamaica salary calculator</a>. Employers also pay their own contributions on top: see <a href="../cost-of-hiring-employee-jamaica/">the cost of hiring an employee</a>. ' + CHK3])],
+  faq=[('What is the minimum wage in Jamaica in 2026?', 'J$17,000 per 40-hour work week from 1 July 2026, which is J$425 an hour, according to the Jamaica Information Service.'),
+       ('What is the overtime rate at the minimum wage?', 'J$637.50 an hour for hours beyond 40 in a week, and J$850 an hour for double time, from 1 July 2026.'),
+       ('How much is the minimum wage per month in Jamaica?', 'About J$%s a month before deductions, working 52 weeks of 40 hours divided by 12.' % j0(_mw_m)),
+       ('Does a minimum-wage worker pay income tax?', 'No. The pay is below the monthly tax-free amount of J$158,530. The worker still pays NIS, NHT and Education Tax.')],
+  related=[R_EMPC, R_HIRE, R_THR], cta=CTA)
+
+P('gct-calculator-jamaica',
+  title='GCT calculator for Jamaica: add or remove 15% General Consumption Tax',
+  desc='Free GCT calculator for Jamaica: add 15% GCT to a price or take it out of a GCT-inclusive price. Registration threshold J$15,000,000 a year and when returns are due.',
+  h1='GCT calculator for Jamaica',
+  lead='General Consumption Tax (GCT) is Jamaica\'s sales tax, like VAT. Enter an amount to add the 15% to a price, or to find the price before GCT inside a total.',
+  bullets=['Standard GCT rate: 15%.', 'You must register once your yearly taxable sales pass J$15,000,000: register within 21 days.', 'GCT returns are due by the 25th of the month after the period.'],
+  sections=[('The calculator', [CALC_GCT]),
+            ('How it works', ['To add GCT, multiply the price by 1.15. To take GCT out of a total, divide it by 1.15. On J$11,500 the GCT is J$1,500 and the price before GCT is J$10,000.', 'Most small businesses start below the registration threshold and do not charge GCT yet. Read <a href="../gct-registration-jamaica/">when a business must register for GCT</a> for the threshold and deadlines. ' + CHK]),
+            ('Remember', ['Some goods and services are zero-rated or exempt, so the 15% does not apply to everything. Check your item with TAJ before you charge or claim GCT.'])],
+  faq=[('What is the GCT rate in Jamaica?', 'The standard rate is 15%.'),
+       ('How do I take GCT out of a price?', 'Divide the GCT-inclusive total by 1.15. The difference is the GCT.'),
+       ('When must a business register for GCT in Jamaica?', 'When yearly taxable sales pass J$15,000,000. You then have 21 days to register.')],
+  related=[R_GCT, R_REG, R_TAX], cta=CTA)
+
+P('nis-calculator-jamaica',
+  title='NIS calculator for Jamaica (2026): employee 3%, employer 3%, self-employed 6%',
+  desc='Free NIS calculator for Jamaica: employee and employer 3%, self-employed 6%, on pay up to the J$5,000,000 yearly ceiling. Monthly and yearly National Insurance Scheme contributions.',
+  h1='NIS calculator for Jamaica',
+  lead='The National Insurance Scheme (NIS) takes a share of your pay and gives you access to a pension and other benefits. Enter your monthly pay and see the contribution for an employee, an employer or a self-employed person.',
+  bullets=['Employee 3%, employer 3%, self-employed 6%.', 'Contributions stop at a yearly ceiling of J$5,000,000 of pay (about J$416,667 a month).', 'NIS is taken off before income tax and Education Tax are worked out.'],
+  sections=[('The calculator', [CALC_NIS]),
+            ('The rates', ['<div class="scrollx"><table><tr><th>Who</th><th>Rate</th><th>On what</th></tr><tr><td>Employee</td><td>3%</td><td>Pay up to J$5,000,000 a year</td></tr><tr><td>Employer, for each employee</td><td>3%</td><td>Pay up to J$5,000,000 a year</td></tr><tr><td>Self-employed</td><td>6%</td><td>Profit up to J$5,000,000 a year</td></tr></table></div>', 'More on the self-employed rate in <a href="../nis-contributions-jamaica/">NIS contributions in Jamaica</a>. ' + CHK2])],
+  faq=[('What is the NIS rate in Jamaica?', 'Employees and employers each pay 3% of pay, up to J$5,000,000 a year. Self-employed people pay 6% of profit up to the same ceiling.'),
+       ('What is the NIS ceiling in 2026?', 'J$5,000,000 of pay a year, which is about J$416,667 a month.'),
+       ('Is NIS deducted before income tax?', 'Yes. NIS is taken off before income tax and Education Tax are worked out.')],
+  related=[R_NIS, R_EMPC, R_TAX], cta=CTA)
+
+P('paye-calculator-jamaica',
+  title='PAYE calculator for Jamaica (2026): weekly, fortnightly and monthly pay',
+  desc='Free PAYE calculator for Jamaica: income tax, NIS, NHT and Education Tax on weekly, fortnightly or monthly pay. Tax-free amount J$158,530 a month from April 2026.',
+  h1='PAYE calculator for Jamaica',
+  lead='PAYE is the income tax your employer takes from each pay. Choose how you are paid, enter your gross pay for one period, and see the tax-free amount, the deductions and your take-home pay.',
+  bullets=['Tax-free amount from April 2026: J$158,530 a month, J$73,168 a fortnight, J$36,584 a week.', 'PAYE: 25% above the tax-free amount, 30% on the part above J$6,000,000 a year.', 'NIS 3%, NHT 2% and Education Tax 2.25% (after NIS) come off as well.'],
+  sections=[('The calculator', [CALC_PAYE]),
+            ('Tax-free amount by pay period', [PER_TABLE, 'These are the yearly tax-free amounts divided by 12, 26 or 52. The yearly amounts rise on 1 April each year according to the TAJ schedule: see <a href="../income-tax-threshold-jamaica/">the income tax threshold in Jamaica</a>.']),
+            ('See also', ['For a monthly salary with a worked example, use the <a href="../jamaica-salary-after-tax-calculator/">Jamaica salary calculator</a>. ' + CHK2])],
+  faq=[('What is the PAYE threshold in Jamaica per month?', 'J$158,530 a month from April 2026, which is J$1,902,360 a year, according to TAJ.'),
+       ('What is the weekly tax-free amount in Jamaica?', 'About J$36,584 a week from April 2026.'),
+       ('What is the PAYE rate in Jamaica?', '25% on pay above the tax-free amount, and 30% on the part above J$6,000,000 a year.')],
+  related=[R_EMPC, R_THR, R_NISC], cta=CTA)
+
 urls = []
 for slug, k in PAGES:
-    B.DATE = '2026-11-11' if slug == 'jamaica-salary-after-tax-calculator' else '2026-11-10'
+    B.DATE = '2026-11-11' if slug in NEW11 else '2026-11-10'
     urls.append(B.build('en', slug, **k))
 
 # --- liens depuis les pages existantes, sitemap, llms.txt (idempotent) ---
@@ -281,7 +404,7 @@ def jm_page(s):
 edit('caribbean/jamaica/index.html', jm_page)
 
 def add_sitemap(s):
-    add = ''.join('  <url><loc>%s</loc><lastmod>%s</lastmod></url>\n' % (u, '2026-11-11' if 'salary-after-tax' in u else '2026-11-10') for u in urls if u not in s)
+    add = ''.join('  <url><loc>%s</loc><lastmod>%s</lastmod></url>\n' % (u, '2026-11-11' if u.rstrip('/').split('/')[-1] in NEW11 else '2026-11-10') for u in urls if u not in s)
     return s.replace('</urlset>', add + '</urlset>') if add else s
 edit('sitemap.xml', add_sitemap)
 def add_llms(s):

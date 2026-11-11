@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>PAYE calculator for Jamaica (2026): weekly, fortnightly and monthly pay</title>
+<meta name="description" content="Free PAYE calculator for Jamaica: income tax, NIS, NHT and Education Tax on weekly, fortnightly or monthly pay. Tax-free amount J$158,530 a month from April 2026.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-jamaica/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="PAYE calculator for Jamaica (2026): weekly, fortnightly and monthly pay">
+<meta property="og:description" content="Free PAYE calculator for Jamaica: income tax, NIS, NHT and Education Tax on weekly, fortnightly or monthly pay. Tax-free amount J$158,530 a month from April 2026.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-jamaica/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-jamaica/#article", "headline": "PAYE calculator for Jamaica", "description": "Free PAYE calculator for Jamaica: income tax, NIS, NHT and Education Tax on weekly, fortnightly or monthly pay. Tax-free amount J$158,530 a month from April 2026.", "inLanguage": "en", "datePublished": "2026-11-11", "dateModified": "2026-11-11", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-jamaica/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "PAYE calculator for Jamaica", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-jamaica/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the PAYE threshold in Jamaica per month?", "acceptedAnswer": {"@type": "Answer", "text": "J$158,530 a month from April 2026, which is J$1,902,360 a year, according to TAJ."}}, {"@type": "Question", "name": "What is the weekly tax-free amount in Jamaica?", "acceptedAnswer": {"@type": "Answer", "text": "About J$36,584 a week from April 2026."}}, {"@type": "Question", "name": "What is the PAYE rate in Jamaica?", "acceptedAnswer": {"@type": "Answer", "text": "25% on pay above the tax-free amount, and 30% on the part above J$6,000,000 a year."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › PAYE calculator for Jamaica</p>
+<h1>PAYE calculator for Jamaica</h1>
+<p class="lead">PAYE is the income tax your employer takes from each pay. Choose how you are paid, enter your gross pay for one period, and see the tax-free amount, the deductions and your take-home pay.</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>Tax-free amount from April 2026: J$158,530 a month, J$73,168 a fortnight, J$36,584 a week.</li>
+<li>PAYE: 25% above the tax-free amount, 30% on the part above J$6,000,000 a year.</li>
+<li>NIS 3%, NHT 2% and Education Tax 2.25% (after NIS) come off as well.</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-paye"><strong>Calculator: PAYE for your pay period</strong>
+<label for="p-gross">Gross pay for one pay period (J$)</label><input id="p-gross" type="number" inputmode="numeric" min="0" step="500" value="100000">
+<label for="p-freq">Paid</label><select id="p-freq"><option value="52">Weekly</option><option value="26">Fortnightly</option><option value="12" selected>Monthly</option></select>
+<label for="p-year">Tax year (yearly tax-free amount)</label><select id="p-year"><option value="1902360">April 2026 to March 2027 (J$1,902,360)</option><option value="2003496">From April 2027 (J$2,003,496)</option></select>
+<table><tr><td>Tax-free amount for this pay period</td><td id="p-thr"></td></tr><tr><td>NIS (3%)</td><td id="p-nis"></td></tr><tr><td>NHT (2%)</td><td id="p-nht"></td></tr><tr><td>Education Tax (2.25% after NIS)</td><td id="p-edu"></td></tr><tr><td>Income tax (PAYE)</td><td id="p-paye"></td></tr><tr class="sum"><td>Take-home pay for the period</td><td id="p-net"></td></tr></table>
+<p class="note">Estimate for one employer and no pension contribution. Not payroll or tax advice: confirm with TAJ or your payroll provider.</p></div>
+<script>(function(){function jm(n){return 'J$'+Math.round(n).toLocaleString('en-US')}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var g=num('p-gross'),f=parseFloat(document.getElementById('p-freq').value),a=parseFloat(document.getElementById('p-year').value),t=a/f;var nis=Math.min(g,5000000/f)*0.03,nht=g*0.02,st=Math.max(g-nis,0),edu=st*0.0225,cap=6000000/f;var pa=0.25*Math.max(Math.min(st,cap)-t,0)+0.30*Math.max(st-cap,0);
+document.getElementById('p-thr').textContent=jm(t);document.getElementById('p-nis').textContent=jm(nis);document.getElementById('p-nht').textContent=jm(nht);document.getElementById('p-edu').textContent=jm(edu);document.getElementById('p-paye').textContent=jm(pa);document.getElementById('p-net').textContent=jm(g-nis-nht-edu-pa)}
+['p-gross','p-freq','p-year'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>Tax-free amount by pay period</h2>
+<div class="scrollx"><table><tr><th>Pay period</th><th>From April 2026</th><th>From April 2027</th></tr><tr><td>Yearly</td><td>J$1,902,360</td><td>J$2,003,496</td></tr><tr><td>Monthly</td><td>J$158,530</td><td>J$166,958</td></tr><tr><td>Fortnightly</td><td>J$73,168</td><td>J$77,058</td></tr><tr><td>Weekly</td><td>J$36,584</td><td>J$38,529</td></tr></table></div>
+<p>These are the yearly tax-free amounts divided by 12, 26 or 52. The yearly amounts rise on 1 April each year according to the TAJ schedule: see <a href="../income-tax-threshold-jamaica/">the income tax threshold in Jamaica</a>.</p>
+<h2>See also</h2>
+<p>For a monthly salary with a worked example, use the <a href="../jamaica-salary-after-tax-calculator/">Jamaica salary calculator</a>. Figures last checked on 11 November 2026 against the PwC Worldwide Tax Summaries, ActivPayroll and the TAJ threshold schedule. Confirm the current amount with Tax Administration Jamaica (TAJ) or your payroll provider.</p>
+<div class="cta">
+<p><strong>Test your project with Jamaican rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=JM#/test">Test my project in Jamaica</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>What is the PAYE threshold in Jamaica per month?</summary>
+<p>J$158,530 a month from April 2026, which is J$1,902,360 a year, according to TAJ.</p></details>
+<details><summary>What is the weekly tax-free amount in Jamaica?</summary>
+<p>About J$36,584 a week from April 2026.</p></details>
+<details><summary>What is the PAYE rate in Jamaica?</summary>
+<p>25% on pay above the tax-free amount, and 30% on the part above J$6,000,000 a year.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../jamaica-salary-after-tax-calculator/">Jamaica salary calculator</a> : take-home pay after PAYE, NIS, NHT and Education Tax</li>
+<li><a href="../income-tax-threshold-jamaica/">Income tax threshold in Jamaica</a> : the tax-free amount 2025 to 2027</li>
+<li><a href="../nis-calculator-jamaica/">NIS calculator for Jamaica</a> : employee, employer and self-employed</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>
