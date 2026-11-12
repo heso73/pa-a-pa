@@ -20,17 +20,23 @@ def build(lang, slug, title, desc, h1, lead, bullets, sections, faq, related, ct
         locale = 'fr_FR'; brand = 'Pa a Pa'; guides_label = 'Guides'; home_rel = './'
         og_img = SITE + 'icons/og-fr.png'
         inlang = 'fr'
-    else:
+    elif lang == 'en':
         url = SITE + 'caribbean/guides/' + slug + '/'; out = os.path.join(ROOT, 'caribbean', 'guides', slug, 'index.html'); base = '../../../'
         home_url = SITE + 'caribbean/'; home_name = 'Pa a Pa Caribbean'; btn = ('Open the app', '../../')
         locale = 'en_US'; brand = 'Pa a Pa Caribbean'; guides_label = 'Guides'; home_rel = '../../'
         og_img = SITE + 'caribbean/icons/og-en.png'
         inlang = 'en'
+    else:
+        url = SITE + 'caribbean/es/guias/' + slug + '/'; out = os.path.join(ROOT, 'caribbean', 'es', 'guias', slug, 'index.html'); base = '../../../../'
+        home_url = SITE + 'caribbean/es/'; home_name = 'Pa a Pa Caribe'; btn = ('Abrir la aplicación', '../../')
+        locale = 'es_DO'; brand = 'Pa a Pa Caribe'; guides_label = 'Guías'; home_rel = '../../'
+        og_img = SITE + 'caribbean/icons/og-es.png'
+        inlang = 'es'
     os.makedirs(os.path.dirname(out), exist_ok=True)
     body = []
     body.append('<h1>%s</h1>' % esc(h1))
     body.append('<p class="lead">%s</p>' % lead)
-    body.append('<div class="box">\n<strong>%s</strong>\n<ul>\n%s\n</ul>\n</div>' % ('En bref' if fr else 'In short', '\n'.join('<li>%s</li>' % b for b in bullets)))
+    body.append('<div class="box">\n<strong>%s</strong>\n<ul>\n%s\n</ul>\n</div>' % ({'fr':'En bref','es':'En resumen'}.get(lang,'In short'), '\n'.join('<li>%s</li>' % b for b in bullets)))
     for h, paras in sections:
         body.append('<h2>%s</h2>' % esc(h))
         for p in paras:
@@ -39,11 +45,11 @@ def build(lang, slug, title, desc, h1, lead, bullets, sections, faq, related, ct
             else: body.append('<p>%s</p>' % p)
     if extra_html: body.append(extra_html)
     body.append('<div class="cta">\n<p><strong>%s</strong><br>%s</p>\n<a class="btn" href="%s">%s</a>\n</div>' % (cta[0], cta[1], cta[2], cta[3]))
-    body.append('<h2>%s</h2>' % ('Questions fréquentes' if fr else 'Frequently asked questions'))
+    body.append('<h2>%s</h2>' % ({'fr':'Questions fréquentes','es':'Preguntas frecuentes'}.get(lang,'Frequently asked questions')))
     for q, a in faq:
         body.append('<details><summary>%s</summary>\n<p>%s</p></details>' % (esc(q), a))
     rel = [(t, u, d) for (t, u, d) in related]
-    body.append('<div class="related"><strong>%s</strong>\n<ul>\n%s\n</ul></div>' % ('À lire aussi' if fr else 'Read next', '\n'.join('<li><a href="%s">%s</a> : %s</li>' % (u, esc(t), d) for t, u, d in rel)))
+    body.append('<div class="related"><strong>%s</strong>\n<ul>\n%s\n</ul></div>' % ({'fr':'À lire aussi','es':'Sigue leyendo'}.get(lang,'Read next'), '\n'.join('<li><a href="%s">%s</a> : %s</li>' % (u, esc(t), d) for t, u, d in rel)))
     plain = lambda s: re.sub(r'<[^>]+>', '', s).replace('&#x27;', "'")
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "Article", "@id": url + '#article', "headline": h1, "description": desc, "inLanguage": inlang,
@@ -98,8 +104,8 @@ def build(lang, slug, title, desc, h1, lead, bullets, sections, faq, related, ct
 
 <footer>
 <div class="wrap">
-<p>{brand} : {'outil gratuit pour tester un projet d\'entreprise, sans inscription. Les montants sont des estimations d\'orientation, pas un conseil comptable, fiscal ou juridique.' if fr else 'a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.'}</p>
-<p><a href="{home_rel}">{home_name}</a> · <a href="{base}{'confidentialite.html' if fr else 'caribbean/privacy/'}">{'Confidentialité' if fr else 'Privacy'}</a></p>
+<p>{brand} : { {'fr':'outil gratuit pour tester un projet d\'entreprise, sans inscription. Les montants sont des estimations d\'orientation, pas un conseil comptable, fiscal ou juridique.','es':'herramienta gratuita para probar una idea de negocio, sin registro. Las cifras son estimaciones de orientación, no asesoría contable, fiscal ni legal.'}.get(lang,'a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.') }</p>
+<p><a href="{home_rel}">{home_name}</a> · <a href="{base}{'confidentialite.html' if fr else 'caribbean/privacy/'}">{ {'fr':'Confidentialité','es':'Privacidad'}.get(lang,'Privacy') }</a></p>
 </div>
 </footer>
 </body>

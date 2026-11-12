@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Calculadora de ISR en República Dominicana (2026): impuesto y salario neto</title>
+<meta name="description" content="Calculadora gratis del ISR de personas físicas en República Dominicana: escala 2026 (exento hasta RD$416,220; 15 %, 20 % y 25 %), descuentos de TSS y salario neto. Con la escala de 2027.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-isr-republica-dominicana/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_DO">
+<meta property="og:site_name" content="Pa a Pa Caribe">
+<meta property="og:title" content="Calculadora de ISR en República Dominicana (2026): impuesto y salario neto">
+<meta property="og:description" content="Calculadora gratis del ISR de personas físicas en República Dominicana: escala 2026 (exento hasta RD$416,220; 15 %, 20 % y 25 %), descuentos de TSS y salario neto. Con la escala de 2027.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-isr-republica-dominicana/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-isr-republica-dominicana/#article", "headline": "Calculadora de ISR en República Dominicana", "description": "Calculadora gratis del ISR de personas físicas en República Dominicana: escala 2026 (exento hasta RD$416,220; 15 %, 20 % y 25 %), descuentos de TSS y salario neto. Con la escala de 2027.", "inLanguage": "es", "datePublished": "2026-11-12", "dateModified": "2026-11-12", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-isr-republica-dominicana/", "author": {"@type": "Organization", "name": "Pa a Pa Caribe", "url": "https://heso73.github.io/pa-a-pa/caribbean/es/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribe", "url": "https://heso73.github.io/pa-a-pa/caribbean/es/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-es.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribe", "item": "https://heso73.github.io/pa-a-pa/caribbean/es/"}, {"@type": "ListItem", "position": 2, "name": "Calculadora de ISR en República Dominicana", "item": "https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-isr-republica-dominicana/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Desde cuánto se paga ISR en República Dominicana en 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Cuando la renta anual neta pasa de RD$416,220, unos RD$34,685 al mes. Por debajo de esa cifra el trabajador está exento."}}, {"@type": "Question", "name": "¿Qué tasas de ISR hay en 2026?", "acceptedAnswer": {"@type": "Answer", "text": "15 % de RD$416,220 a RD$624,329; 20 % hasta RD$867,123; 25 % por encima, según la escala de la DGII."}}, {"@type": "Question", "name": "¿Qué cambia en 2027?", "acceptedAnswer": {"@type": "Answer", "text": "La Ley 30-26 eleva la renta anual exenta a RD$480,000 (RD$40,000 al mes) y cambia los tramos: 15 %, 20 %, 25 % y un 27 % para rentas muy altas."}}, {"@type": "Question", "name": "¿Los aportes a la TSS reducen el ISR?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La DGII acepta las aportaciones a la seguridad social como descuento antes de calcular el impuesto, y la calculadora lo aplica."}}, {"@type": "Question", "name": "¿Esta calculadora es asesoría fiscal?", "acceptedAnswer": {"@type": "Answer", "text": "No. Es una estimación para planificar. Confirma con la DGII o con tu contador."}}]}]}</script>
+<script src="../../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribe</a>
+<a class="btn small" href="../../">Abrir la aplicación</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribe</a> › Calculadora de ISR en República Dominicana</p>
+<h1>Calculadora de ISR en República Dominicana</h1>
+<p class="lead">El ISR es el impuesto sobre la renta que se retiene al salario. Escribe tu sueldo bruto mensual y obtén el ISR, lo que se descuenta a la TSS y lo que llega a tu cuenta.</p>
+<div class="box">
+<strong>En resumen</strong>
+<ul>
+<li>Escala de 2026: exento hasta RD$416,220 al año; 15 % hasta RD$624,329; 20 % hasta RD$867,123; 25 % por encima.</li>
+<li>Desde 2027, la Ley 30-26 sube la renta exenta a RD$480,000 y agrega un tramo del 27 %.</li>
+<li>Los aportes del empleado a la seguridad social (SFS 3.04 % y AFP 2.87 %) se restan antes de calcular el impuesto.</li>
+</ul>
+</div>
+<h2>La calculadora</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-isr"><strong>Calculadora: ISR y salario neto</strong>
+<label for="i-g">Salario bruto mensual (RD$)</label><input id="i-g" type="number" inputmode="numeric" min="0" step="500" value="60000">
+<label for="i-y">Escala</label><select id="i-y"><option value="2026">2026: exento hasta RD$416,220 al año</option><option value="2027">Desde 2027 (Ley 30-26): exento hasta RD$480,000 al año</option></select>
+<table><tr><td>Seguro de salud (SFS, 3.04 %)</td><td id="i-s"></td></tr><tr><td>Pensiones (AFP, 2.87 %)</td><td id="i-a"></td></tr><tr><td>Renta gravable mensual</td><td id="i-b"></td></tr><tr><td>ISR por mes</td><td id="i-i"></td></tr><tr class="sum"><td>Total de descuentos</td><td id="i-d"></td></tr><tr class="sum"><td>Neto mensual</td><td id="i-n"></td></tr><tr><td>Tasa efectiva sobre el bruto</td><td id="i-e"></td></tr></table>
+<p class="note">Un solo empleador, sin otros ingresos ni deducciones (por ejemplo gastos educativos). Estimación de orientación: confirma con la DGII o con tu contador.</p></div>
+<script>(function(){function m(n,d){return 'RD$'+n.toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}var T={'2026':[[416220,0],[624329,.15],[867123,.20],[1e15,.25]],'2027':[[480000,0],[685000,.15],[910000,.20],[4800000,.25],[1e15,.27]]};
+function isr(b,y){var t=0,lo=0;T[y].forEach(function(x){if(b>lo)t+=(Math.min(b,x[0])-lo)*x[1];lo=x[0]});return t}
+function run(){var g=num('i-g'),y=document.getElementById('i-y').value,s=Math.min(g,232230)*0.0304,a=Math.min(g,464460)*0.0287,b=Math.max(g-s-a,0),i=isr(b*12,y)/12,d=s+a+i;
+document.getElementById('i-s').textContent=m(s,2);document.getElementById('i-a').textContent=m(a,2);document.getElementById('i-b').textContent=m(b,2);document.getElementById('i-i').textContent=m(i,2);document.getElementById('i-d').textContent=m(d,2);document.getElementById('i-n').textContent=m(g-d,2);document.getElementById('i-e').textContent=g>0?(d/g*100).toFixed(1)+' %':'0 %'}
+['i-g','i-y'].forEach(function(k){document.getElementById(k).addEventListener('input',run)});run()})();</script>
+<h2>Salario neto con distintos sueldos (2026)</h2>
+<div class="scrollx"><table><tr><th>Bruto mensual</th><th>Descuentos totales</th><th>De los cuales ISR</th><th>Neto mensual</th></tr><tr><td>RD$16,993.20</td><td>RD$1,004</td><td>RD$0</td><td>RD$15,989</td></tr><tr><td>RD$25,000</td><td>RD$1,478</td><td>RD$0</td><td>RD$23,523</td></tr><tr><td>RD$35,000</td><td>RD$2,069</td><td>RD$0</td><td>RD$32,932</td></tr><tr><td>RD$50,000</td><td>RD$4,809</td><td>RD$1,854</td><td>RD$45,191</td></tr><tr><td>RD$75,000</td><td>RD$10,742</td><td>RD$6,309</td><td>RD$64,258</td></tr><tr><td>RD$100,000</td><td>RD$18,015</td><td>RD$12,105</td><td>RD$81,985</td></tr><tr><td>RD$150,000</td><td>RD$32,732</td><td>RD$23,867</td><td>RD$117,268</td></tr><tr><td>RD$250,000</td><td>RD$61,759</td><td>RD$47,524</td><td>RD$188,241</td></tr></table></div>
+<p>Sueldo mensual, escala de 2026, un solo empleador y sin otros ingresos.</p>
+<h2>Cómo se calcula</h2>
+<strong>1.</strong> Del sueldo bruto se restan los aportes del empleado a la TSS: 3.04 % de seguro de salud (SFS, hasta un tope de RD$232,230 al mes) y 2.87 % de pensiones (AFP, hasta RD$464,460 al mes).
+<strong>2.</strong> El resultado, multiplicado por 12, es la renta gravable anual. Si no pasa de RD$416,220 en 2026, no hay ISR.
+<strong>3.</strong> Lo que pasa de esa cifra paga 15 % hasta RD$624,329, luego 20 % hasta RD$867,123 y 25 % por encima. La DGII lo divide en 12 pagos mensuales.
+<p>La escala de 2027 (Ley 30-26) es: exento hasta RD$480,000; 15 % hasta RD$685,000; 20 % hasta RD$910,000; 25 % hasta RD$4.8 millones; 27 % por encima. Si trabajas por cuenta propia, declaras con el formulario IR-1 y puedes tener anticipos. Cifras verificadas el 12 de noviembre de 2026 con la DGII, la resolución CNS-01-2025 del Comité Nacional de Salarios (Ministerio de Trabajo) y la Tesorería de la Seguridad Social (TSS). Confirma el monto vigente con la DGII o con tu contador antes de pagar.</p>
+<div class="cta">
+<p><strong>Prueba tu proyecto con las reglas de República Dominicana</strong><br>Gratis y sin registro. Escribe tus ventas y tus costos y obtén tus impuestos y lo que te queda.</p>
+<a class="btn" href="../../?c=DO#/test">Probar mi proyecto en República Dominicana</a>
+</div>
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Desde cuánto se paga ISR en República Dominicana en 2026?</summary>
+<p>Cuando la renta anual neta pasa de RD$416,220, unos RD$34,685 al mes. Por debajo de esa cifra el trabajador está exento.</p></details>
+<details><summary>¿Qué tasas de ISR hay en 2026?</summary>
+<p>15 % de RD$416,220 a RD$624,329; 20 % hasta RD$867,123; 25 % por encima, según la escala de la DGII.</p></details>
+<details><summary>¿Qué cambia en 2027?</summary>
+<p>La Ley 30-26 eleva la renta anual exenta a RD$480,000 (RD$40,000 al mes) y cambia los tramos: 15 %, 20 %, 25 % y un 27 % para rentas muy altas.</p></details>
+<details><summary>¿Los aportes a la TSS reducen el ISR?</summary>
+<p>Sí. La DGII acepta las aportaciones a la seguridad social como descuento antes de calcular el impuesto, y la calculadora lo aplica.</p></details>
+<details><summary>¿Esta calculadora es asesoría fiscal?</summary>
+<p>No. Es una estimación para planificar. Confirma con la DGII o con tu contador.</p></details>
+<div class="related"><strong>Sigue leyendo</strong>
+<ul>
+<li><a href="../salario-minimo-republica-dominicana-2026/">Salario mínimo en República Dominicana 2026</a> : cuánto es por tamaño de empresa y cuánto queda neto</li>
+<li><a href="../calculadora-tss-republica-dominicana/">Calculadora de aportes a la TSS</a> : seguro de salud y pensiones, empleado y empleador</li>
+<li><a href="../../republica-dominicana/">Crear un negocio en República Dominicana</a> : impuestos, registro y pasos</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribe : herramienta gratuita para probar una idea de negocio, sin registro. Las cifras son estimaciones de orientación, no asesoría contable, fiscal ni legal.</p>
+<p><a href="../../">Pa a Pa Caribe</a> · <a href="../../../../caribbean/privacy/">Privacidad</a></p>
+</div>
+</footer>
+</body>
+</html>

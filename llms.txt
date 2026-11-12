@@ -119,3 +119,7 @@
 - https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-barbados/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-trinidad-and-tobago/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-barbados/
+- https://heso73.github.io/pa-a-pa/caribbean/es/guias/salario-minimo-republica-dominicana-2026/
+- https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-isr-republica-dominicana/
+- https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-itbis-republica-dominicana/
+- https://heso73.github.io/pa-a-pa/caribbean/es/guias/calculadora-tss-republica-dominicana/
