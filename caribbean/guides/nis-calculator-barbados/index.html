@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>National Insurance (NIS) calculator for Barbados (2026): employee 11%, employer 12.75%</title>
+<meta name="description" content="Free NIS calculator for Barbados: employee 11%, employer 12.75% and self-employed 17%, up to BDS$5,360 of pay a month, plus the 0.25% Resilience and Regeneration Fund.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-barbados/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="National Insurance (NIS) calculator for Barbados (2026): employee 11%, employer 12.75%">
+<meta property="og:description" content="Free NIS calculator for Barbados: employee 11%, employer 12.75% and self-employed 17%, up to BDS$5,360 of pay a month, plus the 0.25% Resilience and Regeneration Fund.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-barbados/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-barbados/#article", "headline": "National Insurance (NIS) calculator for Barbados", "description": "Free NIS calculator for Barbados: employee 11%, employer 12.75% and self-employed 17%, up to BDS$5,360 of pay a month, plus the 0.25% Resilience and Regeneration Fund.", "inLanguage": "en", "datePublished": "2026-11-12", "dateModified": "2026-11-12", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-barbados/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "National Insurance (NIS) calculator for Barbados", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-barbados/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the National Insurance rate in Barbados?", "acceptedAnswer": {"@type": "Answer", "text": "For a private-sector employee, 11% of insurable earnings, and 12.75% for the employer. Self-employed people pay 17%. A 0.25% Resilience and Regeneration Fund is added on gross earnings."}}, {"@type": "Question", "name": "What is the NIS ceiling in Barbados in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "BDS$5,360 a month, or BDS$1,238 a week. It is BDS$5,450 a month from 2027."}}, {"@type": "Question", "name": "Is National Insurance tax deductible in Barbados?", "acceptedAnswer": {"@type": "Answer", "text": "No. The BRA says National Insurance paid by an employee or a self-employed person is not tax deductible."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › National Insurance (NIS) calculator for Barbados</p>
+<h1>National Insurance (NIS) calculator for Barbados</h1>
+<p class="lead">National Insurance in Barbados also funds health service, unemployment and training. Enter a monthly pay and see the contribution for an employee, an employer or a self-employed person.</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>Private-sector employee 11%, employer 12.75%, self-employed 17%, on earnings up to BDS$5,360 a month in 2026 (BDS$5,450 in 2027).</li>
+<li>Resilience and Regeneration Fund: 0.25% of gross pay, paid by employees, employers and the self-employed, with no ceiling.</li>
+<li>The fund rose from 0.1% to 0.25% for employees on 1 April 2025.</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-nis"><strong>Calculator: how much National Insurance?</strong>
+<label for="n-pay">Monthly pay or profit (BDS$)</label><input id="n-pay" type="number" inputmode="numeric" min="0" step="100" value="5000">
+<label for="n-who">You are</label><select id="n-who"><option value="0.11">An employee (11%)</option><option value="0.1275">An employer, for one employee (12.75%)</option><option value="0.17">Self-employed (17%)</option></select>
+<label for="n-yr">Year (earnings ceiling)</label><select id="n-yr"><option value="5360">2026: BDS$5,360 a month</option><option value="5450">2027: BDS$5,450 a month</option></select>
+<table><tr><td>National Insurance and related funds</td><td id="n-m"></td></tr><tr><td>Resilience and Regeneration Fund (0.25% of gross)</td><td id="n-rr"></td></tr><tr class="sum"><td>Total per month</td><td id="n-t"></td></tr><tr class="sum"><td>Total per year</td><td id="n-y"></td></tr><tr><td>Ceiling reached?</td><td id="n-c"></td></tr></table>
+<p class="note">The Resilience and Regeneration Fund has no ceiling. Estimate, not payroll advice.</p></div>
+<script>(function(){function m(n,d){return 'BDS$'+n.toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var p=num('n-pay'),r=parseFloat(document.getElementById('n-who').value),ce=parseFloat(document.getElementById('n-yr').value);var a=Math.min(p,ce)*r,b=p*0.0025;
+document.getElementById('n-m').textContent=m(a,2);document.getElementById('n-rr').textContent=m(b,2);document.getElementById('n-t').textContent=m(a+b,2);document.getElementById('n-y').textContent=m((a+b)*12,2);document.getElementById('n-c').textContent=p>ce?'Yes: National Insurance stops at BDS$'+ce.toLocaleString('en-US')+' a month':'No'}
+['n-pay','n-who','n-yr'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>The rates</h2>
+<div class="scrollx"><table><tr><th>Who</th><th>Base rate</th><th>With the 0.25% fund</th></tr><tr><td>Private-sector employee</td><td>11.00%</td><td>11.25%</td></tr><tr><td>Employer, for each employee</td><td>12.75%</td><td>13.00%</td></tr><tr><td>Self-employed</td><td>17.00%</td><td>17.25%</td></tr></table></div>
+<p>The National Insurance Office lists the ceilings as BDS$1,238 a week and BDS$5,360 a month in 2026, and BDS$1,258 a week and BDS$5,450 a month in 2027. The fund is calculated on gross earnings, without the ceiling. Figures last checked on 12 November 2026 against the Barbados Revenue Authority (BRA), the National Insurance Office, the Ministry of Labour notice and the PwC Worldwide Tax Summaries. Confirm the current amount with the BRA or your payroll provider before you pay.</p>
+<div class="cta">
+<p><strong>Test your project with Barbados rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=BB#/test">Test my project in Barbados</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>What is the National Insurance rate in Barbados?</summary>
+<p>For a private-sector employee, 11% of insurable earnings, and 12.75% for the employer. Self-employed people pay 17%. A 0.25% Resilience and Regeneration Fund is added on gross earnings.</p></details>
+<details><summary>What is the NIS ceiling in Barbados in 2026?</summary>
+<p>BDS$5,360 a month, or BDS$1,238 a week. It is BDS$5,450 a month from 2027.</p></details>
+<details><summary>Is National Insurance tax deductible in Barbados?</summary>
+<p>No. The BRA says National Insurance paid by an employee or a self-employed person is not tax deductible.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../paye-calculator-barbados/">PAYE calculator for Barbados</a> : income tax, National Insurance and the Resilience Fund</li>
+<li><a href="../barbados-minimum-wage-2026/">Minimum wage in Barbados 2026</a> : BDS$10.71 an hour and what it means per month</li>
+<li><a href="../../barbados/">Starting a business in Barbados</a> : taxes, registration and the steps</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>

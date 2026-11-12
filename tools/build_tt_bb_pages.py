@@ -277,6 +277,58 @@ page('vat-calculator-barbados',
           ('How often are VAT returns filed in Barbados?', 'Every two months, with the return and payment due by the 21st of the month after the period.')],
      related=[R_BB_MW, R_BB_PAYE, R_BB_HOME], cta=CTA_BB)
 
+
+# ======================================================================= NIS (12 nov, lot 2)
+CALC_TT_NIS = CALC_CSS + """<div class="calc" id="calc-nis"><strong>Calculator: how much National Insurance?</strong>
+<label for="n-pay">Monthly pay (TT$)</label><input id="n-pay" type="number" inputmode="numeric" min="0" step="100" value="10000">
+<label for="n-who">You are</label><select id="n-who"><option value="e">An employee</option><option value="r">An employer, for one employee</option></select>
+<label for="n-yr">Period</label><select id="n-yr"><option value="2026">2026: 16.2% in total (employee 5.4%, employer 10.8%)</option><option value="2027">From 4 January 2027: 19.2% in total (employee 6.4%, employer 12.8%)</option></select>
+<table><tr><td>Rate</td><td id="n-r"></td></tr><tr><td>Contribution per month</td><td id="n-m"></td></tr><tr class="sum"><td>Contribution per year</td><td id="n-y"></td></tr><tr><td>Ceiling reached (TT$13,600 a month)?</td><td id="n-c"></td></tr></table>
+<p class="note">National Insurance is set by earnings class, so the real amount can differ by a few dollars. Estimate, not payroll advice.</p></div>
+<script>(function(){""" + fmt_js('TT$') + """function run(){var p=num('n-pay'),w=document.getElementById('n-who').value,y=document.getElementById('n-yr').value;var r=(y==='2026'?(w==='e'?0.054:0.108):(w==='e'?0.064:0.128));var c=Math.min(p,13600)*r;
+document.getElementById('n-r').textContent=(r*100).toFixed(1)+'%';document.getElementById('n-m').textContent=m(c,2);document.getElementById('n-y').textContent=m(c*12,2);document.getElementById('n-c').textContent=p>13600?'Yes: pay above TT$13,600 a month is not charged':'No'}
+['n-pay','n-who','n-yr'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>"""
+
+R_TT_NIS = R('National Insurance calculator for Trinidad and Tobago', 'nis-calculator-trinidad-and-tobago', 'employee and employer, 2026 and 2027')
+page('nis-calculator-trinidad-and-tobago',
+     title='National Insurance (NIS) calculator for Trinidad and Tobago: 16.2% in 2026, 19.2% in 2027',
+     desc='Free NIS calculator for Trinidad and Tobago: employee and employer National Insurance contributions at 16.2% in 2026 and 19.2% from 4 January 2027, up to TT$13,600 of pay a month.',
+     h1='National Insurance (NIS) calculator for Trinidad and Tobago',
+     lead='National Insurance gives access to a pension and other benefits. Enter a monthly pay and see the contribution for an employee or an employer, in 2026 and from January 2027.',
+     bullets=['2026: 16.2% in total, employee 5.4% and employer 10.8%.', 'From 4 January 2027: 19.2% in total, employee 6.4% and employer 12.8%.', 'Contributions stop at insurable earnings of TT$13,600 a month. The highest weekly total is TT$508.50 in 2026 and TT$602.40 in 2027.'],
+     sections=[('The calculator', [CALC_TT_NIS]),
+               ('The rates', ['<div class="scrollx"><table><tr><th>Period</th><th>Total rate</th><th>Employee</th><th>Employer</th><th>Highest weekly total</th></tr><tr><td>5 January 2026 to 3 January 2027</td><td>16.2%</td><td>5.4% (TT$169.50 a week at most)</td><td>10.8% (TT$339.00)</td><td>TT$508.50</td></tr><tr><td>From 4 January 2027</td><td>19.2%</td><td>6.4% (TT$200.80 a week at most)</td><td>12.8% (TT$401.60)</td><td>TT$602.40</td></tr></table></div>',
+                                'The increase was announced in the 2026 Budget and written into the Finance Act 2025 and the National Insurance contribution regulations. Contributions are paid by earnings class, which is why the calculator gives a close estimate. ' + CHK_TT])],
+     faq=[('What is the National Insurance rate in Trinidad and Tobago?', '16.2% of insurable earnings since 5 January 2026, about two thirds paid by the employer and one third by the employee. It rises to 19.2% from 4 January 2027.'),
+          ('What is the National Insurance ceiling?', 'Insurable earnings stop at TT$13,600 a month, which is TT$3,138 a week.'),
+          ('Does the self-employed person pay National Insurance?', 'The NIBTT FAQ says the scheme does not yet cover the self-employed, while some payroll sites say they pay the combined rate. Ask the NIBTT before you count on it.')],
+     related=[R_TT_PAYE, R_TT_MW, R_TT_HOME], cta=CTA_TT)
+
+CALC_BB_NIS = CALC_CSS + """<div class="calc" id="calc-nis"><strong>Calculator: how much National Insurance?</strong>
+<label for="n-pay">Monthly pay or profit (BDS$)</label><input id="n-pay" type="number" inputmode="numeric" min="0" step="100" value="5000">
+<label for="n-who">You are</label><select id="n-who"><option value="0.11">An employee (11%)</option><option value="0.1275">An employer, for one employee (12.75%)</option><option value="0.17">Self-employed (17%)</option></select>
+<label for="n-yr">Year (earnings ceiling)</label><select id="n-yr"><option value="5360">2026: BDS$5,360 a month</option><option value="5450">2027: BDS$5,450 a month</option></select>
+<table><tr><td>National Insurance and related funds</td><td id="n-m"></td></tr><tr><td>Resilience and Regeneration Fund (0.25% of gross)</td><td id="n-rr"></td></tr><tr class="sum"><td>Total per month</td><td id="n-t"></td></tr><tr class="sum"><td>Total per year</td><td id="n-y"></td></tr><tr><td>Ceiling reached?</td><td id="n-c"></td></tr></table>
+<p class="note">The Resilience and Regeneration Fund has no ceiling. Estimate, not payroll advice.</p></div>
+<script>(function(){""" + fmt_js('BDS$') + """function run(){var p=num('n-pay'),r=parseFloat(document.getElementById('n-who').value),ce=parseFloat(document.getElementById('n-yr').value);var a=Math.min(p,ce)*r,b=p*0.0025;
+document.getElementById('n-m').textContent=m(a,2);document.getElementById('n-rr').textContent=m(b,2);document.getElementById('n-t').textContent=m(a+b,2);document.getElementById('n-y').textContent=m((a+b)*12,2);document.getElementById('n-c').textContent=p>ce?'Yes: National Insurance stops at BDS$'+ce.toLocaleString('en-US')+' a month':'No'}
+['n-pay','n-who','n-yr'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>"""
+
+R_BB_NIS = R('National Insurance calculator for Barbados', 'nis-calculator-barbados', 'employee, employer and self-employed')
+page('nis-calculator-barbados',
+     title='National Insurance (NIS) calculator for Barbados (2026): employee 11%, employer 12.75%',
+     desc='Free NIS calculator for Barbados: employee 11%, employer 12.75% and self-employed 17%, up to BDS$5,360 of pay a month, plus the 0.25% Resilience and Regeneration Fund.',
+     h1='National Insurance (NIS) calculator for Barbados',
+     lead='National Insurance in Barbados also funds health service, unemployment and training. Enter a monthly pay and see the contribution for an employee, an employer or a self-employed person.',
+     bullets=['Private-sector employee 11%, employer 12.75%, self-employed 17%, on earnings up to BDS$5,360 a month in 2026 (BDS$5,450 in 2027).', 'Resilience and Regeneration Fund: 0.25% of gross pay, paid by employees, employers and the self-employed, with no ceiling.', 'The fund rose from 0.1% to 0.25% for employees on 1 April 2025.'],
+     sections=[('The calculator', [CALC_BB_NIS]),
+               ('The rates', ['<div class="scrollx"><table><tr><th>Who</th><th>Base rate</th><th>With the 0.25% fund</th></tr><tr><td>Private-sector employee</td><td>11.00%</td><td>11.25%</td></tr><tr><td>Employer, for each employee</td><td>12.75%</td><td>13.00%</td></tr><tr><td>Self-employed</td><td>17.00%</td><td>17.25%</td></tr></table></div>',
+                              'The National Insurance Office lists the ceilings as BDS$1,238 a week and BDS$5,360 a month in 2026, and BDS$1,258 a week and BDS$5,450 a month in 2027. The fund is calculated on gross earnings, without the ceiling. ' + CHK_BB])],
+     faq=[('What is the National Insurance rate in Barbados?', 'For a private-sector employee, 11% of insurable earnings, and 12.75% for the employer. Self-employed people pay 17%. A 0.25% Resilience and Regeneration Fund is added on gross earnings.'),
+          ('What is the NIS ceiling in Barbados in 2026?', 'BDS$5,360 a month, or BDS$1,238 a week. It is BDS$5,450 a month from 2027.'),
+          ('Is National Insurance tax deductible in Barbados?', 'No. The BRA says National Insurance paid by an employee or a self-employed person is not tax deductible.')],
+     related=[R_BB_PAYE, R_BB_MW, R_BB_HOME], cta=CTA_BB)
+
 urls = []
 for slug, k in P:
     urls.append(B.build('en', slug, **k))

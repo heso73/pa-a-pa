@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>National Insurance (NIS) calculator for Trinidad and Tobago: 16.2% in 2026, 19.2% in 2027</title>
+<meta name="description" content="Free NIS calculator for Trinidad and Tobago: employee and employer National Insurance contributions at 16.2% in 2026 and 19.2% from 4 January 2027, up to TT$13,600 of pay a month.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-trinidad-and-tobago/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="National Insurance (NIS) calculator for Trinidad and Tobago: 16.2% in 2026, 19.2% in 2027">
+<meta property="og:description" content="Free NIS calculator for Trinidad and Tobago: employee and employer National Insurance contributions at 16.2% in 2026 and 19.2% from 4 January 2027, up to TT$13,600 of pay a month.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-trinidad-and-tobago/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-trinidad-and-tobago/#article", "headline": "National Insurance (NIS) calculator for Trinidad and Tobago", "description": "Free NIS calculator for Trinidad and Tobago: employee and employer National Insurance contributions at 16.2% in 2026 and 19.2% from 4 January 2027, up to TT$13,600 of pay a month.", "inLanguage": "en", "datePublished": "2026-11-12", "dateModified": "2026-11-12", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-trinidad-and-tobago/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "National Insurance (NIS) calculator for Trinidad and Tobago", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-trinidad-and-tobago/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the National Insurance rate in Trinidad and Tobago?", "acceptedAnswer": {"@type": "Answer", "text": "16.2% of insurable earnings since 5 January 2026, about two thirds paid by the employer and one third by the employee. It rises to 19.2% from 4 January 2027."}}, {"@type": "Question", "name": "What is the National Insurance ceiling?", "acceptedAnswer": {"@type": "Answer", "text": "Insurable earnings stop at TT$13,600 a month, which is TT$3,138 a week."}}, {"@type": "Question", "name": "Does the self-employed person pay National Insurance?", "acceptedAnswer": {"@type": "Answer", "text": "The NIBTT FAQ says the scheme does not yet cover the self-employed, while some payroll sites say they pay the combined rate. Ask the NIBTT before you count on it."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › National Insurance (NIS) calculator for Trinidad and Tobago</p>
+<h1>National Insurance (NIS) calculator for Trinidad and Tobago</h1>
+<p class="lead">National Insurance gives access to a pension and other benefits. Enter a monthly pay and see the contribution for an employee or an employer, in 2026 and from January 2027.</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>2026: 16.2% in total, employee 5.4% and employer 10.8%.</li>
+<li>From 4 January 2027: 19.2% in total, employee 6.4% and employer 12.8%.</li>
+<li>Contributions stop at insurable earnings of TT$13,600 a month. The highest weekly total is TT$508.50 in 2026 and TT$602.40 in 2027.</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-nis"><strong>Calculator: how much National Insurance?</strong>
+<label for="n-pay">Monthly pay (TT$)</label><input id="n-pay" type="number" inputmode="numeric" min="0" step="100" value="10000">
+<label for="n-who">You are</label><select id="n-who"><option value="e">An employee</option><option value="r">An employer, for one employee</option></select>
+<label for="n-yr">Period</label><select id="n-yr"><option value="2026">2026: 16.2% in total (employee 5.4%, employer 10.8%)</option><option value="2027">From 4 January 2027: 19.2% in total (employee 6.4%, employer 12.8%)</option></select>
+<table><tr><td>Rate</td><td id="n-r"></td></tr><tr><td>Contribution per month</td><td id="n-m"></td></tr><tr class="sum"><td>Contribution per year</td><td id="n-y"></td></tr><tr><td>Ceiling reached (TT$13,600 a month)?</td><td id="n-c"></td></tr></table>
+<p class="note">National Insurance is set by earnings class, so the real amount can differ by a few dollars. Estimate, not payroll advice.</p></div>
+<script>(function(){function m(n,d){return 'TT$'+n.toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var p=num('n-pay'),w=document.getElementById('n-who').value,y=document.getElementById('n-yr').value;var r=(y==='2026'?(w==='e'?0.054:0.108):(w==='e'?0.064:0.128));var c=Math.min(p,13600)*r;
+document.getElementById('n-r').textContent=(r*100).toFixed(1)+'%';document.getElementById('n-m').textContent=m(c,2);document.getElementById('n-y').textContent=m(c*12,2);document.getElementById('n-c').textContent=p>13600?'Yes: pay above TT$13,600 a month is not charged':'No'}
+['n-pay','n-who','n-yr'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>The rates</h2>
+<div class="scrollx"><table><tr><th>Period</th><th>Total rate</th><th>Employee</th><th>Employer</th><th>Highest weekly total</th></tr><tr><td>5 January 2026 to 3 January 2027</td><td>16.2%</td><td>5.4% (TT$169.50 a week at most)</td><td>10.8% (TT$339.00)</td><td>TT$508.50</td></tr><tr><td>From 4 January 2027</td><td>19.2%</td><td>6.4% (TT$200.80 a week at most)</td><td>12.8% (TT$401.60)</td><td>TT$602.40</td></tr></table></div>
+<p>The increase was announced in the 2026 Budget and written into the Finance Act 2025 and the National Insurance contribution regulations. Contributions are paid by earnings class, which is why the calculator gives a close estimate. Figures last checked on 12 November 2026 against the Ministry of Finance, the Inland Revenue Division (IRD), the National Insurance Board (NIBTT), the PwC Worldwide Tax Summaries and the 2027 Budget commentaries. Confirm the current amount with the IRD or your payroll provider before you pay.</p>
+<div class="cta">
+<p><strong>Test your project with Trinidad and Tobago rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=TT#/test">Test my project in Trinidad and Tobago</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>What is the National Insurance rate in Trinidad and Tobago?</summary>
+<p>16.2% of insurable earnings since 5 January 2026, about two thirds paid by the employer and one third by the employee. It rises to 19.2% from 4 January 2027.</p></details>
+<details><summary>What is the National Insurance ceiling?</summary>
+<p>Insurable earnings stop at TT$13,600 a month, which is TT$3,138 a week.</p></details>
+<details><summary>Does the self-employed person pay National Insurance?</summary>
+<p>The NIBTT FAQ says the scheme does not yet cover the self-employed, while some payroll sites say they pay the combined rate. Ask the NIBTT before you count on it.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../paye-calculator-trinidad-and-tobago/">PAYE calculator for Trinidad and Tobago</a> : income tax, National Insurance and Health Surcharge</li>
+<li><a href="../trinidad-and-tobago-minimum-wage-2026/">Minimum wage in Trinidad and Tobago 2026</a> : TT$20.50 an hour and what it means per month</li>
+<li><a href="../../trinidad-and-tobago/">Starting a business in Trinidad and Tobago</a> : taxes, registration and the steps</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>

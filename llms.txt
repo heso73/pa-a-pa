@@ -117,3 +117,5 @@
 - https://heso73.github.io/pa-a-pa/caribbean/guides/barbados-minimum-wage-2026/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-barbados/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-barbados/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-trinidad-and-tobago/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-barbados/
