@@ -111,3 +111,9 @@
 - https://heso73.github.io/pa-a-pa/caribbean/guides/gct-calculator-jamaica/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/nis-calculator-jamaica/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-jamaica/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/trinidad-and-tobago-minimum-wage-2026/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-trinidad-and-tobago/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-trinidad-and-tobago/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/barbados-minimum-wage-2026/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/paye-calculator-barbados/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-barbados/

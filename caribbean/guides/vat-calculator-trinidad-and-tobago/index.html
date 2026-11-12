@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>VAT calculator for Trinidad and Tobago: add or remove 12.5% VAT</title>
+<meta name="description" content="Free VAT calculator for Trinidad and Tobago: add 12.5% VAT to a price or take it out of a VAT-inclusive price. Registration threshold TT$500,000 in twelve months and what changes in 2027.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-trinidad-and-tobago/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="VAT calculator for Trinidad and Tobago: add or remove 12.5% VAT">
+<meta property="og:description" content="Free VAT calculator for Trinidad and Tobago: add 12.5% VAT to a price or take it out of a VAT-inclusive price. Registration threshold TT$500,000 in twelve months and what changes in 2027.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-trinidad-and-tobago/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-trinidad-and-tobago/#article", "headline": "VAT calculator for Trinidad and Tobago", "description": "Free VAT calculator for Trinidad and Tobago: add 12.5% VAT to a price or take it out of a VAT-inclusive price. Registration threshold TT$500,000 in twelve months and what changes in 2027.", "inLanguage": "en", "datePublished": "2026-11-12", "dateModified": "2026-11-12", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-trinidad-and-tobago/", "author": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribbean", "url": "https://heso73.github.io/pa-a-pa/caribbean/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribbean", "item": "https://heso73.github.io/pa-a-pa/caribbean/"}, {"@type": "ListItem", "position": 2, "name": "VAT calculator for Trinidad and Tobago", "item": "https://heso73.github.io/pa-a-pa/caribbean/guides/vat-calculator-trinidad-and-tobago/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the VAT rate in Trinidad and Tobago?", "acceptedAnswer": {"@type": "Answer", "text": "12.5%, according to the Ministry of Finance."}}, {"@type": "Question", "name": "How do I take VAT out of a price?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the VAT-inclusive total by 1.125. The difference is the VAT."}}, {"@type": "Question", "name": "When must a business register for VAT in Trinidad and Tobago?", "acceptedAnswer": {"@type": "Answer", "text": "When it sells TT$500,000 or more in a twelve-month period, or forecasts sales of that amount. Registration is free."}}, {"@type": "Question", "name": "Will VAT be replaced by a sales tax?", "acceptedAnswer": {"@type": "Answer", "text": "The government has said it is reviewing the VAT system with a possible move to a sales tax, but no date or rate has been announced."}}]}]}</script>
+<script src="../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribbean</a>
+<a class="btn small" href="../../">Open the app</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribbean</a> › VAT calculator for Trinidad and Tobago</p>
+<h1>VAT calculator for Trinidad and Tobago</h1>
+<p class="lead">Value Added Tax (VAT) in Trinidad and Tobago is 12.5%. Enter an amount to add the VAT to a price, or to find the price before VAT inside a total.</p>
+<div class="box">
+<strong>In short</strong>
+<ul>
+<li>Standard VAT rate: 12.5%.</li>
+<li>You must register if you sell TT$500,000 or more in a twelve-month period, or expect to. Registration is free.</li>
+<li>Digital services from abroad become subject to 12.5% VAT from 1 March 2027 (2027 Budget proposal).</li>
+</ul>
+</div>
+<h2>The calculator</h2>
+<style>.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}.calc label{display:block;font-weight:600;margin:12px 0 4px}.calc input,.calc select{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}.calc table{width:100%;border-collapse:collapse;margin-top:14px}.calc td{padding:7px 4px;border-bottom:1px solid var(--line)}.calc td:last-child{text-align:right;font-variant-numeric:tabular-nums}.calc tr.sum td{font-weight:700;border-bottom:0}.calc .note{color:var(--muted);font-size:.92rem;margin-top:10px}</style><div class="calc" id="calc-vat"><strong>Calculator: add or remove VAT (12.5%)</strong>
+<label for="v-amt">Amount (TT$)</label><input id="v-amt" type="number" inputmode="numeric" min="0" step="10" value="1000">
+<label for="v-mode">This amount is</label><select id="v-mode"><option value="ex">Before VAT (add 12.5%)</option><option value="in">With VAT included (take 12.5% out)</option></select>
+<table><tr><td>Price before VAT</td><td id="v-ex"></td></tr><tr><td>VAT (12.5%)</td><td id="v-tax"></td></tr><tr class="sum"><td>Price with VAT</td><td id="v-in"></td></tr></table>
+<p class="note">Standard rate of 12.5%. Some goods and services are zero-rated or exempt: check with the Inland Revenue Division (IRD). Estimate, not tax advice.</p></div>
+<script>(function(){function m(n,d){return 'TT$'+n.toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)||v<0?0:v}function run(){var a=num('v-amt'),md=document.getElementById('v-mode').value;var ex=md==='ex'?a:a/1.125,inc=md==='ex'?a*1.125:a;
+document.getElementById('v-ex').textContent=m(ex,2);document.getElementById('v-tax').textContent=m(inc-ex,2);document.getElementById('v-in').textContent=m(inc,2)}
+['v-amt','v-mode'].forEach(function(i){document.getElementById(i).addEventListener('input',run)});run()})();</script>
+<h2>How it works</h2>
+<p>To add VAT, multiply the price by 1.125. To take VAT out of a total, divide it by 1.125. On TT$1,125 the VAT is TT$125 and the price before VAT is TT$1,000.</p>
+<p>Most small businesses start below the registration threshold and do not charge VAT yet. The Ministry of Finance says individuals and businesses must register when they sell TT$500,000 or more in twelve months, or forecast that. Registered businesses file VAT returns and pay the Inland Revenue Division; your filing period is set when you register.</p>
+<h2>What is changing</h2>
+<p>The 2025 Budget removed VAT from a wide range of basic food items from 17 October 2025 and announced a review of VAT with a possible move to a sales tax; no date has been set. The 2027 Budget proposes VAT on digital and remote services supplied by non-resident providers from 1 March 2027. Figures last checked on 12 November 2026 against the Ministry of Finance, the Inland Revenue Division (IRD), the National Insurance Board (NIBTT), the PwC Worldwide Tax Summaries and the 2027 Budget commentaries. Confirm the current amount with the IRD or your payroll provider before you pay.</p>
+<h2>Remember</h2>
+<p>Some goods and services are zero-rated or exempt, so 12.5% does not apply to everything. Check your item with the IRD before you charge or claim VAT.</p>
+<div class="cta">
+<p><strong>Test your project with Trinidad and Tobago rules</strong><br>Free, no sign-up. Enter your sales and costs and get your taxes and take-home income.</p>
+<a class="btn" href="../../?c=TT#/test">Test my project in Trinidad and Tobago</a>
+</div>
+<h2>Frequently asked questions</h2>
+<details><summary>What is the VAT rate in Trinidad and Tobago?</summary>
+<p>12.5%, according to the Ministry of Finance.</p></details>
+<details><summary>How do I take VAT out of a price?</summary>
+<p>Divide the VAT-inclusive total by 1.125. The difference is the VAT.</p></details>
+<details><summary>When must a business register for VAT in Trinidad and Tobago?</summary>
+<p>When it sells TT$500,000 or more in a twelve-month period, or forecasts sales of that amount. Registration is free.</p></details>
+<details><summary>Will VAT be replaced by a sales tax?</summary>
+<p>The government has said it is reviewing the VAT system with a possible move to a sales tax, but no date or rate has been announced.</p></details>
+<div class="related"><strong>Read next</strong>
+<ul>
+<li><a href="../trinidad-and-tobago-minimum-wage-2026/">Minimum wage in Trinidad and Tobago 2026</a> : TT$20.50 an hour and what it means per month</li>
+<li><a href="../paye-calculator-trinidad-and-tobago/">PAYE calculator for Trinidad and Tobago</a> : income tax, National Insurance and Health Surcharge</li>
+<li><a href="../../trinidad-and-tobago/">Starting a business in Trinidad and Tobago</a> : taxes, registration and the steps</li>
+</ul></div>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean : a free tool to test a business idea, no sign-up. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../../">Pa a Pa Caribbean</a> · <a href="../../../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>
