@@ -147,7 +147,7 @@
  "incomeTax": {
   "label": "Income tax",
   "allowance": 90000,
-  "allowanceNote": "personal allowance per year",
+  "allowanceNote": "personal allowance of TT$90,000 per year",
   "brackets": [
    {
     "upToChargeable": 1000000,

@@ -156,7 +156,7 @@
  "incomeTax": {
   "label": "Impuesto sobre la renta (ISR)",
   "allowance": 416220,
-  "allowanceNote": "renta anual exenta en 2026",
+  "allowanceNote": "renta anual exenta en 2026: hasta RD$416,220",
   "brackets": [
    {
     "upToChargeable": 208109,
