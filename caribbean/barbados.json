@@ -225,8 +225,8 @@
   "label": "Value Added Tax",
   "short": "VAT",
   "rate": 0.175,
-  "threshold": 200000,
-  "registerNote": "Plan to register once your sales reach BDS$200,000. The March 2026 budget raised the level to BDS$350,000 from 1 October 2026: the BRA confirms the level that applies to you when you register.",
+  "threshold": 350000,
+  "registerNote": "The March 2026 budget raised the level from BDS$200,000 to BDS$350,000 from 1 October 2026 (reported by PwC, EY and KPMG). The BRA confirms the level that applies to you when you register.",
   "filingNote": "Your filing period is set when you register.",
   "verified": false
  },
@@ -256,7 +256,7 @@
  },
  "notes": [],
  "toVerify": [
-  "VAT registration threshold: BDS$200,000, raised to BDS$350,000 from 1 October 2026 by the March 2026 budget according to two reports; no confirmation from the Barbados Revenue Authority found",
+  "VAT registration threshold: BDS$350,000 from 1 October 2026 (was BDS$200,000), per PwC, EY and KPMG on the March 2026 budget; some BRA pages may still show BDS$200,000, so confirm with the BRA",
   "Corporation tax: 9% since 2024 (5.5% for registered small businesses up to BDS$2 million) according to Parliament papers, while the BRA corporations page still shows the older sliding scale",
   "Business registration and incorporation fees"
  ],
