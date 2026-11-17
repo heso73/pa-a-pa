@@ -99,8 +99,8 @@
   },
   {
    "id": "nis",
-   "label": "Register with the National Insurance Board (NIBTT)",
-   "plain": "Self-employed people must register and contribute. It gives you access to a pension and other benefits.",
+   "label": "Check your National Insurance (NIS) position with the NIBTT",
+   "plain": "The NIBTT says the scheme does not yet cover the self-employed, so ask before you pay. Staff you hire are covered: you register as an employer.",
    "appliesTo": [
     "business_name"
    ]
