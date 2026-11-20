@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""4 pages EN (20 nov. 2026), construites sur de vraies requêtes de la Search Console :
+"""8 pages EN (20 nov. 2026), construites sur de vraies requêtes de la Search Console :
  - income-tax-threshold-trinidad-and-tobago  (« what is the minimum salary for paye in trinidad », « paye trinidad »)
  - income-tax-threshold-barbados
  - minimum-wage-caribbean-2026               (« minimum wage in the caribbean 2026 », « minimum wage 2026 », « minimum wage »)
@@ -176,6 +176,106 @@ page('overtime-pay-calculator-caribbean',
           ('What is the overtime rate in Barbados?', 'At least 150% of the ordinary rate, which is about BDS$16.07 an hour at the minimum wage.')],
      related=[R_JM_MW, R_BB_MW, R_TT_MW], cta=CTA)
 
+# ===================================================================== 5. Salaire net Trinité
+rows = ''
+for g in [3553.33, 5000, 7500, 10000, 12000, 15000, 20000, 30000, 50000]:
+    nis, hs, tax, net = tt_emp(g)
+    rows += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>' % (tt(g), tt(nis + hs + tax), tt(tax), tt(net))
+CALC_TT_NET = CALC_CSS + '''<div class="calc" id="calc-net"><strong>Calculator: salary after tax</strong>
+<label for="s-gross">Gross pay per month (TT$)</label><input id="s-gross" type="number" inputmode="numeric" min="0" step="100" value="10000">
+<table><tr><td>National Insurance (employee, 5.4%)</td><td id="s-nis"></td></tr><tr><td>Health Surcharge</td><td id="s-hs"></td></tr><tr><td>Income tax (PAYE)</td><td id="s-tax"></td></tr><tr class="sum"><td>Total deductions</td><td id="s-ded"></td></tr><tr class="sum"><td>Take-home pay per month</td><td id="s-net"></td></tr><tr><td>Take-home pay per year</td><td id="s-yr"></td></tr></table>
+<p class="note">2026 rates, one employer, TT$90,000 personal allowance, no other deduction. Estimate, not payroll or tax advice.</p></div>
+<script>(function(){''' + fmt_js('TT$') + '''function run(){var g=num('s-gross'),nis=Math.min(g,13600)*0.054,hs=g>0?((g*12/52>109?8.25:4.80)*52/12):0,chg=Math.max(g*12-nis*12-90000,0),tax=(0.25*Math.min(chg,1000000)+0.30*Math.max(chg-1000000,0))/12,ded=nis+hs+tax;
+document.getElementById('s-nis').textContent=m(nis,2);document.getElementById('s-hs').textContent=m(hs,2);document.getElementById('s-tax').textContent=m(tax,2);document.getElementById('s-ded').textContent=m(ded,2);document.getElementById('s-net').textContent=m(g-ded,2);document.getElementById('s-yr').textContent=m((g-ded)*12,2)}
+document.getElementById('s-gross').addEventListener('input',run);run()})();</script>'''
+_n10 = tt_emp(10000)
+page('salary-after-tax-trinidad-and-tobago',
+     title='Salary after tax in Trinidad and Tobago (2026): take-home pay calculator',
+     desc='Free take-home pay calculator for Trinidad and Tobago: enter your monthly gross salary and see National Insurance, the Health Surcharge, income tax and what you keep. Table from TT$3,553 to TT$50,000.',
+     h1='Salary after tax in Trinidad and Tobago in 2026',
+     lead='What do you really keep from a gross salary in Trinidad and Tobago? Enter your monthly pay and see the deductions (National Insurance, Health Surcharge, income tax) and your take-home pay. A table below shows common salaries.',
+     bullets=['On TT$10,000 gross a month, about %s is deducted and %s reaches your bank account.' % (tt(10000 - _n10[3]), tt(_n10[3])),
+              'Deductions: employee National Insurance (5.4% in 2026), the Health Surcharge and income tax (25% above the TT$90,000 allowance, 30% above TT$1,000,000).',
+              'At the minimum wage (about TT$3,553 a month) no income tax is due.'],
+     sections=[('Calculate your take-home pay', [CALC_TT_NET]),
+               ('Take-home pay by monthly salary', ['<div class="scrollx"><table><tr><th>Gross per month</th><th>Total deductions</th><th>Of which income tax</th><th>Take-home per month</th></tr>%s</table></div>' % rows,
+                                                    'National Insurance is set by earnings class, so the real amount can differ by a few dollars. ' + CHK_TT]),
+               ('What changes in 2027', ['From 4 January 2027 the employee National Insurance share rises from 5.4% to 6.4%, so take-home pay falls slightly. The PAYE calculator lets you switch between the two rates.'])],
+     faq=[('How much tax do I pay on TT$10,000 a month in Trinidad and Tobago?', 'About %s a month in income tax, on top of National Insurance and the Health Surcharge, with the 2026 rates and the TT$90,000 allowance.' % tt(_n10[2])),
+          ('What is the take-home pay on TT$10,000 a month?', 'About %s a month after National Insurance, the Health Surcharge and income tax.' % tt(_n10[3])),
+          ('Is the Health Surcharge deducted from my pay?', 'Yes. It is TT$8.25 a week for most employees and TT$4.80 for the lowest earners.')],
+     related=[R_TT_PAYE, R('Income tax threshold in Trinidad and Tobago', 'income-tax-threshold-trinidad-and-tobago', 'TT$90,000 a year'), R_TT_NIS], cta=CTA)
+
+# ===================================================================== 6. Salaire net Barbade
+rows = ''
+for g in [1856.40, 2500, 3000, 4000, 5000, 6000, 8000, 10000, 15000]:
+    nis, rr, tax, net = bb_emp(g)
+    rows += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>' % (bb(g), bb(nis + rr + tax), bb(tax), bb(net))
+CALC_BB_NET = CALC_CSS + '''<div class="calc" id="calc-net"><strong>Calculator: salary after tax</strong>
+<label for="s-gross">Gross pay per month (BDS$)</label><input id="s-gross" type="number" inputmode="numeric" min="0" step="100" value="5000">
+<table><tr><td>National Insurance (employee, 11%, up to BDS$5,360)</td><td id="s-nis"></td></tr><tr><td>Resilience and Regeneration Fund (0.25%)</td><td id="s-rr"></td></tr><tr><td>Income tax (PAYE)</td><td id="s-tax"></td></tr><tr class="sum"><td>Total deductions</td><td id="s-ded"></td></tr><tr class="sum"><td>Take-home pay per month</td><td id="s-net"></td></tr><tr><td>Take-home pay per year</td><td id="s-yr"></td></tr></table>
+<p class="note">2026 rates, one employer, BDS$25,000 allowance and no other allowance or credit. Estimate, not payroll or tax advice.</p></div>
+<script>(function(){''' + fmt_js('BDS$') + '''function run(){var g=num('s-gross'),nis=Math.min(g,5360)*0.11,rr=g*0.0025,tb=Math.max(g*12-25000,0),tax=(0.115*Math.min(tb,50000)+0.275*Math.max(tb-50000,0))/12,ded=nis+rr+tax;
+document.getElementById('s-nis').textContent=m(nis,2);document.getElementById('s-rr').textContent=m(rr,2);document.getElementById('s-tax').textContent=m(tax,2);document.getElementById('s-ded').textContent=m(ded,2);document.getElementById('s-net').textContent=m(g-ded,2);document.getElementById('s-yr').textContent=m((g-ded)*12,2)}
+document.getElementById('s-gross').addEventListener('input',run);run()})();</script>'''
+_b5 = bb_emp(5000)
+page('salary-after-tax-barbados',
+     title='Salary after tax in Barbados (2026): take-home pay calculator',
+     desc='Free take-home pay calculator for Barbados: enter your monthly gross salary and see National Insurance, the Resilience and Regeneration Fund, income tax and what you keep.',
+     h1='Salary after tax in Barbados in 2026',
+     lead='What do you really keep from a gross salary in Barbados? Enter your monthly pay and see the deductions (National Insurance, Resilience and Regeneration Fund, income tax) and your take-home pay. A table below shows common salaries.',
+     bullets=['On BDS$5,000 gross a month, about %s is deducted and %s reaches your bank account.' % (bb(5000 - _b5[3]), bb(_b5[3])),
+              'Deductions: employee National Insurance (11% up to BDS$5,360 a month), the 0.25% Resilience and Regeneration Fund and income tax (11.5% then 27.5% above the BDS$25,000 allowance).',
+              'At the minimum wage (about BDS$1,856 a month) no income tax is due.'],
+     sections=[('Calculate your take-home pay', [CALC_BB_NET]),
+               ('Take-home pay by monthly salary', ['<div class="scrollx"><table><tr><th>Gross per month</th><th>Total deductions</th><th>Of which income tax</th><th>Take-home per month</th></tr>%s</table></div>' % rows, CHK_BB])],
+     faq=[('How much tax do I pay on BDS$5,000 a month in Barbados?', 'About %s a month in income tax, on top of National Insurance and the Resilience and Regeneration Fund, with the 2026 rates and the BDS$25,000 allowance.' % bb(_b5[2])),
+          ('What is the take-home pay on BDS$5,000 a month?', 'About %s a month after National Insurance, the Resilience and Regeneration Fund and income tax.' % bb(_b5[3])),
+          ('Is National Insurance tax deductible in Barbados?', 'No. The BRA says National Insurance paid by an employee is not tax deductible, so it does not lower taxable income.')],
+     related=[R_BB_PAYE, R('Income tax threshold in Barbados', 'income-tax-threshold-barbados', 'BDS$25,000 a year'), R_BB_NIS], cta=CTA)
+
+# ===================================================================== 7. TVA / GCT / ITBIS comparés
+page('vat-rates-caribbean-2026',
+     title='VAT rates in the Caribbean 2026: Jamaica GCT, Trinidad VAT, Barbados VAT, Dominican ITBIS',
+     desc='Sales tax compared: Jamaica GCT 15%, Trinidad and Tobago VAT 12.5%, Barbados VAT 17.5%, Dominican Republic ITBIS 18%. Registration thresholds and filing deadlines side by side.',
+     h1='VAT and sales tax rates in the Caribbean in 2026',
+     lead='Each Caribbean country charges its own sales tax, under a different name, at a different rate and with a different registration threshold. Here are the four countries Pa a Pa covers in detail, side by side.',
+     bullets=['Rates: Jamaica GCT 15%, Trinidad and Tobago VAT 12.5%, Barbados VAT 17.5%, Dominican Republic ITBIS 18%.',
+              'Registration thresholds: Jamaica J$15,000,000 of yearly sales, Trinidad and Tobago TT$500,000, Barbados BDS$350,000 from 1 October 2026 (it was BDS$200,000). The Dominican Republic has no minimum of sales.',
+              'To add a tax to a price, multiply by 1 plus the rate; to remove it from a total, divide by the same number.'],
+     sections=[('The rates side by side', ['<div class="scrollx"><table><tr><th>Country</th><th>Tax</th><th>Rate</th><th>You must register from</th><th>Returns</th></tr>'
+                                           '<tr><td>Jamaica</td><td>GCT</td><td>15%</td><td>J$15,000,000 a year</td><td>Monthly or every two months, by the 25th of the next month</td></tr>'
+                                           '<tr><td>Trinidad and Tobago</td><td>VAT</td><td>12.5%</td><td>TT$500,000 in twelve months</td><td>Period set at registration</td></tr>'
+                                           '<tr><td>Barbados</td><td>VAT</td><td>17.5%</td><td>BDS$350,000 a year from 1 October 2026</td><td>Every two months, by the 21st of the next month</td></tr>'
+                                           '<tr><td>Dominican Republic</td><td>ITBIS</td><td>18%</td><td>First taxable sale (RNC and NCF required)</td><td>Monthly, by the 20th of the next month</td></tr></table></div>',
+                                           'In Barbados the threshold was BDS$200,000 until the 2026 Budget raised it to BDS$350,000 from 1 October 2026, according to PwC, EY and KPMG. The BRA pages may still show the old figure, so ask the BRA which amount applies. Some goods and services are zero-rated or exempt in every country: check the list with the tax authority. Figures last checked between 9 and 12 November 2026 against the tax authorities (TAJ, IRD, BRA, DGII).']),
+               ('Quick maths', ['Price with tax = price x 1.15 (Jamaica), x 1.125 (Trinidad and Tobago), x 1.175 (Barbados) or x 1.18 (Dominican Republic). On a price of 1,000 before tax the tax is 150, 125, 175 or 180 in the local currency.'])],
+     faq=[('What is the VAT rate in the Caribbean?', 'There is no regional rate. It is 15% in Jamaica (GCT), 12.5% in Trinidad and Tobago, 17.5% in Barbados and 18% in the Dominican Republic (ITBIS).'),
+          ('Which Caribbean country has the highest VAT?', 'Of the four covered here, the Dominican Republic at 18%, then Barbados at 17.5%, Jamaica at 15% and Trinidad and Tobago at 12.5%.'),
+          ('When must a small business register for VAT in the Caribbean?', 'Jamaica: J$15,000,000 of yearly sales. Trinidad and Tobago: TT$500,000 in twelve months. Barbados: BDS$350,000 a year from 1 October 2026. The Dominican Republic has no sales minimum.')],
+     related=[R('Register for GCT in Jamaica', 'gct-registration-jamaica', 'rate, threshold and deadlines'), R('VAT calculator for Trinidad and Tobago', 'vat-calculator-trinidad-and-tobago', 'add or remove 12.5% VAT'),
+              R('VAT calculator for Barbados', 'vat-calculator-barbados', 'add or remove 17.5% VAT'), ('Calculadora de ITBIS (in Spanish)', '../../es/guias/calculadora-itbis-republica-dominicana/', 'sumar o quitar el 18 %')], cta=CTA)
+
+# ===================================================================== 8. Cotisations sociales comparées
+page('social-security-contributions-caribbean-2026',
+     title='Social security contributions in the Caribbean 2026: NIS in Jamaica, Trinidad, Barbados, TSS in the DR',
+     desc='Employee and employer social security rates side by side: Jamaica NIS 3%, Trinidad and Tobago NIS 5.4% and 10.8%, Barbados NIS 11% and 12.75%, Dominican Republic TSS.',
+     h1='Social security contributions in the Caribbean in 2026',
+     lead='Employees and employers pay into a national scheme in every Caribbean country, at very different rates and ceilings. Here are the 2026 rates for the four countries Pa a Pa covers in detail.',
+     bullets=['Jamaica (NIS): employee 3%, employer 3%, on pay up to J$5,000,000 a year.', 'Trinidad and Tobago (NIS): employee 5.4%, employer 10.8% in 2026 (6.4% and 12.8% from 4 January 2027), up to TT$13,600 a month.',
+              'Barbados (NIS): employee 11%, employer 12.75%, up to BDS$5,360 a month, plus a 0.25% fund.', 'Dominican Republic (TSS): employee 3.04% health plus 2.87% pensions; the employer pays more, with a separate monthly ceiling for each fund.'],
+     sections=[('The rates side by side', ['<div class="scrollx"><table><tr><th>Country</th><th>Employee</th><th>Employer</th><th>Self-employed</th><th>Ceiling</th></tr>'
+                                           '<tr><td>Jamaica (NIS)</td><td>3%</td><td>3%</td><td>6%</td><td>J$5,000,000 a year</td></tr>'
+                                           '<tr><td>Trinidad and Tobago (NIS)</td><td>5.4%</td><td>10.8%</td><td>Not yet covered, per the NIBTT FAQ</td><td>TT$13,600 a month</td></tr>'
+                                           '<tr><td>Barbados (NIS)</td><td>11%</td><td>12.75%</td><td>17%</td><td>BDS$5,360 a month</td></tr>'
+                                           '<tr><td>Dominican Republic (TSS)</td><td>3.04% health + 2.87% pensions</td><td>7.09% health + 7.10% pensions + about 1.2% work risks + 1% INFOTEP</td><td>Not covered here</td><td>RD$232,230 (health) and RD$464,460 (pensions) a month</td></tr></table></div>',
+                                           'Barbados also charges a 0.25% Resilience and Regeneration Fund on gross pay, with no ceiling. Jamaica has other payroll contributions (NHT, Education Tax) that are not in this table: see the Jamaica guides. ' + CHK_ALL]),
+               ('How to use these rates', ['Contribution = pay (up to the ceiling) x rate. The country calculators give the exact amount for your pay.'])],
+     faq=[('What is the NIS rate in the Caribbean?', 'It depends on the country: 3% for employees in Jamaica, 5.4% in Trinidad and Tobago and 11% in Barbados in 2026. The Dominican Republic uses the TSS, with 3.04% health and 2.87% pensions for the employee.'),
+          ('Who pays more, the employer or the employee?', 'In all four countries the employer\'s share is equal to or higher than the employee\'s share.'),
+          ('Is there a ceiling on contributions?', 'Yes, in every country covered here, expressed per year in Jamaica and per month in the others.')],
+     related=[R('NIS calculator for Jamaica', 'nis-calculator-jamaica', 'employee 3%, employer 3%'), R_TT_NIS, R_BB_NIS, ('Calculadora de la TSS (in Spanish)', '../../es/guias/calculadora-tss-republica-dominicana/', 'SFS, AFP y empleador')], cta=CTA)
+
 urls = []
 for slug, k in P:
     urls.append(B.build('en', slug, **k))
@@ -205,6 +305,17 @@ add_related('nis-calculator-trinidad-and-tobago', '../income-tax-threshold-trini
 add_related('paye-calculator-barbados', '../income-tax-threshold-barbados/', 'Income tax threshold in Barbados', 'BDS$25,000 a year')
 add_related('barbados-minimum-wage-2026', '../income-tax-threshold-barbados/', 'Income tax threshold in Barbados', 'BDS$25,000 a year')
 add_related('nis-calculator-barbados', '../income-tax-threshold-barbados/', 'Income tax threshold in Barbados', 'BDS$25,000 a year')
+
+add_related('paye-calculator-trinidad-and-tobago', '../salary-after-tax-trinidad-and-tobago/', 'Salary after tax in Trinidad and Tobago', 'take-home pay by salary')
+add_related('income-tax-threshold-trinidad-and-tobago', '../salary-after-tax-trinidad-and-tobago/', 'Salary after tax in Trinidad and Tobago', 'take-home pay by salary')
+add_related('paye-calculator-barbados', '../salary-after-tax-barbados/', 'Salary after tax in Barbados', 'take-home pay by salary')
+add_related('income-tax-threshold-barbados', '../salary-after-tax-barbados/', 'Salary after tax in Barbados', 'take-home pay by salary')
+for sl in ['vat-calculator-trinidad-and-tobago', 'vat-calculator-barbados', 'gct-registration-jamaica', 'gct-calculator-jamaica']:
+    add_related(sl, '../vat-rates-caribbean-2026/', 'VAT rates in the Caribbean 2026', 'four countries side by side')
+for sl in ['nis-calculator-jamaica', 'nis-calculator-trinidad-and-tobago', 'nis-calculator-barbados']:
+    add_related(sl, '../social-security-contributions-caribbean-2026/', 'Social security contributions in the Caribbean', 'four countries side by side')
+add_related('minimum-wage-caribbean-2026', '../vat-rates-caribbean-2026/', 'VAT rates in the Caribbean 2026', 'four countries side by side')
+add_related('minimum-wage-caribbean-2026', '../social-security-contributions-caribbean-2026/', 'Social security contributions in the Caribbean', 'four countries side by side')
 
 def add_sitemap(s):
     add = ''.join('  <url><loc>%s</loc><lastmod>2026-11-20</lastmod></url>\n' % u for u in urls if u not in s)
