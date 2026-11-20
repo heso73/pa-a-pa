@@ -127,3 +127,7 @@
 - https://heso73.github.io/pa-a-pa/caribbean/es/guias/como-sacar-rnc-persona-fisica-republica-dominicana/
 - https://heso73.github.io/pa-a-pa/caribbean/es/guias/cuanto-cuesta-crear-una-empresa-republica-dominicana/
 - https://heso73.github.io/pa-a-pa/caribbean/es/guias/regimen-simplificado-de-tributacion-rst-republica-dominicana/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/income-tax-threshold-trinidad-and-tobago/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/income-tax-threshold-barbados/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/minimum-wage-caribbean-2026/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/overtime-pay-calculator-caribbean/
