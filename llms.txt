@@ -146,6 +146,10 @@
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-omzetbelasting-curacao/
 - https://heso73.github.io/pa-a-pa/caribbean/fr/guides/nif-tca-patente-haiti-creer-entreprise/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-btw-suriname/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/gross-receipts-tax-and-business-license-us-virgin-islands/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/abb-general-expenditure-tax-sint-eustatius/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/abb-general-expenditure-tax-saba/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/abb-general-expenditure-tax-bonaire/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/turnover-tax-tot-registration-sint-maarten/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/register-micro-and-small-business-montserrat/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/business-licence-and-universal-social-levy-anguilla/
