@@ -139,3 +139,6 @@
 - https://heso73.github.io/pa-a-pa/caribbean/es/guias/vacaciones-cesantia-preaviso-republica-dominicana/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-trinidad-and-tobago/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/tax-compliance-certificate-tcc-jamaica/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-guyana/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-bahamas/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-gst-belize/
