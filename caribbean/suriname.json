@@ -172,9 +172,9 @@
   "label": "Value Added Tax",
   "short": "BTW",
   "rate": 0.1,
-  "threshold": 0,
-  "registerNote": "Register with the Tax Administration when you start. The standard rate is 10%, with 5% on water, electricity and cooking gas, and 0% on exports.",
-  "filingNote": "You file your BTW return every month.",
+  "threshold": 1000000,
+  "registerNote": "Register on the Belastingdienst online portal once your taxable turnover exceeds SRD 1,000,000 in a calendar year. The general rate is 10%, with 0%, 5% and 25% for specific goods and services.",
+  "filingNote": "Return and payment between the 1st and the 15th of the following month.",
   "verified": true
  },
  "calendar": {
