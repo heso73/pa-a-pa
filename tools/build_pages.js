@@ -175,6 +175,7 @@ function build(ui, D) {
     <h2>${t.example}</h2>
     <p>${esc(t.exIntro(D.currency.code, J(c.sales)))}</p>
     <table class="sum">${exRows.map((r, i) => `<tr${i === exRows.length - 3 ? ' class="sum"' : ''}><td>${esc(r[0])}</td><td>${r[1]}</td></tr>`).join('')}</table>
+    ${D.video ? `<div class="video-links" data-from="${D.video.from}" hidden><h2>${lang === 'es' ? 'Mira: 4 pasos en 30 segundos' : 'Watch: 4 steps in 30 seconds'}</h2><p><a href="https://www.youtube.com/watch?v=${D.video.id}&amp;utm_source=pa-a-pa&amp;utm_medium=guide" rel="noopener">${lang === 'es' ? 'Mira el video de 30 segundos: cómo empezar un negocio aquí, en 4 pasos' : 'Watch the 30-second video: how to start a business here, in 4 steps'}</a> (YouTube, Pa a Pa Caribbean)</p></div>` : ''}
     <h2>${t.cal}</h2>
     <ul>${calRows.join('')}</ul>
     <h2>${t.faq}</h2>
@@ -186,6 +187,7 @@ function build(ui, D) {
     <p class="muted small">${t.from}: ${esc(D.dataVerifiedOn)}. ${taxLink(D.authorities.tax)}.</p>
   </main>
 </div>
+${D.video ? `<script>document.querySelectorAll('[data-from]').forEach(function(e){if(Date.now()>=Date.parse(e.getAttribute('data-from')+'T17:00:00Z'))e.hidden=false;});</script>` : ''}
 </body>
 </html>
 `;
