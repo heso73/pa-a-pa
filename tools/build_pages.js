@@ -107,7 +107,7 @@ function build(ui, D) {
   if (cal.quarterly && cal.quarterly.length) calRows.push(`<li><b>${esc(cal.quarterlyList)}</b>: ${esc(cal.quarterlyTextPersonal)}</li>`);
   if (cal.monthlyText) calRows.push(`<li><b>${esc(cal.monthlyLabel || '')}</b>: ${esc(cal.monthlyText)}</li>`);
   calRows.push(`<li><b>${esc(cal.annualLabel)}</b>: ${esc(cal.annualTextPersonal)}</li>`);
-  calRows.push(`<li><b>${esc(cal.payrollLabel || (lang === 'es' ? 'Cada mes' : 'Every month'))}</b>: ${esc(cal.payrollText)}</li>`);
+  { const pl = cal.payrollLabel || (lang === 'es' ? 'Cada mes' : 'Every month'); const pt = String(cal.payrollText || ''); calRows.push(`<li><b>${esc(pl)}</b>: ${esc(pt.startsWith(pl + ': ') ? pt.slice(pl.length + 2) : pt)}</li>`); }
   const exRows = [[t.exSales, J(c.annualSales)], [t.exCost, '-' + J((c.direct + c.fixed) * 12)], [t.exProfit, J(c.profit)], ...c.lines.map(l => [l.label, '-' + J(l.amount)]), [t.exNet, J(c.net)], [t.exNetM, J(c.netMonthly)], [t.exNeed, J(c.needs)]];
 
   // FAQ (answers built from the data)
