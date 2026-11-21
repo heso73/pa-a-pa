@@ -146,6 +146,9 @@
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-omzetbelasting-curacao/
 - https://heso73.github.io/pa-a-pa/caribbean/fr/guides/nif-tca-patente-haiti-creer-entreprise/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-btw-suriname/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-st-kitts-and-nevis/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-dominica/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-saint-vincent-and-the-grenadines/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-barbados/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-abst-antigua-and-barbuda/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-saint-lucia/
