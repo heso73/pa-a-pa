@@ -135,7 +135,7 @@
   {
    "id": "vat",
    "label": "Register for VAT",
-   "plain": "Required when your sales reach TT$500,000 in twelve months, or when you expect them to. Registration is free.",
+   "plain": "Required when your sales exceed TT$600,000 in twelve months, or when you expect them to. Registration is free.",
    "appliesTo": [
     "business_name",
     "limited_company"
@@ -226,8 +226,8 @@
   "label": "Value Added Tax",
   "short": "VAT",
   "rate": 0.125,
-  "threshold": 500000,
-  "registerNote": "You must also register if you expect to reach it in the next twelve months. Registration is free. Some sources give a higher level (TT$600,000): the Board of Inland Revenue confirms the one that applies to you when you register.",
+  "threshold": 600000,
+  "registerNote": "You must also register if you expect to reach it in the next twelve months. Registration is free. The threshold is TT$600,000 since 1 January 2023, according to the Inland Revenue Division. Some older pages still show TT$500,000.",
   "filingNote": "Your filing period is set when you register.",
   "verified": false
  },
@@ -269,7 +269,7 @@
   "NIS for the self-employed: the NIBTT FAQ says the scheme does not yet cover them (this estimate includes it as a precaution); employees pay by earnings class, at 16.2% combined in 2026, reported to rise to 19.2% in January 2027",
   "Health Surcharge amount for the self-employed",
   "Business registration and incorporation fees",
-  "VAT registration threshold (TT$500,000 on the government portal, TT$600,000 in one tax summary) and the announced move from VAT to a sales tax, with no date found"
+  "The announced move from VAT to a sales tax, with no date found"
  ],
  "sources": [
   {

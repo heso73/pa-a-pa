@@ -135,3 +135,7 @@
 - https://heso73.github.io/pa-a-pa/caribbean/guides/salary-after-tax-barbados/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/vat-rates-caribbean-2026/
 - https://heso73.github.io/pa-a-pa/caribbean/guides/social-security-contributions-caribbean-2026/
+- https://heso73.github.io/pa-a-pa/caribbean/es/guias/factura-electronica-e-cf-micro-pequenas-empresas-republica-dominicana/
+- https://heso73.github.io/pa-a-pa/caribbean/es/guias/vacaciones-cesantia-preaviso-republica-dominicana/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/how-to-register-for-vat-trinidad-and-tobago/
+- https://heso73.github.io/pa-a-pa/caribbean/guides/tax-compliance-certificate-tcc-jamaica/

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Vacaciones, preaviso y cesantía en República Dominicana: cómo calcular (Código de Trabajo)</title>
+<meta name="description" content="Cómo se calculan las vacaciones, el preaviso y la cesantía según el Código de Trabajo dominicano: escalas de días, divisor 23.83 y un ejemplo con números.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/caribbean/es/guias/vacaciones-cesantia-preaviso-republica-dominicana/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_DO">
+<meta property="og:site_name" content="Pa a Pa Caribe">
+<meta property="og:title" content="Vacaciones, preaviso y cesantía en República Dominicana: cómo calcular (Código de Trabajo)">
+<meta property="og:description" content="Cómo se calculan las vacaciones, el preaviso y la cesantía según el Código de Trabajo dominicano: escalas de días, divisor 23.83 y un ejemplo con números.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/caribbean/es/guias/vacaciones-cesantia-preaviso-republica-dominicana/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../../../../caribbean/icons/icon-192.png">
+<link rel="apple-touch-icon" href="../../../../caribbean/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/caribbean/es/guias/vacaciones-cesantia-preaviso-republica-dominicana/#article", "headline": "Vacaciones, preaviso y cesantía en República Dominicana: cómo calcularlos", "description": "Cómo se calculan las vacaciones, el preaviso y la cesantía según el Código de Trabajo dominicano: escalas de días, divisor 23.83 y un ejemplo con números.", "inLanguage": "es", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "mainEntityOfPage": "https://heso73.github.io/pa-a-pa/caribbean/es/guias/vacaciones-cesantia-preaviso-republica-dominicana/", "author": {"@type": "Organization", "name": "Pa a Pa Caribe", "url": "https://heso73.github.io/pa-a-pa/caribbean/es/"}, "publisher": {"@type": "Organization", "name": "Pa a Pa Caribe", "url": "https://heso73.github.io/pa-a-pa/caribbean/es/"}, "image": "https://heso73.github.io/pa-a-pa/caribbean/icons/og-es.png"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pa a Pa Caribe", "item": "https://heso73.github.io/pa-a-pa/caribbean/es/"}, {"@type": "ListItem", "position": 2, "name": "Vacaciones, preaviso y cesantía en República Dominicana: cómo calcularlos", "item": "https://heso73.github.io/pa-a-pa/caribbean/es/guias/vacaciones-cesantia-preaviso-republica-dominicana/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Por qué 23.83 y no 30?", "acceptedAnswer": {"@type": "Answer", "text": "Es el divisor del Ministerio de Trabajo: el promedio de días laborables al mes, con jornada de seis días a la semana. Usar 30 daría un salario diario más bajo."}}, {"@type": "Question", "name": "¿La cesantía se paga si el empleado renuncia?", "acceptedAnswer": {"@type": "Answer", "text": "No. La cesantía aplica cuando el empleador termina el contrato sin causa o hay despido injustificado. En una renuncia se pagan los derechos adquiridos, como vacaciones y salario de Navidad proporcionales."}}, {"@type": "Question", "name": "¿Qué pasa si pago tarde?", "acceptedAnswer": {"@type": "Answer", "text": "El Código prevé un recargo de un día de salario por cada día de retraso cuando no se paga el preaviso o la cesantía dentro de 10 días."}}, {"@type": "Question", "name": "¿Cuántos días de vacaciones tiene un empleado nuevo?", "acceptedAnswer": {"@type": "Answer", "text": "14 días laborables tras el primer año de trabajo continuo; antes se pagan proporcionales al salir."}}, {"@type": "Question", "name": "¿Esto sirve para empleadas domésticas?", "acceptedAnswer": {"@type": "Answer", "text": "Tienen reglas propias: por ejemplo, el auxilio de cesantía del art. 80 no se les aplica. Consulta al Ministerio de Trabajo."}}]}]}</script>
+<script src="../../../../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../../">Pa a Pa Caribe</a>
+<a class="btn small" href="../../">Abrir la aplicación</a>
+</div>
+</header>
+
+<main class="wrap">
+<p class="crumbs"><a href="../../">Pa a Pa Caribe</a> › Vacaciones, preaviso y cesantía en República Dominicana: cómo calcularlos</p>
+<h1>Vacaciones, preaviso y cesantía en República Dominicana: cómo calcularlos</h1>
+<p class="lead">Si vas a contratar o ya tienes empleados, estos tres pagos pesan en tu presupuesto. Aquí tienes las escalas del Código de Trabajo (Ley 16-92) y la fórmula del salario diario.</p>
+<div class="box">
+<strong>En resumen</strong>
+<ul>
+<li>Salario diario = salario mensual ÷ 23.83 (divisor del Ministerio de Trabajo para jornada ordinaria).</li><li>Vacaciones: 14 días laborables después de un año de trabajo continuo, y 18 después de cinco años (art. 177).</li><li>Preaviso (art. 76) y cesantía (art. 80) solo aplican cuando el empleador termina el contrato sin causa (desahucio) o hay despido injustificado.</li><li>Si el empleador no paga en 10 días, hay recargo de un día de salario por cada día de retraso.</li>
+</ul>
+</div>
+<h2>1. El salario diario</h2>
+<div class="formula">Salario diario = salario mensual ÷ 23.83</div>
+<p>Si tienes comisiones, el Ministerio de Trabajo indica usar el promedio del último año trabajado (o de la fracción, si lleva menos de un año). Con jornada de cinco días se usa el divisor 26.</p>
+<h2>2. Vacaciones</h2>
+<ul>
+<li>14 días laborables tras un año de trabajo continuo; 18 días tras cinco años.</li>
+<li>Se pagan con el salario diario × los días que corresponden, antes de que empiece el descanso.</li>
+<li>Al terminar el contrato, las vacaciones no disfrutadas o proporcionales se pagan, sea cual sea la causa de la salida.</li>
+</ul>
+<h2>3. Preaviso (art. 76)</h2>
+<table><tr><th>Tiempo de trabajo</th><th>Preaviso</th></tr>
+<tr><td>Menos de 3 meses</td><td>No aplica</td></tr>
+<tr><td>3 a 6 meses</td><td>7 días</td></tr>
+<tr><td>6 meses a 1 año</td><td>14 días</td></tr>
+<tr><td>Más de 1 año</td><td>28 días</td></tr></table>
+<h2>4. Cesantía (art. 80)</h2>
+<table><tr><th>Tiempo de trabajo</th><th>Días de salario</th></tr>
+<tr><td>3 a 6 meses</td><td>6 días</td></tr>
+<tr><td>6 meses a 1 año</td><td>13 días</td></tr>
+<tr><td>1 a 5 años</td><td>21 días por cada año</td></tr>
+<tr><td>Más de 5 años</td><td>23 días por cada año</td></tr></table>
+<p>Las fracciones de año superiores a tres meses se pagan según la escala. Hay un tope legal en el total.</p>
+<h2>Ejemplo</h2>
+<p>Salario mensual RD$30,000: salario diario = 30,000 ÷ 23.83 ≈ RD$1,259. Vacaciones de 14 días ≈ RD$17,625. Una persona con 3 años que sale por desahucio: preaviso 28 días (≈ RD$35,252) + cesantía 3 × 21 = 63 días (≈ RD$79,317).</p>
+<p>Guarda un fondo mensual para estas obligaciones y súmalo al <a href="../calculadora-tss-republica-dominicana/">costo de aportes a la TSS</a> cuando evalúes contratar.</p>
+<p>Información verificada el 21 de noviembre de 2026 con el Código de Trabajo (Ley 16-92) y las guías de cálculo del Ministerio de Trabajo. Cada caso depende de la causa de salida y del contrato: confirma con el Ministerio de Trabajo o un abogado laboral.</p>
+<div class="cta">
+<p><strong>Prueba tu proyecto con las reglas de República Dominicana</strong><br>Gratis y sin registro. Escribe tus ventas y tus costos y obtén tus impuestos y lo que te queda.</p>
+<a class="btn" href="../../?c=DO#/test">Probar mi proyecto en República Dominicana</a>
+</div>
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Por qué 23.83 y no 30?</summary>
+<p>Es el divisor del Ministerio de Trabajo: el promedio de días laborables al mes, con jornada de seis días a la semana. Usar 30 daría un salario diario más bajo.</p></details>
+<details><summary>¿La cesantía se paga si el empleado renuncia?</summary>
+<p>No. La cesantía aplica cuando el empleador termina el contrato sin causa o hay despido injustificado. En una renuncia se pagan los derechos adquiridos, como vacaciones y salario de Navidad proporcionales.</p></details>
+<details><summary>¿Qué pasa si pago tarde?</summary>
+<p>El Código prevé un recargo de un día de salario por cada día de retraso cuando no se paga el preaviso o la cesantía dentro de 10 días.</p></details>
+<details><summary>¿Cuántos días de vacaciones tiene un empleado nuevo?</summary>
+<p>14 días laborables tras el primer año de trabajo continuo; antes se pagan proporcionales al salir.</p></details>
+<details><summary>¿Esto sirve para empleadas domésticas?</summary>
+<p>Tienen reglas propias: por ejemplo, el auxilio de cesantía del art. 80 no se les aplica. Consulta al Ministerio de Trabajo.</p></details>
+<div class="related"><strong>Sigue leyendo</strong>
+<ul>
+<li><a href="../calculadora-tss-republica-dominicana/">Calculadora de aportes a la TSS</a> : lo que cuesta cada empleado</li>
+<li><a href="../cuanto-cuesta-crear-una-empresa-republica-dominicana/">Cuánto cuesta crear una empresa</a> : impuesto de constitución y otros gastos</li>
+<li><a href="../factura-electronica-e-cf-micro-pequenas-empresas-republica-dominicana/">Factura electrónica (e-CF)</a> : plazo para micro y pequeños</li>
+<li><a href="../../republica-dominicana/">Crear un negocio en República Dominicana</a> : impuestos, registro y pasos</li>
+</ul></div>
+<p class="support" style="margin:28px 0 0;padding-top:14px;border-top:1px solid rgba(128,128,128,.3);font-size:.92rem">Pa a Pa sigue siendo gratis. Si esta guía te ayudó, puedes <a href="https://buy.stripe.com/7sYbJ08u2gp3cDU71n3oA00" target="_blank" rel="noopener">apoyarlo libremente</a> (pago seguro con Stripe).</p>
+</main>
+
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribe : herramienta gratuita para probar una idea de negocio, sin registro. Las cifras son estimaciones de orientación, no asesoría contable, fiscal ni legal.</p>
+<p><a href="../../">Pa a Pa Caribe</a> · <a href="../../../../caribbean/privacy/">Privacidad</a></p>
+</div>
+</footer>
+</body>
+</html>
