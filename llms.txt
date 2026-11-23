@@ -9,6 +9,7 @@
 - [Prix de revient et prix de vente](https://heso73.github.io/pa-a-pa/prix-de-revient-prix-de-vente.html): formule et deux exemples chiffrés
 - [Seuil de rentabilité](https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html): formule, exemples et simulateur
 - [Calcul du BFR](https://heso73.github.io/pa-a-pa/calcul-bfr.html): besoin en fonds de roulement, formule et exemple
+- [Seuil de TVA 2026](https://heso73.github.io/pa-a-pa/seuil-tva-franchise-en-base.html): franchise en base de TVA, seuils 2026 (Guadeloupe, Martinique, Réunion comme en métropole) et calculateur
 
 ## Application
 - [Ouvrir l'application](https://heso73.github.io/pa-a-pa/app/): bilan de faisabilité, parcours de création, pilotage de l'activité et outils de calcul (interface interactive, non indexée)

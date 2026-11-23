@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Seuil de TVA 2026 en Guadeloupe : franchise en base et calculateur</title>
+<meta name="description" content="Seuils de franchise en base de TVA 2026 (services 37 500 €, ventes 85 000 €), différence avec le plafond micro-entreprise et calculateur gratuit pour savoir quand la TVA arrive.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/seuil-tva-franchise-en-base.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Pa a Pa">
+<meta property="og:title" content="Seuil de TVA 2026 en Guadeloupe : franchise en base et calculateur">
+<meta property="og:description" content="La TVA arrive avant la sortie du régime micro. Les seuils 2026 et un calculateur pour savoir quand.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/seuil-tva-franchise-en-base.html">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.calc label{display:block;font-weight:600;margin:12px 0 4px}
+.calc input,.calc select{width:100%;font:inherit;font-size:1.05rem;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.calc button{margin-top:16px;cursor:pointer;border:0}
+#res{margin-top:16px}
+#res .out{background:var(--lagon-soft);border-radius:12px;padding:14px 16px;margin:8px 0}
+#res .warn{background:var(--amber-soft)}
+.bar{height:14px;border-radius:999px;background:var(--line);overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--lagon)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://heso73.github.io/pa-a-pa/seuil-tva-franchise-en-base.html#article", "headline": "Seuil de TVA 2026 en Guadeloupe : franchise en base et calculateur", "description": "Seuils de franchise en base de TVA 2026 (services 37 500 €, ventes 85 000 €), différence avec le plafond micro-entreprise et calculateur gratuit pour savoir quand la TVA arrive.", "inLanguage": "fr", "url": "https://heso73.github.io/pa-a-pa/seuil-tva-franchise-en-base.html", "image": "https://heso73.github.io/pa-a-pa/icons/icon-512.png", "datePublished": "2026-11-23", "dateModified": "2026-11-23", "author": {"@type": "Organization", "name": "Pa a Pa"}, "publisher": {"@type": "Organization", "name": "Pa a Pa"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quel est le seuil de TVA en Guadeloupe en 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "Depuis le 1er janvier 2023, la Guadeloupe suit les seuils de droit commun : 37 500 € pour les prestations de services (41 250 € seuil majoré) et 85 000 € pour les ventes (93 500 € seuil majoré)."}}, {"@type": "Question", "name": "Le plafond micro-entreprise est-il le seuil de TVA ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Le plafond micro-entreprise (83 600 € pour les services, 203 100 € pour les ventes en 2026-2028) est un autre régime. La franchise de TVA tombe presque toujours avant."}}, {"@type": "Question", "name": "Que se passe-t-il si je dépasse le seuil de TVA ?", "acceptedAnswer": {"@type": "Answer", "text": "Au-dessus du seuil de base mais sous le seuil majoré, la franchise continue jusqu'au 31 décembre et la TVA s'applique à partir du 1er janvier suivant. Au-dessus du seuil majoré, la TVA est due dès la date du dépassement."}}]}]}</script>
+<script src="stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./">Pa a Pa</a>
+    <a class="btn small" href="app/">Ouvrir l'application</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Seuil de TVA 2026 en Guadeloupe : quand la TVA arrive</h1>
+  <p class="lead">Beaucoup de créateurs surveillent le plafond de la micro-entreprise et oublient que la TVA arrive bien avant. Voici les seuils 2026, ce qui se passe au dépassement, et un calculateur.</p>
+
+  <div class="box">
+    <strong>En bref</strong>
+    <ul>
+      <li>Franchise en base de TVA : vous ne facturez pas de TVA tant que votre chiffre d'affaires de l'année reste sous le seuil.</li>
+      <li>Les seuils sont <strong>annuels</strong> : ils repartent de zéro chaque 1<sup>er</sup> janvier.</li>
+      <li>Depuis le 1<sup>er</sup> janvier 2023, la Guadeloupe suit les mêmes seuils que la métropole.</li>
+    </ul>
+  </div>
+
+  <h2>Les seuils 2026</h2>
+  <div class="scrollx">
+    <table>
+      <tr><th></th><th>Services</th><th>Ventes, hébergement</th></tr>
+      <tr><td>Seuil de franchise de TVA</td><td>37 500 €</td><td>85 000 €</td></tr>
+      <tr><td>Seuil majoré de TVA</td><td>41 250 €</td><td>93 500 €</td></tr>
+      <tr><td>Plafond micro-entreprise 2026-2028</td><td>83 600 €</td><td>203 100 €</td></tr>
+    </table>
+  </div>
+  <p class="small">Si vous faites à la fois des ventes et des services, la part de services est limitée à 37 500 € et le total à 85 000 € : vérifiez votre cas dans le BOFiP.</p>
+  <p>Le plafond micro-entreprise et la franchise de TVA sont deux régimes différents. On peut être en micro-entreprise et facturer la TVA : c'est ce qui arrive dès que le seuil de TVA est dépassé.</p>
+
+  <h2>Que se passe-t-il au dépassement ?</h2>
+  <ul>
+    <li><strong>Au-dessus du seuil de franchise, sous le seuil majoré :</strong> la franchise continue jusqu'au 31 décembre. La TVA s'applique à partir du 1<sup>er</sup> janvier suivant.</li>
+    <li><strong>Au-dessus du seuil majoré :</strong> la TVA est due dès le jour du dépassement, sur les opérations à partir de cette date.</li>
+  </ul>
+  <p>En Guadeloupe, le taux normal de TVA est de 8,5 % (article 296 du CGI). Une fois assujetti, vous facturez la TVA, vous la reversez, et vous pouvez déduire celle de vos achats.</p>
+
+  <h2>La formule</h2>
+  <p class="formula">Mois restants = (seuil − chiffre d'affaires depuis janvier) ÷ chiffre d'affaires moyen par mois</p>
+  <p>Exemple, en services : 30 000 € déjà réalisés depuis janvier, 2 500 € par mois. Il reste (37 500 − 30 000) ÷ 2 500 = 3 mois avant le seuil de franchise, et (41 250 − 30 000) ÷ 2 500 = 4,5 mois avant le seuil majoré.</p>
+
+  <h2>Calculez votre date</h2>
+  <div class="calc">
+    <label for="act">Votre activité</label>
+    <select id="act"><option value="s">Prestations de services</option><option value="v">Vente de marchandises, hébergement</option></select>
+    <label for="ca">Chiffre d'affaires depuis le 1<sup>er</sup> janvier (€)</label>
+    <input id="ca" type="number" inputmode="decimal" min="0" step="any" placeholder="30000">
+    <label for="mois">Chiffre d'affaires moyen par mois (€)</label>
+    <input id="mois" type="number" inputmode="decimal" min="0" step="any" placeholder="2500">
+    <button class="btn" id="go" type="button">Calculer</button>
+    <div id="res" aria-live="polite"></div>
+    <p class="small" style="margin-top:12px">Les montants saisis restent sur votre appareil. Estimation à partir d'un rythme constant.</p>
+  </div>
+
+  <h2>Que faire à l'approche du seuil ?</h2>
+  <ul>
+    <li>Suivre son chiffre d'affaires chaque semaine, et alerter à 80 % du seuil.</li>
+    <li>Prévoir l'effet sur ses prix : avec la TVA, soit le prix toutes taxes comprises augmente, soit votre marge baisse.</li>
+    <li>Sous franchise, écrire sur chaque facture « TVA non applicable, article 293 B du CGI ».</li>
+    <li>Prévenir son service des impôts des entreprises et passer à la déclaration de TVA dès la date applicable.</li>
+  </ul>
+
+  <div class="cta">
+    <p><strong>Intégrez la TVA dans vos prévisions</strong><br>Gratuit, sans inscription. Vos chiffres restent sur votre appareil.</p>
+    <a class="btn" href="app/">Ouvrir Pa a Pa</a>
+  </div>
+
+  <h2>Questions fréquentes</h2>
+  <details><summary>Quel est le seuil de TVA en Guadeloupe en 2026 ?</summary>
+    <p>Depuis le 1er janvier 2023, la Guadeloupe suit les seuils de droit commun : 37 500 € pour les prestations de services (41 250 € seuil majoré) et 85 000 € pour les ventes (93 500 € seuil majoré).</p></details>
+  <details><summary>Le plafond micro-entreprise est-il le seuil de TVA ?</summary>
+    <p>Non. Le plafond micro-entreprise (83 600 € pour les services, 203 100 € pour les ventes en 2026-2028) est un autre régime. La franchise de TVA tombe presque toujours avant.</p></details>
+  <details><summary>Que se passe-t-il si je dépasse le seuil de TVA ?</summary>
+    <p>Au-dessus du seuil de base mais sous le seuil majoré, la franchise continue jusqu'au 31 décembre et la TVA s'applique à partir du 1er janvier suivant. Au-dessus du seuil majoré, la TVA est due dès la date du dépassement.</p></details>
+
+  <h2>Sources officielles</h2>
+  <ul class="small">
+    <li><a href="https://bofip.impots.gouv.fr/bofip/849-PGP.html/identifiant%3DBOI-TVA-DECLA-40-10-10-20260701" rel="noopener">BOFiP, franchise en base de droit commun (BOI-TVA-DECLA-40-10-10)</a></li>
+    <li><a href="https://bofip.impots.gouv.fr/doctrine/pgp/13805-PGP" rel="noopener">BOFiP, actualisation des seuils : seuils de droit commun en Guadeloupe depuis le 1er janvier 2023</a></li>
+    <li><a href="https://entreprendre.service-public.gouv.fr/actualites/A18813?lang=fr&amp;profil=tout" rel="noopener">Service-Public Entreprendre, seuils micro-entreprise 2026-2028</a></li>
+  </ul>
+<p class="support" style="margin:28px 0 0;padding-top:14px;border-top:1px solid rgba(128,128,128,.3);font-size:.92rem">Pa a Pa reste gratuit. Si ce guide vous a aidé, vous pouvez le <a href="https://buy.stripe.com/7sYbJ08u2gp3cDU71n3oA00" target="_blank" rel="noopener">soutenir librement</a> (paiement sécurisé par Stripe).</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Pa a Pa est un outil d'orientation. Les montants sont des estimations et ne remplacent pas l'avis d'un expert-comptable ou du service des impôts des entreprises.</p>
+    <p>À lire aussi : <a href="seuil-de-rentabilite.html">Seuil de rentabilité</a> · <a href="tresorerie-benefice-chiffre-affaires.html">Chiffre d'affaires, bénéfice et trésorerie</a></p>
+    <p><a href="./">Pa a Pa, entreprendre sereinement</a> · Seuils vérifiés le 23 novembre 2026</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var S={s:[37500,41250],v:[85000,93500]};
+  function fmt(n){return Math.round(n).toLocaleString('fr-FR')+' €';}
+  function when(months){
+    var d=new Date(); d.setDate(d.getDate()+Math.round(months*30.44));
+    var y=new Date().getFullYear();
+    if(d.getFullYear()>y) return null;
+    return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+  }
+  document.getElementById('go').addEventListener('click',function(){
+    var a=document.getElementById('act').value, ca=parseFloat(document.getElementById('ca').value), m=parseFloat(document.getElementById('mois').value);
+    var r=document.getElementById('res');
+    if(isNaN(ca)||ca<0){r.innerHTML='<div class="out warn">Indiquez votre chiffre d\'affaires depuis le 1er janvier.</div>';return;}
+    var base=S[a][0], maj=S[a][1], pct=Math.min(100,ca/base*100), h='';
+    h+='<div class="out"><strong>'+pct.toFixed(0)+' % du seuil de franchise</strong> ('+fmt(ca)+' sur '+fmt(base)+')<div class="bar"><i style="width:'+pct+'%"></i></div></div>';
+    if(ca>maj){h+='<div class="out warn">Vous avez dépassé le seuil majoré ('+fmt(maj)+') : la TVA est due dès la date du dépassement. Rapprochez-vous de votre service des impôts des entreprises.</div>';}
+    else if(ca>base){h+='<div class="out warn">Vous avez dépassé le seuil de franchise ('+fmt(base)+') : la TVA s\'applique à partir du 1er janvier prochain, sauf si vous dépassez '+fmt(maj)+' avant (TVA alors due dès ce jour).</div>';}
+    else if(!isNaN(m)&&m>0){
+      var m1=(base-ca)/m, m2=(maj-ca)/m, w1=when(m1), w2=when(m2);
+      h+='<div class="out">Seuil de franchise ('+fmt(base)+') : '+(w1?'atteint vers le <strong>'+w1+'</strong> ('+m1.toFixed(1).replace('.',',')+' mois)':'non atteint cette année à ce rythme')+'.</div>';
+      h+='<div class="out">Seuil majoré ('+fmt(maj)+') : '+(w2?'atteint vers le <strong>'+w2+'</strong> ('+m2.toFixed(1).replace('.',',')+' mois)':'non atteint cette année à ce rythme')+'.</div>';
+    } else {h+='<div class="out warn">Ajoutez votre chiffre d\'affaires moyen par mois pour obtenir une date.</div>';}
+    r.innerHTML=h;
+  });
+})();
+</script>
+</body>
+</html>
