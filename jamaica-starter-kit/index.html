@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061440">
+<title>Jamaica Self-Employed Starter Kit: income log, tax estimate, GCT watch and invoice (Excel)</title>
+<meta name="description" content="An Excel workbook for self-employed people in Jamaica: log income and expenses, estimate income tax, NIS, NHT and Education Tax, watch the J$15M GCT threshold, plus an invoice template and a registration checklist. US$15.">
+<link rel="canonical" href="https://heso73.github.io/pa-a-pa/jamaica-starter-kit/">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pa a Pa Caribbean">
+<meta property="og:title" content="Jamaica Self-Employed Starter Kit: income log, tax estimate, GCT watch and invoice (Excel)">
+<meta property="og:description" content="An Excel workbook for self-employed people in Jamaica: log income and expenses, estimate income tax, NIS, NHT and Education Tax, watch the J$15M GCT threshold, plus an invoice template and a registration checklist. US$15.">
+<meta property="og:url" content="https://heso73.github.io/pa-a-pa/jamaica-starter-kit/">
+<meta property="og:image" content="https://heso73.github.io/pa-a-pa/caribbean/icons/og-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="../caribbean/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC; --surface:#FFFFFF; --ink:#0B1B3A; --muted:#51628A; --line:#D6E0EE;
+  --lagon:#0B4FA0; --lagon-soft:#E6EFFB; --madras:#22B8CF; --coral:#C8453A; --leaf:#2F8F5B; --amber-soft:#FFF3D6; --amber-soft:#FFF3D6;
+  --serif:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#060F26; --surface:#0D1B3D; --ink:#E8EEF9; --muted:#9FB0CF; --line:#1E2F57; --lagon:#6BAEF5; --lagon-soft:#122552; --madras:#5CD3E6; --coral:#F0786C; --leaf:#6CCB92; --amber-soft:#3A2F14; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.top{background:linear-gradient(135deg,#061440 0%,#0A3585 60%,#0B5EA8 100%);color:#F4F7FC}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none}
+.btn{display:inline-block;background:var(--lagon);color:#fff;font:600 1rem var(--sans);text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.small{padding:8px 16px;font-size:.95rem}
+.btn.ghost{background:none;color:var(--lagon);border:1.5px solid var(--lagon)}
+@media (prefers-color-scheme:dark){.btn{color:#06122B}}
+.top .btn{background:#F5B83D;color:#0B1B3A}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,6vw,2.7rem);line-height:1.15;margin:32px 0 16px;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.25;margin:40px 0 12px}
+p{margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:20px 0}
+.box ul{margin:0;padding-left:1.2em}
+.box li{margin:6px 0}
+.formula{background:var(--lagon-soft);border-radius:16px;padding:16px 20px;font-weight:600;font-size:1.1rem;margin:16px 0}
+p.small{font-size:.92rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--lagon-soft);border-bottom:0}
+.scrollx{overflow-x:auto}
+.cta{background:var(--lagon-soft);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0;text-align:center}
+.cta p{margin:0 0 14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 2px}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 40px;color:var(--muted);font-size:.92rem}
+a{color:var(--lagon)}
+
+.related{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:30px 0}.related ul{margin:8px 0 0;padding-left:1.2em}.related li{margin:6px 0}.crumbs{font-size:.92rem;color:var(--muted);margin:22px 0 0}.crumbs a{color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Jamaica Self-Employed Starter Kit","description":"An Excel workbook for self-employed people in Jamaica: log income and expenses, estimate income tax, NIS, NHT and Education Tax, watch the J$15M GCT threshold, plus an invoice template and a registration checklist. US$15.","url":"https://heso73.github.io/pa-a-pa/jamaica-starter-kit/","brand":{"@type":"Brand","name":"Pa a Pa"},"offers":{"@type":"Offer","price":"15.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://heso73.github.io/pa-a-pa/jamaica-starter-kit/"}}</script>
+<script src="../stats.js" defer></script>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<a class="brand" href="../caribbean/">Pa a Pa Caribbean</a>
+<a class="btn small" href="../caribbean/">Free tools</a>
+</div>
+</header>
+<main class="wrap">
+<p class="crumbs"><a href="../caribbean/">Pa a Pa Caribbean</a> › Jamaica Self-Employed Starter Kit</p>
+<h1>Jamaica Self-Employed Starter Kit</h1>
+<p class="lead">One Excel workbook to run a one-person business in Jamaica: log what you earn and spend, see what to set aside for taxes, and know when GCT registration is coming.</p>
+<div class="box">
+<strong>What you get (one .xlsx file, works in Excel and Google Sheets)</strong>
+<ul>
+<li><strong>Income and Expenses logs:</strong> one line per invoice or cost, 200 rows each.</li>
+<li><strong>Tax estimate:</strong> income tax (25% / 30%), NIS (6%), NHT (2%) and Education Tax (2.25%), worked out from your own figures.</li>
+<li><strong>Quarterly sheet:</strong> the amount to set aside for 15 March, 15 June, 15 September and 15 December, with a tracker of what you have paid.</li>
+<li><strong>GCT watch:</strong> your rolling 12-month sales against the J$15,000,000 registration threshold, with a warning at 80%.</li>
+<li><strong>Invoice template:</strong> TRN, optional GCT, totals calculated for you. Print it or save it as PDF.</li>
+<li><strong>Start-up checklist:</strong> TRN, business name, NIS, NHT, quarterly payments, GCT, in order, with where to go and what to bring.</li>
+</ul>
+</div>
+<div class="cta">
+<p><strong>US$15, one payment, instant access</strong><br>Pay by card through Stripe. You get the download link right after payment.</p>
+<a class="btn" href="https://buy.stripe.com/7sY3cu8u2egV47oadz3oA01" rel="noopener">Buy the kit, US$15</a>
+</div>
+<h2>Built on the official figures</h2>
+<p>Rates and thresholds come from Tax Administration Jamaica and the Companies Office of Jamaica, and each sheet says where. The 2026 tax-free threshold is J$1,876,614 for the calendar year (J$1,902,360 from 1 April 2026). Every rate sits on one Rates sheet, so when TAJ changes a figure you change one cell and the whole workbook follows.</p>
+<h2>What it is not</h2>
+<p>It is a planning tool, not tax advice. The estimate is simplified: it leaves out pensions, credits and other deductions. Check the final amounts with TAJ or an accountant before you pay or file. There are no macros, no external links and nothing is sent anywhere: your figures stay in your file.</p>
+<h2>Try the free tools first</h2>
+<ul>
+<li><a href="../caribbean/guides/self-employed-tax-calculator-jamaica/">Self-employed tax calculator for Jamaica</a>: a one-off estimate, free</li>
+<li><a href="../caribbean/guides/gct-registration-jamaica/">When must a business register for GCT?</a></li>
+<li><a href="../caribbean/guides/trn-jamaica-how-to-get/">How to get a TRN in Jamaica</a></li>
+</ul>
+<p>The free calculators answer one question once. The kit is the file you keep and fill in all year.</p>
+<h2>Questions</h2>
+<details><summary>Does it work in Google Sheets?</summary>
+<p>Yes. Upload the .xlsx to Google Drive and open it with Google Sheets, or use Excel on any device.</p></details>
+<details><summary>Is it up to date for 2026?</summary>
+<p>Yes. The tax-free threshold of J$1,876,614 for 2026 and the J$15,000,000 GCT threshold were checked against TAJ and JIS in November 2026. The Rates sheet lets you update any figure.</p></details>
+<details><summary>I am not registered for GCT. Can I still use the invoice?</summary>
+<p>Yes. Leave the GCT column empty and write n/a on the GCT registration line.</p></details>
+<details><summary>Can I get a refund?</summary>
+<p>If the file does not open or does not work as described, write to the address on your Stripe receipt within 14 days and you will be refunded.</p></details>
+<p class="small">Figures last checked on 27 November 2026. Sources: <a href="https://jis.gov.jm/increase-in-income-tax-threshold-now-in-effect/" rel="noopener">JIS / TAJ income tax threshold</a>, <a href="https://www.jamaicatax.gov.jm" rel="noopener">Tax Administration Jamaica</a>, <a href="https://www.orcjamaica.com" rel="noopener">Companies Office of Jamaica</a>.</p>
+</main>
+<footer>
+<div class="wrap">
+<p>Pa a Pa Caribbean: free tools to test a business idea, no sign-up. This kit is a paid extra; the tools stay free. Figures are planning estimates, not accounting, tax or legal advice.</p>
+<p><a href="../caribbean/">Pa a Pa Caribbean</a> · <a href="../caribbean/privacy/">Privacy</a></p>
+</div>
+</footer>
+</body>
+</html>
