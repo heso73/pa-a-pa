@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Self-employed tax calculator for Jamaica – Pa a Pa</title>
+<meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1f3a;color:#eaf3fb;padding:16px}
+.box{max-width:480px;margin:0 auto}
+h1{font-size:1.1rem;margin:0 0 4px}
+p.s{font-size:.82rem;color:#9fb6cc;margin:0 0 12px}
+label{display:block;font-size:.88rem;margin:10px 0 4px}
+select,input{width:100%;padding:11px;border-radius:8px;border:1px solid #2b4a6b;background:#12315a;color:#fff;font-size:1rem}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.92rem}
+td{padding:7px 4px;border-bottom:1px solid #2b4a6b}
+td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+tr.sum td{font-weight:700;color:#22d3ee;border-bottom:0}
+.n{font-size:.78rem;color:#9fb6cc;margin-top:10px}
+a.cta{display:block;margin-top:14px;padding:12px;border:1px solid #22d3ee;border-radius:8px;color:#22d3ee;font-weight:700;text-align:center;text-decoration:none}
+footer{margin-top:14px;text-align:center;font-size:.78rem;color:#9fb6cc}
+footer a{color:#22d3ee;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Self-employed tax calculator – Jamaica</h1>
+<p class="s">What do you keep after NIS, NHT, Education Tax and income tax?</p>
+<label for="p">Yearly profit before tax (J$)</label>
+<input id="p" type="number" inputmode="numeric" min="0" step="10000" value="3000000">
+<label for="y">Tax year</label>
+<select id="y"><option value="1876614">2026 (tax-free amount J$1,876,614)</option><option value="1978212">2027 (tax-free amount J$1,978,212)</option></select>
+<table>
+<tr><td>NIS (6%, up to J$5,000,000)</td><td id="nis"></td></tr>
+<tr><td>NHT (3%)</td><td id="nht"></td></tr>
+<tr><td>Education Tax (2.25% after NIS)</td><td id="edu"></td></tr>
+<tr><td>Income tax</td><td id="inc"></td></tr>
+<tr class="sum"><td>Left for you, per year</td><td id="net"></td></tr>
+<tr class="sum"><td>Left for you, per month</td><td id="mon"></td></tr>
+</table>
+<p class="n">Estimate for a self-employed person with no other income. Not tax advice: confirm with Tax Administration Jamaica (TAJ).</p>
+<a class="cta" target="_blank" rel="noopener" href="https://heso73.github.io/pa-a-pa/caribbean/?c=JM&amp;ref=embed-jm-tax#/test">Test your business idea for free</a>
+<footer>Powered by <a href="https://heso73.github.io/pa-a-pa/caribbean/guides/self-employed-tax-calculator-jamaica/?ref=embed-jm-tax" target="_blank" rel="noopener">Pa a Pa</a> – free tools to start a business in the Caribbean</footer>
+</div>
+<script>
+(function(){
+function jm(n){return 'J$'+Math.round(n).toLocaleString('en-US')}
+function $(i){return document.getElementById(i)}
+function run(){
+ var p=parseFloat($('p').value);if(isNaN(p)||p<0)p=0;var t=parseFloat($('y').value);
+ var nis=Math.min(p,5000000)*0.06,nht=p*0.03,x=Math.max(p-nis,0),edu=x*0.0225;
+ var inc=0.25*Math.max(Math.min(x,6000000)-t,0)+0.30*Math.max(x-6000000,0);
+ var net=p-nis-nht-edu-inc;
+ $('nis').textContent=jm(nis);$('nht').textContent=jm(nht);$('edu').textContent=jm(edu);$('inc').textContent=jm(inc);$('net').textContent=jm(net);$('mon').textContent=jm(net/12);
+}
+$('p').addEventListener('input',run);$('y').addEventListener('input',run);run();
+})();
+</script>
+</body>
+</html>
