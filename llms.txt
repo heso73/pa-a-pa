@@ -10,6 +10,7 @@
 - [Seuil de rentabilité](https://heso73.github.io/pa-a-pa/seuil-de-rentabilite.html): formule, exemples et simulateur
 - [Calcul du BFR](https://heso73.github.io/pa-a-pa/calcul-bfr.html): besoin en fonds de roulement, formule et exemple
 - [Seuil de TVA 2026](https://heso73.github.io/pa-a-pa/seuil-tva-franchise-en-base.html): franchise en base de TVA, seuils 2026 (Guadeloupe, Martinique, Réunion comme en métropole) et calculateur
+- [Franchise en base de TVA 2026](https://heso73.github.io/pa-a-pa/guides/franchise-tva-2026/): seuils 2026 en France, dépassement, calculateur gratuit intégrable
 - [Facture électronique 2027](https://heso73.github.io/pa-a-pa/facture-electronique-2027-micro-entrepreneur.html): obligation d'émettre des factures électroniques au 1er septembre 2027 pour les micro-entreprises, d'après les sources officielles
 
 ## Application

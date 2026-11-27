@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales tax threshold calculator / Calculateur seuil TVA – Pa a Pa</title>
+<meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1f3a;color:#eaf3fb;padding:16px}
+.box{max-width:480px;margin:0 auto}
+h1{font-size:1.1rem;margin:0 0 4px}
+p.s{font-size:.82rem;color:#9fb6cc;margin:0 0 12px}
+label{display:block;font-size:.88rem;margin:10px 0 4px}
+select,input{width:100%;padding:11px;border-radius:8px;border:1px solid #2b4a6b;background:#12315a;color:#fff;font-size:1rem}
+button,a.cta{display:block;margin-top:14px;width:100%;padding:12px;border:0;border-radius:8px;background:#22d3ee;color:#062033;font-weight:700;font-size:1rem;cursor:pointer;text-align:center;text-decoration:none}
+a.cta{background:transparent;border:1px solid #22d3ee;color:#22d3ee;display:none}
+#r{margin-top:14px;padding:12px;border-radius:8px;background:#12315a;font-size:.92rem;line-height:1.45;display:none}
+#r b{color:#22d3ee}
+footer{margin-top:14px;text-align:center;font-size:.78rem;color:#9fb6cc}
+footer a{color:#22d3ee;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="box">
+<h1 id="h"></h1>
+<p class="s" id="sub"></p>
+<label for="p" id="lp"></label>
+<select id="p"><option value="fr">France</option><option value="jm">Jamaica</option></select>
+<div id="fract">
+<label for="t" id="lt"></label>
+<select id="t"></select>
+</div>
+<label for="ca" id="lc"></label>
+<input id="ca" type="number" min="0" inputmode="numeric">
+<button id="b"></button>
+<div id="r" aria-live="polite"></div>
+<a class="cta" id="cta" target="_blank" rel="noopener"></a>
+<footer id="f"></footer>
+</div>
+<script>
+(function(){
+var Q=new URLSearchParams(location.search);
+var $=function(i){return document.getElementById(i)};
+var BASE='https://heso73.github.io/pa-a-pa/';
+var T={
+fr:{h:'Franchise en base de TVA 2026',sub:'Suis-je concerné par la TVA ? Calcul indicatif.',lp:'Pays',lt:'Votre activité',lc:'Chiffre d’affaires annuel hors taxes (€)',ph:'ex. 32000',b:'Calculer',
+ opts:[['s','Prestation de services / profession libérale'],['v','Vente de marchandises / hébergement']],
+ cta:'Tester gratuitement mon projet d’entreprise',url:BASE+'app/?ref=embed-tva',
+ f:'Propulsé par <a href="'+BASE+'guides/franchise-tva-2026/?ref=embed-tva" target="_blank" rel="noopener">Pa a Pa</a> – outils gratuits pour créer son entreprise',err:'Entrez un chiffre d’affaires valide.'},
+jm:{h:'GCT registration threshold – Jamaica',sub:'Do I have to register for GCT? Indicative result.',lp:'Country',lc:'Taxable sales over the last 12 months (J$)',ph:'e.g. 12000000',b:'Calculate',
+ cta:'Test your business idea for free',url:BASE+'caribbean/?ref=embed-gct',
+ f:'Powered by <a href="'+BASE+'caribbean/guides/self-employed-tax-calculator-jamaica/?ref=embed-gct" target="_blank" rel="noopener">Pa a Pa</a> – free tools to start a business in the Caribbean',err:'Enter a valid amount.'}
+};
+var S={s:[37500,41250],v:[85000,93500]},GCT=15000000;
+function nf(n,l){return n.toLocaleString(l)}
+function render(){
+ var c=$('p').value,x=T[c];
+ document.documentElement.lang=c==='fr'?'fr':'en';
+ $('h').textContent=x.h;$('sub').textContent=x.sub;$('lp').textContent=x.lp;$('lc').textContent=x.lc;
+ $('ca').placeholder=x.ph;$('b').textContent=x.b;$('f').innerHTML=x.f;
+ $('fract').style.display=c==='fr'?'block':'none';
+ if(c==='fr'){$('lt').textContent=x.lt;$('t').innerHTML=x.opts.map(function(o){return '<option value="'+o[0]+'">'+o[1]+'</option>'}).join('')}
+ $('r').style.display='none';$('cta').style.display='none';
+}
+$('p').onchange=render;
+var q=Q.get('pays');if(q==='jm'||q==='fr')$('p').value=q;
+if(Q.get('lock')==='1')$('p').disabled=true;
+render();
+$('b').onclick=function(){
+ var c=$('p').value,x=T[c],ca=parseFloat($('ca').value),r=$('r'),h;
+ if(isNaN(ca)||ca<0){r.style.display='block';r.textContent=x.err;return}
+ if(c==='fr'){
+  var k=$('t').value,a=S[k][0],m=S[k][1],f=function(n){return nf(n,'fr-FR')+' €'};
+  if(ca<=a)h='<b>Franchise en base : vous ne facturez pas de TVA.</b> Il vous reste '+f(a-ca)+' avant le seuil de '+f(a)+'.';
+  else if(ca<=m)h='<b>Zone intermédiaire.</b> Vous dépassez '+f(a)+' sans atteindre '+f(m)+' : la franchise est maintenue cette année, mais perdue si le seuil est dépassé deux années de suite.';
+  else h='<b>Seuil majoré dépassé ('+f(m)+').</b> Vous devenez redevable de la TVA dès le jour du dépassement.';
+  h+='<br><small>Seuils 2026 : '+f(a)+' (majoré '+f(m)+'). Indicatif, vérifiez sur impots.gouv.fr.</small>';
+ }else{
+  var g=function(n){return 'J$'+nf(n,'en-US')};
+  if(ca<=GCT)h='<b>Registration not required.</b> You are '+g(GCT-ca)+' below the '+g(GCT)+' threshold (you may still register voluntarily).';
+  else h='<b>Registration required.</b> Your taxable sales exceed the '+g(GCT)+' threshold over 12 months.';
+  h+='<br><small>Threshold in force since 1 April 2025. Indicative, check with Tax Administration Jamaica (jamaicatax.gov.jm).</small>';
+ }
+ r.innerHTML=h;r.style.display='block';
+ var a2=$('cta');a2.textContent=x.cta;a2.href=x.url;a2.style.display='block';
+};
+})();
+</script>
+</body>
+</html>
